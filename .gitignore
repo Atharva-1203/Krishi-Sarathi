@@ -21,3 +21,6 @@ scratch/
 datasets/raw/
 datasets/processed/soil_health/soil_health_database.csv
 datasets/archive/
+
+# ML Metadata Caches
+catboost_info/

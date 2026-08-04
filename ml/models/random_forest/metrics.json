@@ -1,0 +1,21 @@
+{
+    "Experiment_ID": "E002_RandomForest",
+    "Model_Name": "RandomForest",
+    "Best_Params": {
+        "max_depth": null,
+        "n_estimators": 100
+    },
+    "Accuracy": 0.9978,
+    "Balanced_Accuracy": 0.9938,
+    "F1_Macro": 0.9959,
+    "Precision_Macro": 0.9984,
+    "Recall_Macro": 0.9938,
+    "Top1_Accuracy": 0.9978,
+    "Top2_Accuracy": 1.0,
+    "Top3_Accuracy": 1.0,
+    "LogLoss": 0.0226,
+    "Training_Time_Sec": 7.6868,
+    "Prediction_Latency_Ms": 15.2748,
+    "Model_Size_KB": 4589.0771,
+    "CV_Mean": 0.9981
+}

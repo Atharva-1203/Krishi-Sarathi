@@ -1,0 +1,22 @@
+{
+    "Experiment_ID": "E005_LightGBM",
+    "Model_Name": "LightGBM",
+    "Best_Params": {
+        "learning_rate": 0.1,
+        "max_depth": 5,
+        "n_estimators": 100
+    },
+    "Accuracy": 0.9978,
+    "Balanced_Accuracy": 0.9938,
+    "F1_Macro": 0.9959,
+    "Precision_Macro": 0.9984,
+    "Recall_Macro": 0.9938,
+    "Top1_Accuracy": 0.9978,
+    "Top2_Accuracy": 1.0,
+    "Top3_Accuracy": 1.0,
+    "LogLoss": 0.0134,
+    "Training_Time_Sec": 67.9249,
+    "Prediction_Latency_Ms": 4.5919,
+    "Model_Size_KB": 2895.543,
+    "CV_Mean": 0.9994
+}
