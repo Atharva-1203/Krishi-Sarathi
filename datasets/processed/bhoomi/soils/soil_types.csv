@@ -1,0 +1,12 @@
+code,taxonomy_class,order,description
+TYP_CH,Typic Chromusterts,Vertisols,"Deep, dark clayey soils that shrink and swell, forming cracks when dry."
+UDI_CH,Udic Chromusterts,Vertisols,Clayey cracking soils with slightly higher moisture availability in subsoil.
+ENT_CH,Entic Chromusterts,Vertisols,Cracking clayey soils showing transitional features to Entisols.
+LIT_US,Lithic Ustorthents,Entisols,"Very shallow, gravelly soils over hard rock, typical of steep slopes."
+TYP_US,Typic Ustorthents,Entisols,"Shallow, undeveloped soils with low water retention capacity."
+TYP_UC,Typic Ustochrepts,Inceptisols,Moderately deep loamy to clayey soils with weak subsoil development.
+LIT_UC,Lithic Ustochrepts,Inceptisols,Shallow soils over weathered rock fragments on undulating terrain.
+VER_UC,Vertic Ustochrepts,Inceptisols,"Inceptisols showing shrink-swell features, transitional to Vertisols."
+TYP_HA,Typic Haplustalfs,Alfisols,"Alfisols with subsurface clay accumulation, neutral to slightly acidic."
+RHO_PA,Rhodic Paleustalfs,Alfisols,"Old, deeply weathered reddish-brown clayey soils with high base saturation."
+LIT_RH,Lithic Rhodustalfs,Alfisols,Shallow reddish clayey soils over rock or lateritic crusts.

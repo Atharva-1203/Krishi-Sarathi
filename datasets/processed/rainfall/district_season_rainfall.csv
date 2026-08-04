@@ -1,0 +1,375 @@
+Division,District,Year,Season,Actual_Rainfall,Normal_Rainfall,Departure,Departure_Percentage,Classification,June_Normal,June_Actual,June_Percentage,July_Normal,July_Actual,July_Percentage,August_Normal,August_Actual,August_Percentage,September_Normal,September_Actual,September_Percentage,Source
+Amravati,Akola,2015,Monsoon,551.3,693.7,-142.4,-20.53,Deficit,136.9,129.3,94.4,223.2,58.1,26.0,215.5,264.3,122.6,118.1,99.6,84.3,Maharain Portal
+Amravati,Amravati,2015,Monsoon,701.9,862.0,-160.1,-18.57,Normal,145.7,193.2,132.6,277.4,114.4,41.2,285.4,286.4,100.4,153.5,107.9,70.3,Maharain Portal
+Amravati,Buldhana,2015,Monsoon,522.2,659.4,-137.2,-20.81,Deficit,139.3,111.2,79.8,192.2,30.5,15.9,207.4,216.4,104.3,120.5,164.1,136.2,Maharain Portal
+Amravati,Washim,2015,Monsoon,611.4,789.0,-177.6,-22.51,Deficit,166.4,193.6,116.3,243.6,53.4,21.9,236.1,240.9,102.0,142.9,123.5,86.4,Maharain Portal
+Amravati,Yavatmal,2015,Monsoon,479.1,805.0,-325.9,-40.48,Deficit,163.9,120.7,73.6,256.7,55.8,21.7,253.7,159.3,62.8,130.7,143.3,109.6,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2015,Monsoon,297.5,566.1,-268.6,-47.45,Deficit,128.4,72.8,56.7,127.7,12.4,9.7,138.0,88.2,63.9,172.0,124.1,72.2,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2015,Monsoon,488.4,581.7,-93.3,-16.04,Normal,125.2,170.2,135.9,152.2,24.5,16.1,153.8,90.6,58.9,150.5,203.1,135.0,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2015,Monsoon,323.7,603.1,-279.4,-46.33,Deficit,126.9,73.5,57.9,137.1,18.7,13.6,154.4,95.7,62.0,184.7,135.8,73.5,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2015,Monsoon,559.8,795.3,-235.5,-29.61,Deficit,169.2,157.2,92.9,230.2,44.0,19.1,241.2,165.9,68.8,154.7,192.7,124.6,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2015,Monsoon,447.7,603.1,-155.4,-25.77,Deficit,132.6,132.0,99.5,166.4,15.6,9.4,162.3,132.9,81.9,141.8,167.2,117.9,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2015,Monsoon,361.9,706.0,-344.1,-48.74,Deficit,135.4,83.7,61.8,186.9,28.5,15.2,202.7,100.3,49.5,181.0,149.4,82.5,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2015,Monsoon,455.6,814.4,-358.8,-44.06,Deficit,155.4,156.5,100.7,244.3,51.7,21.2,247.3,129.5,52.4,167.4,117.9,70.4,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2015,Monsoon,326.9,761.3,-434.4,-57.06,Deficit,145.3,79.9,55.0,219.2,23.5,10.7,227.8,85.3,37.4,169.0,138.2,81.8,Maharain Portal
+Konkan,Palghar,2015,Monsoon,1699.8,2305.4,-605.6,-26.27,Deficit,411.9,602.8,146.3,905.0,651.8,72.0,669.7,210.6,31.4,318.8,234.6,73.6,Maharain Portal
+Konkan,Raigad,2015,Monsoon,1731.8,3148.6,-1416.8,-45.0,Deficit,655.8,763.4,116.4,1206.2,460.8,38.2,874.5,304.8,34.9,412.1,202.8,49.2,Maharain Portal
+Konkan,Ratnagiri,2015,Monsoon,2150.6,3195.1,-1044.5,-32.69,Deficit,813.5,998.4,122.7,1151.6,418.4,36.3,835.9,448.7,53.7,394.1,285.1,72.3,Maharain Portal
+Konkan,Sindhudurg,2015,Monsoon,1966.1,2940.5,-974.4,-33.14,Deficit,880.1,777.0,88.3,1043.6,502.0,48.1,689.2,501.6,72.8,327.6,185.5,56.6,Maharain Portal
+Konkan,Thane,2015,Monsoon,1749.2,2433.4,-684.2,-28.12,Deficit,461.9,524.1,113.5,942.3,683.5,72.5,691.3,273.6,39.6,337.9,268.0,79.3,Maharain Portal
+Nagpur,Bhandara,2015,Monsoon,957.8,1157.0,-199.2,-17.22,Normal,189.3,254.2,134.3,382.6,221.9,58.0,387.6,322.0,83.1,197.5,159.7,80.9,Maharain Portal
+Nagpur,Chandrapur,2015,Monsoon,747.5,1084.0,-336.5,-31.04,Deficit,183.5,212.7,115.9,357.2,113.0,31.6,362.9,235.4,64.9,180.4,186.4,103.3,Maharain Portal
+Nagpur,Gadchiroli,2015,Monsoon,1000.0,1254.1,-254.1,-20.26,Deficit,210.9,381.7,181.0,427.9,156.5,36.6,426.5,295.4,69.3,188.8,166.4,88.1,Maharain Portal
+Nagpur,Gondia,2015,Monsoon,1068.7,1220.3,-151.6,-12.42,Normal,192.8,221.5,114.9,414.9,275.5,66.4,413.9,346.8,83.8,198.7,224.9,113.2,Maharain Portal
+Nagpur,Nagpur,2015,Monsoon,938.2,920.4,17.8,1.93,Normal,166.3,289.4,174.0,304.4,173.3,56.9,281.3,343.8,122.2,168.4,131.7,78.2,Maharain Portal
+Nagpur,Wardha,2015,Monsoon,779.0,874.5,-95.5,-10.92,Normal,174.1,197.4,113.4,273.6,157.3,57.5,271.6,292.8,107.8,155.2,131.5,84.7,Maharain Portal
+Nashik,Ahmednagar,2015,Monsoon,301.8,448.1,-146.3,-32.65,Deficit,108.2,93.3,86.2,97.5,31.5,32.3,95.4,26.4,27.7,147.0,150.6,102.4,Maharain Portal
+Nashik,Dhule,2015,Monsoon,448.2,535.1,-86.9,-16.24,Normal,121.5,131.9,108.6,170.9,92.6,54.2,133.2,61.5,46.2,109.5,162.2,148.1,Maharain Portal
+Nashik,Jalgaon,2015,Monsoon,419.0,632.6,-213.6,-33.77,Deficit,123.7,114.1,92.2,189.2,42.9,22.7,196.1,127.9,65.2,123.6,134.1,108.5,Maharain Portal
+Nashik,Nandurbar,2015,Monsoon,688.8,860.4,-171.6,-19.94,Deficit,155.9,151.5,97.2,305.6,266.6,87.2,252.2,37.4,14.8,146.7,233.3,159.0,Maharain Portal
+Nashik,Nashik,2015,Monsoon,484.8,933.8,-449.0,-48.08,Deficit,174.4,124.6,71.4,308.9,145.0,46.9,266.9,47.9,17.9,183.6,167.3,91.1,Maharain Portal
+Pune,Kolhapur,2015,Monsoon,634.9,1733.1,-1098.2,-63.37,Large Deficit,362.9,335.8,92.5,685.5,134.0,19.5,485.9,122.0,25.1,198.8,43.1,21.7,Maharain Portal
+Pune,Pune,2015,Monsoon,582.8,861.6,-278.8,-32.36,Deficit,176.2,203.0,115.2,309.3,147.9,47.8,219.6,59.1,26.9,156.5,172.8,110.4,Maharain Portal
+Pune,Sangli,2015,Monsoon,280.5,514.5,-234.0,-45.48,Deficit,129.0,129.1,100.1,135.5,21.9,16.2,111.4,25.4,22.8,138.6,104.1,75.1,Maharain Portal
+Pune,Satara,2015,Monsoon,539.5,886.2,-346.7,-39.12,Deficit,194.1,274.4,141.4,307.2,100.4,32.7,224.8,60.4,26.9,160.1,104.3,65.1,Maharain Portal
+Pune,Solapur,2015,Monsoon,193.9,481.1,-287.2,-59.7,Large Deficit,102.5,60.7,59.2,94.8,4.9,5.2,107.5,33.2,30.9,176.3,95.1,53.9,Maharain Portal
+Amravati,Akola,2016,Monsoon,740.6,693.7,46.9,6.76,Normal,136.9,143.1,104.5,223.2,379.9,170.2,215.5,106.3,49.3,118.1,111.3,94.2,Maharain Portal
+Amravati,Amravati,2016,Monsoon,796.3,862.0,-65.7,-7.62,Normal,145.7,125.2,85.9,277.4,412.3,148.6,285.4,109.6,38.4,153.5,149.2,97.2,Maharain Portal
+Amravati,Buldhana,2016,Monsoon,651.1,659.4,-8.3,-1.26,Normal,139.3,114.6,82.3,192.2,313.6,163.2,207.4,86.2,41.6,120.5,136.7,113.4,Maharain Portal
+Amravati,Washim,2016,Monsoon,816.4,789.0,27.4,3.47,Normal,166.4,149.7,90.0,243.6,379.8,155.9,236.1,123.1,52.1,142.9,163.8,114.6,Maharain Portal
+Amravati,Yavatmal,2016,Monsoon,732.1,805.0,-72.9,-9.06,Normal,163.9,143.4,87.5,256.7,345.2,134.5,253.7,84.7,33.4,130.7,158.8,121.5,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2016,Monsoon,707.3,566.1,141.2,24.94,Excess,128.4,114.3,89.0,127.7,156.4,122.5,138.0,69.6,50.4,172.0,367.0,213.4,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2016,Monsoon,543.4,581.7,-38.3,-6.58,Normal,125.2,81.8,65.3,152.2,222.3,146.1,153.8,82.2,53.4,150.5,157.1,104.4,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2016,Monsoon,745.3,603.1,142.2,23.58,Excess,126.9,127.0,100.1,137.1,202.3,147.6,154.4,63.1,40.9,184.7,352.9,191.1,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2016,Monsoon,829.5,795.3,34.2,4.3,Normal,169.2,190.0,112.3,230.2,332.0,144.2,241.2,90.6,37.6,154.7,216.9,140.2,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2016,Monsoon,723.3,603.1,120.2,19.93,Normal,132.6,121.2,91.4,166.4,277.1,166.5,162.3,85.9,52.9,141.8,239.1,168.6,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2016,Monsoon,949.6,706.0,243.6,34.5,Excess,135.4,156.4,115.5,186.9,292.2,156.3,202.7,76.2,37.6,181.0,424.8,234.7,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2016,Monsoon,970.1,814.4,155.7,19.12,Normal,155.4,214.5,138.0,244.3,351.7,144.0,247.3,102.4,41.4,167.4,301.5,180.1,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2016,Monsoon,743.9,761.3,-17.4,-2.29,Normal,145.3,119.5,82.2,219.2,244.3,111.5,227.8,82.8,36.3,169.0,297.3,175.9,Maharain Portal
+Konkan,Palghar,2016,Monsoon,2973.8,2305.4,668.4,28.99,Excess,411.9,435.9,105.8,905.0,1142.7,126.3,669.7,829.6,123.9,318.8,565.6,177.4,Maharain Portal
+Konkan,Raigad,2016,Monsoon,3363.1,3148.6,214.5,6.81,Normal,655.8,583.0,88.9,1206.2,1209.8,100.3,874.5,880.4,100.7,412.1,689.9,167.4,Maharain Portal
+Konkan,Ratnagiri,2016,Monsoon,4062.4,3195.1,867.3,27.14,Excess,813.5,858.7,105.6,1151.6,1638.3,142.3,835.9,902.2,107.9,394.1,663.2,168.3,Maharain Portal
+Konkan,Sindhudurg,2016,Monsoon,3303.8,2940.5,363.3,12.36,Normal,880.1,959.2,109.0,1043.6,1295.6,124.1,689.2,623.5,90.5,327.6,425.5,129.9,Maharain Portal
+Konkan,Thane,2016,Monsoon,2620.3,2433.4,186.9,7.68,Normal,461.9,298.2,64.6,942.3,1137.6,120.7,691.3,761.1,110.1,337.9,423.4,125.3,Maharain Portal
+Nagpur,Bhandara,2016,Monsoon,814.0,1157.0,-343.0,-29.65,Deficit,189.3,80.9,42.7,382.6,399.5,104.4,387.6,147.0,37.9,197.5,186.6,94.5,Maharain Portal
+Nagpur,Chandrapur,2016,Monsoon,1075.9,1084.0,-8.1,-0.75,Normal,183.5,155.8,84.9,357.2,513.4,143.7,362.9,124.8,34.4,180.4,281.9,156.3,Maharain Portal
+Nagpur,Gadchiroli,2016,Monsoon,1526.0,1254.1,271.9,21.68,Excess,210.9,188.9,89.6,427.9,654.4,152.9,426.5,307.7,72.1,188.8,375.0,198.6,Maharain Portal
+Nagpur,Gondia,2016,Monsoon,1037.9,1220.3,-182.4,-14.95,Normal,192.8,95.4,49.5,414.9,384.5,92.7,413.9,294.6,71.2,198.7,263.4,132.6,Maharain Portal
+Nagpur,Nagpur,2016,Monsoon,729.4,920.4,-191.0,-20.75,Deficit,166.3,97.1,58.4,304.4,397.2,130.5,281.3,119.7,42.6,168.4,115.4,68.5,Maharain Portal
+Nagpur,Wardha,2016,Monsoon,846.5,874.5,-28.0,-3.2,Normal,174.1,142.1,81.6,273.6,459.2,167.8,271.6,119.0,43.8,155.2,126.2,81.3,Maharain Portal
+Nashik,Ahmednagar,2016,Monsoon,524.8,448.1,76.7,17.12,Normal,108.2,85.9,79.4,97.5,146.6,150.4,95.4,82.1,86.1,147.0,210.2,143.0,Maharain Portal
+Nashik,Dhule,2016,Monsoon,411.7,535.1,-123.4,-23.06,Deficit,121.5,83.3,68.6,170.9,137.0,80.2,133.2,99.6,74.8,109.5,91.8,83.8,Maharain Portal
+Nashik,Jalgaon,2016,Monsoon,622.2,632.6,-10.4,-1.64,Normal,123.7,91.8,74.2,189.2,240.0,126.8,196.1,113.5,57.9,123.6,176.9,143.1,Maharain Portal
+Nashik,Nandurbar,2016,Monsoon,607.0,860.4,-253.4,-29.45,Deficit,155.9,50.4,32.3,305.6,191.5,62.7,252.2,206.8,82.0,146.7,158.3,107.9,Maharain Portal
+Nashik,Nashik,2016,Monsoon,808.1,933.8,-125.7,-13.46,Normal,174.4,37.1,21.3,308.9,339.3,109.8,266.9,300.0,112.4,183.6,131.7,71.7,Maharain Portal
+Pune,Kolhapur,2016,Monsoon,1259.0,1733.1,-474.1,-27.36,Deficit,362.9,158.0,43.5,685.5,619.0,90.3,485.9,400.0,82.3,198.8,82.0,41.2,Maharain Portal
+Pune,Pune,2016,Monsoon,887.1,861.6,25.5,2.96,Normal,176.2,78.9,44.8,309.3,345.2,111.6,219.6,316.4,144.1,156.5,146.6,93.7,Maharain Portal
+Pune,Sangli,2016,Monsoon,612.6,514.5,98.1,19.07,Normal,129.0,111.4,86.4,135.5,260.1,192.0,111.4,131.6,118.1,138.6,109.5,79.0,Maharain Portal
+Pune,Satara,2016,Monsoon,978.2,886.2,92.0,10.38,Normal,194.1,124.5,64.1,307.2,372.8,121.4,224.8,345.8,153.8,160.1,135.1,84.4,Maharain Portal
+Pune,Solapur,2016,Monsoon,395.3,481.1,-85.8,-17.83,Normal,102.5,90.3,88.1,94.8,107.5,113.4,107.5,27.4,25.5,176.3,170.1,96.5,Maharain Portal
+Amravati,Akola,2017,Monsoon,490.1,693.7,-203.6,-29.35,Deficit,136.9,120.4,87.9,223.2,160.8,72.0,215.5,131.7,61.1,118.1,77.2,65.4,Maharain Portal
+Amravati,Amravati,2017,Monsoon,529.3,862.0,-332.7,-38.6,Deficit,145.7,98.6,67.7,277.4,178.1,64.2,285.4,147.2,51.6,153.5,105.4,68.7,Maharain Portal
+Amravati,Buldhana,2017,Monsoon,567.0,659.4,-92.4,-14.01,Normal,139.3,170.6,122.5,192.2,124.6,64.8,207.4,126.7,61.1,120.5,145.1,120.4,Maharain Portal
+Amravati,Washim,2017,Monsoon,546.2,789.0,-242.8,-30.77,Deficit,166.4,186.8,112.3,243.6,160.1,65.7,236.1,104.1,44.1,142.9,95.2,66.6,Maharain Portal
+Amravati,Yavatmal,2017,Monsoon,442.8,805.0,-362.2,-44.99,Deficit,163.9,130.8,79.8,256.7,126.4,49.2,253.7,108.5,42.8,130.7,77.1,59.0,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2017,Monsoon,600.5,566.1,34.4,6.08,Normal,128.4,167.1,130.1,127.7,60.8,47.6,138.0,228.8,165.8,172.0,143.8,83.6,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2017,Monsoon,505.1,581.7,-76.6,-13.17,Normal,125.2,139.6,111.5,152.2,68.9,45.3,153.8,143.0,93.0,150.5,153.6,102.1,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2017,Monsoon,726.0,603.1,122.9,20.38,Excess,126.9,244.0,192.3,137.1,49.4,36.0,154.4,223.2,144.6,184.7,209.4,113.4,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2017,Monsoon,572.4,795.3,-222.9,-28.03,Deficit,169.2,180.2,106.5,230.2,93.0,40.4,241.2,202.2,83.8,154.7,97.0,62.7,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2017,Monsoon,603.3,603.1,0.2,0.03,Normal,132.6,154.5,116.5,166.4,62.9,37.8,162.3,205.3,126.5,141.8,180.6,127.4,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2017,Monsoon,671.8,706.0,-34.2,-4.84,Normal,135.4,206.8,152.7,186.9,71.2,38.1,202.7,262.2,129.4,181.0,131.6,72.7,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2017,Monsoon,574.6,814.4,-239.8,-29.44,Deficit,155.4,167.7,107.9,244.3,108.4,44.4,247.3,233.2,94.3,167.4,65.3,39.0,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2017,Monsoon,480.6,761.3,-280.7,-36.87,Deficit,145.3,131.1,90.2,219.2,62.6,28.6,227.8,193.9,85.1,169.0,93.0,55.0,Maharain Portal
+Konkan,Palghar,2017,Monsoon,2861.6,2305.4,556.2,24.13,Excess,411.9,668.1,162.2,905.0,1119.3,123.7,669.7,686.3,102.5,318.8,387.9,121.7,Maharain Portal
+Konkan,Raigad,2017,Monsoon,3273.6,3148.6,125.0,3.97,Normal,655.8,751.1,114.5,1206.2,1116.8,92.6,874.5,891.6,102.0,412.1,514.1,124.8,Maharain Portal
+Konkan,Ratnagiri,2017,Monsoon,3335.3,3195.1,140.2,4.39,Normal,813.5,912.4,112.2,1151.6,1108.0,96.2,835.9,742.2,88.8,394.1,572.7,145.3,Maharain Portal
+Konkan,Sindhudurg,2017,Monsoon,2907.9,2940.5,-32.6,-1.11,Normal,880.1,810.6,92.1,1043.6,935.7,89.7,689.2,602.9,87.5,327.6,558.7,170.5,Maharain Portal
+Konkan,Thane,2017,Monsoon,3206.4,2433.4,773.0,31.77,Excess,461.9,685.9,148.5,942.3,1206.6,128.0,691.3,875.0,126.6,337.9,438.9,129.9,Maharain Portal
+Nagpur,Bhandara,2017,Monsoon,785.3,1157.0,-371.7,-32.13,Deficit,189.3,108.9,57.5,382.6,269.3,70.4,387.6,306.3,79.0,197.5,100.8,51.0,Maharain Portal
+Nagpur,Chandrapur,2017,Monsoon,590.8,1084.0,-493.2,-45.5,Deficit,183.5,97.4,53.1,357.2,246.4,69.0,362.9,146.3,40.3,180.4,100.7,55.8,Maharain Portal
+Nagpur,Gadchiroli,2017,Monsoon,1002.4,1254.1,-251.7,-20.07,Deficit,210.9,137.5,65.2,427.9,462.9,108.2,426.5,246.7,57.8,188.8,155.3,82.3,Maharain Portal
+Nagpur,Gondia,2017,Monsoon,713.8,1220.3,-506.5,-41.51,Deficit,192.8,82.5,42.8,414.9,316.3,76.2,413.9,219.5,53.0,198.7,95.5,48.1,Maharain Portal
+Nagpur,Nagpur,2017,Monsoon,772.9,920.4,-147.5,-16.03,Normal,166.3,110.0,66.1,304.4,205.9,67.6,281.3,302.1,107.4,168.4,154.9,92.0,Maharain Portal
+Nagpur,Wardha,2017,Monsoon,647.5,874.5,-227.0,-25.96,Deficit,174.1,171.1,98.3,273.6,219.7,80.3,271.6,133.1,49.0,155.2,123.6,79.6,Maharain Portal
+Nashik,Ahmednagar,2017,Monsoon,630.5,448.1,182.4,40.71,Excess,108.2,154.5,142.8,97.5,89.0,91.3,95.4,208.3,218.3,147.0,178.7,121.6,Maharain Portal
+Nashik,Dhule,2017,Monsoon,488.5,535.1,-46.6,-8.71,Normal,121.5,120.3,99.0,170.9,143.4,83.9,133.2,133.2,100.0,109.5,91.6,83.7,Maharain Portal
+Nashik,Jalgaon,2017,Monsoon,480.4,632.6,-152.2,-24.06,Deficit,123.7,107.0,86.5,189.2,143.7,76.0,196.1,133.9,68.3,123.6,95.8,77.5,Maharain Portal
+Nashik,Nandurbar,2017,Monsoon,739.3,860.4,-121.1,-14.07,Normal,155.9,123.9,79.5,305.6,354.7,116.1,252.2,140.7,55.8,146.7,120.0,81.8,Maharain Portal
+Nashik,Nashik,2017,Monsoon,845.2,933.8,-88.6,-9.49,Normal,174.4,163.9,94.0,308.9,407.6,132.0,266.9,168.1,63.0,183.6,105.6,57.5,Maharain Portal
+Pune,Kolhapur,2017,Monsoon,1076.5,1733.1,-656.6,-37.89,Deficit,362.9,196.4,54.1,685.5,459.6,67.0,485.9,141.6,29.1,198.8,278.9,140.3,Maharain Portal
+Pune,Pune,2017,Monsoon,988.7,861.6,127.1,14.75,Normal,176.2,206.2,117.0,309.3,383.0,123.8,219.6,221.2,100.7,156.5,178.3,113.9,Maharain Portal
+Pune,Sangli,2017,Monsoon,449.7,514.5,-64.8,-12.59,Normal,129.0,82.1,63.6,135.5,113.2,83.5,111.4,53.6,48.1,138.6,200.8,144.9,Maharain Portal
+Pune,Satara,2017,Monsoon,869.0,886.2,-17.2,-1.94,Normal,194.1,167.8,86.5,307.2,332.8,108.3,224.8,127.1,56.5,160.1,241.3,150.7,Maharain Portal
+Pune,Solapur,2017,Monsoon,415.3,481.1,-65.8,-13.68,Normal,102.5,157.6,153.8,94.8,14.3,15.1,107.5,103.4,96.2,176.3,140.0,79.4,Maharain Portal
+Amravati,Akola,2018,Monsoon,663.6,693.7,-30.1,-4.34,Normal,136.9,177.1,129.4,223.2,247.3,110.8,215.5,186.0,86.3,118.1,53.2,45.0,Maharain Portal
+Amravati,Amravati,2018,Monsoon,636.6,862.0,-225.4,-26.15,Deficit,145.7,170.3,116.9,277.4,215.6,77.7,285.4,167.4,58.7,153.5,83.3,54.3,Maharain Portal
+Amravati,Buldhana,2018,Monsoon,462.7,659.4,-196.7,-29.83,Deficit,139.3,91.5,65.7,192.2,161.3,83.9,207.4,172.9,83.4,120.5,37.0,30.7,Maharain Portal
+Amravati,Washim,2018,Monsoon,768.5,789.0,-20.5,-2.6,Normal,166.4,268.4,161.3,243.6,249.9,102.6,236.1,223.6,94.7,142.9,26.6,18.6,Maharain Portal
+Amravati,Yavatmal,2018,Monsoon,702.2,805.0,-102.8,-12.77,Normal,163.9,185.3,113.1,256.7,277.8,108.2,253.7,197.0,77.7,130.7,42.1,32.2,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2018,Monsoon,320.5,566.1,-245.6,-43.38,Deficit,128.4,119.4,93.0,127.7,67.6,52.9,138.0,117.7,85.3,172.0,15.8,9.2,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2018,Monsoon,352.0,581.7,-229.7,-39.49,Deficit,125.2,101.5,81.1,152.2,73.0,48.0,153.8,160.2,104.2,150.5,17.3,11.5,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2018,Monsoon,422.0,603.1,-181.1,-30.03,Deficit,126.9,177.5,139.9,137.1,89.6,65.4,154.4,124.0,80.3,184.7,30.9,16.7,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2018,Monsoon,684.3,795.3,-111.0,-13.96,Normal,169.2,254.1,150.2,230.2,199.5,86.7,241.2,219.3,90.9,154.7,11.4,7.4,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2018,Monsoon,418.0,603.1,-185.1,-30.69,Deficit,132.6,103.1,77.8,166.4,115.8,69.6,162.3,182.0,112.1,141.8,17.1,12.1,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2018,Monsoon,464.1,706.0,-241.9,-34.26,Deficit,135.4,217.4,160.6,186.9,80.0,42.8,202.7,145.8,71.9,181.0,20.9,11.5,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2018,Monsoon,749.4,814.4,-65.0,-7.98,Normal,155.4,242.4,156.0,244.3,162.9,66.7,247.3,301.5,121.9,167.4,42.6,25.4,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2018,Monsoon,494.2,761.3,-267.1,-35.08,Deficit,145.3,172.0,118.4,219.2,108.8,49.6,227.8,191.6,84.1,169.0,21.8,12.9,Maharain Portal
+Konkan,Palghar,2018,Monsoon,2314.6,2305.4,9.2,0.4,Normal,411.9,553.1,134.3,905.0,1433.1,158.4,669.7,294.0,43.9,318.8,34.4,10.8,Maharain Portal
+Konkan,Raigad,2018,Monsoon,2740.9,3148.6,-407.7,-12.95,Normal,655.8,789.3,120.4,1206.2,1256.6,104.2,874.5,568.8,65.0,412.1,126.2,30.6,Maharain Portal
+Konkan,Ratnagiri,2018,Monsoon,3357.3,3195.1,162.2,5.08,Normal,813.5,1137.0,139.8,1151.6,1316.0,114.3,835.9,748.1,89.5,394.1,156.2,39.6,Maharain Portal
+Konkan,Sindhudurg,2018,Monsoon,2924.5,2940.5,-16.0,-0.54,Normal,880.1,1173.0,133.3,1043.6,1032.1,98.9,689.2,589.1,85.5,327.6,130.3,39.8,Maharain Portal
+Konkan,Thane,2018,Monsoon,2410.8,2433.4,-22.6,-0.93,Normal,461.9,605.2,131.0,942.3,1304.2,138.4,691.3,417.3,60.4,337.9,84.1,24.9,Maharain Portal
+Nagpur,Bhandara,2018,Monsoon,973.8,1157.0,-183.2,-15.83,Normal,189.3,175.8,92.9,382.6,390.5,102.1,387.6,338.9,87.4,197.5,68.6,34.7,Maharain Portal
+Nagpur,Chandrapur,2018,Monsoon,838.1,1084.0,-245.9,-22.68,Deficit,183.5,150.9,82.2,357.2,367.2,102.8,362.9,234.8,64.7,180.4,85.2,47.2,Maharain Portal
+Nagpur,Gadchiroli,2018,Monsoon,1315.7,1254.1,61.6,4.91,Normal,210.9,249.9,118.5,427.9,473.3,110.6,426.5,481.9,113.0,188.8,110.6,58.6,Maharain Portal
+Nagpur,Gondia,2018,Monsoon,1118.7,1220.3,-101.6,-8.33,Normal,192.8,154.5,80.1,414.9,531.0,128.0,413.9,326.2,78.8,198.7,107.0,53.9,Maharain Portal
+Nagpur,Nagpur,2018,Monsoon,858.9,920.4,-61.5,-6.68,Normal,166.3,204.7,123.1,304.4,356.2,117.0,281.3,205.8,73.2,168.4,92.2,54.8,Maharain Portal
+Nagpur,Wardha,2018,Monsoon,744.7,874.5,-129.8,-14.84,Normal,174.1,195.0,112.0,273.6,280.1,102.4,271.6,120.0,44.2,155.2,149.6,96.4,Maharain Portal
+Nashik,Ahmednagar,2018,Monsoon,313.7,448.1,-134.4,-29.99,Deficit,108.2,118.5,109.5,97.5,74.2,76.1,95.4,87.2,91.4,147.0,33.8,23.0,Maharain Portal
+Nashik,Dhule,2018,Monsoon,404.3,535.1,-130.8,-24.44,Deficit,121.5,140.1,115.3,170.9,110.4,64.6,133.2,139.4,104.7,109.5,14.4,13.2,Maharain Portal
+Nashik,Jalgaon,2018,Monsoon,432.3,632.6,-200.3,-31.66,Deficit,123.7,115.2,93.1,189.2,129.2,68.3,196.1,153.7,78.4,123.6,34.2,27.7,Maharain Portal
+Nashik,Nandurbar,2018,Monsoon,505.0,860.4,-355.4,-41.31,Deficit,155.9,95.7,61.4,305.6,188.1,61.6,252.2,190.1,75.4,146.7,31.1,21.2,Maharain Portal
+Nashik,Nashik,2018,Monsoon,624.8,933.8,-309.0,-33.09,Deficit,174.4,125.2,71.8,308.9,277.1,89.7,266.9,185.1,69.4,183.6,37.4,20.4,Maharain Portal
+Pune,Kolhapur,2018,Monsoon,1317.3,1733.1,-415.8,-23.99,Deficit,362.9,238.0,65.6,685.5,624.8,91.1,485.9,376.1,77.4,198.8,78.4,39.4,Maharain Portal
+Pune,Pune,2018,Monsoon,741.9,861.6,-119.7,-13.89,Normal,176.2,139.9,79.4,309.3,352.0,113.8,219.6,205.9,93.8,156.5,44.1,28.2,Maharain Portal
+Pune,Sangli,2018,Monsoon,390.9,514.5,-123.6,-24.02,Deficit,129.0,105.5,81.8,135.5,135.7,100.1,111.4,84.6,75.9,138.6,65.1,47.0,Maharain Portal
+Pune,Satara,2018,Monsoon,853.8,886.2,-32.4,-3.66,Normal,194.1,170.4,87.8,307.2,401.5,130.7,224.8,213.4,94.9,160.1,68.5,42.8,Maharain Portal
+Pune,Solapur,2018,Monsoon,187.8,481.1,-293.3,-60.96,Large Deficit,102.5,77.3,75.4,94.8,33.9,35.8,107.5,50.0,46.5,176.3,26.6,15.1,Maharain Portal
+Amravati,Akola,2019,Monsoon,614.7,693.7,-79.0,-11.39,Normal,136.9,79.4,58.0,223.2,198.4,88.9,215.5,146.6,68.0,118.1,190.3,161.1,Maharain Portal
+Amravati,Amravati,2019,Monsoon,780.6,862.0,-81.4,-9.44,Normal,145.7,93.2,64.0,277.4,287.4,103.6,285.4,206.2,72.2,153.5,193.8,126.3,Maharain Portal
+Amravati,Buldhana,2019,Monsoon,693.5,659.4,34.1,5.17,Normal,139.3,134.6,96.6,192.2,199.4,103.7,207.4,145.3,70.1,120.5,214.2,177.8,Maharain Portal
+Amravati,Washim,2019,Monsoon,688.6,789.0,-100.4,-12.72,Normal,166.4,117.5,70.6,243.6,234.6,96.3,236.1,134.4,56.9,142.9,202.1,141.4,Maharain Portal
+Amravati,Yavatmal,2019,Monsoon,793.8,805.0,-11.2,-1.39,Normal,163.9,110.7,67.5,256.7,296.9,115.7,253.7,185.6,73.2,130.7,200.6,153.5,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2019,Monsoon,459.2,566.1,-106.9,-18.88,Normal,128.4,87.5,68.1,127.7,77.3,60.5,138.0,90.1,65.3,172.0,204.3,118.8,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2019,Monsoon,628.7,581.7,47.0,8.08,Normal,125.2,106.7,85.2,152.2,173.6,114.1,153.8,123.1,80.0,150.5,225.3,149.7,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2019,Monsoon,448.0,603.1,-155.1,-25.72,Deficit,126.9,93.3,73.5,137.1,97.2,70.9,154.4,95.5,61.9,184.7,162.0,87.7,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2019,Monsoon,748.1,795.3,-47.2,-5.93,Normal,169.2,87.9,52.0,230.2,232.1,100.8,241.2,193.2,80.1,154.7,234.9,151.8,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2019,Monsoon,586.7,603.1,-16.4,-2.72,Normal,132.6,109.9,82.9,166.4,172.4,103.6,162.3,104.3,64.3,141.8,200.1,141.1,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2019,Monsoon,516.0,706.0,-190.0,-26.91,Deficit,135.4,90.2,66.6,186.9,104.0,55.6,202.7,147.4,72.7,181.0,174.4,96.4,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2019,Monsoon,821.9,814.4,7.5,0.92,Normal,155.4,91.8,59.1,244.3,224.8,92.0,247.3,225.8,91.3,167.4,279.5,167.0,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2019,Monsoon,595.9,761.3,-165.4,-21.73,Deficit,145.3,86.0,59.2,219.2,124.2,56.7,227.8,130.4,57.2,169.0,255.3,151.1,Maharain Portal
+Konkan,Palghar,2019,Monsoon,3483.8,2305.4,1178.4,51.11,Excess,411.9,412.6,100.2,905.0,1378.3,152.3,669.7,777.3,116.1,318.8,915.6,287.2,Maharain Portal
+Konkan,Raigad,2019,Monsoon,4011.1,3148.6,862.5,27.39,Excess,655.8,534.8,81.5,1206.2,1582.1,131.2,874.5,928.6,106.2,412.1,965.6,234.3,Maharain Portal
+Konkan,Ratnagiri,2019,Monsoon,4256.4,3195.1,1061.3,33.22,Excess,813.5,689.0,84.7,1151.6,1589.7,138.0,835.9,1023.1,122.4,394.1,954.6,242.2,Maharain Portal
+Konkan,Sindhudurg,2019,Monsoon,3698.1,2940.5,757.6,25.76,Excess,880.1,733.7,83.4,1043.6,1219.1,116.8,689.2,972.0,141.0,327.6,773.3,236.1,Maharain Portal
+Konkan,Thane,2019,Monsoon,3590.6,2433.4,1157.2,47.55,Excess,461.9,505.9,109.5,942.3,1487.1,157.8,691.3,805.5,116.5,337.9,792.1,234.4,Maharain Portal
+Nagpur,Bhandara,2019,Monsoon,1237.4,1157.0,80.4,6.95,Normal,189.3,82.0,43.3,382.6,387.9,101.4,387.6,377.9,97.5,197.5,389.6,197.3,Maharain Portal
+Nagpur,Chandrapur,2019,Monsoon,1310.1,1084.0,226.1,20.86,Excess,183.5,131.6,71.7,357.2,418.6,117.2,362.9,446.0,122.9,180.4,313.9,174.0,Maharain Portal
+Nagpur,Gadchiroli,2019,Monsoon,1672.7,1254.1,418.6,33.38,Excess,210.9,97.0,46.0,427.9,463.1,108.2,426.5,599.4,140.5,188.8,513.2,271.8,Maharain Portal
+Nagpur,Gondia,2019,Monsoon,1242.7,1220.3,22.4,1.84,Normal,192.8,99.8,51.8,414.9,378.1,91.1,413.9,401.1,96.9,198.7,363.7,183.0,Maharain Portal
+Nagpur,Nagpur,2019,Monsoon,1057.4,920.4,137.0,14.88,Normal,166.3,80.9,48.6,304.4,373.8,122.8,281.3,284.1,101.0,168.4,318.6,189.2,Maharain Portal
+Nagpur,Wardha,2019,Monsoon,853.0,874.5,-21.5,-2.46,Normal,174.1,73.2,42.0,273.6,338.0,123.5,271.6,240.1,88.4,155.2,201.7,130.0,Maharain Portal
+Nashik,Ahmednagar,2019,Monsoon,489.4,448.1,41.3,9.22,Normal,108.2,102.5,94.7,97.5,134.7,138.2,95.4,95.6,100.2,147.0,156.6,106.5,Maharain Portal
+Nashik,Dhule,2019,Monsoon,740.4,535.1,205.3,38.37,Excess,121.5,61.1,50.3,170.9,186.3,109.0,133.2,252.6,189.6,109.5,240.4,219.5,Maharain Portal
+Nashik,Jalgaon,2019,Monsoon,812.0,632.6,179.4,28.36,Excess,123.7,87.1,70.4,189.2,225.8,119.3,196.1,261.8,133.5,123.6,237.3,192.0,Maharain Portal
+Nashik,Nandurbar,2019,Monsoon,1000.2,860.4,139.8,16.25,Normal,155.9,49.2,31.6,305.6,287.5,94.1,252.2,512.2,203.1,146.7,151.3,103.1,Maharain Portal
+Nashik,Nashik,2019,Monsoon,1054.3,933.8,120.5,12.9,Normal,174.4,81.0,46.4,308.9,392.1,126.9,266.9,339.6,127.2,183.6,241.6,131.6,Maharain Portal
+Pune,Kolhapur,2019,Monsoon,2044.8,1733.1,311.7,17.99,Normal,362.9,243.6,67.1,685.5,645.0,94.1,485.9,833.6,171.6,198.8,322.6,162.3,Maharain Portal
+Pune,Pune,2019,Monsoon,1120.0,861.6,258.4,29.99,Excess,176.2,156.6,88.9,309.3,438.8,141.9,219.6,277.8,126.5,156.5,246.8,157.7,Maharain Portal
+Pune,Sangli,2019,Monsoon,715.1,514.5,200.6,38.99,Excess,129.0,111.1,86.1,135.5,220.7,162.9,111.4,230.0,206.5,138.6,153.3,110.6,Maharain Portal
+Pune,Satara,2019,Monsoon,1332.5,886.2,446.3,50.36,Excess,194.1,163.8,84.4,307.2,463.4,150.8,224.8,454.2,202.0,160.1,251.1,156.8,Maharain Portal
+Pune,Solapur,2019,Monsoon,331.2,481.1,-149.9,-31.16,Deficit,102.5,69.8,68.1,94.8,82.0,86.5,107.5,50.3,46.8,176.3,129.1,73.2,Maharain Portal
+Amravati,Akola,2020,Monsoon,587.2,693.7,-106.5,-15.35,Normal,136.9,126.5,92.4,223.2,208.2,93.3,215.5,169.8,78.8,118.1,82.7,70.0,Maharain Portal
+Amravati,Amravati,2020,Monsoon,819.3,862.0,-42.7,-4.95,Normal,145.7,192.2,131.9,277.4,254.5,91.7,285.4,220.9,77.4,153.5,151.7,98.8,Maharain Portal
+Amravati,Buldhana,2020,Monsoon,768.3,659.4,108.9,16.52,Normal,139.3,189.2,135.8,192.2,213.4,111.0,207.4,208.4,100.5,120.5,157.3,130.5,Maharain Portal
+Amravati,Washim,2020,Monsoon,981.9,789.0,192.9,24.45,Excess,166.4,248.6,149.4,243.6,277.2,113.8,236.1,218.3,92.5,142.9,237.8,166.4,Maharain Portal
+Amravati,Yavatmal,2020,Monsoon,741.5,805.0,-63.5,-7.89,Normal,163.9,161.2,98.4,256.7,269.2,104.9,253.7,176.7,69.6,130.7,134.4,102.8,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2020,Monsoon,698.8,566.1,132.7,23.44,Excess,128.4,198.5,154.6,127.7,201.7,157.9,138.0,86.2,62.5,172.0,212.4,123.5,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2020,Monsoon,970.6,581.7,388.9,66.86,Large Excess,125.2,287.2,229.4,152.2,227.7,149.6,153.8,171.3,111.4,150.5,284.4,189.0,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2020,Monsoon,611.7,603.1,8.6,1.43,Normal,126.9,125.4,98.8,137.1,118.6,86.5,154.4,86.8,56.2,184.7,280.9,152.1,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2020,Monsoon,960.7,795.3,165.4,20.8,Excess,169.2,235.4,139.1,230.2,276.6,120.2,241.2,192.4,79.8,154.7,256.3,165.7,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2020,Monsoon,949.5,603.1,346.4,57.44,Excess,132.6,278.2,209.8,166.4,259.7,156.1,162.3,190.8,117.6,141.8,220.8,155.7,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2020,Monsoon,736.9,706.0,30.9,4.38,Normal,135.4,178.8,132.1,186.9,154.4,82.6,202.7,109.0,53.8,181.0,294.7,162.8,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2020,Monsoon,820.2,814.4,5.8,0.71,Normal,155.4,146.0,94.0,244.3,204.7,83.8,247.3,204.6,82.7,167.4,264.9,158.2,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2020,Monsoon,824.0,761.3,62.7,8.24,Normal,145.3,199.3,137.2,219.2,229.8,104.8,227.8,136.8,60.1,169.0,258.1,152.7,Maharain Portal
+Konkan,Palghar,2020,Monsoon,2512.9,2305.4,207.5,9.0,Normal,411.9,223.2,54.2,905.0,697.3,77.0,669.7,1318.0,196.8,318.8,274.4,86.1,Maharain Portal
+Konkan,Raigad,2020,Monsoon,2542.5,3148.6,-606.1,-19.25,Deficit,655.8,359.1,54.8,1206.2,713.5,59.2,874.5,1099.9,125.8,412.1,370.0,89.8,Maharain Portal
+Konkan,Ratnagiri,2020,Monsoon,3440.7,3195.1,245.6,7.69,Normal,813.5,688.5,84.6,1151.6,1017.6,88.4,835.9,1313.8,157.2,394.1,420.8,106.8,Maharain Portal
+Konkan,Sindhudurg,2020,Monsoon,4039.8,2940.5,1099.3,37.38,Excess,880.1,958.1,108.9,1043.6,1288.3,123.4,689.2,1080.3,156.7,327.6,713.1,217.7,Maharain Portal
+Konkan,Thane,2020,Monsoon,2412.3,2433.4,-21.1,-0.87,Normal,461.9,298.7,64.7,942.3,613.1,65.1,691.3,1176.3,170.2,337.9,324.2,95.9,Maharain Portal
+Nagpur,Bhandara,2020,Monsoon,1172.4,1157.0,15.4,1.33,Normal,189.3,227.3,120.1,382.6,225.2,58.9,387.6,633.8,163.5,197.5,86.1,43.6,Maharain Portal
+Nagpur,Chandrapur,2020,Monsoon,859.5,1084.0,-224.5,-20.71,Deficit,183.5,186.8,101.8,357.2,323.5,90.6,362.9,234.4,64.6,180.4,114.8,63.6,Maharain Portal
+Nagpur,Gadchiroli,2020,Monsoon,1011.4,1254.1,-242.7,-19.35,Deficit,210.9,138.3,65.6,427.9,274.1,64.1,426.5,401.6,94.2,188.8,197.4,104.6,Maharain Portal
+Nagpur,Gondia,2020,Monsoon,1288.5,1220.3,68.2,5.59,Normal,192.8,193.5,100.4,414.9,239.3,57.7,413.9,750.2,181.3,198.7,105.5,53.1,Maharain Portal
+Nagpur,Nagpur,2020,Monsoon,972.5,920.4,52.1,5.66,Normal,166.3,188.5,113.3,304.4,249.5,82.0,281.3,372.2,132.3,168.4,162.3,96.4,Maharain Portal
+Nagpur,Wardha,2020,Monsoon,737.1,874.5,-137.4,-15.71,Normal,174.1,156.2,89.7,273.6,259.2,94.7,271.6,187.2,68.9,155.2,134.5,86.7,Maharain Portal
+Nashik,Ahmednagar,2020,Monsoon,762.9,448.1,314.8,70.25,Large Excess,108.2,222.8,205.9,97.5,197.9,203.0,95.4,109.2,114.5,147.0,233.0,158.5,Maharain Portal
+Nashik,Dhule,2020,Monsoon,709.2,535.1,174.1,32.54,Excess,121.5,218.1,179.5,170.9,204.8,119.8,133.2,154.9,116.3,109.5,131.4,120.0,Maharain Portal
+Nashik,Jalgaon,2020,Monsoon,857.8,632.6,225.2,35.6,Excess,123.7,205.4,166.0,189.2,244.0,129.0,196.1,240.9,122.8,123.6,167.5,135.5,Maharain Portal
+Nashik,Nandurbar,2020,Monsoon,632.5,860.4,-227.9,-26.49,Deficit,155.9,115.6,74.2,305.6,139.6,45.7,252.2,249.7,99.0,146.7,127.6,87.0,Maharain Portal
+Nashik,Nashik,2020,Monsoon,842.5,933.8,-91.3,-9.78,Normal,174.4,236.8,135.8,308.9,185.6,60.1,266.9,211.1,79.1,183.6,209.0,113.8,Maharain Portal
+Pune,Kolhapur,2020,Monsoon,1395.6,1733.1,-337.5,-19.47,Deficit,362.9,318.8,87.8,685.5,242.0,35.3,485.9,622.7,128.2,198.8,212.1,106.7,Maharain Portal
+Pune,Pune,2020,Monsoon,865.2,861.6,3.6,0.42,Normal,176.2,188.8,107.2,309.3,142.4,46.0,219.6,345.1,157.1,156.5,188.9,120.7,Maharain Portal
+Pune,Sangli,2020,Monsoon,684.3,514.5,169.8,33.0,Excess,129.0,179.6,139.2,135.5,120.5,88.9,111.4,188.2,168.9,138.6,196.0,141.4,Maharain Portal
+Pune,Satara,2020,Monsoon,938.2,886.2,52.0,5.87,Normal,194.1,185.0,95.3,307.2,164.3,53.5,224.8,405.9,180.6,160.1,183.0,114.3,Maharain Portal
+Pune,Solapur,2020,Monsoon,533.4,481.1,52.3,10.87,Normal,102.5,151.0,147.3,94.8,167.6,176.8,107.5,73.4,68.3,176.3,141.4,80.2,Maharain Portal
+Amravati,Akola,2021,Monsoon,780.6,693.7,86.9,12.53,Normal,136.9,95.2,69.5,223.2,306.4,137.3,215.5,133.0,61.7,118.1,246.0,208.3,Maharain Portal
+Amravati,Amravati,2021,Monsoon,851.3,862.0,-10.7,-1.24,Normal,145.7,213.1,146.3,277.4,212.9,76.7,285.4,130.3,45.6,153.5,295.0,192.2,Maharain Portal
+Amravati,Buldhana,2021,Monsoon,790.1,659.4,130.7,19.82,Normal,139.3,182.4,131.0,192.2,189.0,98.3,207.4,138.3,66.7,120.5,280.4,232.7,Maharain Portal
+Amravati,Washim,2021,Monsoon,1025.6,789.0,236.6,29.99,Excess,166.4,239.2,143.7,243.6,295.8,121.4,236.1,162.2,68.7,142.9,328.4,229.8,Maharain Portal
+Amravati,Yavatmal,2021,Monsoon,1075.1,805.0,270.1,33.55,Excess,163.9,279.7,170.6,256.7,274.9,107.1,253.7,224.7,88.6,130.7,295.8,226.3,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2021,Monsoon,989.6,566.1,423.5,74.81,Large Excess,128.4,190.4,148.3,127.7,201.9,158.1,138.0,180.1,130.5,172.0,417.2,242.6,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2021,Monsoon,930.9,581.7,349.2,60.03,Large Excess,125.2,151.0,120.6,152.2,181.3,119.1,153.8,195.0,126.8,150.5,403.6,268.2,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2021,Monsoon,829.1,603.1,226.0,37.47,Excess,126.9,137.6,108.4,137.1,203.9,148.7,154.4,152.3,98.6,184.7,335.3,181.5,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2021,Monsoon,1078.5,795.3,283.2,35.61,Excess,169.2,251.6,148.7,230.2,302.4,131.4,241.2,155.7,64.6,154.7,368.8,238.4,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2021,Monsoon,1104.9,603.1,501.8,83.2,Large Excess,132.6,214.8,162.0,166.4,255.8,153.7,162.3,198.3,122.2,141.8,436.0,307.5,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2021,Monsoon,907.8,706.0,201.8,28.58,Excess,135.4,197.0,145.5,186.9,234.4,125.4,202.7,165.6,81.7,181.0,310.8,171.7,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2021,Monsoon,1167.0,814.4,352.6,43.3,Excess,155.4,224.4,144.4,244.3,387.9,158.8,247.3,180.4,73.0,167.4,374.3,223.6,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2021,Monsoon,1100.8,761.3,339.5,44.59,Excess,145.3,250.0,172.0,219.2,325.4,148.4,227.8,142.3,62.5,169.0,383.1,226.7,Maharain Portal
+Konkan,Palghar,2021,Monsoon,2761.2,2305.4,455.8,19.77,Normal,411.9,740.2,179.7,905.0,862.3,95.3,669.7,374.5,55.9,318.8,784.2,246.0,Maharain Portal
+Konkan,Raigad,2021,Monsoon,3284.2,3148.6,135.6,4.31,Normal,655.8,842.9,128.5,1206.2,1469.8,121.9,874.5,338.3,38.7,412.1,633.2,153.7,Maharain Portal
+Konkan,Ratnagiri,2021,Monsoon,4284.9,3195.1,1089.8,34.11,Excess,813.5,1221.7,150.2,1151.6,1781.9,154.7,835.9,409.9,49.0,394.1,871.4,221.1,Maharain Portal
+Konkan,Sindhudurg,2021,Monsoon,3872.4,2940.5,931.9,31.69,Excess,880.1,1031.1,117.2,1043.6,1594.6,152.8,689.2,482.1,70.0,327.6,764.6,233.4,Maharain Portal
+Konkan,Thane,2021,Monsoon,2689.3,2433.4,255.9,10.52,Normal,461.9,702.3,152.0,942.3,938.2,99.6,691.3,310.0,44.8,337.9,738.8,218.6,Maharain Portal
+Nagpur,Bhandara,2021,Monsoon,1099.8,1157.0,-57.2,-4.94,Normal,189.3,262.3,138.5,382.6,341.0,89.1,387.6,195.5,50.4,197.5,301.0,152.4,Maharain Portal
+Nagpur,Chandrapur,2021,Monsoon,1272.0,1084.0,188.0,17.34,Normal,183.5,306.1,166.8,357.2,477.7,133.7,362.9,187.4,51.6,180.4,300.8,166.8,Maharain Portal
+Nagpur,Gadchiroli,2021,Monsoon,1222.6,1254.1,-31.5,-2.51,Normal,210.9,206.8,98.1,427.9,422.2,98.7,426.5,259.3,60.8,188.8,334.3,177.1,Maharain Portal
+Nagpur,Gondia,2021,Monsoon,1165.0,1220.3,-55.3,-4.53,Normal,192.8,209.2,108.5,414.9,363.5,87.6,413.9,218.8,52.9,198.7,373.5,188.0,Maharain Portal
+Nagpur,Nagpur,2021,Monsoon,1020.5,920.4,100.1,10.88,Normal,166.3,200.4,120.5,304.4,309.6,101.7,281.3,165.2,58.7,168.4,345.3,205.0,Maharain Portal
+Nagpur,Wardha,2021,Monsoon,932.6,874.5,58.1,6.64,Normal,174.1,248.6,142.8,273.6,260.3,95.1,271.6,155.7,57.3,155.2,268.0,172.7,Maharain Portal
+Nashik,Ahmednagar,2021,Monsoon,565.3,448.1,117.2,26.15,Excess,108.2,140.5,129.9,97.5,121.8,124.9,95.4,112.5,118.0,147.0,190.5,129.6,Maharain Portal
+Nashik,Dhule,2021,Monsoon,610.6,535.1,75.5,14.11,Normal,121.5,98.5,81.1,170.9,116.2,68.0,133.2,143.5,107.8,109.5,252.4,230.5,Maharain Portal
+Nashik,Jalgaon,2021,Monsoon,752.0,632.6,119.4,18.87,Normal,123.7,149.2,120.6,189.2,115.3,60.9,196.1,153.0,78.0,123.6,334.5,270.7,Maharain Portal
+Nashik,Nandurbar,2021,Monsoon,578.8,860.4,-281.6,-32.73,Deficit,155.9,68.2,43.7,305.6,119.3,39.0,252.2,92.6,36.7,146.7,298.7,203.6,Maharain Portal
+Nashik,Nashik,2021,Monsoon,785.3,933.8,-148.5,-15.9,Normal,174.4,124.4,71.3,308.9,220.9,71.5,266.9,157.1,58.9,183.6,282.9,154.1,Maharain Portal
+Pune,Kolhapur,2021,Monsoon,1476.6,1733.1,-256.5,-14.8,Normal,362.9,399.9,110.2,685.5,740.1,108.0,485.9,141.3,29.1,198.8,195.3,98.2,Maharain Portal
+Pune,Pune,2021,Monsoon,702.8,861.6,-158.8,-18.43,Normal,176.2,186.1,105.6,309.3,287.0,92.8,219.6,68.2,31.1,156.5,161.5,103.2,Maharain Portal
+Pune,Sangli,2021,Monsoon,686.6,514.5,172.1,33.45,Excess,129.0,202.3,156.8,135.5,320.8,236.8,111.4,72.4,65.0,138.6,91.1,65.7,Maharain Portal
+Pune,Satara,2021,Monsoon,893.8,886.2,7.6,0.86,Normal,194.1,264.4,136.2,307.2,439.1,142.9,224.8,66.1,29.4,160.1,124.2,77.6,Maharain Portal
+Pune,Solapur,2021,Monsoon,533.6,481.1,52.5,10.91,Normal,102.5,139.0,135.6,94.8,133.7,141.0,107.5,85.9,79.9,176.3,175.0,99.2,Maharain Portal
+Amravati,Akola,2022,Monsoon,679.0,693.7,-14.7,-2.12,Normal,136.9,115.0,84.0,223.2,270.8,121.3,215.5,131.3,60.9,118.1,161.9,137.1,Maharain Portal
+Amravati,Amravati,2022,Monsoon,936.6,862.0,74.6,8.65,Normal,145.7,95.4,65.5,277.4,389.0,140.2,285.4,211.6,74.1,153.5,240.6,156.7,Maharain Portal
+Amravati,Buldhana,2022,Monsoon,678.2,659.4,18.8,2.85,Normal,139.3,123.9,88.9,192.2,269.2,140.1,207.4,108.1,52.1,120.5,177.0,146.9,Maharain Portal
+Amravati,Washim,2022,Monsoon,845.9,789.0,56.9,7.21,Normal,166.4,108.4,65.1,243.6,387.5,159.1,236.1,202.7,85.9,142.9,147.3,103.1,Maharain Portal
+Amravati,Yavatmal,2022,Monsoon,1109.9,805.0,304.9,37.88,Excess,163.9,97.8,59.7,256.7,561.2,218.6,253.7,222.7,87.8,130.7,228.2,174.6,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2022,Monsoon,637.4,566.1,71.3,12.59,Normal,128.4,154.2,120.1,127.7,219.2,171.7,138.0,59.2,42.9,172.0,204.8,119.1,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2022,Monsoon,661.7,581.7,80.0,13.75,Normal,125.2,138.0,110.2,152.2,222.5,146.2,153.8,93.8,61.0,150.5,207.4,137.8,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2022,Monsoon,664.0,603.1,60.9,10.1,Normal,126.9,106.5,83.9,137.1,254.7,185.8,154.4,113.0,73.2,184.7,189.8,102.8,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2022,Monsoon,885.6,795.3,90.3,11.35,Normal,169.2,121.7,71.9,230.2,481.3,209.1,241.2,128.4,53.2,154.7,154.2,99.7,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2022,Monsoon,782.9,603.1,179.8,29.81,Excess,132.6,132.1,99.6,166.4,322.1,193.6,162.3,87.3,53.8,141.8,241.4,170.2,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2022,Monsoon,737.8,706.0,31.8,4.5,Normal,135.4,143.2,105.8,186.9,320.4,171.4,202.7,74.8,36.9,181.0,199.4,110.2,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2022,Monsoon,1046.3,814.4,231.9,28.47,Excess,155.4,141.9,91.3,244.3,607.3,248.6,247.3,114.7,46.4,167.4,182.4,109.0,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2022,Monsoon,650.4,761.3,-110.9,-14.57,Normal,145.3,137.4,94.6,219.2,312.8,142.7,227.8,59.5,26.1,169.0,140.7,83.3,Maharain Portal
+Konkan,Palghar,2022,Monsoon,2634.6,2305.4,329.2,14.28,Normal,411.9,232.9,56.5,905.0,1315.7,145.4,669.7,552.6,82.5,318.8,533.4,167.3,Maharain Portal
+Konkan,Raigad,2022,Monsoon,2990.2,3148.6,-158.4,-5.03,Normal,655.8,302.2,46.1,1206.2,1376.6,114.1,874.5,778.3,89.0,412.1,533.1,129.4,Maharain Portal
+Konkan,Ratnagiri,2022,Monsoon,3012.7,3195.1,-182.4,-5.71,Normal,813.5,621.7,76.4,1151.6,1086.6,94.4,835.9,876.2,104.8,394.1,428.2,108.7,Maharain Portal
+Konkan,Sindhudurg,2022,Monsoon,3116.8,2940.5,176.3,6.0,Normal,880.1,785.8,89.3,1043.6,1113.7,106.7,689.2,725.8,105.3,327.6,491.5,150.0,Maharain Portal
+Konkan,Thane,2022,Monsoon,2632.4,2433.4,199.0,8.18,Normal,461.9,172.6,37.4,942.3,1226.7,130.2,691.3,561.8,81.3,337.9,671.3,198.7,Maharain Portal
+Nagpur,Bhandara,2022,Monsoon,1447.9,1157.0,290.9,25.14,Excess,189.3,129.3,68.3,382.6,529.5,138.4,387.6,472.4,121.9,197.5,316.7,160.4,Maharain Portal
+Nagpur,Chandrapur,2022,Monsoon,1478.4,1084.0,394.4,36.38,Excess,183.5,143.2,78.0,357.2,737.8,206.6,362.9,355.9,98.1,180.4,241.5,133.9,Maharain Portal
+Nagpur,Gadchiroli,2022,Monsoon,1879.4,1254.1,625.3,49.86,Excess,210.9,126.6,60.0,427.9,916.8,214.3,426.5,475.7,111.5,188.8,360.3,190.8,Maharain Portal
+Nagpur,Gondia,2022,Monsoon,1676.7,1220.3,456.4,37.4,Excess,192.8,152.2,78.9,414.9,600.4,144.7,413.9,613.0,148.1,198.7,311.1,156.6,Maharain Portal
+Nagpur,Nagpur,2022,Monsoon,1432.3,920.4,511.9,55.62,Excess,166.3,108.0,64.9,304.4,611.4,200.9,281.3,381.9,135.8,168.4,331.0,196.6,Maharain Portal
+Nagpur,Wardha,2022,Monsoon,1361.5,874.5,487.0,55.69,Excess,174.1,104.7,60.1,273.6,722.4,264.0,271.6,281.8,103.8,155.2,252.6,162.8,Maharain Portal
+Nashik,Ahmednagar,2022,Monsoon,577.2,448.1,129.1,28.81,Excess,108.2,113.6,105.0,97.5,121.2,124.3,95.4,109.0,114.3,147.0,233.4,158.8,Maharain Portal
+Nashik,Dhule,2022,Monsoon,648.7,535.1,113.6,21.23,Excess,121.5,109.2,89.9,170.9,200.0,117.0,133.2,164.5,123.5,109.5,175.0,159.8,Maharain Portal
+Nashik,Jalgaon,2022,Monsoon,645.5,632.6,12.9,2.04,Normal,123.7,89.8,72.6,189.2,232.9,123.1,196.1,117.7,60.0,123.6,205.1,165.9,Maharain Portal
+Nashik,Nandurbar,2022,Monsoon,757.6,860.4,-102.8,-11.95,Normal,155.9,55.9,35.9,305.6,331.6,108.5,252.2,216.0,85.6,146.7,154.1,105.0,Maharain Portal
+Nashik,Nashik,2022,Monsoon,1208.8,933.8,275.0,29.45,Excess,174.4,150.8,86.5,308.9,514.5,166.6,266.9,222.3,83.3,183.6,321.2,174.9,Maharain Portal
+Pune,Kolhapur,2022,Monsoon,1326.2,1733.1,-406.9,-23.48,Deficit,362.9,107.5,29.6,685.5,540.9,78.9,485.9,427.4,88.0,198.8,250.4,126.0,Maharain Portal
+Pune,Pune,2022,Monsoon,1039.7,861.6,178.1,20.67,Excess,176.2,83.1,47.2,309.3,435.7,140.9,219.6,260.6,118.7,156.5,260.3,166.3,Maharain Portal
+Pune,Sangli,2022,Monsoon,584.4,514.5,69.9,13.59,Normal,129.0,68.5,53.1,135.5,197.9,146.1,111.4,153.7,138.0,138.6,164.3,118.5,Maharain Portal
+Pune,Satara,2022,Monsoon,927.5,886.2,41.3,4.66,Normal,194.1,78.6,40.5,307.2,384.0,125.0,224.8,261.3,116.2,160.1,203.6,127.2,Maharain Portal
+Pune,Solapur,2022,Monsoon,526.6,481.1,45.5,9.46,Normal,102.5,87.0,84.9,94.8,155.3,163.8,107.5,100.6,93.6,176.3,183.7,104.2,Maharain Portal
+Amravati,Akola,2023,Monsoon,503.7,693.7,-190.0,-27.39,Deficit,136.9,29.5,21.5,223.2,292.0,130.8,215.5,37.9,17.6,118.1,144.3,122.2,Maharain Portal
+Amravati,Amravati,2023,Monsoon,597.4,862.0,-264.6,-30.7,Deficit,145.7,57.5,39.5,277.4,313.6,113.0,285.4,58.4,20.5,153.5,167.9,109.4,Maharain Portal
+Amravati,Buldhana,2023,Monsoon,576.4,659.4,-83.0,-12.59,Normal,139.3,35.1,25.2,192.2,273.4,142.2,207.4,76.1,36.7,120.5,191.8,159.2,Maharain Portal
+Amravati,Washim,2023,Monsoon,670.8,789.0,-118.2,-14.98,Normal,166.4,57.8,34.7,243.6,372.9,153.1,236.1,76.8,32.5,142.9,163.3,114.3,Maharain Portal
+Amravati,Yavatmal,2023,Monsoon,922.9,805.0,117.9,14.65,Normal,163.9,57.3,35.0,256.7,536.1,208.8,253.7,103.3,40.7,130.7,226.2,173.1,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2023,Monsoon,449.1,566.1,-117.0,-20.67,Deficit,128.4,55.6,43.3,127.7,183.7,143.9,138.0,30.4,22.0,172.0,179.4,104.3,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2023,Monsoon,523.3,581.7,-58.4,-10.04,Normal,125.2,73.1,58.4,152.2,165.2,108.5,153.8,38.0,24.7,150.5,247.0,164.1,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2023,Monsoon,428.7,603.1,-174.4,-28.92,Deficit,126.9,33.6,26.5,137.1,227.7,166.1,154.4,26.9,17.4,184.7,140.5,76.1,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2023,Monsoon,740.0,795.3,-55.3,-6.95,Normal,169.2,45.1,26.7,230.2,374.0,162.5,241.2,88.9,36.9,154.7,232.0,150.0,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2023,Monsoon,486.1,603.1,-117.0,-19.4,Deficit,132.6,61.0,46.0,166.4,187.0,112.4,162.3,48.7,30.0,141.8,189.4,133.6,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2023,Monsoon,512.6,706.0,-193.4,-27.39,Deficit,135.4,60.8,44.9,186.9,251.9,134.8,202.7,27.9,13.8,181.0,172.0,95.0,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2023,Monsoon,883.1,814.4,68.7,8.44,Normal,155.4,45.9,29.5,244.3,521.2,213.3,247.3,98.4,39.8,167.4,217.6,130.0,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2023,Monsoon,522.5,761.3,-238.8,-31.37,Deficit,145.3,55.5,38.2,219.2,211.1,96.3,227.8,72.2,31.7,169.0,183.7,108.7,Maharain Portal
+Konkan,Palghar,2023,Monsoon,2686.5,2305.4,381.1,16.53,Normal,411.9,557.2,135.3,905.0,1501.6,165.9,669.7,201.3,30.1,318.8,426.4,133.8,Maharain Portal
+Konkan,Raigad,2023,Monsoon,3158.6,3148.6,10.0,0.32,Normal,655.8,459.1,70.0,1206.2,1904.6,157.9,874.5,306.0,35.0,412.1,488.9,118.6,Maharain Portal
+Konkan,Ratnagiri,2023,Monsoon,3017.4,3195.1,-177.7,-5.56,Normal,813.5,427.1,52.5,1151.6,1675.0,145.4,835.9,400.8,47.9,394.1,514.5,130.6,Maharain Portal
+Konkan,Sindhudurg,2023,Monsoon,2915.6,2940.5,-24.9,-0.85,Normal,880.1,461.9,52.5,1043.6,1705.2,163.4,689.2,315.5,45.8,327.6,433.0,132.2,Maharain Portal
+Konkan,Thane,2023,Monsoon,2670.2,2433.4,236.8,9.73,Normal,461.9,469.8,101.7,942.3,1455.0,154.4,691.3,257.7,37.3,337.9,487.7,144.3,Maharain Portal
+Nagpur,Bhandara,2023,Monsoon,1142.4,1157.0,-14.6,-1.26,Normal,189.3,167.2,88.3,382.6,444.9,116.3,387.6,250.4,64.6,197.5,279.9,141.7,Maharain Portal
+Nagpur,Chandrapur,2023,Monsoon,1090.7,1084.0,6.7,0.62,Normal,183.5,87.9,47.9,357.2,549.2,153.8,362.9,189.7,52.3,180.4,263.9,146.3,Maharain Portal
+Nagpur,Gadchiroli,2023,Monsoon,1434.5,1254.1,180.4,14.38,Normal,210.9,140.3,66.5,427.9,649.5,151.8,426.5,314.6,73.8,188.8,330.1,174.8,Maharain Portal
+Nagpur,Gondia,2023,Monsoon,1126.2,1220.3,-94.1,-7.71,Normal,192.8,215.7,111.9,414.9,411.9,99.3,413.9,188.4,45.5,198.7,310.2,156.1,Maharain Portal
+Nagpur,Nagpur,2023,Monsoon,953.8,920.4,33.4,3.63,Normal,166.3,111.6,67.1,304.4,382.8,125.8,281.3,170.2,60.5,168.4,289.2,171.7,Maharain Portal
+Nagpur,Wardha,2023,Monsoon,852.9,874.5,-21.6,-2.47,Normal,174.1,65.2,37.4,273.6,400.0,146.2,271.6,131.2,48.3,155.2,256.5,165.3,Maharain Portal
+Nashik,Ahmednagar,2023,Monsoon,408.0,448.1,-40.1,-8.95,Normal,108.2,58.0,53.6,97.5,108.8,111.6,95.4,25.5,26.7,147.0,215.7,146.7,Maharain Portal
+Nashik,Dhule,2023,Monsoon,433.7,535.1,-101.4,-18.95,Normal,121.5,71.3,58.7,170.9,156.3,91.5,133.2,40.9,30.7,109.5,165.2,150.9,Maharain Portal
+Nashik,Jalgaon,2023,Monsoon,581.6,632.6,-51.0,-8.06,Normal,123.7,45.1,36.5,189.2,255.4,135.0,196.1,47.6,24.3,123.6,233.5,188.9,Maharain Portal
+Nashik,Nandurbar,2023,Monsoon,682.5,860.4,-177.9,-20.68,Deficit,155.9,90.0,57.7,305.6,266.6,87.2,252.2,68.4,27.1,146.7,257.5,175.5,Maharain Portal
+Nashik,Nashik,2023,Monsoon,642.8,933.8,-291.0,-31.16,Deficit,174.4,92.5,53.0,308.9,233.7,75.7,266.9,73.0,27.4,183.6,243.6,132.7,Maharain Portal
+Pune,Kolhapur,2023,Monsoon,973.1,1733.1,-760.0,-43.85,Deficit,362.9,93.7,25.8,685.5,601.3,87.7,485.9,132.0,27.2,198.8,146.1,73.5,Maharain Portal
+Pune,Pune,2023,Monsoon,656.9,861.6,-204.7,-23.76,Deficit,176.2,90.7,51.5,309.3,281.1,90.9,219.6,86.3,39.3,156.5,198.8,127.0,Maharain Portal
+Pune,Sangli,2023,Monsoon,353.7,514.5,-160.8,-31.25,Deficit,129.0,35.7,27.7,135.5,172.1,127.0,111.4,33.3,29.9,138.6,112.6,81.2,Maharain Portal
+Pune,Satara,2023,Monsoon,579.8,886.2,-306.4,-34.57,Deficit,194.1,85.8,44.2,307.2,305.1,99.3,224.8,80.2,35.7,160.1,108.7,67.9,Maharain Portal
+Pune,Solapur,2023,Monsoon,367.8,481.1,-113.3,-23.55,Deficit,102.5,28.8,28.1,94.8,179.7,189.6,107.5,20.3,18.9,176.3,139.0,78.8,Maharain Portal
+Amravati,Akola,2024,Monsoon,811.2,693.7,117.5,16.94,Normal,136.9,139.3,101.8,223.2,316.2,141.7,215.5,198.4,92.1,118.1,157.3,133.2,Maharain Portal
+Amravati,Amravati,2024,Monsoon,810.1,862.0,-51.9,-6.02,Normal,145.7,130.9,89.8,277.4,299.4,107.9,285.4,234.9,82.3,153.5,144.9,94.4,Maharain Portal
+Amravati,Buldhana,2024,Monsoon,777.4,659.4,118.0,17.9,Normal,139.3,177.3,127.3,192.2,236.6,123.1,207.4,200.5,96.7,120.5,163.0,135.3,Maharain Portal
+Amravati,Washim,2024,Monsoon,897.1,789.0,108.1,13.7,Normal,166.4,182.1,109.4,243.6,315.5,129.5,236.1,190.2,80.6,142.9,209.3,146.5,Maharain Portal
+Amravati,Yavatmal,2024,Monsoon,984.3,805.0,179.3,22.27,Excess,163.9,182.3,111.2,256.7,424.3,165.3,253.7,173.4,68.3,130.7,204.3,156.3,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2024,Monsoon,774.5,566.1,208.4,36.81,Excess,128.4,186.8,145.5,127.7,208.8,163.5,138.0,164.4,119.1,172.0,214.5,124.7,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2024,Monsoon,763.5,581.7,181.8,31.25,Excess,125.2,201.6,161.0,152.2,162.9,107.0,153.8,193.5,125.8,150.5,205.5,136.5,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2024,Monsoon,729.1,603.1,126.0,20.89,Excess,126.9,218.1,171.9,137.1,203.6,148.5,154.4,114.3,74.0,184.7,193.1,104.5,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2024,Monsoon,891.1,795.3,95.8,12.05,Normal,169.2,149.1,88.1,230.2,276.5,120.1,241.2,150.0,62.2,154.7,315.5,203.9,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2024,Monsoon,812.9,603.1,209.8,34.79,Excess,132.6,196.4,148.1,166.4,186.8,112.3,162.3,203.3,125.3,141.8,226.4,159.7,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2024,Monsoon,787.4,706.0,81.4,11.53,Normal,135.4,214.4,158.3,186.9,245.6,131.4,202.7,130.9,64.6,181.0,196.5,108.6,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2024,Monsoon,873.3,814.4,58.9,7.23,Normal,155.4,139.3,89.6,244.3,317.0,129.8,247.3,154.4,62.4,167.4,262.6,156.9,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2024,Monsoon,827.4,761.3,66.1,8.68,Normal,145.3,170.4,117.3,219.2,235.2,107.3,227.8,153.8,67.5,169.0,268.0,158.6,Maharain Portal
+Konkan,Palghar,2024,Monsoon,2492.1,2305.4,186.7,8.1,Normal,411.9,367.5,89.2,905.0,1135.7,125.5,669.7,539.8,80.6,318.8,449.1,140.9,Maharain Portal
+Konkan,Raigad,2024,Monsoon,3018.1,3148.6,-130.5,-4.14,Normal,655.8,502.3,76.6,1206.2,1582.1,131.2,874.5,542.9,62.1,412.1,390.8,94.8,Maharain Portal
+Konkan,Ratnagiri,2024,Monsoon,3721.0,3195.1,525.9,16.46,Normal,813.5,877.6,107.9,1151.6,1789.3,155.4,835.9,600.2,71.8,394.1,453.9,115.2,Maharain Portal
+Konkan,Sindhudurg,2024,Monsoon,3665.4,2940.5,724.9,24.65,Excess,880.1,794.9,90.3,1043.6,1716.9,164.5,689.2,759.3,110.2,327.6,394.3,120.4,Maharain Portal
+Konkan,Thane,2024,Monsoon,2471.3,2433.4,37.9,1.56,Normal,461.9,347.6,75.3,942.3,1217.9,129.2,691.3,520.6,75.3,337.9,385.2,114.0,Maharain Portal
+Nagpur,Bhandara,2024,Monsoon,1232.5,1157.0,75.5,6.53,Normal,189.3,88.2,46.6,382.6,677.6,177.1,387.6,205.3,53.0,197.5,261.4,132.4,Maharain Portal
+Nagpur,Chandrapur,2024,Monsoon,1278.6,1084.0,194.6,17.95,Normal,183.5,131.4,71.6,357.2,746.4,209.0,362.9,226.8,62.5,180.4,174.0,96.5,Maharain Portal
+Nagpur,Gadchiroli,2024,Monsoon,1655.1,1254.1,401.0,31.98,Excess,210.9,145.2,68.8,427.9,932.4,217.9,426.5,321.0,75.3,188.8,256.5,135.9,Maharain Portal
+Nagpur,Gondia,2024,Monsoon,1358.4,1220.3,138.1,11.32,Normal,192.8,108.4,56.2,414.9,593.5,143.0,413.9,298.5,72.1,198.7,358.0,180.2,Maharain Portal
+Nagpur,Nagpur,2024,Monsoon,1025.2,920.4,104.8,11.39,Normal,166.3,145.3,87.4,304.4,482.5,158.5,281.3,181.6,64.6,168.4,215.8,128.1,Maharain Portal
+Nagpur,Wardha,2024,Monsoon,1116.3,874.5,241.8,27.65,Excess,174.1,151.6,87.1,273.6,556.3,203.3,271.6,234.2,86.2,155.2,174.2,112.2,Maharain Portal
+Nashik,Ahmednagar,2024,Monsoon,629.6,448.1,181.5,40.5,Excess,108.2,177.3,163.9,97.5,154.4,158.4,95.4,168.9,177.0,147.0,129.0,87.8,Maharain Portal
+Nashik,Dhule,2024,Monsoon,701.0,535.1,165.9,31.0,Excess,121.5,156.6,128.9,170.9,227.9,133.4,133.2,196.0,147.1,109.5,120.5,110.0,Maharain Portal
+Nashik,Jalgaon,2024,Monsoon,753.0,632.6,120.4,19.03,Normal,123.7,169.1,136.7,189.2,219.6,116.1,196.1,214.9,109.6,123.6,149.4,120.9,Maharain Portal
+Nashik,Nandurbar,2024,Monsoon,1039.5,860.4,179.1,20.82,Excess,155.9,143.0,91.7,305.6,318.0,104.1,252.2,387.4,153.6,146.7,191.1,130.3,Maharain Portal
+Nashik,Nashik,2024,Monsoon,919.8,933.8,-14.0,-1.5,Normal,174.4,143.9,82.5,308.9,266.4,86.2,266.9,349.4,130.9,183.6,160.1,87.2,Maharain Portal
+Pune,Kolhapur,2024,Monsoon,1477.9,1733.1,-255.2,-14.73,Normal,362.9,200.8,55.3,685.5,799.0,116.6,485.9,337.5,69.5,198.8,140.6,70.7,Maharain Portal
+Pune,Pune,2024,Monsoon,1052.5,861.6,190.9,22.16,Excess,176.2,171.3,97.2,309.3,443.2,143.3,219.6,302.7,137.8,156.5,135.3,86.5,Maharain Portal
+Pune,Sangli,2024,Monsoon,871.4,514.5,356.9,69.37,Large Excess,129.0,226.2,175.3,135.5,283.6,209.3,111.4,221.3,198.7,138.6,140.3,101.2,Maharain Portal
+Pune,Satara,2024,Monsoon,1128.4,886.2,242.2,27.33,Excess,194.1,238.2,122.7,307.2,485.1,157.9,224.8,281.9,125.4,160.1,123.2,77.0,Maharain Portal
+Pune,Solapur,2024,Monsoon,622.1,481.1,141.0,29.31,Excess,102.5,228.3,222.7,94.8,123.7,130.5,107.5,124.7,116.0,176.3,145.4,82.5,Maharain Portal
+Amravati,Akola,2025,Monsoon,731.7,693.7,38.0,5.48,Normal,136.9,155.8,113.8,223.2,168.6,75.5,215.5,235.0,109.0,118.1,172.3,145.9,Maharain Portal
+Amravati,Amravati,2025,Monsoon,757.4,862.0,-104.6,-12.13,Normal,145.7,105.9,72.7,277.4,222.5,80.2,285.4,245.7,86.1,153.5,183.3,119.4,Maharain Portal
+Amravati,Buldhana,2025,Monsoon,721.9,659.4,62.5,9.48,Normal,139.3,161.5,115.9,192.2,175.2,91.2,207.4,196.5,94.7,120.5,188.7,156.6,Maharain Portal
+Amravati,Washim,2025,Monsoon,1065.5,789.0,276.5,35.04,Excess,166.4,215.7,129.6,243.6,210.5,86.4,236.1,345.4,146.3,142.9,293.9,205.7,Maharain Portal
+Amravati,Yavatmal,2025,Monsoon,1050.8,805.0,245.8,30.53,Excess,163.9,179.8,109.7,256.7,250.7,97.7,253.7,300.6,118.5,130.7,319.7,244.6,Maharain Portal
+Chhatrapati Sambhajinagar,Beed,2025,Monsoon,911.6,566.1,345.5,61.03,Large Excess,128.4,58.4,45.5,127.7,145.3,113.8,138.0,278.9,202.1,172.0,429.0,249.4,Maharain Portal
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,2025,Monsoon,831.1,581.7,249.4,42.87,Excess,125.2,138.9,110.9,152.2,157.4,103.4,153.8,189.4,123.1,150.5,345.4,229.5,Maharain Portal
+Chhatrapati Sambhajinagar,Dharashiv,2025,Monsoon,975.3,603.1,372.2,61.71,Large Excess,126.9,98.6,77.7,137.1,141.6,103.3,154.4,270.5,175.2,184.7,464.6,251.5,Maharain Portal
+Chhatrapati Sambhajinagar,Hingoli,2025,Monsoon,1136.5,795.3,341.2,42.9,Excess,169.2,132.0,78.0,230.2,239.4,104.0,241.2,353.1,146.4,154.7,412.0,266.3,Maharain Portal
+Chhatrapati Sambhajinagar,Jalna,2025,Monsoon,847.2,603.1,244.1,40.47,Excess,132.6,114.2,86.1,166.4,240.7,144.7,162.3,193.6,119.3,141.8,298.7,210.6,Maharain Portal
+Chhatrapati Sambhajinagar,Latur,2025,Monsoon,927.8,706.0,221.8,31.42,Excess,135.4,74.5,55.0,186.9,140.1,75.0,202.7,345.3,170.4,181.0,367.9,203.3,Maharain Portal
+Chhatrapati Sambhajinagar,Nanded,2025,Monsoon,1116.3,814.4,301.9,37.07,Excess,155.4,145.4,93.6,244.3,204.6,83.7,247.3,451.3,182.5,167.4,315.0,188.2,Maharain Portal
+Chhatrapati Sambhajinagar,Parbhani,2025,Monsoon,924.6,761.3,163.3,21.45,Excess,145.3,81.1,55.8,219.2,228.0,104.0,227.8,262.6,115.3,169.0,352.9,208.8,Maharain Portal
+Konkan,Palghar,2025,Monsoon,2566.9,2305.4,261.5,11.34,Normal,411.9,577.8,140.3,905.0,643.4,71.1,669.7,663.1,99.0,318.8,682.6,214.1,Maharain Portal
+Konkan,Raigad,2025,Monsoon,2653.1,3148.6,-495.5,-15.74,Normal,655.8,696.9,106.3,1206.2,781.1,64.8,874.5,743.0,85.0,412.1,432.1,104.9,Maharain Portal
+Konkan,Ratnagiri,2025,Monsoon,3113.0,3195.1,-82.1,-2.57,Normal,813.5,746.3,91.7,1151.6,941.2,81.7,835.9,977.7,117.0,394.1,447.8,113.6,Maharain Portal
+Konkan,Sindhudurg,2025,Monsoon,2755.3,2940.5,-185.2,-6.3,Normal,880.1,667.0,75.8,1043.6,967.6,92.7,689.2,843.4,122.4,327.6,277.3,84.6,Maharain Portal
+Konkan,Thane,2025,Monsoon,2617.2,2433.4,183.8,7.55,Normal,461.9,539.4,116.8,942.3,764.5,81.1,691.3,733.2,106.1,337.9,580.1,171.7,Maharain Portal
+Nagpur,Bhandara,2025,Monsoon,1146.9,1157.0,-10.1,-0.87,Normal,189.3,97.5,51.5,382.6,548.3,143.3,387.6,241.5,62.3,197.5,259.6,131.4,Maharain Portal
+Nagpur,Chandrapur,2025,Monsoon,1257.5,1084.0,173.5,16.01,Normal,183.5,152.8,83.3,357.2,450.4,126.1,362.9,307.6,84.8,180.4,346.7,192.2,Maharain Portal
+Nagpur,Gadchiroli,2025,Monsoon,1634.2,1254.1,380.1,30.31,Excess,210.9,217.9,103.3,427.9,634.8,148.4,426.5,389.6,91.3,188.8,391.9,207.6,Maharain Portal
+Nagpur,Gondia,2025,Monsoon,1213.6,1220.3,-6.7,-0.55,Normal,192.8,113.5,58.9,414.9,599.4,144.5,413.9,249.7,60.3,198.7,251.0,126.3,Maharain Portal
+Nagpur,Nagpur,2025,Monsoon,996.2,920.4,75.8,8.24,Normal,166.3,97.8,58.8,304.4,449.3,147.6,281.3,218.3,77.6,168.4,230.8,137.1,Maharain Portal
+Nagpur,Wardha,2025,Monsoon,1018.2,874.5,143.7,16.43,Normal,174.1,126.0,72.4,273.6,342.0,125.0,271.6,254.5,93.7,155.2,295.7,190.5,Maharain Portal
+Nashik,Ahmednagar,2025,Monsoon,588.7,448.1,140.6,31.38,Excess,108.2,80.2,74.1,97.5,63.1,64.7,95.4,130.3,136.6,147.0,315.1,214.4,Maharain Portal
+Nashik,Dhule,2025,Monsoon,598.4,535.1,63.3,11.83,Normal,121.5,130.7,107.6,170.9,106.6,62.4,133.2,148.8,111.7,109.5,212.3,193.9,Maharain Portal
+Nashik,Jalgaon,2025,Monsoon,683.0,632.6,50.4,7.97,Normal,123.7,123.8,100.1,189.2,120.3,63.6,196.1,226.0,115.2,123.6,212.9,172.2,Maharain Portal
+Nashik,Nandurbar,2025,Monsoon,688.6,860.4,-171.8,-19.97,Deficit,155.9,134.2,86.1,305.6,117.8,38.5,252.2,209.2,83.0,146.7,227.4,155.0,Maharain Portal
+Nashik,Nashik,2025,Monsoon,843.4,933.8,-90.4,-9.68,Normal,174.4,223.5,128.2,308.9,201.6,65.3,266.9,157.9,59.2,183.6,260.4,141.8,Maharain Portal
+Pune,Kolhapur,2025,Monsoon,1231.2,1733.1,-501.9,-28.96,Deficit,362.9,391.8,108.0,685.5,351.5,51.3,485.9,328.5,67.6,198.8,159.4,80.2,Maharain Portal
+Pune,Pune,2025,Monsoon,854.8,861.6,-6.8,-0.79,Normal,176.2,248.7,141.1,309.3,234.3,75.8,219.6,176.8,80.5,156.5,195.0,124.6,Maharain Portal
+Pune,Sangli,2025,Monsoon,618.4,514.5,103.9,20.19,Excess,129.0,154.7,119.9,135.5,119.9,88.5,111.4,141.1,126.7,138.6,202.7,146.2,Maharain Portal
+Pune,Satara,2025,Monsoon,804.1,886.2,-82.1,-9.26,Normal,194.1,244.7,126.1,307.2,191.5,62.3,224.8,183.7,81.7,160.1,184.2,115.1,Maharain Portal
+Pune,Solapur,2025,Monsoon,694.6,481.1,213.5,44.38,Excess,102.5,64.9,63.3,94.8,88.9,93.8,107.5,175.0,162.8,176.3,365.8,207.5,Maharain Portal

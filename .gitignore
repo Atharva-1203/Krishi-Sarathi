@@ -1,0 +1,23 @@
+# Python gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints
+.DS_Store
+
+# User configurations
+.agents/
+.gemini/
+scratch/
+
+# Large Datasets
+datasets/raw/
+datasets/processed/soil_health/soil_health_database.csv
+datasets/archive/

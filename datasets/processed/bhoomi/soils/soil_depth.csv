@@ -1,0 +1,8 @@
+depth_class,code,range_cm,description
+Extremely shallow,d1,<10 cm,"Extremely thin soil layer over rock, very poor root space."
+Very shallow,d2,10-25 cm,Highly eroded or stony ridge soils with low water capacity.
+Shallow,d3,25-50 cm,"Moderate restriction to root development, common on plateau spurs."
+Moderately shallow,d4,50-75 cm,"Sufficient for shallow-rooted crops, limited moisture storage."
+Moderately deep,d5,75-100 cm,"Good soil volume, suitable for most seasonal field crops."
+Deep,d6,100-150 cm,Excellent root space and moisture storage capacity.
+Very deep,d7,>150 cm,"Alluvial valley and deep basin clayey soils, highly productive."

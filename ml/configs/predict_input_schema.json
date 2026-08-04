@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "KrishiSarathiPredictInputSchema",
+    "type": "object",
+    "properties": {
+        "N": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 500,
+            "description": "Available Nitrogen (kg/ha)"
+        },
+        "P": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 300,
+            "description": "Available Phosphorus (kg/ha)"
+        },
+        "K": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000,
+            "description": "Available Potassium (kg/ha)"
+        },
+        "pH": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 14,
+            "description": "Soil pH level"
+        },
+        "Temperature": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 60,
+            "description": "Temperature in Celsius"
+        },
+        "Humidity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Relative Humidity percentage"
+        },
+        "Rainfall": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5000,
+            "description": "Cumulative seasonal rainfall (mm)"
+        },
+        "Soil_Color": {
+            "type": "string",
+            "enum": [
+                "Black",
+                "Red",
+                "Dark Brown",
+                "Medium Brown",
+                "Light Brown",
+                "Reddish Brown"
+            ],
+            "description": "Soil color indicator"
+        },
+        "District": {
+            "type": "string",
+            "description": "Standardized district name"
+        }
+    },
+    "required": [
+        "N",
+        "P",
+        "K",
+        "pH",
+        "Temperature",
+        "Humidity",
+        "Rainfall",
+        "Soil_Color",
+        "District"
+    ]
+}

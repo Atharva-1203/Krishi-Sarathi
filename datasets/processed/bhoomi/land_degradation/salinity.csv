@@ -1,0 +1,6 @@
+degradation_type,area_ha,percentage_mh,crop_recommendation_impact
+Exclusively saline soils,174482,0.59,"High osmotic stress. Recommend salt-tolerant crops (e.g. Barley, Cotton, Beetroot)."
+Exclusively sodic soils,248863,0.84,High sodium hazard. Requires Gypsum application. Restrict root growth; recommend tolerant grasses or deep-rooted crops after correction.
+Eroded sodic soils,154638,0.52,Double constraint. Severe soil structural collapse and nutrient loss. Low suitability for field crops.
+Eroded saline soils,5772,0.02,Severe constraint. Osmotic toxicity combined with topsoil erosion.
+Waterlogged area (Permanent),22962,0.08,Anoxic root zones. Highly unsuitable for upland crops; only suits wetland paddy or aquaculture.

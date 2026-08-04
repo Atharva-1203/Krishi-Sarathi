@@ -1,0 +1,7 @@
+Classification,Meaning,Threshold
+Large Excess,Rainfall is extremely above normal,>= 60%
+Excess,Rainfall is moderately above normal,20% to 59%
+Normal,Rainfall is within the expected average range,-19% to +19%
+Deficit,Rainfall is moderately below normal,-59% to -20%
+Large Deficit,Rainfall is extremely below normal,-99% to -60%
+No Rain,No rainfall recorded at all,-100%

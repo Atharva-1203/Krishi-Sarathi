@@ -1,0 +1,6 @@
+texture_class,code,clay_content_range,description
+Clayey,C,>40%,Fine-textured soil with high water holding capacity and slow drainage.
+Gravelly clay-clay,GC-C,35-50% (gravelly),"Clayey matrix mixed with gravel, typical of plateaus."
+Loamy,L,10-25%,Medium-textured soil with balanced water retention and drainage.
+Sandy loam-lomy sand,SL-LS,<15%,"Coarse-textured, highly permeable soil with poor water holding capacity."
+Silty clay-gr. silty clay,SiC-GSiC,30-40%,Silty clay loam or silty clay matrix with high silt content.

@@ -1,0 +1,6 @@
+parameter,range_val,spatial_distribution
+PET (Potential Evapotranspiration),1400-1800 mm,"Highest in central Deccan and Vidarbha, lowest in Western Ghats"
+AET (Actual Evapotranspiration),600-900 mm,Constrained by seasonal soil moisture availability
+Water Deficit,600-1000 mm,Pronounced from February to May in semi-arid zones
+Water Surplus,1000-2000 mm,Confined to the monsoon months (June-Sept) in Western Ghats and Konkan
+Length of Growing Period (LGP),90 - 270 days,"90-120 days in rain-shadow areas, 240-270 days in Konkan and Western Ghats"

@@ -1,0 +1,9 @@
+severity_class,soil_loss_t_ha_yr,area_ha,percentage_mh
+Very Slight,<5,13979517,45.25
+Slight,5-10,6660601,21.56
+Moderate,10-15,2702477,8.75
+Moderately Severe,15-20,1998693,6.47
+Severe,20-40,2335408,7.56
+Very Severe,40-80,1535546,4.97
+Extremely Severe,>80,1679001,5.43
+Others,NA,1024,0.003

@@ -1,0 +1,4 @@
+risk_level,degradation_factors,priority_level
+High Risk,"Steep slopes, high monsoon intensity, shallow soils","Immediate conservation (agro-forestry, contour bunding)"
+Medium Risk,"Undulating terrain, conventional tillage, calcareous soils","Integrated soil management, cover cropping"
+Low Risk,"Level plains, clayey soils, continuous vegetation cover",Standard agronomic practices

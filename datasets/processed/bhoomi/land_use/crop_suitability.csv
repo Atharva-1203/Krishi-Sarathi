@@ -1,0 +1,11 @@
+crop,suitability_class,description
+Rice,S1,"Highly Suitable (Deep clayey/silty soils, high rainfall, coastal or alluvial basin)"
+Rice,S2,"Moderately Suitable (Sufficient soil depth, minor moisture limitation)"
+Rice,S3,Marginally Suitable (Shallow soils or moderate drought stress)
+Rice,N,"Not Suitable (Extremely shallow soils, steep slopes, highly aridity)"
+Cotton,S1,"Highly Suitable (Deep clayey Black soils/Vertisols, moderate moisture)"
+Cotton,S2,"Moderately Suitable (Moderately deep Black soils, slight salinity/drainage issues)"
+Soybean,S1,"Highly Suitable (Medium to deep well-drained soils, moderate rainfall)"
+Sorghum,S1,"Highly Suitable (Black soils, tolerant to moderate moisture deficit)"
+Sugarcane,S1,Highly Suitable (Deep alluvial or valley soils with assured perennial irrigation)
+Grapes,S1,"Highly Suitable (Well-drained gravelly loams, hot dry climate during ripening)"

@@ -1,0 +1,12 @@
+parameter,class,constraint_range,crop_impact
+Sodicity (Sodi_D_T),Slight,ESP: 5-15%,"Minor dispersion, slight permeability reduction"
+Sodicity (Sodi_D_T),Moderate,ESP: 15-25%,"Poor drainage, poor root aeration, restricted to tolerant crops"
+Salinity (Salin_D_T),Slight,EC: 2-4 dS/m,Slight yield reduction for sensitive crops (e.g. pulses)
+Salinity (Salin_D_T),Moderate,EC: 4-8 dS/m,"Restricts growth of moderate crops (Wheat, Rice); requires drainage"
+Salinity (Salin_D_T),Strong,EC: >8 dS/m,"Highly toxic, only halophytic or highly tolerant crops (Cotton, Barley)"
+Calcareousness (Calc_D_T),Slight,CaCO3: 5-10%,"Minor buffer on pH, slight nutrient fixation"
+Calcareousness (Calc_D_T),Moderate,CaCO3: 10-25%,"Fixes Phosphorus and iron, potential lime-induced chlorosis"
+Calcareousness (Calc_D_T),Strong,CaCO3: >25%,"Severe iron chlorosis, Phosphorus deficiency, poor structure"
+Acidity (acid_soils_india),Strongly acidic,pH: <5.0,"Aluminum and manganese toxicity, fixes Phosphorus, restricts Nitrifiers"
+Acidity (acid_soils_india),Moderately acidic,pH: 5.0-5.5,"Reduces availability of Ca, Mg, K; limits legumes"
+Acidity (acid_soils_india),Slightly acidic,pH: 5.5-6.5,"Ideal for many acid-tolerant crops (Paddy, Potato, Tea)"

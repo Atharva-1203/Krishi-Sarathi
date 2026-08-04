@@ -1,0 +1,11 @@
+terrain_class,range_val,topography
+Elevation (SRTM),0 - 150 m,Lowland Coastal Plains (Konkan)
+Elevation (SRTM),150 - 300 m,"Tapi River Valley, Lower Wardha basin"
+Elevation (SRTM),300 - 600 m,Deccan Plateau pediplains (major agricultural zone)
+Elevation (SRTM),600 - 900 m,"Upper plateaus, Balaghat and Mahadeo ridges"
+Elevation (SRTM),>900 m,Western Ghats ridge peaks (Sahyadris)
+Slope Class,0-1%,Level to nearly level valley floors
+Slope Class,1-3%,Very gently sloping alluvial plains
+Slope Class,3-8%,Gently sloping pediplains
+Slope Class,8-15%,Moderately sloping foothill zones
+Slope Class,>15%,Steep escarpments and hill ranges

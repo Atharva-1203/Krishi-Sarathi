@@ -1,0 +1,9 @@
+class,arable,limitations,suitable_crops
+I,Yes,None,All intensive crops
+II,Yes,"Gentle slope, slight erosion, moderate depth","Cotton, Soybean, Wheat, Sorghum"
+III,Yes,"Moderate slope, moderate erosion, shallow depth","Sorghum, Bajra, Pulses, Oilseeds"
+IV,Yes,"Steep slope, severe erosion, very shallow depth","Pasture, forestry, highly drought-resistant minor pulses"
+V,No,"Wetness, stony/rocky surface","Silviculture, grazing pasture"
+VI,No,"Steep slopes, high erosion risk, thin soils","Commercial forestry, watershed protection"
+VII,No,"Severe erosion, extremely stony, steep slope","Recreation, wildlife habitat"
+VIII,No,"Badlands, rock outcrops, extremely steep",None (Preservation only)

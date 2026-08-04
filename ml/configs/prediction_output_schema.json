@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "KrishiSarathiPredictionOutputSchema",
+    "type": "object",
+    "properties": {
+        "predictions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "rank": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 3
+                    },
+                    "crop": {
+                        "type": "string"
+                    },
+                    "confidence_score": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1.0
+                    },
+                    "suggested_season": {
+                        "type": "string"
+                    },
+                    "water_requirement": {
+                        "type": "string",
+                        "enum": [
+                            "Low",
+                            "Medium",
+                            "High"
+                        ]
+                    }
+                },
+                "required": [
+                    "rank",
+                    "crop",
+                    "confidence_score",
+                    "suggested_season",
+                    "water_requirement"
+                ]
+            }
+        },
+        "feature_contributions": {
+            "type": "object",
+            "description": "SHAP local contribution values for inputs"
+        },
+        "explanation": {
+            "type": "string",
+            "description": "Natural language explainable AI justification"
+        },
+        "warnings": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "alternative_crops": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "predictions",
+        "feature_contributions",
+        "explanation",
+        "warnings",
+        "alternative_crops"
+    ]
+}
