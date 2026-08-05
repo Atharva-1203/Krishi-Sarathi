@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --bg-app: #f4f6f4;
+  --bg-card: #ffffff;
+  --bg-hover: #e8f0e8;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --border-color: #d1dbd1;
+  --text-main: #1b2e1b;
+  --text-muted: #4e634e;
+}
+
+:root.dark {
+  --bg-app: #080f08;
+  --bg-card: #0e1a0e;
+  --bg-hover: #142814;
+  --bg-glass: rgba(8, 15, 8, 0.75);
+  --border-color: #1a331a;
+  --text-main: #e2ede2;
+  --text-muted: #8fa08f;
+}
+
+@theme {
+  --animate-float: float 6s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+  }
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--text-main);
+  font-family: Inter, Roboto, Outfit, ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.Sanskrit {
+  font-family: 'Times New Roman', Times, serif;
+}
