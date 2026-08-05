@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Loader2, Sprout, AlertTriangle, RefreshCw } from 'lucide-react';
+import { Loader2, Sprout, AlertTriangle, RefreshCw, History, ArrowRight } from 'lucide-react';
 import { useLanguageStore } from '@/store/language';
 import { TRANSLATIONS } from '@/store/translations';
 import ResultsDisplay from './ResultsDisplay';
@@ -29,8 +29,21 @@ export default function PredictionDashboard() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [errorMsg, setErrorMsg] = useState('');
+  const [historyList, setHistoryList] = useState<any[]>([]);
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  // Load history on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("prediction_history");
+    if (saved) {
+      try {
+        setHistoryList(JSON.parse(saved));
+      } catch {
+        setHistoryList([]);
+      }
+    }
+  }, []);
+
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       District: "Pune",
@@ -60,6 +73,22 @@ export default function PredictionDashboard() {
       }
       const data = await res.json();
       setResult(data);
+
+      // Save to prediction history in localStorage
+      const newHistoryItem = {
+        id: data.prediction_id,
+        timestamp: data.timestamp,
+        district: values.District,
+        top_crop: data.top_recommendations[0].crop,
+        confidence: data.top_recommendations[0].confidence,
+        payload: values,
+        result: data
+      };
+      
+      const updatedHistory = [newHistoryItem, ...historyList.slice(0, 4)];
+      setHistoryList(updatedHistory);
+      localStorage.setItem("prediction_history", JSON.stringify(updatedHistory));
+
     } catch (e: any) {
       setErrorMsg(e.message || "Failed to contact crop prediction server.");
     } finally {
@@ -69,6 +98,15 @@ export default function PredictionDashboard() {
 
   const handleReset = () => {
     setResult(null);
+    setErrorMsg('');
+  };
+
+  const handleLoadHistory = (item: any) => {
+    // Populate form values
+    Object.keys(item.payload).forEach((key) => {
+      setValue(key as any, item.payload[key]);
+    });
+    setResult(item.result);
     setErrorMsg('');
   };
 
@@ -85,154 +123,181 @@ export default function PredictionDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Form Column */}
-        <div className="lg:col-span-5 p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm">
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-            <div className="grid grid-cols-2 gap-4">
-              {/* District */}
-              <div>
-                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1.5">
-                  {t.label_district}
-                </label>
-                <select
-                  {...register("District")}
-                  className="w-full px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
-                >
-                  <option value="Pune">Pune (पुणे)</option>
-                  <option value="Kolhapur">Kolhapur (कोल्हापूर)</option>
-                  <option value="Satara">Satara (सातारा)</option>
-                  <option value="Solapur">Solapur (सोलापूर)</option>
-                  <option value="Sangli">Sangli (सांगली)</option>
-                </select>
-              </div>
-
-              {/* Soil Color */}
-              <div>
-                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1.5">
-                  {t.label_soil_color}
-                </label>
-                <select
-                  {...register("Soil_Color")}
-                  className="w-full px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
-                >
-                  <option value="Black">{t.soil_black}</option>
-                  <option value="Red">{t.soil_red}</option>
-                  <option value="Dark Brown">{t.soil_dark_brown}</option>
-                  <option value="Medium Brown">{t.soil_medium_brown}</option>
-                  <option value="Light Brown">{t.soil_light_brown}</option>
-                  <option value="Reddish Brown">{t.soil_reddish_brown}</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Nutrients N, P, K */}
-            <div className="border-t border-[var(--border-color)] pt-4 flex flex-col gap-3">
-              <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1 block">
-                {language === 'en' ? 'Primary Soil Nutrients (kg/ha)' : 'मृदा पोषकद्रव्ये (किलो/हेक्टर)'}
-              </span>
-              
-              <div className="grid grid-cols-3 gap-3">
-                {/* Nitrogen */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+              <div className="grid grid-cols-2 gap-4">
+                {/* District */}
                 <div>
-                  <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_n}</label>
-                  <input
-                    type="number"
-                    {...register("N", { valueAsNumber: true })}
-                    className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
-                  />
+                  <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1.5">
+                    {t.label_district}
+                  </label>
+                  <select
+                    {...register("District")}
+                    className="w-full px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
+                  >
+                    <option value="Pune">Pune (पुणे)</option>
+                    <option value="Kolhapur">Kolhapur (कोल्हापूर)</option>
+                    <option value="Satara">Satara (सातारा)</option>
+                    <option value="Solapur">Solapur (सोलापूर)</option>
+                    <option value="Sangli">Sangli (सांगली)</option>
+                  </select>
                 </div>
 
-                {/* Phosphorus */}
+                {/* Soil Color */}
                 <div>
-                  <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_p}</label>
-                  <input
-                    type="number"
-                    {...register("P", { valueAsNumber: true })}
-                    className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
-                  />
-                </div>
-
-                {/* Potassium */}
-                <div>
-                  <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_k}</label>
-                  <input
-                    type="number"
-                    {...register("K", { valueAsNumber: true })}
-                    className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
-                  />
+                  <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1.5">
+                    {t.label_soil_color}
+                  </label>
+                  <select
+                    {...register("Soil_Color")}
+                    className="w-full px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
+                  >
+                    <option value="Black">{t.soil_black}</option>
+                    <option value="Red">{t.soil_red}</option>
+                    <option value="Dark Brown">{t.soil_dark_brown}</option>
+                    <option value="Medium Brown">{t.soil_medium_brown}</option>
+                    <option value="Light Brown">{t.soil_light_brown}</option>
+                    <option value="Reddish Brown">{t.soil_reddish_brown}</option>
+                  </select>
                 </div>
               </div>
-            </div>
 
-            {/* pH, Temp, Humidity, Rainfall */}
-            <div className="border-t border-[var(--border-color)] pt-4 flex flex-col gap-4">
-              <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1 block">
-                {language === 'en' ? 'Environmental & Climate Parameters' : 'हवामान व भौगोलिक मर्यादा'}
-              </span>
+              {/* Nutrients N, P, K */}
+              <div className="border-t border-[var(--border-color)] pt-4 flex flex-col gap-3">
+                <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1 block">
+                  {language === 'en' ? 'Primary Soil Nutrients (kg/ha)' : 'मृदा पोषकद्रव्ये (किलो/हेक्टर)'}
+                </span>
+                
+                <div className="grid grid-cols-3 gap-3">
+                  {/* Nitrogen */}
+                  <div>
+                    <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_n}</label>
+                    <input
+                      type="number"
+                      {...register("N", { valueAsNumber: true })}
+                      className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
+                    />
+                  </div>
 
-              {/* pH Range slider */}
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-xs font-bold text-[var(--text-muted)]">{t.label_ph}</label>
-                  <span className="text-xs font-black text-emerald-600 dark:text-emerald-400">
-                    {language === 'en' ? 'Neutral' : 'तटस्थ'}
-                  </span>
+                  {/* Phosphorus */}
+                  <div>
+                    <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_p}</label>
+                    <input
+                      type="number"
+                      {...register("P", { valueAsNumber: true })}
+                      className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
+                    />
+                  </div>
+
+                  {/* Potassium */}
+                  <div>
+                    <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_k}</label>
+                    <input
+                      type="number"
+                      {...register("K", { valueAsNumber: true })}
+                      className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)] focus:outline-none focus:border-emerald-500 transition"
+                    />
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min="3.5"
-                  max="10.0"
-                  step="0.1"
-                  {...register("pH", { valueAsNumber: true })}
-                  className="w-full h-1.5 bg-[var(--border-color)] rounded-lg appearance-none cursor-pointer accent-emerald-600"
-                />
               </div>
 
-              {/* Temperature, Humidity, Rainfall Inputs */}
-              <div className="grid grid-cols-3 gap-3">
+              {/* pH, Temp, Humidity, Rainfall */}
+              <div className="border-t border-[var(--border-color)] pt-4 flex flex-col gap-4">
+                <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-1 block">
+                  {language === 'en' ? 'Environmental & Climate Parameters' : 'हवामान व भौगोलिक मर्यादा'}
+                </span>
+
+                {/* pH Range slider */}
                 <div>
-                  <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_temp}</label>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="text-xs font-bold text-[var(--text-muted)]">{t.label_ph}</label>
+                    <span className="text-xs font-black text-emerald-600 dark:text-emerald-400">
+                      {language === 'en' ? 'Neutral' : 'तटस्थ'}
+                    </span>
+                  </div>
                   <input
-                    type="number"
+                    type="range"
+                    min="3.5"
+                    max="10.0"
                     step="0.1"
-                    {...register("Temperature", { valueAsNumber: true })}
-                    className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)]"
+                    {...register("pH", { valueAsNumber: true })}
+                    className="w-full h-1.5 bg-[var(--border-color)] rounded-lg appearance-none cursor-pointer accent-emerald-600"
                   />
                 </div>
-                <div>
-                  <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_humidity}</label>
-                  <input
-                    type="number"
-                    {...register("Humidity", { valueAsNumber: true })}
-                    className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)]"
-                  />
-                </div>
-                <div>
-                  <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_rainfall}</label>
-                  <input
-                    type="number"
-                    {...register("Rainfall", { valueAsNumber: true })}
-                    className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)]"
-                  />
+
+                {/* Temperature, Humidity, Rainfall Inputs */}
+                <div className="grid grid-cols-3 gap-3">
+                  <div>
+                    <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_temp}</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      {...register("Temperature", { valueAsNumber: true })}
+                      className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)]"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_humidity}</label>
+                    <input
+                      type="number"
+                      {...register("Humidity", { valueAsNumber: true })}
+                      className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)]"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-[var(--text-muted)] block mb-1">{t.label_rainfall}</label>
+                    <input
+                      type="number"
+                      {...register("Rainfall", { valueAsNumber: true })}
+                      className="w-full px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-app)] text-sm text-[var(--text-main)]"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-3.5 rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-md shadow-emerald-500/10 flex items-center justify-center gap-2 cursor-pointer hover:shadow-emerald-500/25 transition disabled:opacity-50"
-            >
-              {loading ? (
-                <>
-                  <Loader2 size={16} className="animate-spin" /> {t.btn_predict_loading}
-                </>
-              ) : (
-                <>
-                  <Sprout size={16} /> {t.btn_predict}
-                </>
-              )}
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3.5 rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-md shadow-emerald-500/10 flex items-center justify-center gap-2 cursor-pointer hover:shadow-emerald-500/25 transition disabled:opacity-50"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" /> {t.btn_predict_loading}
+                  </>
+                ) : (
+                  <>
+                    <Sprout size={16} /> {t.btn_predict}
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+
+          {/* History tracker */}
+          {historyList.length > 0 && (
+            <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm">
+              <h4 className="text-xs font-extrabold text-[var(--text-muted)] uppercase tracking-wider mb-4 flex items-center gap-1.5">
+                <History size={14} className="text-emerald-500" /> {t.history_title}
+              </h4>
+              <div className="flex flex-col gap-2.5">
+                {historyList.map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-app)] text-xs">
+                    <div>
+                      <span className="font-bold text-[var(--text-main)]">{item.top_crop}</span>
+                      <span className="text-[var(--text-muted)] block text-[10px]">{item.district} | {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                    </div>
+                    <button
+                      onClick={() => handleLoadHistory(item)}
+                      className="px-2.5 py-1.5 rounded bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold transition flex items-center gap-1 cursor-pointer"
+                    >
+                      {t.history_load} <ArrowRight size={10} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Results Column */}
@@ -296,7 +361,7 @@ export default function PredictionDashboard() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="w-full h-96 flex flex-col items-center justify-center text-center p-8 border border-dashed border-[var(--border-color)] bg-[var(--bg-card)] rounded-2xl"
+                className="w-full h-96 flex flex-col items-center justify-center text-center p-8 border border-dashed border-[var(--border-color)] bg-[var(--bg-card)] rounded-2xl shadow-sm"
               >
                 <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
                   <Sprout size={24} />

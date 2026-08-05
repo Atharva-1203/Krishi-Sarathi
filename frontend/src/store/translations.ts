@@ -63,6 +63,12 @@ export const TRANSLATIONS = {
     results_shap_title: "SHAP Parametric Impact mapping",
     results_shap_desc: "Feature contributions representing how much each soil constituent drove this recommendation.",
     
+    // Export and History
+    btn_export: "Print Report",
+    history_title: "Recent Predictions History",
+    history_empty: "No predictions run yet.",
+    history_load: "Load Run",
+    
     // Insights / Map
     map_title: "Maharashtra Regional Insights",
     map_subtitle: "Interactive map selector of the Pune Division agricultural databases.",
@@ -152,6 +158,12 @@ export const TRANSLATIONS = {
     results_shap_title: "SHAP मृदा घटक प्रभाव विश्लेषण",
     results_shap_desc: "पिकाच्या शिफारशीत कोणत्या घटकाचे योगदान जास्त होते याचा तक्ता.",
     
+    // Export and History
+    btn_export: "अहवाल मुद्रित करा",
+    history_title: "अलीकडील पीक शिफारसी इतिहास",
+    history_empty: "अद्याप कोणतेही विश्लेषण केलेले नाही.",
+    history_load: "पुन्हा उघडा",
+    
     // Insights / Map
     map_title: "महाराष्ट्र कृषी माहिती केंद्र",
     map_subtitle: "पुणे विभागातील जिल्ह्यांचे भौगोलिक विश्लेषण दर्शवणारा नकाशा.",
@@ -173,7 +185,7 @@ export const TRANSLATIONS = {
     spec_top3: "टॉप-३ अचूकता गुणवत्ता",
     spec_loss: "लॉग लॉस",
     spec_params: "मर्यादा घटक",
-    desc_agro_1: "हे मॉडेल पश्चिम महाराष्ट्रातील (पुणे विभाग) प्रत्यक्ष मृदा कार्डांच्या ७. लाख नोंदींवरून प्रशिक्षित केले गेले आहे.",
+    desc_agro_1: "हे मॉडेल पश्चिम महाराष्ट्रातील (पुणे विभाग) प्रत्यक्ष मृदा कार्डांच्या ७.७ लाख नोंदींवरून प्रशिक्षित केले गेले आहे.",
     desc_agro_2: "मृदा परीक्षणाचे मूल्य टाकल्यावर मॉडेल TreeSHAP तंत्राचा वापर करून घटकांचे मोजमाप करते.",
     desc_agro_3: "यामध्ये पिकांचे वर्गीकरण, आत्मविश्वास गुण, आणि पिकांच्या शिफारशींचे सोपे शास्त्रीय स्पष्टीकरण दिले जाते."
   }

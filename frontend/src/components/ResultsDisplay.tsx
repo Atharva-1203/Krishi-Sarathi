@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLanguageStore } from '@/store/language';
 import { TRANSLATIONS } from '@/store/translations';
-import { Sparkles, Sprout, TrendingUp, Droplet, Calendar } from 'lucide-react';
+import { Sparkles, Sprout, TrendingUp, Droplet, Calendar, Printer } from 'lucide-react';
 
 interface Recommendation {
   crop: string;
@@ -27,7 +27,6 @@ interface ResultsDisplayProps {
   };
 }
 
-// Custom localized translator for natural agricultural reasoning sentences
 export function translateExplanation(crop: string, why: string, lang: 'en' | 'mr'): string {
   if (lang === 'en') return why;
   
@@ -102,6 +101,76 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
     return d.replace("months", "महिने").replace("month", "महिना");
   };
 
+  // Automated window print report generation
+  const handlePrint = () => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
+    
+    const whyMr = translateExplanation(primary.crop, primary.why_recommended, 'mr');
+    
+    const htmlContent = `
+      <html>
+        <head>
+          <title>Krishi Sarathi - Recommendation Report</title>
+          <style>
+            body { font-family: 'Arial', sans-serif; padding: 40px; color: #1b2e1b; background-color: #f4f6f4; }
+            .report-card { border: 2px solid #2e7d32; border-radius: 12px; padding: 30px; background-color: #ffffff; }
+            .header { text-align: center; border-bottom: 2px solid #2e7d32; padding-bottom: 20px; }
+            .title { font-size: 24px; font-weight: bold; color: #2e7d32; }
+            .tagline { font-size: 14px; font-style: italic; color: #4e634e; margin-top: 5px; }
+            .section { margin-top: 25px; }
+            .section-title { font-size: 16px; font-weight: bold; border-bottom: 1px solid #d1dbd1; padding-bottom: 5px; margin-bottom: 10px; }
+            .meta-grid { display: grid; grid-cols-2; gap: 10px; font-size: 14px; }
+            .primary-crop { font-size: 20px; font-weight: bold; color: #1b5e20; }
+            .disclaimer { font-size: 10px; color: #8fa08f; margin-top: 40px; border-top: 1px solid #d1dbd1; padding-top: 10px; }
+          </style>
+        </head>
+        <body>
+          <div class="report-card">
+            <div class="header">
+              <div class="title">KRISHI SARATHI (कृषी सारथी)</div>
+              <div class="tagline">शाश्वत शेती – समृद्ध शेतकरी | ज्ञानसमन्विता कृषिः समृद्धये।</div>
+            </div>
+            
+            <div class="section">
+              <div class="section-title">Prediction Metadata (अहवाल तपशील)</div>
+              <div><b>Report ID:</b> ${result.prediction_id}</div>
+              <div><b>Timestamp:</b> ${new Date(result.timestamp).toLocaleString()}</div>
+              <div><b>ML Model:</b> ExtraTrees Classifier v1.0.0</div>
+            </div>
+            
+            <div class="section">
+              <div class="section-title">Optimal Recommendation (सर्वोत्तम पीक शिफारस)</div>
+              <div class="primary-crop">${primary.crop} (${cropNameMr(primary.crop)})</div>
+              <div><b>Confidence:</b> ${primary.confidence} (${getConfMr(primary.confidence)})</div>
+              <div><b>Match Probability:</b> ${(primary.probability * 100).toFixed(2)}%</div>
+              <div><b>Water Cycle Period:</b> ${primary.growing_duration} (${getDurationMr(primary.growing_duration)})</div>
+            </div>
+            
+            <div class="section">
+              <div class="section-title">English Explanation</div>
+              <div>${primary.why_recommended}</div>
+            </div>
+            
+            <div class="section">
+              <div class="section-title">मराठी स्पष्टीकरण (SHAP)</div>
+              <div>${whyMr}</div>
+            </div>
+            
+            <div class="disclaimer">
+              Disclaimer: This AI crop suitability mapping is based on historical Maharashtra district rainfall and soil health indices. Confirm with local agronomy officers before sowing.
+            </div>
+          </div>
+          <script>
+            window.onload = function() { window.print(); }
+          </script>
+        </body>
+      </html>
+    `;
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+  };
+
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* Primary recommendation card */}
@@ -114,13 +183,21 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
             <Sprout size={26} />
           </div>
-          <div>
+          <div className="flex-1">
             <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider block">
               {t.results_rank}
             </span>
-            <h4 className="text-3xl font-black text-[var(--text-main)] mt-0.5 tracking-tight">
-              {language === 'en' ? primary.crop : cropNameMr(primary.crop)}
-            </h4>
+            <div className="flex items-center justify-between">
+              <h4 className="text-3xl font-black text-[var(--text-main)] mt-0.5 tracking-tight">
+                {language === 'en' ? primary.crop : cropNameMr(primary.crop)}
+              </h4>
+              <button
+                onClick={handlePrint}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold hover:bg-emerald-500/20 transition cursor-pointer"
+              >
+                <Printer size={14} /> {t.btn_export}
+              </button>
+            </div>
           </div>
         </div>
 
