@@ -1,0 +1,326 @@
+{
+  "Ahmednagar": {
+    "district_name": "Ahmednagar",
+    "division": "Nashik",
+    "district_code": "522",
+    "latitude": 19.183779218188402,
+    "longitude": 74.73061563056004,
+    "rainfall_key": "ahmednagar",
+    "soil_key": "ahmednagar"
+  },
+  "Akola": {
+    "district_name": "Akola",
+    "division": "Amravati",
+    "district_code": "501",
+    "latitude": 20.747075380014426,
+    "longitude": 77.09173460634494,
+    "rainfall_key": "akola",
+    "soil_key": "akola"
+  },
+  "Amravati": {
+    "district_name": "Amravati",
+    "division": "Amravati",
+    "district_code": "503",
+    "latitude": 21.165564905859732,
+    "longitude": 77.67304446392224,
+    "rainfall_key": "amravati",
+    "soil_key": "amravati"
+  },
+  "Chhatrapati Sambhajinagar": {
+    "district_name": "Chhatrapati Sambhajinagar",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "515",
+    "latitude": 20.131759748189147,
+    "longitude": 75.36686824056794,
+    "rainfall_key": "chhatrapati_sambhajinagar",
+    "soil_key": "chhatrapati_sambhajinagar"
+  },
+  "Beed": {
+    "district_name": "Beed",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "523",
+    "latitude": 18.971911140931464,
+    "longitude": 75.71983817937266,
+    "rainfall_key": "beed",
+    "soil_key": "beed"
+  },
+  "Buldhana": {
+    "district_name": "Buldhana",
+    "division": "Amravati",
+    "district_code": "500",
+    "latitude": 20.56357865281206,
+    "longitude": 76.40649410950924,
+    "rainfall_key": "buldhana",
+    "soil_key": "buldhana"
+  },
+  "Chandrapur": {
+    "district_name": "Chandrapur",
+    "division": "Nagpur",
+    "district_code": "509",
+    "latitude": 20.07412019656266,
+    "longitude": 79.31418424963475,
+    "rainfall_key": "chandrapur",
+    "soil_key": "chandrapur"
+  },
+  "Dhule": {
+    "district_name": "Dhule",
+    "division": "Nashik",
+    "district_code": "498",
+    "latitude": 21.27326663771489,
+    "longitude": 74.58547850779237,
+    "rainfall_key": "dhule",
+    "soil_key": "dhule"
+  },
+  "Garhchiroli": {
+    "district_name": "Garhchiroli",
+    "division": "Other",
+    "district_code": "508",
+    "latitude": 19.799723936730164,
+    "longitude": 80.30406535404182,
+    "rainfall_key": "garhchiroli",
+    "soil_key": "garhchiroli"
+  },
+  "Gondia": {
+    "district_name": "Gondia",
+    "division": "Nagpur",
+    "district_code": "507",
+    "latitude": 21.217774178902385,
+    "longitude": 80.24849673929336,
+    "rainfall_key": "gondia",
+    "soil_key": "gondia"
+  },
+  "Mumbai Suburban": {
+    "district_name": "Mumbai Suburban",
+    "division": "Konkan",
+    "district_code": "518",
+    "latitude": 19.165868641183113,
+    "longitude": 72.81982149991214,
+    "rainfall_key": "mumbai_suburban",
+    "soil_key": "mumbai_suburban"
+  },
+  "Hingoli": {
+    "district_name": "Hingoli",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "512",
+    "latitude": 19.666551078314143,
+    "longitude": 77.06438736838236,
+    "rainfall_key": "hingoli",
+    "soil_key": "hingoli"
+  },
+  "Jalgaon": {
+    "district_name": "Jalgaon",
+    "division": "Nashik",
+    "district_code": "499",
+    "latitude": 20.881608336831942,
+    "longitude": 75.55351937022466,
+    "rainfall_key": "jalgaon",
+    "soil_key": "jalgaon"
+  },
+  "Jalna": {
+    "district_name": "Jalna",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "514",
+    "latitude": 19.914548911539203,
+    "longitude": 76.00418539876298,
+    "rainfall_key": "jalna",
+    "soil_key": "jalna"
+  },
+  "Kolhapur": {
+    "district_name": "Kolhapur",
+    "division": "Pune",
+    "district_code": "530",
+    "latitude": 16.46538816256762,
+    "longitude": 74.12605786403483,
+    "rainfall_key": "kolhapur",
+    "soil_key": "kolhapur"
+  },
+  "Latur": {
+    "district_name": "Latur",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "524",
+    "latitude": 18.337250205990816,
+    "longitude": 76.76551537652,
+    "rainfall_key": "latur",
+    "soil_key": "latur"
+  },
+  "Nagpur": {
+    "district_name": "Nagpur",
+    "division": "Nagpur",
+    "district_code": "505",
+    "latitude": 21.19127461492595,
+    "longitude": 79.02267777494343,
+    "rainfall_key": "nagpur",
+    "soil_key": "nagpur"
+  },
+  "Nanded": {
+    "district_name": "Nanded",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "511",
+    "latitude": 19.194037881424816,
+    "longitude": 77.67283057681321,
+    "rainfall_key": "nanded",
+    "soil_key": "nanded"
+  },
+  "Nandurbar": {
+    "district_name": "Nandurbar",
+    "division": "Nashik",
+    "district_code": "497",
+    "latitude": 21.518341270837094,
+    "longitude": 74.32038436823133,
+    "rainfall_key": "nandurbar",
+    "soil_key": "nandurbar"
+  },
+  "Nashik": {
+    "district_name": "Nashik",
+    "division": "Nashik",
+    "district_code": "516",
+    "latitude": 20.261570536954228,
+    "longitude": 74.03712478871012,
+    "rainfall_key": "nashik",
+    "soil_key": "nashik"
+  },
+  "Dharashiv": {
+    "district_name": "Dharashiv",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "525",
+    "latitude": 18.19626323566515,
+    "longitude": 75.99986954033085,
+    "rainfall_key": "dharashiv",
+    "soil_key": "dharashiv"
+  },
+  "Parbhani": {
+    "district_name": "Parbhani",
+    "division": "Chhatrapati Sambhajinagar",
+    "district_code": "513",
+    "latitude": 19.272769979244064,
+    "longitude": 76.7106438125959,
+    "rainfall_key": "parbhani",
+    "soil_key": "parbhani"
+  },
+  "Pune": {
+    "district_name": "Pune",
+    "division": "Pune",
+    "district_code": "521",
+    "latitude": 18.51458154506752,
+    "longitude": 74.12892632023335,
+    "rainfall_key": "pune",
+    "soil_key": "pune"
+  },
+  "Raigad": {
+    "district_name": "Raigad",
+    "division": "Konkan",
+    "district_code": "520",
+    "latitude": 18.453372703190052,
+    "longitude": 73.0092002219001,
+    "rainfall_key": "raigad",
+    "soil_key": "raigad"
+  },
+  "Ratnagiri": {
+    "district_name": "Ratnagiri",
+    "division": "Konkan",
+    "district_code": "528",
+    "latitude": 17.210810548661783,
+    "longitude": 73.25677576340355,
+    "rainfall_key": "ratnagiri",
+    "soil_key": "ratnagiri"
+  },
+  "Sangli": {
+    "district_name": "Sangli",
+    "division": "Pune",
+    "district_code": "531",
+    "latitude": 17.15516316566334,
+    "longitude": 74.70007176218041,
+    "rainfall_key": "sangli",
+    "soil_key": "sangli"
+  },
+  "Satara": {
+    "district_name": "Satara",
+    "division": "Pune",
+    "district_code": "527",
+    "latitude": 17.680099470997863,
+    "longitude": 74.17669982071095,
+    "rainfall_key": "satara",
+    "soil_key": "satara"
+  },
+  "Sindhudurg": {
+    "district_name": "Sindhudurg",
+    "division": "Konkan",
+    "district_code": "529",
+    "latitude": 16.17203677407504,
+    "longitude": 73.51176489524855,
+    "rainfall_key": "sindhudurg",
+    "soil_key": "sindhudurg"
+  },
+  "Solapur": {
+    "district_name": "Solapur",
+    "division": "Pune",
+    "district_code": "526",
+    "latitude": 17.846080877346353,
+    "longitude": 75.42648391182591,
+    "rainfall_key": "solapur",
+    "soil_key": "solapur"
+  },
+  "Thane": {
+    "district_name": "Thane",
+    "division": "Konkan",
+    "district_code": "517",
+    "latitude": 19.313264078199154,
+    "longitude": 72.96772802492904,
+    "rainfall_key": "thane",
+    "soil_key": "thane"
+  },
+  "Wardha": {
+    "district_name": "Wardha",
+    "division": "Nagpur",
+    "district_code": "504",
+    "latitude": 20.80784409261232,
+    "longitude": 78.5736712304182,
+    "rainfall_key": "wardha",
+    "soil_key": "wardha"
+  },
+  "Washim": {
+    "district_name": "Washim",
+    "division": "Amravati",
+    "district_code": "502",
+    "latitude": 20.2666010465899,
+    "longitude": 77.23661331983365,
+    "rainfall_key": "washim",
+    "soil_key": "washim"
+  },
+  "Yavatmal": {
+    "district_name": "Yavatmal",
+    "division": "Amravati",
+    "district_code": "510",
+    "latitude": 20.045433307322376,
+    "longitude": 78.05840669512119,
+    "rainfall_key": "yavatmal",
+    "soil_key": "yavatmal"
+  },
+  "Bhandara": {
+    "district_name": "Bhandara",
+    "division": "Nagpur",
+    "district_code": "506",
+    "latitude": 21.09226822070475,
+    "longitude": 79.7943894573773,
+    "rainfall_key": "bhandara",
+    "soil_key": "bhandara"
+  },
+  "Palghar": {
+    "district_name": "Palghar",
+    "division": "Konkan",
+    "district_code": null,
+    "latitude": 19.791014075861384,
+    "longitude": 72.76852572328221,
+    "rainfall_key": "palghar",
+    "soil_key": "palghar"
+  },
+  "Mumbai City": {
+    "district_name": "Mumbai City",
+    "division": "Konkan",
+    "district_code": "519",
+    "latitude": 18.954680543043814,
+    "longitude": 72.82590110030233,
+    "rainfall_key": "mumbai_city",
+    "soil_key": "mumbai_city"
+  }
+}
