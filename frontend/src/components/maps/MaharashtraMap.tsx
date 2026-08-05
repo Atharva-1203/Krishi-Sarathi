@@ -92,33 +92,32 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
   const width = 800;
   const height = 600;
 
-  // Layer coloring logic
+  // Solid, high-contrast layer coloring logic
   const getFillColor = (name: string) => {
     const met = DISTRICT_METRICS[name] || { rainfall: "0 mm", soil: "Clay" };
     const rain = parseInt(met.rainfall);
 
     if (activeLayer === 'rainfall') {
-      if (rain < 600) return 'rgba(59, 130, 246, 0.15)';
-      if (rain < 1200) return 'rgba(59, 130, 246, 0.45)';
-      return 'rgba(59, 130, 246, 0.85)';
+      if (rain < 600) return 'rgba(59, 130, 246, 0.35)'; // Visible light blue
+      if (rain < 1200) return 'rgba(59, 130, 246, 0.65)'; // Mid blue
+      return 'rgba(29, 78, 216, 0.9)'; // Dark blue
     }
 
     if (activeLayer === 'soil_health') {
-      // Simulate health score by rain moisture profiles
-      if (rain < 700) return 'rgba(16, 185, 129, 0.15)';
-      if (rain < 1500) return 'rgba(16, 185, 129, 0.45)';
-      return 'rgba(16, 185, 129, 0.85)';
+      if (rain < 700) return 'rgba(16, 185, 129, 0.3)'; // Light green
+      if (rain < 1500) return 'rgba(16, 185, 129, 0.6)'; // Mid green
+      return 'rgba(4, 120, 87, 0.9)'; // Deep forest green
     }
 
     // soil_type
     const soil = met.soil.toLowerCase();
     if (soil.includes("clay") || soil.includes("black")) {
-      return 'rgba(16, 185, 129, 0.65)';
+      return 'rgba(5, 150, 105, 0.75)'; // Rich emerald/black
     }
     if (soil.includes("sandy") || soil.includes("alluvial")) {
-      return 'rgba(245, 158, 11, 0.55)';
+      return 'rgba(217, 119, 6, 0.75)'; // Warm amber
     }
-    return 'rgba(239, 68, 68, 0.55)';
+    return 'rgba(220, 38, 38, 0.75)'; // Crimson red
   };
 
   const activeHoverData = hovered 
@@ -135,28 +134,28 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
       <SearchDistrict districts={districtsList} onSelect={handleSelectSearch} />
 
       {/* Layer selector tabs */}
-      <div className="absolute top-4 right-4 z-20 flex gap-1 p-1 rounded-lg border border-[var(--border-color)] bg-black/60 backdrop-blur-md">
+      <div className="absolute top-4 right-4 z-20 flex gap-1 p-1 rounded-lg border border-emerald-500/20 bg-slate-900/90 backdrop-blur-md">
         <button
           onClick={() => setActiveLayer('rainfall')}
-          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'rainfall' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-white'}`}
+          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'rainfall' ? 'bg-emerald-500 text-white' : 'text-slate-400 hover:text-white'}`}
         >
           Rainfall
         </button>
         <button
           onClick={() => setActiveLayer('soil_health')}
-          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'soil_health' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-white'}`}
+          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'soil_health' ? 'bg-emerald-500 text-white' : 'text-slate-400 hover:text-white'}`}
         >
           Health
         </button>
         <button
           onClick={() => setActiveLayer('soil_type')}
-          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'soil_type' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-white'}`}
+          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'soil_type' ? 'bg-emerald-500 text-white' : 'text-slate-400 hover:text-white'}`}
         >
           Soil
         </button>
       </div>
 
-      {/* Map Zoom Controllers */}
+      {/* Map Zoom Controls */}
       <ZoomControls onZoomIn={handleZoomIn} onZoomOut={handleZoomOut} onReset={handleReset} />
 
       {/* Floating Tooltips */}
@@ -224,8 +223,11 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
                   onMouseEnter={() => setHovered(feature)}
                   onMouseLeave={() => setHovered(null)}
                   onClick={() => onSelectDistrict(name)}
+                  stroke={isSelected ? '#10b981' : '#1e293b'}
+                  strokeWidth={isSelected ? '2.5' : '1.2'}
+                  strokeOpacity="0.95"
                   style={{ fill: isSelected ? 'rgba(16, 185, 129, 0.45)' : fillVal }}
-                  className={`district-polygon ${isSelected ? 'selected' : ''}`}
+                  className={`district-polygon cursor-pointer transition-colors ${isSelected ? 'selected' : ''}`}
                 />
               );
             })}
