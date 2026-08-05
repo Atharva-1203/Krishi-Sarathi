@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useLanguageStore } from '@/store/language';
+import { TRANSLATIONS } from '@/store/translations';
 import { Sprout, ShieldCheck, Database, Award, ArrowRight } from 'lucide-react';
 
 interface LandingPageProps {
@@ -8,11 +10,14 @@ interface LandingPageProps {
 }
 
 export default function LandingPage({ setTab }: LandingPageProps) {
+  const { language } = useLanguageStore();
+  const t = TRANSLATIONS[language];
+
   const stats = [
-    { label: 'Soil Card Records', value: '779,144', icon: Database },
-    { label: 'F1 Classification Score', value: '99.59%', icon: Award },
-    { label: 'Recommendation Output Crops', value: '16 Classifications', icon: Sprout },
-    { label: 'Coordinate Accuracy Check', value: '100% Validated', icon: ShieldCheck }
+    { label: t.stats_soil, value: '779,144', icon: Database },
+    { label: t.stats_f1, value: '99.59%', icon: Award },
+    { label: t.stats_crops, value: language === 'en' ? '16 Classifications' : '१६ वर्गीकरण पिके', icon: Sprout },
+    { label: t.stats_valid, value: language === 'en' ? '100% Validated' : '१००% सत्यापित', icon: ShieldCheck }
   ];
 
   return (
@@ -25,18 +30,18 @@ export default function LandingPage({ setTab }: LandingPageProps) {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold"
         >
-          <Sprout size={14} /> Production Crop Recommendation AI Platform
+          <Sprout size={14} /> {t.hero_badge}
         </motion.div>
         
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[var(--text-main)] max-w-4xl"
+          className="text-4xl sm:text-6xl font-extrabold tracking-tight text-[var(--text-main)] max-w-4xl leading-tight"
         >
-          Predict Optimal Crops. <br />
+          {t.hero_title_1} <br />
           <span className="bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">
-            Empower Sustainable Farming.
+            {t.hero_title_2}
           </span>
         </motion.h1>
 
@@ -46,7 +51,7 @@ export default function LandingPage({ setTab }: LandingPageProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg text-[var(--text-muted)] max-w-2xl mt-2"
         >
-          Krishi Sarathi utilizes tree-based machine learning ensembles and over 770,000 Soil Health Cards to deliver real-time, explainable crop suitability analytics for Western Maharashtra.
+          {t.hero_desc}
         </motion.p>
 
         <motion.button
@@ -55,7 +60,7 @@ export default function LandingPage({ setTab }: LandingPageProps) {
           whileTap={{ scale: 0.98 }}
           className="mt-6 px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-lg shadow-emerald-500/20 flex items-center gap-2 cursor-pointer hover:shadow-emerald-500/35 transition-all duration-300"
         >
-          Start Crop Analysis <ArrowRight size={18} />
+          {t.hero_cta} <ArrowRight size={18} />
         </motion.button>
       </section>
 
@@ -75,7 +80,7 @@ export default function LandingPage({ setTab }: LandingPageProps) {
                 <Icon size={20} />
               </div>
               <div>
-                <h3 className="text-[11px] font-bold text-[var(--text-muted)] tracking-wider uppercase">
+                <h3 className="text-[10px] font-bold text-[var(--text-muted)] tracking-wider uppercase">
                   {st.label}
                 </h3>
                 <p className="text-2xl font-black text-[var(--text-main)] mt-1">
@@ -91,25 +96,25 @@ export default function LandingPage({ setTab }: LandingPageProps) {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-[var(--border-color)] pt-12">
         <div className="flex flex-col gap-4 justify-center">
           <h2 className="text-2xl font-bold text-[var(--text-main)]">
-            State-of-the-Art Explainable AI (XAI)
+            {t.tech_title}
           </h2>
           <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-            By integrating tree-based SHAP values, Krishi Sarathi maps the local feature contributions of nitrogen, phosphorus, soil pH, and cumulative rainfall. Farmers receive clear, transparent, and actionable reasoning behind why each crop is recommended.
+            {t.tech_desc}
           </p>
           <div className="flex items-center gap-2.5 text-xs text-emerald-600 dark:text-emerald-400 font-bold">
-            <Sprout size={16} /> Calibrated confidence scores mapped to 5 suitability bands.
+            <Sprout size={16} /> {t.tech_tag}
           </div>
         </div>
         <div className="p-8 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-3 justify-center shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
-          <h4 className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">
-            Sanskrit Tagline
+          <h4 className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">
+            {language === 'en' ? 'Sanskrit Tagline' : 'संस्कृत घोषवाक्य'}
           </h4>
           <blockquote className="text-2xl font-serif text-[var(--text-main)] font-bold italic Sanskrit leading-relaxed">
             "ज्ञानसमन्विता कृषिः समृद्धये।"
           </blockquote>
           <p className="text-[var(--text-muted)] text-xs">
-            Translates to: <i>"Knowledge-integrated agriculture leads to prosperity."</i>
+            {t.sanskrit_translation}
           </p>
         </div>
       </section>

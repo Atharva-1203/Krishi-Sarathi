@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguageStore } from '@/store/language';
+import { TRANSLATIONS } from '@/store/translations';
 import { Home, Sprout, Map, BarChart3, ChevronRight } from 'lucide-react';
 
 interface SidebarProps {
@@ -8,18 +10,21 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ currentTab, setTab }: SidebarProps) {
+  const { language } = useLanguageStore();
+  const t = TRANSLATIONS[language];
+
   const menuItems = [
-    { id: 'landing', label: 'Home', icon: Home },
-    { id: 'dashboard', label: 'Analysis Engine', icon: Sprout },
-    { id: 'insights', label: 'Maharashtra Map', icon: Map },
-    { id: 'analytics', label: 'ML Analytics', icon: BarChart3 }
+    { id: 'landing', label: t.nav_home, icon: Home },
+    { id: 'dashboard', label: t.nav_analysis, icon: Sprout },
+    { id: 'insights', label: t.nav_map, icon: Map },
+    { id: 'analytics', label: t.nav_specs, icon: BarChart3 }
   ];
 
   return (
     <aside className="w-64 border-r border-[var(--border-color)] bg-[var(--bg-card)] p-4 flex flex-col justify-between hidden md:flex transition-colors duration-300">
       <div className="flex flex-col gap-6">
         <div className="text-[11px] font-bold text-[var(--text-muted)] tracking-widest uppercase pl-3">
-          Navigation
+          {language === 'en' ? 'Navigation' : 'मुख्य नेव्हिगेशन'}
         </div>
         <nav className="flex flex-col gap-1.5">
           {menuItems.map((item) => {
@@ -48,7 +53,7 @@ export default function Sidebar({ currentTab, setTab }: SidebarProps) {
 
       <div className="p-3 rounded-xl border border-dashed border-emerald-500/20 bg-emerald-500/5 text-center">
         <div className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-          Motto
+          {language === 'en' ? 'Motto' : 'ध्येय वाक्य'}
         </div>
         <div className="text-xs font-bold text-[var(--text-main)] tracking-wide mt-1">
           शाश्वत शेती – समृद्ध शेतकरी

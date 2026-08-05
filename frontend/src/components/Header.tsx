@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useThemeStore } from '@/store/theme';
-import { Sun, Moon, Sprout, Clock } from 'lucide-react';
+import { useLanguageStore } from '@/store/language';
+import { TRANSLATIONS } from '@/store/translations';
+import { Sun, Moon, Sprout, Clock, Globe } from 'lucide-react';
 
 interface HeaderProps {
   currentTab: string;
@@ -11,8 +13,12 @@ interface HeaderProps {
 
 export default function Header({ currentTab, setTab }: HeaderProps) {
   const { theme, toggleTheme } = useThemeStore();
+  const { language, setLanguage } = useLanguageStore();
   const [timeStr, setTimeStr] = useState('');
   const [dateStr, setDateStr] = useState('');
+  const [apiOnline, setApiOnline] = useState<boolean | null>(null);
+  
+  const t = TRANSLATIONS[language];
 
   useEffect(() => {
     const updateTime = () => {
@@ -22,6 +28,21 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Ping existing FastAPI backend on port 8000
+  useEffect(() => {
+    const checkApi = async () => {
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/v1/health");
+        setApiOnline(res.ok);
+      } catch {
+        setApiOnline(false);
+      }
+    };
+    checkApi();
+    const interval = setInterval(checkApi, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -42,12 +63,40 @@ export default function Header({ currentTab, setTab }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-6">
+        {/* API Status badge */}
+        <div className="hidden sm:flex items-center gap-1.5 text-xs text-[var(--text-muted)]">
+          <span>{t.api_status}:</span>
+          {apiOnline === null ? (
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping" />
+          ) : apiOnline ? (
+            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> {t.api_online}
+            </span>
+          ) : (
+            <span className="flex items-center gap-1 text-rose-500 font-semibold">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500" /> {t.api_offline}
+            </span>
+          )}
+        </div>
+
         {/* Live Clock */}
-        <div className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-card)] text-xs text-[var(--text-muted)] font-medium">
+        <div className="hidden lg:flex items-center gap-2.5 px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-card)] text-xs text-[var(--text-muted)] font-medium">
           <Clock size={14} className="text-emerald-500" />
           <span>{dateStr}</span>
           <span className="text-[var(--text-main)] font-semibold border-l border-[var(--border-color)] pl-2.5">{timeStr}</span>
-          <span className="text-[10px] text-emerald-600 bg-emerald-500/10 px-1 rounded">IST</span>
+        </div>
+
+        {/* Language selector */}
+        <div className="flex items-center gap-1 border border-[var(--border-color)] bg-[var(--bg-card)] rounded-lg px-2 py-1.5">
+          <Globe size={14} className="text-emerald-500" />
+          <select
+            value={language}
+            onChange={(e) => setLanguage(e.target.value as 'en' | 'mr')}
+            className="bg-transparent text-xs text-[var(--text-main)] font-bold focus:outline-none cursor-pointer"
+          >
+            <option value="en">English</option>
+            <option value="mr">मराठी</option>
+          </select>
         </div>
 
         {/* Theme Toggle */}
