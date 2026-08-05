@@ -1,3 +1,13 @@
+import os
+import sys
+
+# Dynamically inject repository root into python search path
+_current_dir = os.path.dirname(os.path.abspath(__file__)) # .../backend/app
+_backend_dir = os.path.dirname(_current_dir)             # .../backend
+_repo_root = os.path.dirname(_backend_dir)                # repo root
+if _repo_root not in sys.path:
+    sys.path.insert(0, _repo_root)
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.core.config import settings
