@@ -1,11 +1,10 @@
-# Krishi Sarathi - Frontend Audit Report
+# Frontend UX/UI Audit - Krishi Sarathi
 
-This report audits the code validation, lints, typings, and responsiveness checks.
+This audit outlines issues in the current user interface and interactions.
 
-## 1. Audit Checklists
-
-- [x] **All pages remain responsive**: Tested layout layouts on desktop, tablet, and mobile grids.
-- [x] **Bilingual localization functional**: Instant English/Marathi toggling across landing, forms, results, and maps.
-- [x] **Theme synchronization working**: Light/Dark theme selectors toggle instantly with zero screen flickers.
-- [x] **No console warnings / Hydration errors**: Verified client-side rendering on Next.js 16/15 servers.
-- [x] **No TypeScript errors**: Production static pages build cleanly (`npm run build` returned exit code 0).
+| Issue | Severity | Location | Suggested Fix |
+|-------|----------|----------|---------------|
+| Hardcoded Pune selection | High | `PredictionDashboard.tsx` | Replace default value with `""` (No District Selected) |
+| Hardcoded Pune map focus | High | `MaharashtraMap.tsx` | Reset map state to neutral on mount, prompting explicit selection |
+| Non-functional map controls | Medium | `ZoomControls.tsx` | Remove empty or non-functional placeholder button triggers |
+| Direct SHAP math labels | Low | `ResultsDisplay.tsx` | Replace with reader-friendly "AI Feature Influence" progress bars |

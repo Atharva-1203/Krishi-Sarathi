@@ -101,7 +101,7 @@ export default function PredictionDashboard() {
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      District: "Pune",
+      District: "",
       Soil_Color: "Black",
       N: 80,
       P: 50,
@@ -218,7 +218,7 @@ export default function PredictionDashboard() {
   const activeDistrictName = DISTRICTS.find(d => d.name === selectedDistrict);
   const displayDistrictLabel = activeDistrictName 
     ? `${activeDistrictName.name} - ${activeDistrictName.nameMr}`
-    : selectedDistrict;
+    : (language === 'en' ? 'Select a District' : 'जिल्हा निवडा');
 
   const filteredHistory = historyList.filter(h => 
     h.top_crop.toLowerCase().includes(historySearch.toLowerCase()) ||

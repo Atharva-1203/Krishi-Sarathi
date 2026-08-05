@@ -5,6 +5,7 @@ import DistrictTooltip from './DistrictTooltip';
 import ZoomControls from './ZoomControls';
 import SearchDistrict from './SearchDistrict';
 import MapLegend from './MapLegend';
+import { DISTRICT_METRICS } from './DistrictPanel';
 
 interface Feature {
   type: string;
@@ -32,6 +33,9 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  
+  // Layer Selector: 'rainfall' | 'soil_health' | 'soil_type'
+  const [activeLayer, setActiveLayer] = useState('rainfall');
   
   const mapRef = useRef<HTMLDivElement>(null);
 
@@ -68,21 +72,18 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
 
   const handleSelectSearch = (d: string) => {
     onSelectDistrict(d);
-    // Find the feature centroid to center/offset
     const feat = features.find(f => f.properties.district_name === d);
     if (feat) {
-      // Shift map offset toward centroids relative to central boundaries
       const lon = feat.properties.longitude;
       const lat = feat.properties.latitude;
-      // Bounding box: lon [72.6, 80.9], lat [15.6, 22.0]
-      const targetX = ((lon - 76.7) * 20); // Scale multipliers
+      const targetX = ((lon - 76.7) * 20);
       const targetY = -((lat - 18.8) * 20);
       setOffset({ x: targetX, y: targetY });
       setZoom(1.5);
     }
   };
 
-  // Maharashtra Coordinates bounding boxes for WGS84 equirectangular projection
+  // Coordinates bounding boxes
   const minX = 72.6;
   const maxX = 80.9;
   const minY = 15.6;
@@ -91,15 +92,38 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
   const width = 800;
   const height = 600;
 
-  const projectCoords = (coords: any): string => {
-    const pts: string[] = [];
-    coords.forEach((pt: number[]) => {
-      const x = ((pt[0] - minX) / (maxX - minX)) * width;
-      const y = height - ((pt[1] - minY) / (maxY - minY)) * height;
-      pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
-    });
-    return "M" + pts.join("L") + "Z";
+  // Layer coloring logic
+  const getFillColor = (name: string) => {
+    const met = DISTRICT_METRICS[name] || { rainfall: "0 mm", soil: "Clay" };
+    const rain = parseInt(met.rainfall);
+
+    if (activeLayer === 'rainfall') {
+      if (rain < 600) return 'rgba(59, 130, 246, 0.15)';
+      if (rain < 1200) return 'rgba(59, 130, 246, 0.45)';
+      return 'rgba(59, 130, 246, 0.85)';
+    }
+
+    if (activeLayer === 'soil_health') {
+      // Simulate health score by rain moisture profiles
+      if (rain < 700) return 'rgba(16, 185, 129, 0.15)';
+      if (rain < 1500) return 'rgba(16, 185, 129, 0.45)';
+      return 'rgba(16, 185, 129, 0.85)';
+    }
+
+    // soil_type
+    const soil = met.soil.toLowerCase();
+    if (soil.includes("clay") || soil.includes("black")) {
+      return 'rgba(16, 185, 129, 0.65)';
+    }
+    if (soil.includes("sandy") || soil.includes("alluvial")) {
+      return 'rgba(245, 158, 11, 0.55)';
+    }
+    return 'rgba(239, 68, 68, 0.55)';
   };
+
+  const activeHoverData = hovered 
+    ? DISTRICT_METRICS[hovered.properties.district_name] || { rainfall: "N/A", soil: "N/A" }
+    : { rainfall: "N/A", soil: "N/A" };
 
   return (
     <div
@@ -110,6 +134,28 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
       {/* Autocomplete District search */}
       <SearchDistrict districts={districtsList} onSelect={handleSelectSearch} />
 
+      {/* Layer selector tabs */}
+      <div className="absolute top-4 right-4 z-20 flex gap-1 p-1 rounded-lg border border-[var(--border-color)] bg-black/60 backdrop-blur-md">
+        <button
+          onClick={() => setActiveLayer('rainfall')}
+          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'rainfall' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-white'}`}
+        >
+          Rainfall
+        </button>
+        <button
+          onClick={() => setActiveLayer('soil_health')}
+          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'soil_health' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-white'}`}
+        >
+          Health
+        </button>
+        <button
+          onClick={() => setActiveLayer('soil_type')}
+          className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded transition cursor-pointer ${activeLayer === 'soil_type' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-white'}`}
+        >
+          Soil
+        </button>
+      </div>
+
       {/* Map Zoom Controllers */}
       <ZoomControls onZoomIn={handleZoomIn} onZoomOut={handleZoomOut} onReset={handleReset} />
 
@@ -117,6 +163,8 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
       <DistrictTooltip
         district={hovered ? hovered.properties.district_name : ''}
         division={hovered ? hovered.properties.division : ''}
+        rainfall={activeHoverData.rainfall}
+        soil={activeHoverData.soil}
         x={mousePos.x}
         y={mousePos.y}
         visible={hovered !== null}
@@ -166,6 +214,7 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
 
               const combinedD = paths.join(" ");
               const isSelected = selectedDistrict === name;
+              const fillVal = getFillColor(name);
 
               return (
                 <path
@@ -175,6 +224,7 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
                   onMouseEnter={() => setHovered(feature)}
                   onMouseLeave={() => setHovered(null)}
                   onClick={() => onSelectDistrict(name)}
+                  style={{ fill: isSelected ? 'rgba(16, 185, 129, 0.45)' : fillVal }}
                   className={`district-polygon ${isSelected ? 'selected' : ''}`}
                 />
               );
@@ -184,7 +234,7 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
       </div>
 
       <div className="absolute bottom-4 left-4 z-20">
-        <MapLegend />
+        <MapLegend activeLayer={activeLayer} />
       </div>
     </div>
   );

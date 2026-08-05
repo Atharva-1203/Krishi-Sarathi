@@ -2,7 +2,7 @@
 
 import { useLanguageStore } from '@/store/language';
 import { TRANSLATIONS } from '@/store/translations';
-import { CloudRain, Droplet, Sprout, Info } from 'lucide-react';
+import { CloudRain, Droplet, Sprout, Info, Award } from 'lucide-react';
 
 interface DistrictPanelProps {
   districtData: {
@@ -15,8 +15,7 @@ interface DistrictPanelProps {
   } | null;
 }
 
-// Predefined detailed GIS metrics for all 36 districts
-const METRICS: Record<string, any> = {
+export const DISTRICT_METRICS: Record<string, any> = {
   "Pune": { rainfall: "980 mm", soil: "Medium Brown Clay", crops: ["Sugarcane", "Wheat", "Jowar", "Onion"] },
   "Satara": { rainfall: "1050 mm", soil: "Black Cotton Soil", crops: ["Sugarcane", "Ginger", "Gram"] },
   "Kolhapur": { rainfall: "1890 mm", soil: "Laterite Red Clay", crops: ["Sugarcane", "Rice", "Turmeric"] },
@@ -67,7 +66,7 @@ export default function DistrictPanel({ districtData }: DistrictPanelProps) {
     );
   }
 
-  const met = METRICS[districtData.district_name] || { rainfall: "N/A", soil: "N/A", crops: [] };
+  const met = DISTRICT_METRICS[districtData.district_name] || { rainfall: "N/A", soil: "N/A", crops: [] };
 
   return (
     <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-5">
