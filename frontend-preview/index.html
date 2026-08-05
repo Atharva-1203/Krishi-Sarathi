@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <title>Krishi Sarathi Preview</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="lang-en">
+  <header>
+    <a href="index.html" class="logo-section">
+      <div class="logo-icon">KS</div>
+      <div class="logo-text">
+        <h1>Krishi Sarathi</h1>
+        <p>ज्ञानसमन्विता कृषिः समृद्धये।</p>
+      </div>
+    </a>
+    <div class="header-controls">
+      <div style="font-size:12px; color:var(--text-muted);">
+        <span id="header-date"></span> | <span id="header-time" style="font-weight:bold; color:var(--text-main);"></span>
+      </div>
+      <select id="lang-select-box" class="lang-select">
+        <option value="en">English</option>
+        <option value="mr">मराठी</option>
+      </select>
+      <button id="theme-toggle-btn" class="btn-toggle">🌓</button>
+    </div>
+  </header>
+
+  <div class="layout-shell">
+    <aside>
+      <div class="nav-links">
+        <a href="index.html" class="nav-item active">
+          <span class="lang-en">Home</span><span class="lang-mr">मुख्य पृष्ठ</span>
+        </a>
+        <a href="prediction.html" class="nav-item">
+          <span class="lang-en">Predictor</span><span class="lang-mr">मृदा विश्लेषण</span>
+        </a>
+        <a href="insights.html" class="nav-item">
+          <span class="lang-en">Insights Map</span><span class="lang-mr">महाराष्ट्र नकाशा</span>
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <span class="lang-en">ML Specifications</span><span class="lang-mr">तांत्रिक विश्लेषण</span>
+        </a>
+        <a href="about.html" class="nav-item">
+          <span class="lang-en">About</span><span class="lang-mr">माहिती</span>
+        </a>
+        <a href="settings.html" class="nav-item">
+          <span class="lang-en">Settings</span><span class="lang-mr">सेटिंग्ज</span>
+        </a>
+      </div>
+      
+      <div class="aside-motto">
+        <h5>ध्येय वाक्य</h5>
+        <p>शाश्वत शेती – समृद्ध शेतकरी</p>
+        <span>Sustainable Farming – Prosperous Farmer</span>
+      </div>
+    </aside>
+
+    <main>
+      <div class="card" style="text-align:center; padding: 48px;">
+        <h2 style="font-size:36px; margin: 0 0 16px 0;" class="lang-en">Predict Optimal Crops. Empower Farming.</h2>
+        <h2 style="font-size:36px; margin: 0 0 16px 0;" class="lang-mr">अचूक पीक निवडा. समृद्ध शेतीचा पाया.</h2>
+        
+        <p style="color:var(--text-muted); max-width:600px; margin:0 auto 24px auto;" class="lang-en">
+          Krishi Sarathi utilizes tree-based machine learning ensembles and over 770,000 Soil Health Cards to deliver real-time, explainable crop suitability analytics.
+        </p>
+        <p style="color:var(--text-muted); max-width:600px; margin:0 auto 24px auto;" class="lang-mr">
+          कृषी सारथी हे मशीन लर्निंग अल्गोरिदम आणि ७,७०,००० पेक्षा जास्त मृदा आरोग्य कार्डांचा वापर करून पश्चिम महाराष्ट्रातील शेतकऱ्यांसाठी रिअल-टाइम पीक शिफारसी प्रदान करते.
+        </p>
+
+        <a href="prediction.html" class="btn-primary" style="display:inline-block; text-decoration:none; max-width:200px;">
+          <span class="lang-en">Start Analysis</span><span class="lang-mr">विश्लेषण सुरू करा</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

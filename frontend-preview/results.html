@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <title>Results - Krishi Sarathi Preview</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="lang-en">
+  <header>
+    <a href="index.html" class="logo-section">
+      <div class="logo-icon">KS</div>
+      <div class="logo-text">
+        <h1>Krishi Sarathi</h1>
+        <p>ज्ञानसमन्विता कृषिः समृद्धये।</p>
+      </div>
+    </a>
+    <div class="header-controls">
+      <div style="font-size:12px; color:var(--text-muted);">
+        <span id="header-date"></span> | <span id="header-time" style="font-weight:bold; color:var(--text-main);"></span>
+      </div>
+      <select id="lang-select-box" class="lang-select">
+        <option value="en">English</option>
+        <option value="mr">मराठी</option>
+      </select>
+      <button id="theme-toggle-btn" class="btn-toggle">🌓</button>
+    </div>
+  </header>
+
+  <div class="layout-shell">
+    <aside>
+      <div class="nav-links">
+        <a href="index.html" class="nav-item">
+          <span class="lang-en">Home</span><span class="lang-mr">मुख्य पृष्ठ</span>
+        </a>
+        <a href="prediction.html" class="nav-item active">
+          <span class="lang-en">Predictor</span><span class="lang-mr">मृदा विश्लेषण</span>
+        </a>
+        <a href="insights.html" class="nav-item">
+          <span class="lang-en">Insights Map</span><span class="lang-mr">महाराष्ट्र नकाशा</span>
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <span class="lang-en">ML Specifications</span><span class="lang-mr">तांत्रिक विश्लेषण</span>
+        </a>
+        <a href="about.html" class="nav-item">
+          <span class="lang-en">About</span><span class="lang-mr">माहिती</span>
+        </a>
+        <a href="settings.html" class="nav-item">
+          <span class="lang-en">Settings</span><span class="lang-mr">सेटिंग्ज</span>
+        </a>
+      </div>
+      
+      <div class="aside-motto">
+        <h5>ध्येय वाक्य</h5>
+        <p>शाश्वत शेती – समृद्ध शेतकरी</p>
+        <span>Sustainable Farming – Prosperous Farmer</span>
+      </div>
+    </aside>
+
+    <main>
+      <div class="card" style="border:1px solid #10b981; background:rgba(16,185,129,0.02);">
+        <span style="font-size:10px; color:#10b981; font-weight:bold; text-transform:uppercase;">Primary Crop</span>
+        <h2 style="font-size:36px; margin: 5px 0 15px 0;">Soyabean (सोयाबीन)</h2>
+        
+        <div class="grid-cols-4" style="border-top:1px solid var(--border-color); padding-top:15px;">
+          <div>
+            <span style="font-size:10px; color:var(--text-muted); text-transform:uppercase;">Confidence</span>
+            <div style="font-weight:bold; font-size:14px; margin-top:2px;">Very High (खूप जास्त)</div>
+          </div>
+          <div>
+            <span style="font-size:10px; color:var(--text-muted); text-transform:uppercase;">Match Score</span>
+            <div style="font-weight:bold; font-size:14px; margin-top:2px;">98%</div>
+          </div>
+          <div>
+            <span style="font-size:10px; color:var(--text-muted); text-transform:uppercase;">Water Need</span>
+            <div style="font-weight:bold; font-size:14px; margin-top:2px;">Medium (मध्यम)</div>
+          </div>
+          <div>
+            <span style="font-size:10px; color:var(--text-muted); text-transform:uppercase;">Duration</span>
+            <div style="font-weight:bold; font-size:14px; margin-top:2px;">4 months (४ महिने)</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px; padding:15px; border-radius:8px; background:rgba(16,185,129,0.05); font-size:13px; font-weight:500;">
+          <span class="lang-en"><b>Why Recommended:</b> Rainfall and soil pH are optimal, matching soyabean requirements.</span>
+          <span class="lang-mr"><b>शिफारस कारण:</b> पर्जन्यमान व जमिनीचा pH सोयाबीन लागवडीस अनुकूल असल्यामुळे ही शिफारस करण्यात आली आहे.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 style="margin:0 0 12px 0;" class="lang-en">SHAP Parameter Impact Graph</h4>
+        <h4 style="margin:0 0 12px 0;" class="lang-mr">SHAP मृदा घटक प्रभाव विश्लेषण</h4>
+        
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <div style="display:flex; justify-content:between; font-size:12px; margin-bottom:2px;">
+              <span>Rainfall</span><span>+0.2851</span>
+            </div>
+            <div style="height:6px; background:var(--border-color); border-radius:4px; overflow:hidden;">
+              <div style="height:100%; width:85%; background:#10b981;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:between; font-size:12px; margin-bottom:2px;">
+              <span>Soil pH</span><span>+0.1982</span>
+            </div>
+            <div style="height:6px; background:var(--border-color); border-radius:4px; overflow:hidden;">
+              <div style="height:100%; width:60%; background:#10b981;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
