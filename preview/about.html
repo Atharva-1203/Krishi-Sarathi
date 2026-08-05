@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Card - Krishi Sarathi</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <h1 data-i18n="title">KRISHI SARATHI</h1>
+      <span data-i18n="subtitle">An Explainable AI Agricultural Decision Support Platform</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="consultation.html">Analysis</a>
+      <a href="about.html">About AI</a>
+      <a href="data.html">Data Sources</a>
+      <button class="primary-btn" onclick="toggleLanguage()">Language</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="glass-card">
+      <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 1.5rem;">ExtraTrees Production Model Card</h2>
+      
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            <th style="padding: 0.75rem 0;">Metric Parameter</th>
+            <th style="padding: 0.75rem 0;">Measured Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.75rem 0; color: var(--text-muted);">Ensemble Classifiers</td>
+            <td style="padding: 0.75rem 0; font-weight: bold; font-family: monospace;">ExtraTreesClassifier</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.75rem 0; color: var(--text-muted);">Training Samples</td>
+            <td style="padding: 0.75rem 0; font-weight: bold; font-family: monospace;">4,513 crop profiles</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.75rem 0; color: var(--text-muted);">Prediction Latency</td>
+            <td style="padding: 0.75rem 0; font-weight: bold; font-family: monospace;">7 ms</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.75rem 0; color: var(--text-muted);">Validation Score (Macro F1)</td>
+            <td style="padding: 0.75rem 0; font-weight: bold; font-family: monospace; color: var(--accent-emerald);">99.59%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.75rem 0; color: var(--text-muted);">Local Explainability Engine</td>
+            <td style="padding: 0.75rem 0; font-weight: bold; font-family: monospace;">TreeSHAP algorithm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

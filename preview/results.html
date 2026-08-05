@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Recommendations - Krishi Sarathi</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <h1 data-i18n="title">KRISHI SARATHI</h1>
+      <span data-i18n="subtitle">An Explainable AI Agricultural Decision Support Platform</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="consultation.html">Analysis</a>
+      <a href="about.html">About AI</a>
+      <a href="data.html">Data Sources</a>
+      <button class="primary-btn" onclick="toggleLanguage()">Language</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Digital Farmer Twin Card -->
+    <div class="glass-card" style="border: 2px solid var(--accent-emerald); background: rgba(16,185,129,0.02);">
+      <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: bold; letter-spacing: 0.1em;">FARMER DIGITAL TWIN PROFILE</span>
+          <h2 style="font-size: 2.25rem; font-weight: 900;">SOYBEAN RECOMMENDED</h2>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 1.5rem; font-weight: 900; color: var(--accent-emerald);">96% Match</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">AI Confidence: VERY HIGH</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="background: rgba(0,0,0,0.15); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+          <span style="font-size: 0.65rem; color: var(--text-muted); display: block; text-transform: uppercase;">Location</span>
+          <span style="font-weight: bold;">Pune District</span>
+        </div>
+        <div style="background: rgba(0,0,0,0.15); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+          <span style="font-size: 0.65rem; color: var(--text-muted); display: block; text-transform: uppercase;">Soil Health Status</span>
+          <span style="font-weight: bold; color: var(--accent-emerald);">Ready for Sowing</span>
+        </div>
+        <div style="background: rgba(0,0,0,0.15); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+          <span style="font-size: 0.65rem; color: var(--text-muted); display: block; text-transform: uppercase;">Growing Season</span>
+          <span style="font-weight: bold;">Kharif</span>
+        </div>
+        <div style="background: rgba(0,0,0,0.15); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+          <span style="font-size: 0.65rem; color: var(--text-muted); display: block; text-transform: uppercase;">Water Need</span>
+          <span style="font-weight: bold;">Medium (950mm)</span>
+        </div>
+      </div>
+
+      <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        <strong>Agronomic Rationale:</strong> Soybean is highly recommended because the soil pH (6.5) falls inside the neutral range, nitrogen levels are sufficient, and Pune's historical rainfall patterns perfectly support vegetative leaf development.
+      </p>
+
+      <button class="primary-btn" onclick="window.print()">Download printable PDF report</button>
+    </div>
+
+    <!-- Why Not Cards -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div class="glass-card" style="border-left: 4px solid var(--accent-harvest);">
+        <h4 style="color: var(--accent-harvest); margin-bottom: 1rem;">RICE (Fallback Choice - 72%)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Recommended as a secondary crop. Requires slightly higher nitrogen application to achieve optimal yield.
+        </p>
+      </div>
+
+      <div class="glass-card" style="border-left: 4px solid var(--accent-red); background: rgba(239,68,68,0.02);">
+        <h4 style="color: var(--accent-red); margin-bottom: 1rem;">COTTON (NOT RECOMMENDED)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.5rem;">
+          Critical risks flagged by ExtraTrees model:
+        </p>
+        <ul style="font-size: 0.8rem; margin-left: 1.25rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.25rem;">
+          <li>✗ Rainfall below optimal vegetative thresholds.</li>
+          <li>✗ High soil clay density increases root rot probability.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

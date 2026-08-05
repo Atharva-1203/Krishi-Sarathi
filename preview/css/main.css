@@ -1,0 +1,156 @@
+/* Deep Forest & Harvest Gold Design Tokens */
+:root {
+  --bg-app: #080f08;
+  --bg-card: rgba(14, 26, 14, 0.85);
+  --border-color: #1a331a;
+  --text-main: #f3f4f6;
+  --text-muted: #889988;
+  --accent-emerald: #10b981;
+  --accent-harvest: #f59e0b;
+  --accent-red: #ef4444;
+}
+
+[data-theme="light"] {
+  --bg-app: #fbfcfb;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --border-color: #d1dbd1;
+  --text-main: #1f2937;
+  --text-muted: #5b6b5b;
+  --accent-emerald: #059669;
+  --accent-harvest: #d97706;
+  --accent-red: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(8, 15, 8, 0.65);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-section h1 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: var(--accent-emerald);
+}
+
+.logo-section span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 550;
+  opacity: 0.8;
+}
+
+nav a:hover {
+  opacity: 1;
+  color: var(--accent-emerald);
+}
+
+.live-status-nav {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-emerald);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+  background-color: var(--accent-emerald);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: var(--accent-harvest);
+  border: 1px solid var(--accent-harvest);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(8, 15, 8, 0.3);
+}

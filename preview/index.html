@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Krishi Sarathi - Explainable AI Crop Advisor</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <h1 data-i18n="title">KRISHI SARATHI</h1>
+      <span data-i18n="subtitle">An Explainable AI Agricultural Decision Support Platform</span>
+    </div>
+    <div class="live-status-nav">
+      <span class="status-dot"></span>
+      <span>AI Engine: ONLINE (7ms)</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="consultation.html">Analysis</a>
+      <a href="about.html">About AI</a>
+      <a href="data.html">Data Sources</a>
+      <button class="primary-btn" onclick="toggleLanguage()">English / मराठी</button>
+      <button class="secondary-btn" onclick="toggleTheme()">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="glass-card" style="text-align: center; padding: 5rem 2rem;">
+      <h2 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;" data-i18n="title">KRISHI SARATHI</h2>
+      <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem;" data-i18n="subtitle">
+        An Explainable AI Agricultural Decision Support Platform built on official Maharashtra Government datasets.
+      </p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center;">
+        <button class="primary-btn" onclick="window.location.href='consultation.html'" data-i18n="start_btn">Start Analysis</button>
+        <button class="secondary-btn" onclick="runGuidedDemo()" data-i18n="demo_btn">Run Guided Demo</button>
+      </div>
+    </div>
+
+    <!-- Trust Banner -->
+    <div style="display: flex; justify-content: space-around; margin: 2rem 0; padding: 1.5rem; background: rgba(16,185,129,0.05); border: 1px solid var(--border-color); border-radius: 0.5rem;">
+      <div>✓ Soil Health Database (779,144 Samples)</div>
+      <div>✓ MahaRain (10+ Years)</div>
+      <div>✓ GADM Boundary Verification</div>
+      <div>✓ TreeSHAP Explainability</div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Developed for PICT IEEE TechRush 2026 | Machine Learning | ExtraTrees Ensemble | TreeSHAP</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Credibility - Krishi Sarathi</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <h1 data-i18n="title">KRISHI SARATHI</h1>
+      <span data-i18n="subtitle">An Explainable AI Agricultural Decision Support Platform</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="consultation.html">Analysis</a>
+      <a href="about.html">About AI</a>
+      <a href="data.html">Data Sources</a>
+      <button class="primary-btn" onclick="toggleLanguage()">Language</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="glass-card">
+      <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 1.5rem;">Official Government Datasets</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div style="padding: 1.5rem; background: rgba(0,0,0,0.15); border: 1px solid var(--border-color); border-radius: 0.5rem;">
+          <h4 style="color: var(--accent-emerald); margin-bottom: 0.5rem;">Soil Health Card Database (NBSS&LUP)</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            <strong>Samples Size:</strong> 779,144 physical crop soil profile measurements. Provides N, P, K parameters mapping, typical pH values, and organic carbon levels.
+          </p>
+        </div>
+
+        <div style="padding: 1.5rem; background: rgba(0,0,0,0.15); border: 1px solid var(--border-color); border-radius: 0.5rem;">
+          <h4 style="color: var(--accent-emerald); margin-bottom: 0.5rem;">MahaRain Historical Rainfall</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            <strong>Coverage Span:</strong> 10+ years daily precipitation records mapping across all 34 administrative agricultural districts of Maharashtra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
