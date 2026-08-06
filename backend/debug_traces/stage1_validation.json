@@ -1,14 +1,14 @@
 {
   "input_raw": {
-    "District": "Solapur",
+    "District": "Satara",
     "Growing_Season": "Rabi",
-    "Soil_Color": "Red",
-    "N": 188.0,
-    "P": 99.0,
-    "K": 277.0,
-    "pH": 5.5,
-    "Temperature": 30.0,
-    "Rainfall": 1635.0,
-    "OC": 0.8
+    "Soil_Color": "Black",
+    "N": -25.0,
+    "P": 35.0,
+    "K": 286.0,
+    "pH": 13.22,
+    "Temperature": 31.04,
+    "Rainfall": 2591.87,
+    "OC": 0.43
   }
 }

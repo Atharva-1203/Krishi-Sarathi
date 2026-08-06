@@ -1,21 +1,22 @@
-# Model Card - Krishi Sarathi Crop Recommender
+# Model Card - Krishi Sarathi V3 crop recommender
 
 ## Model Details
 - **Developer**: Krishi Sarathi MLOps Team
-- **Model Type**: ExtraTrees Classifier (Ensemble of Decision Trees)
-- **Version**: `v1.0.0`
-- **Trained Date**: 2026-08-04
-- **Parameters**: `n_estimators=50`, `max_depth=None`, `random_state=42`
+- **Model Architecture**: Extremely Randomized Trees (ExtraTreesClassifier)
+- **Features (7 core agronomic parameters)**: Nitrogen (N), Phosphorus (P), Potassium (K), Temperature, Humidity, pH, Rainfall.
+- **Output Target (22 Crop Types)**: apple, banana, blackgram, chickpea, coconut, coffee, cotton, grapes, jute, kidneybeans, lentil, maize, mango, mothbeans, mungbean, muskmelon, orange, papaya, pigeonpeas, pomegranate, rice, watermelon.
 
-## Intended Use
-- **Primary Use Case**: Predict the Top-3 suitable crops based on regional soil chemistry (N, P, K, pH) and environmental inputs.
-- **Agro Ecology**: Calibrated specifically for Western Maharashtra (Pune Division).
+## Training Procedure
+- **Training dataset**: UCI Crop Recommendation Dataset (2,200 records).
+- **Stratified splits**: 80% train (1,760 samples), 20% test (440 samples).
+- **Hyperparameters**: `n_estimators=100`, `class_weight="balanced"`.
 
 ## Evaluation Metrics
-- **Validation Top-3 Accuracy**: `100.0%`
-- **F1 Macro**: `0.9959`
-- **Log Loss**: `0.0091`
-- **Average Inference Latency**: `7.47 ms`
+- **Test Accuracy**: 99.55%
+- **Balanced Accuracy**: 99.55%
+- **Macro-F1 Score**: 99.55%
+- **Multi-Class Brier Score**: 0.0124 (indicating high probability calibration).
 
-## Limitations & Biases
-- **Spatial Limits**: Restricted to Pune Division districts (Kolhapur, Satara, Pune, Solapur, Sangli). Should not be used for other agro-climatic zones without retraining.
+## Intended Use
+- Used as an agronomic decision support system to suggest highly compatible crop profiles based on physical soil chemistry and climate parameters.
+- Prohibited for geographical memorization or regional farm-allocation forecasting.

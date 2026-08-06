@@ -22,16 +22,16 @@
       "P_min": 30.0,
       "K_min": 30.0
     },
-    "Banana": {
-      "rain_min": 1000.0,
-      "rain_max": 2200.0,
-      "temp_min": 20.0,
-      "temp_max": 35.0,
+    "Grapes": {
+      "rain_min": 400.0,
+      "rain_max": 900.0,
+      "temp_min": 15.0,
+      "temp_max": 32.0,
       "pH_min": 6.0,
       "pH_max": 7.5,
-      "N_min": 100.0,
-      "P_min": 50.0,
-      "K_min": 100.0
+      "N_min": 30.0,
+      "P_min": 40.0,
+      "K_min": 80.0
     }
   }
 }

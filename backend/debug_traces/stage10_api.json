@@ -1,57 +1,73 @@
 {
   "status": "success",
-  "prediction_id": "f17576f5-4e30-40c9-955a-879d8df08439",
-  "timestamp": "2026-08-06T18:31:46Z",
+  "prediction_id": "d88d89d1-3fd2-4c62-9180-7a6261cae4b6",
+  "timestamp": "2026-08-06T18:45:13Z",
   "top_recommendations": [
     {
       "crop": "Rice",
-      "confidence": "\u2605\u2605\u2605\u2606\u2606 Moderate",
-      "probability": 0.21,
+      "confidence": "\u2605\u2606\u2606\u2606\u2606 Weak",
+      "probability": 0.18,
       "season": "Kharif",
       "water_requirement": "High",
       "growing_duration": "4-5 months",
-      "why_recommended": "Rice is recommended because soil is slightly acidic which matches the crop profile, cumulative rainfall matches the plant's water consumption footprint.",
+      "why_recommended": "Rice is recommended because alkalinity levels are tolerable for root health, available nitrogen is highly adequate for green vegetative growth, cumulative rainfall matches the plant's water consumption footprint.",
       "shap_features": [
         {
-          "feature": "rainfall",
-          "impact": 0.23413684739524956
+          "feature": "Rainfall",
+          "impact": 0.15
+        },
+        {
+          "feature": "N",
+          "impact": 0.1
+        },
+        {
+          "feature": "pH",
+          "impact": 0.05
         }
       ],
-      "agronomic_warning": null,
-      "agronomic_reason": "Crop parameters align optimally with regional soil chemistry and water availability bounds.",
-      "statistical_confidence": 0.21,
-      "agronomic_confidence": 1.0,
+      "agronomic_warning": "Rice requires waterlogging conditions (above 1000mm preferred). Verify flood irrigation availability.",
+      "agronomic_reason": "Historical farms with similar soil properties cultivated Rice. However, rainfall is below the waterlogging threshold. Consider only under flood irrigation.",
+      "statistical_confidence": 0.18,
+      "agronomic_confidence": 0.54,
       "regional_suitability": 0.8,
-      "final_score": 0.63,
-      "risk_level": "Very Low",
-      "decision_type": "Conditional",
+      "final_score": 0.21,
+      "risk_level": "High",
+      "decision_type": "Not Recommended",
       "decision_trace": [
-        "Historical Similarity: 21%",
-        "pH Suitability check passed.",
-        "Nutrient N check passed.",
-        "Nutrient P check passed.",
+        "Historical Similarity: 18%",
+        "pH Suitability check failed.",
+        "Nutrient N check failed.",
+        "Nutrient P check failed.",
         "Nutrient K check passed."
       ],
       "parameter_compliance": {
-        "Rainfall": true,
+        "Rainfall": false,
         "Temperature": true,
-        "Soil pH": true,
-        "Nitrogen": true,
-        "Phosphorus": true,
+        "Soil pH": false,
+        "Nitrogen": false,
+        "Phosphorus": false,
         "Potassium": true
       },
-      "conditional_crop_name": "Rice",
-      "alternative_rainfed_crops": [],
+      "conditional_crop_name": "Rice (only with flood irrigation)",
+      "alternative_rainfed_crops": [
+        "Sorghum",
+        "Pigeonpeas",
+        "Groundnut"
+      ],
       "action_plan": [
         "Plant during the optimal crop season.",
-        "Perform routine soil health tests."
+        "Perform routine soil health tests.",
+        "Establish localized irrigation systems (drip/sprinkler/borewell).",
+        "Add soil neutralizers like agricultural lime (acidic) or gypsum (alkaline).",
+        "Supplement soil Nitrogen using organic manure or nitrogenous urea fertilizers.",
+        "Incorporate Single Super Phosphate (SSP) to correct phosphorus deficit."
       ],
       "stability_index": 1.0
     },
     {
       "crop": "Apple",
       "confidence": "\u2605\u2606\u2606\u2606\u2606 Weak",
-      "probability": 0.16,
+      "probability": 0.18,
       "season": "Rabi",
       "water_requirement": "High",
       "growing_duration": "Perennial",
@@ -59,16 +75,16 @@
       "shap_features": [],
       "agronomic_warning": null,
       "agronomic_reason": "Crop parameters align optimally with regional soil chemistry and water availability bounds.",
-      "statistical_confidence": 0.16,
-      "agronomic_confidence": 0.69,
+      "statistical_confidence": 0.18,
+      "agronomic_confidence": 0.45,
       "regional_suitability": 0.8,
-      "final_score": 0.31,
-      "risk_level": "Moderate",
+      "final_score": 0.18,
+      "risk_level": "High",
       "decision_type": "Not Recommended",
       "decision_trace": [
-        "Historical Similarity: 16%",
+        "Historical Similarity: 18%",
         "pH Suitability check failed.",
-        "Nutrient N check passed.",
+        "Nutrient N check failed.",
         "Nutrient P check passed.",
         "Nutrient K check passed."
       ],
@@ -76,7 +92,7 @@
         "Rainfall": false,
         "Temperature": true,
         "Soil pH": false,
-        "Nitrogen": true,
+        "Nitrogen": false,
         "Phosphorus": true,
         "Potassium": true
       },
@@ -86,66 +102,70 @@
         "Plant during the optimal crop season.",
         "Perform routine soil health tests.",
         "Establish localized irrigation systems (drip/sprinkler/borewell).",
-        "Add soil neutralizers like agricultural lime (acidic) or gypsum (alkaline)."
+        "Add soil neutralizers like agricultural lime (acidic) or gypsum (alkaline).",
+        "Supplement soil Nitrogen using organic manure or nitrogenous urea fertilizers."
       ],
       "stability_index": 0.0
     },
     {
-      "crop": "Banana",
-      "confidence": "\u2605\u2605\u2606\u2606\u2606 Conditional",
+      "crop": "Grapes",
+      "confidence": "\u2605\u2606\u2606\u2606\u2606 Weak",
       "probability": 0.16,
       "season": "Kharif",
-      "water_requirement": "High",
-      "growing_duration": "10-12 months",
+      "water_requirement": "Medium",
+      "growing_duration": "Perennial",
       "why_recommended": "Recommended as a secondary fallback option. Water requirements and growing cycle align with regional historical profiles.",
       "shap_features": [],
       "agronomic_warning": null,
       "agronomic_reason": "Crop parameters align optimally with regional soil chemistry and water availability bounds.",
       "statistical_confidence": 0.16,
-      "agronomic_confidence": 0.85,
+      "agronomic_confidence": 0.35,
       "regional_suitability": 0.8,
-      "final_score": 0.51,
-      "risk_level": "Low",
-      "decision_type": "Needs Intervention",
+      "final_score": 0.14,
+      "risk_level": "High",
+      "decision_type": "Not Recommended",
       "decision_trace": [
         "Historical Similarity: 16%",
         "pH Suitability check failed.",
-        "Nutrient N check passed.",
-        "Nutrient P check passed.",
+        "Nutrient N check failed.",
+        "Nutrient P check failed.",
         "Nutrient K check passed."
       ],
       "parameter_compliance": {
-        "Rainfall": true,
+        "Rainfall": false,
         "Temperature": true,
         "Soil pH": false,
-        "Nitrogen": true,
-        "Phosphorus": true,
+        "Nitrogen": false,
+        "Phosphorus": false,
         "Potassium": true
       },
-      "conditional_crop_name": "Banana",
+      "conditional_crop_name": "Grapes",
       "alternative_rainfed_crops": [],
       "action_plan": [
         "Plant during the optimal crop season.",
         "Perform routine soil health tests.",
-        "Add soil neutralizers like agricultural lime (acidic) or gypsum (alkaline)."
+        "Establish localized irrigation systems (drip/sprinkler/borewell).",
+        "Add soil neutralizers like agricultural lime (acidic) or gypsum (alkaline).",
+        "Supplement soil Nitrogen using organic manure or nitrogenous urea fertilizers.",
+        "Incorporate Single Super Phosphate (SSP) to correct phosphorus deficit."
       ],
       "stability_index": 0.0
     }
   ],
   "not_recommended": [
     {
-      "crop": "Blackgram",
-      "why_not": "Rainfall (1635.0mm) is too high for dry-land cropping.",
-      "probability": 0.0
-    },
-    {
-      "crop": "Coconut",
+      "crop": "Banana",
       "why_not": "Environmental parameters deviate from optimal crop viability thresholds.",
       "probability": 0.0
     },
     {
-      "crop": "Muskmelon",
-      "why_not": "Rainfall (1635.0mm) is too high for dry-land cropping.",
+      "crop": "Blackgram",
+      "why_not": "Rainfall (2591.87mm) is too high for dry-land cropping.",
+      "probability": 0.0
+    },
+    {
+      "crop": "Cotton",
+      "why_not": "Environmental parameters deviate from optimal crop viability thresholds.",
       "probability": 0.0
     }
   ],
@@ -153,5 +173,5 @@
     "This recommendation is based on universal crop growth conditions and agronomic rules."
   ],
   "decision_quality_score": 0.97,
-  "processing_time_ms": 286.76
+  "processing_time_ms": 371.28
 }

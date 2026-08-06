@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score
+from ml.preprocessing.shared_feature_builder import SharedFeatureBuilder, FEATURE_ORDER
 
 def run_training_pipeline():
     dataset_path = r"d:\Techrush\ml\datasets\crop_recommendation.csv"
@@ -17,28 +18,39 @@ def run_training_pipeline():
         
     df = pd.read_csv(dataset_path)
     
-    # 7 Core features
-    feature_cols = ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']
-    X = df[feature_cols]
-    y = df['label']
+    # Preprocess targets
+    crop_classes = sorted(list(df['label'].unique()))
+    print(f"Unique Target Crops ({len(crop_classes)}): {crop_classes}")
     
-    # Label mapping
-    crop_classes = sorted(list(y.unique()))
-    print(f"Unique Crop Classes ({len(crop_classes)}): {crop_classes}")
+    y = df['label'].map(lambda c: crop_classes.index(c))
     
-    # Encode y to integers
-    y_encoded = y.map(lambda c: crop_classes.index(c))
+    # Process inputs using SharedFeatureBuilder row-by-row to guarantee 100% logic alignment
+    processed_rows = []
+    for idx, row in df.iterrows():
+        query_dict = {
+            "N": row["N"],
+            "P": row["P"],
+            "K": row["K"],
+            "temperature": row["temperature"],
+            "humidity": row["humidity"],
+            "ph": row["ph"],
+            "rainfall": row["rainfall"]
+        }
+        df_row = SharedFeatureBuilder.prepare_input(query_dict)
+        processed_rows.append(df_row.iloc[0])
+        
+    X = pd.DataFrame(processed_rows, columns=FEATURE_ORDER)
     
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
+        X, y, test_size=0.2, random_state=42, stratify=y
     )
     
-    # Standardize features
+    # Train StandardScaler
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
     
-    # Models to evaluate
+    # Benchmark Models
     models = {
         "RandomForest": RandomForestClassifier(n_estimators=100, class_weight="balanced", random_state=42),
         "ExtraTrees": ExtraTreesClassifier(n_estimators=100, class_weight="balanced", random_state=42),
@@ -50,7 +62,7 @@ def run_training_pipeline():
     best_model = None
     evaluation_results = {}
     
-    print("\nEvaluating Models:")
+    print("\nBenchmarking Classifiers:")
     for name, clf in models.items():
         clf.fit(X_train_scaled, y_train)
         preds = clf.predict(X_test_scaled)
@@ -72,39 +84,34 @@ def run_training_pipeline():
             best_model_name = name
             best_model = clf
             
-    print(f"\nOptimal model chosen: {best_model_name} (Macro-F1: {best_f1:.4f})")
+    print(f"\nWinner Model: {best_model_name} (Macro-F1: {best_f1:.4f})")
     
-    # Serialize outputs
+    # Save artifacts
     model_dir = r"d:\Techrush\ml\models\production"
     os.makedirs(model_dir, exist_ok=True)
     
-    # Save best model
     with open(os.path.join(model_dir, "model.pkl"), "wb") as f:
         pickle.dump(best_model, f)
         
-    # Save scaler (preprocessor)
     with open(os.path.join(model_dir, "preprocessor.pkl"), "wb") as f:
         pickle.dump(scaler, f)
         
-    # Save label encoder class list
     with open(os.path.join(model_dir, "label_encoder.pkl"), "wb") as f:
         pickle.dump(crop_classes, f)
         
-    # Save features list
     with open(os.path.join(model_dir, "feature_order.json"), "w") as f:
-        json.dump(feature_cols, f)
+        json.dump(FEATURE_ORDER, f)
         
-    # Save metadata JSON
     metadata = {
         "model_type": best_model_name,
-        "features": feature_cols,
+        "features": FEATURE_ORDER,
         "classes": crop_classes,
         "metrics": evaluation_results[best_model_name]
     }
     with open(os.path.join(model_dir, "metadata.json"), "w") as f:
         json.dump(metadata, f, indent=2)
         
-    print("Training pipeline artifacts successfully saved to ml/models/production/")
+    print("V3 production model successfully compiled.")
 
 if __name__ == "__main__":
     run_training_pipeline()

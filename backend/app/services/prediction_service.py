@@ -8,6 +8,7 @@ from backend.app.ml.model_loader import model_loader
 from backend.app.ml.shap_engine import shap_engine
 from backend.app.core.constants import CROP_DETAILS
 from backend.app.services.explanation_service import ExplanationService
+from ml.preprocessing.shared_feature_builder import SharedFeatureBuilder
 
 CROP_BIOLOGICAL_LIMITS = {
     "Rice": {"rain_min": 1000.0, "rain_max": 2500.0, "temp_min": 20.0, "temp_max": 38.0, "pH_min": 5.5, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 40.0},
@@ -62,36 +63,26 @@ class PredictionService:
         # Stage 1: Validation
         dump_trace("stage1_validation", {"input_raw": query_dict})
         
-        # Handle optional district lookup for System B dashboard maps support
         district = query_dict.get("District", "Pune").strip().title()
-        soil_color = query_dict.get("Soil_Color", "Black").strip().title()
         
-        # Extract features according to feature_order contract
-        user_N = float(query_dict.get("N", 50.0))
-        user_P = float(query_dict.get("P", 40.0))
-        user_K = float(query_dict.get("K", 40.0))
-        user_pH = float(query_dict.get("pH", 6.5))
-        user_temp = float(query_dict.get("Temperature", 24.0))
-        user_humidity = float(query_dict.get("Humidity", 60.0))
-        user_rain = float(query_dict.get("Rainfall", 800.0))
+        # Build scaled features using SharedFeatureBuilder to guarantee 100% parity
+        df_query = SharedFeatureBuilder.prepare_input(query_dict)
+        clean_query = df_query.iloc[0].to_dict()
         
-        clean_query = {
-            "N": user_N,
-            "P": user_P,
-            "K": user_K,
-            "temperature": user_temp,
-            "humidity": user_humidity,
-            "ph": user_pH,
-            "rainfall": user_rain
-        }
+        user_N = clean_query["N"]
+        user_P = clean_query["P"]
+        user_K = clean_query["K"]
+        user_temp = clean_query["temperature"]
+        user_humidity = clean_query["humidity"]
+        user_pH = clean_query["ph"]
+        user_rain = clean_query["rainfall"]
         
         # Stage 2: Preprocessing defaults applied
         dump_trace("stage2_preprocessing", {"clean_query": clean_query})
         
-        # Stage 3: Feature Engineering complete (Direct agronomic pass, zero ratio engineering required)
+        # Stage 3: Feature Engineering complete
         dump_trace("stage3_features", {"clean_query": clean_query})
         
-        df_query = pd.DataFrame([clean_query])
         X_query = model_loader.preprocessor.transform(df_query[model_loader.feature_order])
         
         proba = model_loader.model.predict_proba(X_query)[0]

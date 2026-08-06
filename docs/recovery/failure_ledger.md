@@ -2,32 +2,36 @@
 
 ## 1. Audit Run Metadata
 - **Total Stress Test Iterations**: 1000
-- **Total Duration**: 402.37 seconds
-- **Average Query Speed**: 402.37 ms per request
+- **Total Duration**: 360.15 seconds
+- **Average Query Speed**: 360.15 ms per request
 - **Memory Footprint**: ~68 MB
 
 ## 2. Monte Carlo Stress Test Analytics
-- **Model Entropy (Crop Diversity)**: 1.6464
+- **Model Entropy (Crop Diversity)**: 1.6707
 - **Crop Prediction Frequencies**:
-  - **Rice**: 391 hits (39.10%)
-  - **Coffee**: 218 hits (21.80%)
-  - **Grapes**: 201 hits (20.10%)
-  - **Apple**: 74 hits (7.40%)
-  - **Pigeonpeas**: 64 hits (6.40%)
-  - **Banana**: 13 hits (1.30%)
+  - **Rice**: 364 hits (36.40%)
+  - **Grapes**: 228 hits (22.80%)
+  - **Coffee**: 226 hits (22.60%)
+  - **Pigeonpeas**: 71 hits (7.10%)
+  - **Apple**: 54 hits (5.40%)
+  - **Banana**: 16 hits (1.60%)
+  - **Orange**: 11 hits (1.10%)
   - **Chickpea**: 10 hits (1.00%)
-  - **Orange**: 10 hits (1.00%)
-  - **Papaya**: 6 hits (0.60%)
-  - **Coconut**: 4 hits (0.40%)
-  - **Mothbeans**: 3 hits (0.30%)
-  - **Watermelon**: 2 hits (0.20%)
-  - **Cotton**: 2 hits (0.20%)
+  - **Papaya**: 4 hits (0.40%)
+  - **Watermelon**: 3 hits (0.30%)
   - **Mango**: 2 hits (0.20%)
+  - **Mothbeans**: 2 hits (0.20%)
+  - **Maize**: 2 hits (0.20%)
+  - **Coconut**: 2 hits (0.20%)
+  - **Cotton**: 2 hits (0.20%)
+  - **Lentil**: 1 hits (0.10%)
+  - **Blackgram**: 1 hits (0.10%)
+  - **Muskmelon**: 1 hits (0.10%)
 
 - **Confidence Scores Distribution**:
-  - Average Confidence Score: 0.2634
+  - Average Confidence Score: 0.2566
   - Min Confidence Score: 0.0000
-  - Max Confidence Score: 0.7000
+  - Max Confidence Score: 0.6900
 
 ## 3. Failure ledger Items (Falsification Findings)
 
