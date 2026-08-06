@@ -16,6 +16,9 @@ interface Recommendation {
   why_recommended: string;
   shap_features: { feature: string; impact: number }[];
   agronomic_warning?: string;
+  statistical_confidence?: number;
+  agronomic_confidence?: number;
+  agronomic_reason?: string;
 }
 
 interface ResultsDisplayProps {
@@ -203,23 +206,53 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="relative w-16 h-16 flex items-center justify-center">
-              {/* Circular gauge */}
-              <svg className="w-full h-full transform -rotate-90">
-                <circle cx="32" cy="32" r="28" stroke="var(--border-color)" strokeWidth="4" fill="transparent" />
-                <circle cx="32" cy="32" r="28" stroke="#10b981" strokeWidth="4" fill="transparent"
-                  strokeDasharray={175}
-                  strokeDashoffset={175 - (175 * primary.probability)}
-                />
-              </svg>
-              <span className="absolute text-xs font-black text-[var(--text-main)]">
-                {Math.round(primary.probability * 100)}%
-              </span>
+          <div className="flex flex-wrap items-center gap-6">
+            {/* Statistical Confidence Circular Gauge */}
+            <div className="flex items-center gap-2">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <svg className="w-full h-full transform -rotate-90">
+                  <circle cx="24" cy="24" r="20" stroke="var(--border-color)" strokeWidth="3" fill="transparent" />
+                  <circle cx="24" cy="24" r="20" stroke="#3b82f6" strokeWidth="3" fill="transparent"
+                    strokeDasharray={125}
+                    strokeDashoffset={125 - (125 * (primary.statistical_confidence ?? primary.probability))}
+                  />
+                </svg>
+                <span className="absolute text-[10px] font-black text-[var(--text-main)]">
+                  {Math.round((primary.statistical_confidence ?? primary.probability) * 100)}%
+                </span>
+              </div>
+              <div className="text-left">
+                <span className="text-[8px] text-[var(--text-muted)] uppercase tracking-wider block">
+                  {language === 'en' ? 'Statistical Similarity' : 'सांख्यिकीय साम्य'}
+                </span>
+                <span className="text-[10px] font-bold text-blue-500 uppercase">
+                  {language === 'en' ? 'Data Pattern' : 'डेटा पॅटर्न'}
+                </span>
+              </div>
             </div>
-            <div className="text-left">
-              <span className="text-[9px] text-[var(--text-muted)] uppercase block">{t.results_confidence}</span>
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">{getConfMr(primary.confidence)}</span>
+
+            {/* Agronomic Confidence Circular Gauge */}
+            <div className="flex items-center gap-2">
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <svg className="w-full h-full transform -rotate-90">
+                  <circle cx="24" cy="24" r="20" stroke="var(--border-color)" strokeWidth="3" fill="transparent" />
+                  <circle cx="24" cy="24" r="20" stroke="#10b981" strokeWidth="3" fill="transparent"
+                    strokeDasharray={125}
+                    strokeDashoffset={125 - (125 * (primary.agronomic_confidence ?? 1.0))}
+                  />
+                </svg>
+                <span className="absolute text-[10px] font-black text-[var(--text-main)]">
+                  {Math.round((primary.agronomic_confidence ?? 1.0) * 100)}%
+                </span>
+              </div>
+              <div className="text-left">
+                <span className="text-[8px] text-[var(--text-muted)] uppercase tracking-wider block">
+                  {language === 'en' ? 'Agronomic Suitability' : 'कृषी सुसंगतता'}
+                </span>
+                <span className="text-[10px] font-bold text-emerald-500 uppercase">
+                  {language === 'en' ? 'Bio suitability' : 'जैविक अनुकूलता'}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -274,6 +307,19 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
             {translateExplanation(primary.crop, primary.why_recommended, language)}
           </p>
         </div>
+
+        {/* Hybrid Decision Support Explanation */}
+        {primary.agronomic_reason && (
+          <div className="p-4 rounded-xl border border-blue-500/20 bg-blue-500/5 flex flex-col gap-1.5">
+            <div className="flex items-center gap-1 text-[10px] font-extrabold text-blue-600 dark:text-blue-400 tracking-wider uppercase">
+              <ShieldAlert size={12} className="text-blue-500" />
+              {language === 'en' ? 'Hybrid AI Decision Support' : 'हायब्रिड एआय निर्णय विश्लेषण'}
+            </div>
+            <p className="text-xs text-[var(--text-main)] leading-relaxed font-semibold">
+              {primary.agronomic_reason}
+            </p>
+          </div>
+        )}
 
         {/* Agronomic Warning Banner */}
         {primary.agronomic_warning && (

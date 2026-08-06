@@ -11,6 +11,9 @@ class RecommendationItem(BaseModel):
     why_recommended: str
     shap_features: List[Dict[str, Any]]
     agronomic_warning: Optional[str] = None
+    statistical_confidence: float
+    agronomic_confidence: float
+    agronomic_reason: Optional[str] = None
 
 class NotRecommendedItem(BaseModel):
     crop: str

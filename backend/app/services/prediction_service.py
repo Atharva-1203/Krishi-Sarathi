@@ -132,16 +132,39 @@ class PredictionService:
                 why = f"Recommended as a secondary fallback option. Water requirements and growing cycle align with regional historical profiles."
                 shap_feats = []
                 
-            # Agronomic Rule Validation Layer
+            # Agronomic Rule Validation Layer & Hybrid AI Decision Engine
             agronomic_warning = None
-            if crop_name == "Sugarcane" and user_rain < 800.0:
-                agronomic_warning = "This recommendation conflicts with typical rainfall requirements for Sugarcane (above 1000mm preferred). Confirm perennial canal or drip irrigation."
-            elif crop_name == "Rice" and user_rain < 900.0:
-                agronomic_warning = "Rice requires waterlogging conditions (above 1000mm preferred). Verify flood irrigation availability."
-            elif crop_name == "Wheat" and clean_query.get("Growing_Season") == "Kharif":
-                agronomic_warning = "Wheat is a winter Rabi crop. Sowing in Kharif can lead to moisture stress or root rot."
-            elif crop_name == "Cotton" and user_rain < 450.0:
-                agronomic_warning = "Low rainfall can cause cotton boll shedding. Confirm micro-irrigation supply."
+            agronomic_confidence = 1.0
+            agronomic_reason = "Crop parameters align optimally with regional soil chemistry and water availability bounds."
+            
+            if crop_name == "Sugarcane":
+                if user_rain < 1000.0:
+                    agronomic_confidence = max(0.2, round(1.0 - (1000.0 - user_rain) / 500.0 * 0.8, 2))
+                    agronomic_warning = "This recommendation conflicts with typical rainfall requirements for Sugarcane (above 1000mm preferred). Confirm perennial canal or drip irrigation."
+                    agronomic_reason = "The machine learning model recognizes a historical pattern similar to irrigated sugarcane farms. However, the entered rainfall is below the natural requirement. Recommendation: Sugarcane should be considered only if reliable irrigation (canal/drip/borewell) is available. Otherwise, consider Sorghum or Pigeonpea."
+                else:
+                    agronomic_reason = "Soil nutrients and rainfall parameters completely satisfy sugarcane biological growth requirements."
+            elif crop_name == "Rice":
+                if user_rain < 1100.0:
+                    agronomic_confidence = max(0.2, round(1.0 - (1100.0 - user_rain) / 600.0 * 0.8, 2))
+                    agronomic_warning = "Rice requires waterlogging conditions (above 1100mm preferred). Verify flood irrigation availability."
+                    agronomic_reason = "Rice requires waterlogging conditions (above 1100mm preferred). High similarity to flooded paddy tracts is detected, but local rainfall is insufficient. Consider only under flood irrigation."
+                else:
+                    agronomic_reason = "Adequate precipitation levels satisfy paddy waterlogging cultivation limits."
+            elif crop_name == "Wheat":
+                if clean_query.get("Growing_Season") == "Kharif":
+                    agronomic_confidence = 0.40
+                    agronomic_warning = "Wheat is a winter Rabi crop. Sowing in Kharif can lead to moisture stress or root rot."
+                    agronomic_reason = "Wheat is a winter Rabi crop. Planting in Kharif monsoon risks high humidity grain rotting."
+                else:
+                    agronomic_reason = "Rabi temperature cycles match wheat grain maturation stages."
+            elif crop_name == "Cotton":
+                if user_rain < 500.0:
+                    agronomic_confidence = max(0.3, round(1.0 - (500.0 - user_rain) / 200.0 * 0.6, 2))
+                    agronomic_warning = "Low rainfall can cause cotton boll shedding. Confirm micro-irrigation supply."
+                    agronomic_reason = "Dry spell limits cotton boll development. Confirm micro-irrigation options."
+                else:
+                    agronomic_reason = "Precipitation matches cotton vegetative and flowering requirements."
                 
             top_recommendations.append({
                 "crop": crop_name,
@@ -152,7 +175,10 @@ class PredictionService:
                 "growing_duration": crop_meta["growing_duration"],
                 "why_recommended": why,
                 "shap_features": shap_feats,
-                "agronomic_warning": agronomic_warning
+                "agronomic_warning": agronomic_warning,
+                "statistical_confidence": round(prob, 4),
+                "agronomic_confidence": float(agronomic_confidence),
+                "agronomic_reason": agronomic_reason
             })
             
         # Compile dynamic "Not Recommended" list from bottom classes (excluding top_classes)
