@@ -7,11 +7,26 @@ from backend.app.ml.shap_engine import shap_engine
 from backend.app.core.constants import CROP_DETAILS
 from backend.app.services.explanation_service import ExplanationService
 
+CROP_BIOLOGICAL_LIMITS = {
+    "Sugarcane": {"rain_min": 1000.0, "rain_max": 2000.0, "temp_min": 20.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 8.0, "N_min": 100.0, "P_min": 50.0, "K_min": 80.0},
+    "Rice": {"rain_min": 1000.0, "rain_max": 2500.0, "temp_min": 20.0, "temp_max": 38.0, "pH_min": 5.5, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 40.0},
+    "Wheat": {"rain_min": 600.0, "rain_max": 1200.0, "temp_min": 12.0, "temp_max": 25.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 40.0},
+    "Cotton": {"rain_min": 500.0, "rain_max": 1100.0, "temp_min": 20.0, "temp_max": 32.0, "pH_min": 5.8, "pH_max": 8.0, "N_min": 90.0, "P_min": 45.0, "K_min": 50.0},
+    "Pigeonpea": {"rain_min": 500.0, "rain_max": 900.0, "temp_min": 18.0, "temp_max": 30.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 20.0, "P_min": 30.0, "K_min": 20.0},
+    "Sorghum": {"rain_min": 400.0, "rain_max": 800.0, "temp_min": 25.0, "temp_max": 35.0, "pH_min": 5.5, "pH_max": 8.2, "N_min": 40.0, "P_min": 30.0, "K_min": 25.0},
+    "Groundnut": {"rain_min": 500.0, "rain_max": 850.0, "temp_min": 22.0, "temp_max": 30.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 20.0, "P_min": 30.0, "K_min": 20.0}
+}
+
+FALLBACK_LIMITS = {
+    "rain_min": 600.0, "rain_max": 1200.0, "temp_min": 18.0, "temp_max": 32.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 40.0, "P_min": 30.0, "K_min": 30.0
+}
+
 class PredictionService:
     @staticmethod
     def predict_single(query_dict: dict) -> dict:
         t0 = time.time()
         warnings = []
+        warnings.append("This recommendation is based on historical cultivation patterns within Western Maharashtra. It should be used as decision support and not as the sole basis for agricultural planning.")
         
         district = query_dict.get("District", "Pune").strip().title()
         if district not in model_loader.preprocessor.district_categories:
@@ -134,33 +149,84 @@ class PredictionService:
                 
             # Agronomic Rule Validation Layer & Hybrid AI Decision Engine
             agronomic_warning = None
-            agronomic_confidence = 1.0
+            
+            # Fetch constraints
+            limits = CROP_BIOLOGICAL_LIMITS.get(crop_name, FALLBACK_LIMITS)
+            
+            check_rain = limits["rain_min"] <= user_rain <= limits["rain_max"]
+            check_temp = limits["temp_min"] <= user_temp <= limits["temp_max"]
+            check_pH = limits["pH_min"] <= user_pH <= limits["pH_max"]
+            check_N = user_N >= limits["N_min"]
+            check_P = user_P >= limits["P_min"]
+            check_K = user_K >= limits["K_min"]
+            
+            # Weighted suitability calculation (Rainfall=35%, Temperature=20%, pH=15%, N=10%, P=10%, K=10%)
+            suitability_score = 0.0
+            
+            # Rainfall component (35%)
+            if check_rain:
+                suitability_score += 35.0
+            else:
+                # Deduct based on distance with a smooth penalty
+                dist = min(abs(user_rain - limits["rain_min"]), abs(user_rain - limits["rain_max"]))
+                suitability_score += max(5.0, 35.0 * (1.0 - min(dist / 300.0, 1.0)))
+                
+            # Temperature component (20%)
+            if check_temp:
+                suitability_score += 20.0
+                
+            # pH component (15%)
+            if check_pH:
+                suitability_score += 15.0
+                
+            # N, P, K components (10% each)
+            if check_N: suitability_score += 10.0
+            if check_P: suitability_score += 10.0
+            if check_K: suitability_score += 10.0
+            
+            agronomic_confidence = round(suitability_score / 100.0, 2)
+            
+            parameter_compliance = {
+                "Rainfall": bool(check_rain),
+                "Temperature": bool(check_temp),
+                "Soil pH": bool(check_pH),
+                "Nitrogen": bool(check_N),
+                "Phosphorus": bool(check_P),
+                "Potassium": bool(check_K)
+            }
+            
             agronomic_reason = "Crop parameters align optimally with regional soil chemistry and water availability bounds."
+            conditional_crop_name = crop_name
+            alternative_rainfed_crops = []
             
             if crop_name == "Sugarcane":
-                if user_rain < 1000.0:
-                    agronomic_confidence = max(0.2, round(1.0 - (1000.0 - user_rain) / 500.0 * 0.8, 2))
+                if not check_rain:
+                    conditional_crop_name = "Sugarcane (only with reliable irrigation)"
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea", "Groundnut"]
                     agronomic_warning = "This recommendation conflicts with typical rainfall requirements for Sugarcane (above 1000mm preferred). Confirm perennial canal or drip irrigation."
-                    agronomic_reason = "The machine learning model recognizes a historical pattern similar to irrigated sugarcane farms. However, the entered rainfall is below the natural requirement. Recommendation: Sugarcane should be considered only if reliable irrigation (canal/drip/borewell) is available. Otherwise, consider Sorghum or Pigeonpea."
+                    agronomic_reason = "Historical farms with similar soil properties cultivated Sugarcane. However, rainfall is substantially below the preferred biological range. Without reliable irrigation, Sorghum or Pigeonpea may be more suitable."
                 else:
                     agronomic_reason = "Soil nutrients and rainfall parameters completely satisfy sugarcane biological growth requirements."
             elif crop_name == "Rice":
-                if user_rain < 1100.0:
-                    agronomic_confidence = max(0.2, round(1.0 - (1100.0 - user_rain) / 600.0 * 0.8, 2))
+                if not check_rain:
+                    conditional_crop_name = "Rice (only with flood irrigation)"
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea", "Groundnut"]
                     agronomic_warning = "Rice requires waterlogging conditions (above 1100mm preferred). Verify flood irrigation availability."
-                    agronomic_reason = "Rice requires waterlogging conditions (above 1100mm preferred). High similarity to flooded paddy tracts is detected, but local rainfall is insufficient. Consider only under flood irrigation."
+                    agronomic_reason = "Historical farms with similar soil properties cultivated Rice. However, rainfall is below the waterlogging threshold. Consider only under flood irrigation."
                 else:
                     agronomic_reason = "Adequate precipitation levels satisfy paddy waterlogging cultivation limits."
             elif crop_name == "Wheat":
                 if clean_query.get("Growing_Season") == "Kharif":
-                    agronomic_confidence = 0.40
+                    conditional_crop_name = "Wheat (not recommended in Kharif)"
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea"]
                     agronomic_warning = "Wheat is a winter Rabi crop. Sowing in Kharif can lead to moisture stress or root rot."
                     agronomic_reason = "Wheat is a winter Rabi crop. Planting in Kharif monsoon risks high humidity grain rotting."
                 else:
                     agronomic_reason = "Rabi temperature cycles match wheat grain maturation stages."
             elif crop_name == "Cotton":
-                if user_rain < 500.0:
-                    agronomic_confidence = max(0.3, round(1.0 - (500.0 - user_rain) / 200.0 * 0.6, 2))
+                if not check_rain:
+                    conditional_crop_name = "Cotton (requires supplementary watering)"
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea"]
                     agronomic_warning = "Low rainfall can cause cotton boll shedding. Confirm micro-irrigation supply."
                     agronomic_reason = "Dry spell limits cotton boll development. Confirm micro-irrigation options."
                 else:
@@ -178,7 +244,10 @@ class PredictionService:
                 "agronomic_warning": agronomic_warning,
                 "statistical_confidence": round(prob, 4),
                 "agronomic_confidence": float(agronomic_confidence),
-                "agronomic_reason": agronomic_reason
+                "agronomic_reason": agronomic_reason,
+                "parameter_compliance": parameter_compliance,
+                "conditional_crop_name": conditional_crop_name,
+                "alternative_rainfed_crops": alternative_rainfed_crops
             })
             
         # Compile dynamic "Not Recommended" list from bottom classes (excluding top_classes)

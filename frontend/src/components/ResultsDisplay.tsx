@@ -19,6 +19,9 @@ interface Recommendation {
   statistical_confidence?: number;
   agronomic_confidence?: number;
   agronomic_reason?: string;
+  parameter_compliance?: Record<string, boolean>;
+  conditional_crop_name?: string;
+  alternative_rainfed_crops?: string[];
 }
 
 interface ResultsDisplayProps {
@@ -177,6 +180,16 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
 
   return (
     <div className="flex flex-col gap-6 w-full">
+      {/* Western Maharashtra Uncertainty Disclaimer */}
+      <div className="p-4 rounded-xl border border-blue-500/10 bg-blue-500/5 flex items-start gap-3">
+        <FileText size={18} className="text-blue-500 shrink-0 mt-0.5" />
+        <p className="text-xs text-[var(--text-muted)] leading-relaxed font-semibold">
+          {language === 'en' 
+            ? "This recommendation is based on historical cultivation patterns within Western Maharashtra. It should be used as decision support and not as the sole basis for agricultural planning."
+            : "ही शिफारस पश्चिम महाराष्ट्रातील ऐतिहासिक पीक लागवड पद्धतींवर आधारित आहे. याचा वापर केवळ कृषी नियोजनासाठी निर्णय साहाय्य म्हणून करावा, अंतिम आधार म्हणून नाही."}
+        </p>
+      </div>
+
       {/* Primary Crop Card */}
       <div className="p-6 rounded-2xl border border-emerald-500/30 bg-[var(--bg-card)] shadow-lg relative overflow-hidden flex flex-col gap-4">
         
@@ -201,7 +214,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
                 {language === 'en' ? 'Recommended Crop' : 'शिफारस केलेले पीक'}
               </span>
               <h4 className="text-3xl font-black text-[var(--text-main)] tracking-tight">
-                {language === 'en' ? primary.crop : cropNameMr(primary.crop)}
+                {language === 'en' ? (primary.conditional_crop_name || primary.crop) : cropNameMr(primary.crop)}
               </h4>
             </div>
           </div>
@@ -223,7 +236,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
               </div>
               <div className="text-left">
                 <span className="text-[8px] text-[var(--text-muted)] uppercase tracking-wider block">
-                  {language === 'en' ? 'Statistical Similarity' : 'सांख्यिकीय साम्य'}
+                  {language === 'en' ? 'Model Confidence' : 'मॉडेल आत्मविश्वास'}
                 </span>
                 <span className="text-[10px] font-bold text-blue-500 uppercase">
                   {language === 'en' ? 'Data Pattern' : 'डेटा पॅटर्न'}
@@ -307,6 +320,41 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
             {translateExplanation(primary.crop, primary.why_recommended, language)}
           </p>
         </div>
+
+        {/* Explainable Suitability Checklist */}
+        {primary.parameter_compliance && (
+          <div className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-app)] flex flex-col gap-2.5">
+            <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider block">
+              {language === 'en' ? 'Agronomic Suitability Checklist' : 'कृषी सुसंगतता निकष सूची'}
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+              {Object.entries(primary.parameter_compliance).map(([param, passes]) => (
+                <div key={param} className="flex items-center gap-1.5 font-bold text-[var(--text-main)]">
+                  <span className={passes ? "text-emerald-500 font-black" : "text-rose-500 font-black"}>
+                    {passes ? "✅" : "❌"}
+                  </span>
+                  <span>{param}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Alternative Rain-fed Crops */}
+        {primary.alternative_rainfed_crops && primary.alternative_rainfed_crops.length > 0 && (
+          <div className="p-4 rounded-xl border border-amber-500/20 bg-amber-500/5 flex flex-col gap-2">
+            <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider block">
+              {language === 'en' ? 'Alternative Rain-fed Crops Recommended' : 'पर्यायी कोरडवाहू पीक शिफारसी'}
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {primary.alternative_rainfed_crops.map((crop) => (
+                <span key={crop} className="px-2.5 py-1 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-black text-[var(--text-main)]">
+                  {language === 'en' ? crop : cropNameMr(crop)}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Hybrid Decision Support Explanation */}
         {primary.agronomic_reason && (

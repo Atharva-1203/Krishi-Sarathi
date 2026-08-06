@@ -14,6 +14,9 @@ class RecommendationItem(BaseModel):
     statistical_confidence: float
     agronomic_confidence: float
     agronomic_reason: Optional[str] = None
+    parameter_compliance: Dict[str, bool] = {}
+    conditional_crop_name: Optional[str] = None
+    alternative_rainfed_crops: List[str] = []
 
 class NotRecommendedItem(BaseModel):
     crop: str
