@@ -1,16 +1,5 @@
 {
   "biological_limits": {
-    "Sugarcane": {
-      "rain_min": 1000.0,
-      "rain_max": 2000.0,
-      "temp_min": 20.0,
-      "temp_max": 35.0,
-      "pH_min": 6.0,
-      "pH_max": 8.0,
-      "N_min": 100.0,
-      "P_min": 50.0,
-      "K_min": 80.0
-    },
     "Rice": {
       "rain_min": 1000.0,
       "rain_max": 2500.0,
@@ -22,16 +11,27 @@
       "P_min": 40.0,
       "K_min": 40.0
     },
-    "Wheat": {
-      "rain_min": 600.0,
-      "rain_max": 1200.0,
-      "temp_min": 12.0,
-      "temp_max": 25.0,
+    "Apple": {
+      "rain_min": 500.0,
+      "rain_max": 1500.0,
+      "temp_min": 15.0,
+      "temp_max": 35.0,
       "pH_min": 6.0,
       "pH_max": 7.5,
-      "N_min": 80.0,
-      "P_min": 40.0,
-      "K_min": 40.0
+      "N_min": 40.0,
+      "P_min": 30.0,
+      "K_min": 30.0
+    },
+    "Banana": {
+      "rain_min": 1000.0,
+      "rain_max": 2200.0,
+      "temp_min": 20.0,
+      "temp_max": 35.0,
+      "pH_min": 6.0,
+      "pH_max": 7.5,
+      "N_min": 100.0,
+      "P_min": 50.0,
+      "K_min": 100.0
     }
   }
 }

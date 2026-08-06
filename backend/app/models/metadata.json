@@ -1,27 +1,41 @@
 {
-    "model_type": "RandomForest",
-    "experiment_id": "E002_RandomForest",
-    "metrics": {
-        "Experiment_ID": "E002_RandomForest",
-        "Model_Name": "RandomForest",
-        "Best_Params": {
-            "max_depth": null,
-            "n_estimators": 100
-        },
-        "Accuracy": 0.9978,
-        "Balanced_Accuracy": 0.9984,
-        "F1_Macro": 0.9975,
-        "Precision_Macro": 0.9967,
-        "Recall_Macro": 0.9984,
-        "Top1_Accuracy": 0.9978,
-        "Top2_Accuracy": 1.0,
-        "Top3_Accuracy": 1.0,
-        "LogLoss": 0.0209,
-        "Training_Time_Sec": 16.3765,
-        "Prediction_Latency_Ms": 15.3061,
-        "Model_Size_KB": 4567.0928,
-        "CV_Mean": 0.9983
-    },
-    "timestamp": "2026-08-06T12:11:21Z",
-    "dataset_version": "master_dataset_v1.0"
+  "model_type": "ExtraTrees",
+  "features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "classes": [
+    "apple",
+    "banana",
+    "blackgram",
+    "chickpea",
+    "coconut",
+    "coffee",
+    "cotton",
+    "grapes",
+    "jute",
+    "kidneybeans",
+    "lentil",
+    "maize",
+    "mango",
+    "mothbeans",
+    "mungbean",
+    "muskmelon",
+    "orange",
+    "papaya",
+    "pigeonpeas",
+    "pomegranate",
+    "rice",
+    "watermelon"
+  ],
+  "metrics": {
+    "accuracy": 0.9954545454545455,
+    "balanced_accuracy": 0.9954545454545454,
+    "f1_macro": 0.9954517027687758
+  }
 }

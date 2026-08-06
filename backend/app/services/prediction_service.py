@@ -10,24 +10,34 @@ from backend.app.core.constants import CROP_DETAILS
 from backend.app.services.explanation_service import ExplanationService
 
 CROP_BIOLOGICAL_LIMITS = {
-    "Sugarcane": {"rain_min": 1000.0, "rain_max": 2000.0, "temp_min": 20.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 8.0, "N_min": 100.0, "P_min": 50.0, "K_min": 80.0},
     "Rice": {"rain_min": 1000.0, "rain_max": 2500.0, "temp_min": 20.0, "temp_max": 38.0, "pH_min": 5.5, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 40.0},
-    "Wheat": {"rain_min": 600.0, "rain_max": 1200.0, "temp_min": 12.0, "temp_max": 25.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 40.0},
+    "Maize": {"rain_min": 500.0, "rain_max": 1000.0, "temp_min": 18.0, "temp_max": 35.0, "pH_min": 5.8, "pH_max": 7.5, "N_min": 60.0, "P_min": 35.0, "K_min": 30.0},
+    "Chickpea": {"rain_min": 300.0, "rain_max": 700.0, "temp_min": 15.0, "temp_max": 30.0, "pH_min": 6.0, "pH_max": 8.0, "N_min": 20.0, "P_min": 30.0, "K_min": 20.0},
     "Cotton": {"rain_min": 500.0, "rain_max": 1100.0, "temp_min": 20.0, "temp_max": 32.0, "pH_min": 5.8, "pH_max": 8.0, "N_min": 90.0, "P_min": 45.0, "K_min": 50.0},
+    "Grapes": {"rain_min": 400.0, "rain_max": 900.0, "temp_min": 15.0, "temp_max": 32.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 30.0, "P_min": 40.0, "K_min": 80.0},
+    "Pigeonpeas": {"rain_min": 500.0, "rain_max": 900.0, "temp_min": 18.0, "temp_max": 30.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 20.0, "P_min": 30.0, "K_min": 20.0},
     "Pigeonpea": {"rain_min": 500.0, "rain_max": 900.0, "temp_min": 18.0, "temp_max": 30.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 20.0, "P_min": 30.0, "K_min": 20.0},
-    "Sorghum": {"rain_min": 400.0, "rain_max": 800.0, "temp_min": 25.0, "temp_max": 35.0, "pH_min": 5.5, "pH_max": 8.2, "N_min": 40.0, "P_min": 30.0, "K_min": 25.0},
-    "Groundnut": {"rain_min": 500.0, "rain_max": 850.0, "temp_min": 22.0, "temp_max": 30.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 20.0, "P_min": 30.0, "K_min": 20.0}
+    "Sugarcane": {"rain_min": 1000.0, "rain_max": 2000.0, "temp_min": 20.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 8.0, "N_min": 100.0, "P_min": 50.0, "K_min": 80.0},
+    "Wheat": {"rain_min": 600.0, "rain_max": 1200.0, "temp_min": 12.0, "temp_max": 25.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 40.0},
+    "Banana": {"rain_min": 1000.0, "rain_max": 2200.0, "temp_min": 20.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 100.0, "P_min": 50.0, "K_min": 100.0},
+    "Coconut": {"rain_min": 1000.0, "rain_max": 2500.0, "temp_min": 22.0, "temp_max": 35.0, "pH_min": 5.5, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 80.0},
+    "Coffee": {"rain_min": 1000.0, "rain_max": 2000.0, "temp_min": 18.0, "temp_max": 28.0, "pH_min": 5.5, "pH_max": 6.5, "N_min": 80.0, "P_min": 40.0, "K_min": 80.0},
+    "Jute": {"rain_min": 1200.0, "rain_max": 2000.0, "temp_min": 24.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 60.0, "P_min": 40.0, "K_min": 60.0},
+    "Orange": {"rain_min": 800.0, "rain_max": 1500.0, "temp_min": 15.0, "temp_max": 32.0, "pH_min": 5.5, "pH_max": 7.5, "N_min": 80.0, "P_min": 40.0, "K_min": 80.0},
+    "Papaya": {"rain_min": 1000.0, "rain_max": 2000.0, "temp_min": 20.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 7.0, "N_min": 80.0, "P_min": 40.0, "K_min": 80.0},
+    "Pomegranate": {"rain_min": 500.0, "rain_max": 1000.0, "temp_min": 20.0, "temp_max": 35.0, "pH_min": 5.5, "pH_max": 7.5, "N_min": 60.0, "P_min": 40.0, "K_min": 60.0},
+    "Watermelon": {"rain_min": 400.0, "rain_max": 800.0, "temp_min": 22.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 7.0, "N_min": 60.0, "P_min": 40.0, "K_min": 60.0}
 }
 
 FALLBACK_LIMITS = {
-    "rain_min": 600.0, "rain_max": 1200.0, "temp_min": 18.0, "temp_max": 32.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 40.0, "P_min": 30.0, "K_min": 30.0
+    "rain_min": 500.0, "rain_max": 1500.0, "temp_min": 15.0, "temp_max": 35.0, "pH_min": 6.0, "pH_max": 7.5, "N_min": 40.0, "P_min": 30.0, "K_min": 30.0
 }
 
 DISTRICT_CROP_REGIONAL_EXPECTATION = {
-    "Kolhapur": ["Sugarcane", "Rice", "Ginger", "Turmeric", "Soyabean"],
-    "Solapur": ["Sorghum", "Moong", "Pigeonpea", "Chickpea", "Groundnut"],
-    "Sangli": ["Cotton", "Sorghum", "Grapes", "Groundnut", "Pigeonpea"],
-    "Satara": ["Sorghum", "Wheat", "Soyabean", "Cotton", "Groundnut"],
+    "Kolhapur": ["Sugarcane", "Rice", "Ginger", "Turmeric", "Soyabean", "Banana"],
+    "Solapur": ["Sorghum", "Moong", "Pigeonpeas", "Chickpea", "Groundnut", "Pomegranate"],
+    "Sangli": ["Cotton", "Sorghum", "Grapes", "Groundnut", "Pigeonpeas"],
+    "Satara": ["Sorghum", "Wheat", "Soybean", "Cotton", "Groundnut"],
     "Pune": ["Wheat", "Sugarcane", "Maize", "Grapes", "Chickpea", "Rice"]
 }
 
@@ -36,7 +46,7 @@ class PredictionService:
     def predict_single(query_dict: dict) -> dict:
         t0 = time.time()
         warnings = []
-        warnings.append("This recommendation is based on historical cultivation patterns within Western Maharashtra. It should be used as decision support and not as the sole basis for agricultural planning.")
+        warnings.append("This recommendation is based on universal crop growth conditions and agronomic rules.")
         
         # Initialize Debug Tracer
         debug_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "debug_traces")
@@ -52,96 +62,37 @@ class PredictionService:
         # Stage 1: Validation
         dump_trace("stage1_validation", {"input_raw": query_dict})
         
+        # Handle optional district lookup for System B dashboard maps support
         district = query_dict.get("District", "Pune").strip().title()
-        if district not in model_loader.preprocessor.district_categories:
-            warnings.append(f"District '{district}' is outside Pune division. Falling back to average Pune medians.")
-            district = "Pune"
-            
         soil_color = query_dict.get("Soil_Color", "Black").strip().title()
-        if soil_color not in model_loader.preprocessor.soil_color_categories:
-            soil_color = "Black"
-            
-        district_medians = {
-            "Kolhapur": {"OC": 0.88, "EC": 0.14, "B": 2.88, "Fe": 6.35, "Mn": 17.636, "Cu": 3.25, "Zn": 0.72, "S": 50.72},
-            "Solapur": {"OC": 0.45, "EC": 0.32, "B": 0.16, "Fe": 1.56, "Mn": 1.56, "Cu": 0.58, "Zn": 0.5, "S": 7.05},
-            "Satara": {"OC": 0.295, "EC": 0.25, "B": 0.073, "Fe": 3.96, "Mn": 6.2, "Cu": 2.4, "Zn": 0.793, "S": 4.178},
-            "Sangli": {"OC": 0.583, "EC": 0.24, "B": 0.973, "Fe": 3.16, "Mn": 6.06, "Cu": 2.88, "Zn": 0.62, "S": 10.75},
-            "Pune": {"OC": 0.41, "EC": 0.408, "B": 0.46, "Fe": 1.32, "Mn": 2.802, "Cu": 0.53, "Zn": 0.374, "S": 6.746}
-        }
         
-        district_rainfall_lookup = {
-            "Kolhapur": 1733.1,
-            "Pune": 861.6,
-            "Sangli": 514.5,
-            "Satara": 886.2,
-            "Solapur": 481.1
+        # Extract features according to feature_order contract
+        user_N = float(query_dict.get("N", 50.0))
+        user_P = float(query_dict.get("P", 40.0))
+        user_K = float(query_dict.get("K", 40.0))
+        user_pH = float(query_dict.get("pH", 6.5))
+        user_temp = float(query_dict.get("Temperature", 24.0))
+        user_humidity = float(query_dict.get("Humidity", 60.0))
+        user_rain = float(query_dict.get("Rainfall", 800.0))
+        
+        clean_query = {
+            "N": user_N,
+            "P": user_P,
+            "K": user_K,
+            "temperature": user_temp,
+            "humidity": user_humidity,
+            "ph": user_pH,
+            "rainfall": user_rain
         }
         
         # Stage 2: Preprocessing defaults applied
-        dist_defaults = district_medians.get(district, district_medians["Pune"])
-        dump_trace("stage2_preprocessing", {"district": district, "soil_color": soil_color, "defaults": dist_defaults})
+        dump_trace("stage2_preprocessing", {"clean_query": clean_query})
         
-        clean_query = query_dict.copy()
-        clean_query["District"] = district
-        clean_query["Soil_Color"] = soil_color
-        
-        for col, val in dist_defaults.items():
-            if col not in clean_query or clean_query[col] is None:
-                clean_query[col] = val
-                
-        for col in ["N", "P", "K", "pH", "Temperature", "Rainfall"]:
-            if col not in clean_query or clean_query[col] is None:
-                clean_query[col] = float(model_loader.preprocessor.medians.get(col, 0.0))
-                
-        user_rain = clean_query["Rainfall"]
-        user_temp = clean_query["Temperature"]
-        user_pH = clean_query["pH"]
-        user_N = clean_query["N"]
-        user_P = clean_query["P"]
-        user_K = clean_query["K"]
-        user_OC = clean_query["OC"]
-        
-        # 3. Dynamic Organic Carbon Class mapping
-        if user_OC < 0.4:
-            clean_query["OC_Class"] = "Low"
-        elif user_OC < 0.6:
-            clean_query["OC_Class"] = "Medium"
-        else:
-            clean_query["OC_Class"] = "High"
-            
-        # 4. Dynamic Soil Health Score calculation
-        health_score = 0.0
-        if 6.0 <= user_pH <= 7.5:
-            health_score += 2.0
-        if user_N >= 80.0:
-            health_score += 2.0
-        if user_P >= 25.0:
-            health_score += 2.0
-        if user_K >= 150.0:
-            health_score += 2.0
-        if user_OC >= 0.6:
-            health_score += 2.0
-        clean_query["Soil_Health_Score"] = health_score
-        
-        # 5. Dynamic Weather & Deviation calculations
-        normal_rain = district_rainfall_lookup.get(district, 861.6)
-        clean_query["District_Normal_Rainfall"] = normal_rain
-        clean_query["Rainfall_Deviation"] = round((user_rain - normal_rain) / normal_rain, 4)
-        clean_query["Humidity"] = round(float(np.clip(45.0 + 0.05 * user_rain - 0.2 * user_temp, 30.0, 95.0)), 2)
-        
-        # 6. Dynamic NPK ratios
-        clean_query["N_P_Ratio"] = round(user_N / (user_P + 0.01), 4)
-        clean_query["N_K_Ratio"] = round(user_N / (user_K + 0.01), 4)
-        clean_query["P_K_Ratio"] = round(user_P / (user_K + 0.01), 4)
-        
-        if "Growing_Season" not in clean_query:
-            clean_query["Growing_Season"] = "Kharif"
-            
-        # Stage 3: Feature Engineering complete
+        # Stage 3: Feature Engineering complete (Direct agronomic pass, zero ratio engineering required)
         dump_trace("stage3_features", {"clean_query": clean_query})
         
         df_query = pd.DataFrame([clean_query])
-        X_query = model_loader.preprocessor.transform(df_query)
+        X_query = model_loader.preprocessor.transform(df_query[model_loader.feature_order])
         
         proba = model_loader.model.predict_proba(X_query)[0]
         top_classes = np.argsort(proba)[::-1][:3]
@@ -149,15 +100,15 @@ class PredictionService:
         # Stage 4: ML Inference Probabilities
         dump_trace("stage4_model", {
             "top_probabilities": {
-                model_loader.preprocessor.crop_decoder[idx]: float(proba[idx]) for idx in top_classes
+                model_loader.label_encoder[idx].title(): float(proba[idx]) for idx in top_classes
             }
         })
         
         # Stage 5: Agronomy Limits Lookup
         dump_trace("stage5_agronomy", {
             "biological_limits": {
-                crop: CROP_BIOLOGICAL_LIMITS.get(crop, FALLBACK_LIMITS)
-                for crop in [model_loader.preprocessor.crop_decoder[i] for i in top_classes]
+                model_loader.label_encoder[i].title(): CROP_BIOLOGICAL_LIMITS.get(model_loader.label_encoder[i].title(), FALLBACK_LIMITS)
+                for i in top_classes
             }
         })
         
@@ -172,7 +123,7 @@ class PredictionService:
         fusion_scores_log = {}
         
         for rank, idx in enumerate(top_classes):
-            crop_name = model_loader.preprocessor.crop_decoder[idx]
+            crop_name = model_loader.label_encoder[idx].title()
             prob = float(proba[idx])
             
             limits = CROP_BIOLOGICAL_LIMITS.get(crop_name, FALLBACK_LIMITS)
@@ -208,7 +159,7 @@ class PredictionService:
                 "Potassium": bool(check_K)
             }
             
-            regional_suitability = 1.0 if crop_name in expected_crops else 0.60
+            regional_suitability = 1.0 if crop_name in expected_crops else 0.80
             
             # Risk Penalties
             risk_penalty = 0.0
@@ -275,12 +226,12 @@ class PredictionService:
                 p_query["N"] = max(0.0, p_query["N"] * config["N"])
                 p_query["P"] = max(0.0, p_query["P"] * config["P"])
                 p_query["K"] = max(0.0, p_query["K"] * config["K"])
-                p_query["pH"] = min(14.0, max(0.0, p_query["pH"] * config["pH"]))
+                p_query["ph"] = min(14.0, max(0.0, p_query["ph"] * config["pH"]))
                 
                 df_p = pd.DataFrame([p_query])
-                X_p = model_loader.preprocessor.transform(df_p)
+                X_p = model_loader.preprocessor.transform(df_p[model_loader.feature_order])
                 p_proba = model_loader.model.predict_proba(X_p)[0]
-                p_top = model_loader.preprocessor.crop_decoder[np.argsort(p_proba)[-1]]
+                p_top = model_loader.label_encoder[np.argsort(p_proba)[-1]].title()
                 if p_top == crop_name:
                     matches += 1
             stability_index = round(matches / len(perturb_configs), 2)
@@ -290,8 +241,7 @@ class PredictionService:
                 "pH Suitability check passed." if check_pH else "pH Suitability check failed.",
                 "Nutrient N check passed." if check_N else "Nutrient N check failed.",
                 "Nutrient P check passed." if check_P else "Nutrient P check failed.",
-                "Nutrient K check passed." if check_K else "Nutrient K check failed.",
-                "Agro-climatic Regional expectations satisfied." if crop_name in expected_crops else "Non-native regional expectation flag registered."
+                "Nutrient K check passed." if check_K else "Nutrient K check failed."
             ]
             
             crop_meta = CROP_DETAILS.get(crop_name, {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "4 months"})
@@ -311,35 +261,23 @@ class PredictionService:
             if crop_name == "Sugarcane":
                 if not check_rain:
                     conditional_crop_name = "Sugarcane (only with reliable irrigation)"
-                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea", "Groundnut"]
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpeas", "Groundnut"]
                     agronomic_warning = "This recommendation conflicts with typical rainfall requirements for Sugarcane (above 1000mm preferred). Confirm perennial canal or drip irrigation."
                     agronomic_reason = "Historical farms with similar soil properties cultivated Sugarcane. However, rainfall is substantially below the preferred biological range. Without reliable irrigation, Sorghum or Pigeonpea may be more suitable."
-                else:
-                    agronomic_reason = "Soil nutrients and rainfall parameters completely satisfy sugarcane biological growth requirements."
             elif crop_name == "Rice":
                 if not check_rain:
                     conditional_crop_name = "Rice (only with flood irrigation)"
-                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea", "Groundnut"]
-                    agronomic_warning = "Rice requires waterlogging conditions (above 1100mm preferred). Verify flood irrigation availability."
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpeas", "Groundnut"]
+                    agronomic_warning = "Rice requires waterlogging conditions (above 1000mm preferred). Verify flood irrigation availability."
                     agronomic_reason = "Historical farms with similar soil properties cultivated Rice. However, rainfall is below the waterlogging threshold. Consider only under flood irrigation."
-                else:
-                    agronomic_reason = "Adequate precipitation levels satisfy paddy waterlogging cultivation limits."
             elif crop_name == "Wheat":
-                if clean_query.get("Growing_Season") == "Kharif":
-                    conditional_crop_name = "Wheat (not recommended in Kharif)"
-                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea"]
-                    agronomic_warning = "Wheat is a winter Rabi crop. Sowing in Kharif can lead to moisture stress or root rot."
-                    agronomic_reason = "Wheat is a winter Rabi crop. Planting in Kharif monsoon risks high humidity grain rotting."
-                else:
-                    agronomic_reason = "Rabi temperature cycles match wheat grain maturation stages."
+                agronomic_reason = "Temperature cycles match wheat grain maturation stages."
             elif crop_name == "Cotton":
                 if not check_rain:
                     conditional_crop_name = "Cotton (requires supplementary watering)"
-                    alternative_rainfed_crops = ["Sorghum", "Pigeonpea"]
+                    alternative_rainfed_crops = ["Sorghum", "Pigeonpeas"]
                     agronomic_warning = "Low rainfall can cause cotton boll shedding. Confirm micro-irrigation supply."
                     agronomic_reason = "Dry spell limits cotton boll development. Confirm micro-irrigation options."
-                else:
-                    agronomic_reason = "Precipitation matches cotton vegetative and flowering requirements."
                     
             top_recommendations.append({
                 "crop": crop_name,
@@ -374,7 +312,7 @@ class PredictionService:
         bottom_classes = np.argsort(proba)[:3]
         not_recommended = []
         for idx in bottom_classes:
-            crop_name = model_loader.preprocessor.crop_decoder[idx]
+            crop_name = model_loader.label_encoder[idx].title()
             prob = float(proba[idx])
             
             reasons = []
@@ -388,13 +326,11 @@ class PredictionService:
                 
             if user_pH < 6.0 and crop_name in ["Wheat", "Grapes", "Sugarcane"]:
                 reasons.append(f"Soil pH ({user_pH}) is too acidic")
-            elif user_pH > 7.5 and crop_name in ["Rice", "Moong", "Urad"]:
+            elif user_pH > 7.5 and crop_name in ["Rice", "Moong", "Urad", "Mungbean"]:
                 reasons.append(f"Soil pH ({user_pH}) is too alkaline")
                 
             if user_N < 50 and crop_name in ["Sugarcane", "Rice", "Wheat"]:
                 reasons.append(f"Available Nitrogen ({user_N} kg/ha) is insufficient")
-            if user_K < 50 and crop_name in ["Grapes", "Sugarcane"]:
-                reasons.append(f"Available Potassium ({user_K} kg/ha) is insufficient")
                 
             if not reasons:
                 reasons.append("Environmental parameters deviate from optimal crop viability thresholds")

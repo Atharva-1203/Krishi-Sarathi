@@ -7,12 +7,31 @@ CROP_DETAILS = {
     "Rice": {"season": "Kharif", "water_requirement": "High", "growing_duration": "4-5 months"},
     "Groundnut": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "4 months"},
     "Pigeonpea": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "6-7 months"},
+    "Pigeonpeas": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "6-7 months"},
     "Ginger": {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "8-9 months"},
     "Grapes": {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "Perennial"},
     "Urad": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "3 months"},
+    "Blackgram": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "3 months"},
     "Moong": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "3 months"},
+    "Mungbean": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "3 months"},
     "Chickpea": {"season": "Rabi", "water_requirement": "Low", "growing_duration": "4-5 months"},
     "Turmeric": {"season": "Kharif", "water_requirement": "High", "growing_duration": "7-9 months"},
     "Soyabean": {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "3-4 months"},
-    "Masoor": {"season": "Rabi", "water_requirement": "Low", "growing_duration": "4 months"}
+    "Soybean": {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "3-4 months"},
+    "Masoor": {"season": "Rabi", "water_requirement": "Low", "growing_duration": "4 months"},
+    "Lentil": {"season": "Rabi", "water_requirement": "Low", "growing_duration": "4 months"},
+    
+    # New UCI crop profiles
+    "Apple": {"season": "Rabi", "water_requirement": "High", "growing_duration": "Perennial"},
+    "Banana": {"season": "Kharif", "water_requirement": "High", "growing_duration": "10-12 months"},
+    "Coconut": {"season": "Kharif", "water_requirement": "High", "growing_duration": "Perennial"},
+    "Coffee": {"season": "Kharif", "water_requirement": "High", "growing_duration": "Perennial"},
+    "Jute": {"season": "Kharif", "water_requirement": "High", "growing_duration": "4-5 months"},
+    "Kidneybeans": {"season": "Rabi", "water_requirement": "Medium", "growing_duration": "3-4 months"},
+    "Mothbeans": {"season": "Kharif", "water_requirement": "Low", "growing_duration": "3-4 months"},
+    "Muskmelon": {"season": "Summer", "water_requirement": "Low", "growing_duration": "3 months"},
+    "Orange": {"season": "Rabi", "water_requirement": "Medium", "growing_duration": "Perennial"},
+    "Papaya": {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "9-12 months"},
+    "Pomegranate": {"season": "Kharif", "water_requirement": "Medium", "growing_duration": "Perennial"},
+    "Watermelon": {"season": "Summer", "water_requirement": "Low", "growing_duration": "3 months"}
 }

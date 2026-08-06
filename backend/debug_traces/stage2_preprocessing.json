@@ -1,14 +1,11 @@
 {
-  "district": "Satara",
-  "soil_color": "Red",
-  "defaults": {
-    "OC": 0.295,
-    "EC": 0.25,
-    "B": 0.073,
-    "Fe": 3.96,
-    "Mn": 6.2,
-    "Cu": 2.4,
-    "Zn": 0.793,
-    "S": 4.178
+  "clean_query": {
+    "N": 188.0,
+    "P": 99.0,
+    "K": 277.0,
+    "temperature": 30.0,
+    "humidity": 60.0,
+    "ph": 5.5,
+    "rainfall": 1635.0
   }
 }

@@ -1,10 +1,11 @@
 {
-  "district": "Satara",
+  "district": "Solapur",
   "expected": [
     "Sorghum",
-    "Wheat",
-    "Soyabean",
-    "Cotton",
-    "Groundnut"
+    "Moong",
+    "Pigeonpeas",
+    "Chickpea",
+    "Groundnut",
+    "Pomegranate"
   ]
 }

@@ -1,29 +1,11 @@
 {
   "clean_query": {
-    "District": "Satara",
-    "Growing_Season": "InvalidSeason",
-    "Soil_Color": "Red",
-    "N": 163.0,
-    "P": 107.0,
-    "K": 178.0,
-    "pH": 15.08,
-    "Temperature": 16.73,
-    "Rainfall": 3130.73,
-    "OC": 0.23,
-    "EC": 0.25,
-    "B": 0.073,
-    "Fe": 3.96,
-    "Mn": 6.2,
-    "Cu": 2.4,
-    "Zn": 0.793,
-    "S": 4.178,
-    "OC_Class": "Low",
-    "Soil_Health_Score": 6.0,
-    "District_Normal_Rainfall": 886.2,
-    "Rainfall_Deviation": 2.5328,
-    "Humidity": 95.0,
-    "N_P_Ratio": 1.5232,
-    "N_K_Ratio": 0.9157,
-    "P_K_Ratio": 0.6011
+    "N": 188.0,
+    "P": 99.0,
+    "K": 277.0,
+    "temperature": 30.0,
+    "humidity": 60.0,
+    "ph": 5.5,
+    "rainfall": 1635.0
   }
 }

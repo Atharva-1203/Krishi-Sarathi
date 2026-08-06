@@ -47,8 +47,10 @@ export function translateExplanation(crop: string, why: string, lang: 'en' | 'mr
   
   const cropMr: Record<string, string> = {
     "Sugarcane": "ऊस", "Wheat": "गहू", "Cotton": "कापूस", "Sorghum": "ज्वारी", "Maize": "मका", "Rice": "भात",
-    "Groundnut": "भूईमूग", "Pigeonpea": "तूर", "Ginger": "आले", "Grapes": "द्राक्षे", "Urad": "उडीद", "Moong": "मूग",
-    "Chickpea": "हरभरा", "Turmeric": "हळद", "Soyabean": "सोयाबीन", "Masoor": "मसूर"
+    "Groundnut": "भूईमूग", "Pigeonpea": "तूर", "Pigeonpeas": "तूर", "Ginger": "आले", "Grapes": "द्राक्षे", "Urad": "उडीद", "Moong": "मूग",
+    "Chickpea": "हरभरा", "Turmeric": "हळद", "Soyabean": "सोयाबीन", "Masoor": "मसूर", "Blackgram": "उडीद", "Mungbean": "मूग",
+    "Apple": "सफरचंद", "Banana": "केळी", "Coconut": "नारळ", "Coffee": "कॉफी", "Jute": "ताग", "Kidneybeans": "राजमा",
+    "Mothbeans": "मटकी", "Muskmelon": "खरबूज", "Orange": "संत्री", "Papaya": "पपई", "Pomegranate": "डाळिंब", "Watermelon": "कलिंगड"
   };
   
   const cropNameMr = cropMr[crop] || crop;
@@ -83,8 +85,10 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
 
   const cropMr: Record<string, string> = {
     "Sugarcane": "ऊस", "Wheat": "गहू", "Cotton": "कापूस", "Sorghum": "ज्वारी", "Maize": "मका", "Rice": "भात",
-    "Groundnut": "भूईमूग", "Pigeonpea": "तूर", "Ginger": "आले", "Grapes": "द्राक्षे", "Urad": "उडीद", "Moong": "मूग",
-    "Chickpea": "हरभरा", "Turmeric": "हळद", "Soyabean": "सोयाबीन", "Masoor": "मसूर"
+    "Groundnut": "भूईमूग", "Pigeonpea": "तूर", "Pigeonpeas": "तूर", "Ginger": "आले", "Grapes": "द्राक्षे", "Urad": "उडीद", "Moong": "मूग",
+    "Chickpea": "हरभरा", "Turmeric": "हळद", "Soyabean": "सोयाबीन", "Masoor": "मसूर", "Blackgram": "उडीद", "Mungbean": "मूग",
+    "Apple": "सफरचंद", "Banana": "केळी", "Coconut": "नारळ", "Coffee": "कॉफी", "Jute": "ताग", "Kidneybeans": "राजमा",
+    "Mothbeans": "मटकी", "Muskmelon": "खरबूज", "Orange": "संत्री", "Papaya": "पपई", "Pomegranate": "डाळिंब", "Watermelon": "कलिंगड"
   };
 
   const cropNameMr = (crop: string) => cropMr[crop] || crop;
