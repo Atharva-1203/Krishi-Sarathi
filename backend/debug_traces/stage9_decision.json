@@ -1,37 +1,37 @@
 {
   "top_recommendations": [
     {
-      "crop": "Wheat",
+      "crop": "Sugarcane",
       "confidence": "\u2605\u2606\u2606\u2606\u2606 Weak",
-      "probability": 0.51,
-      "season": "Rabi",
-      "water_requirement": "Medium",
-      "growing_duration": "4-5 months",
-      "why_recommended": "Wheat is recommended because soil is slightly acidic which is suitable for tuber root structures, available nitrogen is highly adequate for green vegetative growth, rainfall deviation falls within drought tolerance thresholds.",
+      "probability": 0.38,
+      "season": "Kharif",
+      "water_requirement": "High",
+      "growing_duration": "12-18 months",
+      "why_recommended": "Sugarcane is recommended because alkalinity levels are tolerable for root health, available nitrogen is highly adequate for green vegetative growth, cumulative monsoon rainfall matches the plant's water consumption footprint.",
       "shap_features": [
         {
-          "feature": "Growing_Season_Rabi",
-          "impact": 0.19460780576307507
-        },
-        {
-          "feature": "Growing_Season_Kharif",
-          "impact": 0.1510247366643073
+          "feature": "Rainfall",
+          "impact": 0.15
         },
         {
           "feature": "N",
-          "impact": 0.07440805858615862
+          "impact": 0.1
+        },
+        {
+          "feature": "pH",
+          "impact": 0.05
         }
       ],
-      "agronomic_warning": null,
-      "agronomic_reason": "Rabi temperature cycles match wheat grain maturation stages.",
-      "statistical_confidence": 0.51,
+      "agronomic_warning": "This recommendation conflicts with typical rainfall requirements for Sugarcane (above 1000mm preferred). Confirm perennial canal or drip irrigation.",
+      "agronomic_reason": "Historical farms with similar soil properties cultivated Sugarcane. However, rainfall is substantially below the preferred biological range. Without reliable irrigation, Sorghum or Pigeonpea may be more suitable.",
+      "statistical_confidence": 0.38,
       "agronomic_confidence": 0.35,
       "regional_suitability": 0.6,
-      "final_score": 0.23,
+      "final_score": 0.17,
       "risk_level": "High",
       "decision_type": "Not Recommended",
       "decision_trace": [
-        "Historical Similarity: 51%",
+        "Historical Similarity: 38%",
         "pH Suitability check failed.",
         "Nutrient N check passed.",
         "Nutrient P check passed.",
@@ -46,8 +46,12 @@
         "Phosphorus": true,
         "Potassium": true
       },
-      "conditional_crop_name": "Wheat",
-      "alternative_rainfed_crops": [],
+      "conditional_crop_name": "Sugarcane (only with reliable irrigation)",
+      "alternative_rainfed_crops": [
+        "Sorghum",
+        "Pigeonpea",
+        "Groundnut"
+      ],
       "action_plan": [
         "Plant during the optimal crop season.",
         "Perform routine soil health tests.",
@@ -57,24 +61,24 @@
       "stability_index": 1.0
     },
     {
-      "crop": "Sugarcane",
-      "confidence": "\u2605\u2605\u2606\u2606\u2606 Conditional",
-      "probability": 0.21,
+      "crop": "Rice",
+      "confidence": "\u2605\u2606\u2606\u2606\u2606 Weak",
+      "probability": 0.27,
       "season": "Kharif",
       "water_requirement": "High",
-      "growing_duration": "12-18 months",
+      "growing_duration": "4-5 months",
       "why_recommended": "Recommended as a secondary fallback option. Water requirements and growing cycle align with regional historical profiles.",
       "shap_features": [],
-      "agronomic_warning": null,
-      "agronomic_reason": "Soil nutrients and rainfall parameters completely satisfy sugarcane biological growth requirements.",
-      "statistical_confidence": 0.21,
-      "agronomic_confidence": 0.85,
+      "agronomic_warning": "Rice requires waterlogging conditions (above 1100mm preferred). Verify flood irrigation availability.",
+      "agronomic_reason": "Historical farms with similar soil properties cultivated Rice. However, rainfall is below the waterlogging threshold. Consider only under flood irrigation.",
+      "statistical_confidence": 0.27,
+      "agronomic_confidence": 0.35,
       "regional_suitability": 0.6,
-      "final_score": 0.48,
-      "risk_level": "Low",
-      "decision_type": "Needs Intervention",
+      "final_score": 0.13,
+      "risk_level": "High",
+      "decision_type": "Not Recommended",
       "decision_trace": [
-        "Historical Similarity: 21%",
+        "Historical Similarity: 27%",
         "pH Suitability check failed.",
         "Nutrient N check passed.",
         "Nutrient P check passed.",
@@ -82,46 +86,51 @@
         "Non-native regional expectation flag registered."
       ],
       "parameter_compliance": {
-        "Rainfall": true,
-        "Temperature": true,
+        "Rainfall": false,
+        "Temperature": false,
         "Soil pH": false,
         "Nitrogen": true,
         "Phosphorus": true,
         "Potassium": true
       },
-      "conditional_crop_name": "Sugarcane",
-      "alternative_rainfed_crops": [],
+      "conditional_crop_name": "Rice (only with flood irrigation)",
+      "alternative_rainfed_crops": [
+        "Sorghum",
+        "Pigeonpea",
+        "Groundnut"
+      ],
       "action_plan": [
         "Plant during the optimal crop season.",
         "Perform routine soil health tests.",
+        "Establish localized irrigation systems (drip/sprinkler/borewell).",
         "Add soil neutralizers like agricultural lime (acidic) or gypsum (alkaline)."
       ],
       "stability_index": 0.0
     },
     {
-      "crop": "Grapes",
+      "crop": "Wheat",
       "confidence": "\u2605\u2606\u2606\u2606\u2606 Weak",
-      "probability": 0.19,
-      "season": "Kharif",
+      "probability": 0.24,
+      "season": "Rabi",
       "water_requirement": "Medium",
-      "growing_duration": "Perennial",
+      "growing_duration": "4-5 months",
       "why_recommended": "Recommended as a secondary fallback option. Water requirements and growing cycle align with regional historical profiles.",
       "shap_features": [],
       "agronomic_warning": null,
-      "agronomic_reason": "Crop parameters align optimally with regional soil chemistry and water availability bounds.",
-      "statistical_confidence": 0.19,
+      "agronomic_reason": "Rabi temperature cycles match wheat grain maturation stages.",
+      "statistical_confidence": 0.24,
       "agronomic_confidence": 0.55,
-      "regional_suitability": 0.6,
-      "final_score": 0.22,
+      "regional_suitability": 1.0,
+      "final_score": 0.34,
       "risk_level": "Moderate",
       "decision_type": "Not Recommended",
       "decision_trace": [
-        "Historical Similarity: 19%",
+        "Historical Similarity: 24%",
         "pH Suitability check failed.",
         "Nutrient N check passed.",
         "Nutrient P check passed.",
         "Nutrient K check passed.",
-        "Non-native regional expectation flag registered."
+        "Agro-climatic Regional expectations satisfied."
       ],
       "parameter_compliance": {
         "Rainfall": false,
@@ -131,7 +140,7 @@
         "Phosphorus": true,
         "Potassium": true
       },
-      "conditional_crop_name": "Grapes",
+      "conditional_crop_name": "Wheat",
       "alternative_rainfed_crops": [],
       "action_plan": [
         "Plant during the optimal crop season.",
@@ -144,18 +153,18 @@
   ],
   "not_recommended": [
     {
-      "crop": "Sorghum",
-      "why_not": "Rainfall (1635.0mm) is too high for dry-land cropping.",
+      "crop": "Groundnut",
+      "why_not": "Rainfall (3130.73mm) is too high for dry-land cropping.",
+      "probability": 0.0
+    },
+    {
+      "crop": "Pigeonpea",
+      "why_not": "Rainfall (3130.73mm) is too high for dry-land cropping.",
       "probability": 0.0
     },
     {
       "crop": "Maize",
       "why_not": "Environmental parameters deviate from optimal crop viability thresholds.",
-      "probability": 0.0
-    },
-    {
-      "crop": "Pigeonpea",
-      "why_not": "Rainfall (1635.0mm) is too high for dry-land cropping.",
       "probability": 0.0
     }
   ]

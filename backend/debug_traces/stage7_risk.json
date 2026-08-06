@@ -1,7 +1,7 @@
 {
   "penalties": {
-    "Wheat": 0.25,
-    "Sugarcane": 0.05,
-    "Grapes": 0.2
+    "Sugarcane": 0.25,
+    "Rice": 0.25,
+    "Wheat": 0.2
   }
 }
