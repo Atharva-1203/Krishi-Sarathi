@@ -1,5 +1,7 @@
 import uuid
 import time
+import os
+import json
 import numpy as np
 import pandas as pd
 from backend.app.ml.model_loader import model_loader
@@ -36,6 +38,20 @@ class PredictionService:
         warnings = []
         warnings.append("This recommendation is based on historical cultivation patterns within Western Maharashtra. It should be used as decision support and not as the sole basis for agricultural planning.")
         
+        # Initialize Debug Tracer
+        debug_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "debug_traces")
+        os.makedirs(debug_dir, exist_ok=True)
+        
+        def dump_trace(stage, data):
+            try:
+                with open(os.path.join(debug_dir, f"{stage}.json"), "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2, default=str)
+            except Exception:
+                pass
+                
+        # Stage 1: Validation
+        dump_trace("stage1_validation", {"input_raw": query_dict})
+        
         district = query_dict.get("District", "Pune").strip().title()
         if district not in model_loader.preprocessor.district_categories:
             warnings.append(f"District '{district}' is outside Pune division. Falling back to average Pune medians.")
@@ -61,17 +77,18 @@ class PredictionService:
             "Solapur": 481.1
         }
         
+        # Stage 2: Preprocessing defaults applied
+        dist_defaults = district_medians.get(district, district_medians["Pune"])
+        dump_trace("stage2_preprocessing", {"district": district, "soil_color": soil_color, "defaults": dist_defaults})
+        
         clean_query = query_dict.copy()
         clean_query["District"] = district
         clean_query["Soil_Color"] = soil_color
         
-        # 1. Impute missing micronutrients dynamically
-        dist_defaults = district_medians.get(district, district_medians["Pune"])
         for col, val in dist_defaults.items():
             if col not in clean_query or clean_query[col] is None:
                 clean_query[col] = val
                 
-        # 2. Impute main form fields if missing
         for col in ["N", "P", "K", "pH", "Temperature", "Rainfall"]:
             if col not in clean_query or clean_query[col] is None:
                 clean_query[col] = float(model_loader.preprocessor.medians.get(col, 0.0))
@@ -120,20 +137,44 @@ class PredictionService:
         if "Growing_Season" not in clean_query:
             clean_query["Growing_Season"] = "Kharif"
             
+        # Stage 3: Feature Engineering complete
+        dump_trace("stage3_features", {"clean_query": clean_query})
+        
         df_query = pd.DataFrame([clean_query])
         X_query = model_loader.preprocessor.transform(df_query)
         
         proba = model_loader.model.predict_proba(X_query)[0]
         top_classes = np.argsort(proba)[::-1][:3]
         
+        # Stage 4: ML Inference Probabilities
+        dump_trace("stage4_model", {
+            "top_probabilities": {
+                model_loader.preprocessor.crop_decoder[idx]: float(proba[idx]) for idx in top_classes
+            }
+        })
+        
+        # Stage 5: Agronomy Limits Lookup
+        dump_trace("stage5_agronomy", {
+            "biological_limits": {
+                crop: CROP_BIOLOGICAL_LIMITS.get(crop, FALLBACK_LIMITS)
+                for crop in [model_loader.preprocessor.crop_decoder[i] for i in top_classes]
+            }
+        })
+        
+        # Stage 6: Regional Expectation Matcher
+        expected_crops = DISTRICT_CROP_REGIONAL_EXPECTATION.get(district, ["Wheat"])
+        dump_trace("stage6_regional", {"district": district, "expected": expected_crops})
+        
         shap_res = shap_engine.explain(X_query, top_classes[0])
         
         top_recommendations = []
+        risk_penalties_log = {}
+        fusion_scores_log = {}
+        
         for rank, idx in enumerate(top_classes):
             crop_name = model_loader.preprocessor.crop_decoder[idx]
             prob = float(proba[idx])
             
-            # Fetch constraints
             limits = CROP_BIOLOGICAL_LIMITS.get(crop_name, FALLBACK_LIMITS)
             
             check_rain = limits["rain_min"] <= user_rain <= limits["rain_max"]
@@ -143,9 +184,7 @@ class PredictionService:
             check_P = user_P >= limits["P_min"]
             check_K = user_K >= limits["K_min"]
             
-            # Weighted suitability calculation (Rainfall=35%, Temperature=20%, pH=15%, N=10%, P=10%, K=10%)
             suitability_score = 0.0
-            
             if check_rain:
                 suitability_score += 35.0
             else:
@@ -169,16 +208,15 @@ class PredictionService:
                 "Potassium": bool(check_K)
             }
             
-            # Regional Suitability scoring
-            expected_crops = DISTRICT_CROP_REGIONAL_EXPECTATION.get(district, ["Wheat"])
             regional_suitability = 1.0 if crop_name in expected_crops else 0.60
             
-            # Risk score and levels
+            # Risk Penalties
             risk_penalty = 0.0
             if not check_rain: risk_penalty += 0.15
             if not check_temp: risk_penalty += 0.05
             if not check_pH: risk_penalty += 0.05
             if not check_N or not check_P or not check_K: risk_penalty += 0.05
+            risk_penalties_log[crop_name] = risk_penalty
             
             if risk_penalty <= 0.0:
                 risk_level = "Very Low"
@@ -191,11 +229,10 @@ class PredictionService:
             else:
                 risk_level = "Critical"
                 
-            # Decision Fusion Score formula
             final_score = round(prob * 0.40 + agronomic_confidence * 0.35 + regional_suitability * 0.25 - risk_penalty, 2)
             final_score = max(0.0, min(1.0, final_score))
+            fusion_scores_log[crop_name] = final_score
             
-            # Decision types and qualitative stars
             if final_score >= 0.90:
                 band = "★★★★★ Very Strong"
                 decision_type = "Highly Recommended"
@@ -212,7 +249,6 @@ class PredictionService:
                 band = "★☆☆☆☆ Weak"
                 decision_type = "Not Recommended"
                 
-            # Sowing Action plans
             action_plan = ["Plant during the optimal crop season.", "Perform routine soil health tests."]
             if not check_rain:
                 action_plan.append("Establish localized irrigation systems (drip/sprinkler/borewell).")
@@ -225,7 +261,7 @@ class PredictionService:
             if not check_K:
                 action_plan.append("Apply Muriate of Potash (MOP) to boost potassium levels.")
                 
-            # Perturbation Stability Index
+            # Perturbations
             perturb_configs = [
                 {"N": 1.05, "P": 1.05, "K": 1.05, "pH": 1.05},
                 {"N": 0.95, "P": 0.95, "K": 0.95, "pH": 0.95},
@@ -249,7 +285,6 @@ class PredictionService:
                     matches += 1
             stability_index = round(matches / len(perturb_configs), 2)
             
-            # Decision traceability log
             decision_trace = [
                 f"Historical Similarity: {int(prob*100)}%",
                 "pH Suitability check passed." if check_pH else "pH Suitability check failed.",
@@ -331,7 +366,11 @@ class PredictionService:
                 "stability_index": float(stability_index)
             })
             
-        # Compile dynamic "Not Recommended" list from bottom classes (excluding top_classes)
+        # Stage 7 & 8: Risk and Fusion calculations completed
+        dump_trace("stage7_risk", {"penalties": risk_penalties_log})
+        dump_trace("stage8_fusion", {"fused_scores": fusion_scores_log})
+        
+        # Compile dynamic "Not Recommended" list
         bottom_classes = np.argsort(proba)[:3]
         not_recommended = []
         for idx in bottom_classes:
@@ -368,7 +407,7 @@ class PredictionService:
                 "probability": round(prob, 4)
             })
             
-        # Mathematically enforce mutual exclusivity: Recommended ∩ Not Recommended = Ø
+        # Enforce mutual exclusivity
         recommended_crops_set = {item["crop"] for item in top_recommendations}
         filtered_not_recommended = []
         for item in not_recommended:
@@ -379,10 +418,13 @@ class PredictionService:
         assert len(recommended_crops_set.intersection({item["crop"] for item in filtered_not_recommended})) == 0, "Consistency violation: Crop overlap detected!"
         assert abs(sum(proba) - 1.0) < 1e-4, "Probability summation error: Output does not sum to 1.0!"
         
+        # Stage 9: Decision assembly complete
+        dump_trace("stage9_decision", {"top_recommendations": top_recommendations, "not_recommended": filtered_not_recommended})
+        
         decision_quality_score = 0.97
         latency = (time.time() - t0) * 1000.0
         
-        return {
+        final_payload = {
             "status": "success",
             "prediction_id": str(uuid.uuid4()),
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -392,3 +434,8 @@ class PredictionService:
             "decision_quality_score": decision_quality_score,
             "processing_time_ms": round(latency, 2)
         }
+        
+        # Stage 10: Serialization & Output
+        dump_trace("stage10_api", final_payload)
+        
+        return final_payload

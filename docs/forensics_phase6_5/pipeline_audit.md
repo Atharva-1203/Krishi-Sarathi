@@ -1,12 +1,16 @@
-# Prediction Pipeline Consistency Audit
+# Prediction Pipeline Consistency Audit (Phase 7.0 Certified)
 
 
-## Stage-by-Stage Consistency Evaluation
+## 10-Stage Debug Snapshot Trace Validation
 
-1.  **User Input**: FastAPI schema parsing validates type-constraints and prevents SQL/script injections.
-2.  **Sanitization & Imputation**: Restricts inputs to Western Maharashtra boundaries. Missing soil elements are imputed using district-specific Soil Health Card medians instead of global medians.
-3.  **ML Inference**: ExtraTrees model generates multi-class raw probability boundaries.
-4.  **Agronomic Validation**: Parallel biological constraint checks (Rainfall, Temp, pH, NPK limits).
-5.  **Regional Validation**: Cross-checks recommendations against district normal profiles.
-6.  **Confidence Fusion**: Merges ML, Agronomy, and Regional scores with a risk penalty subtraction.
-7.  **Consistency Assertion**: Enforces zero intersection between recommended and not recommended lists.
+The prediction pipeline implements serialized JSON snapshots after every logical state transition:
+- **stage1_validation.json**: Checks input schema formats.
+- **stage2_preprocessing.json**: Tracks district median soil health interpolations.
+- **stage3_features.json**: Checks calculated NPK nutrient ratios.
+- **stage4_model.json**: Logs raw probability vectors from ExtraTrees.
+- **stage5_agronomy.json**: Assesses physical crop growth constraints.
+- **stage6_regional.json**: Checks agro-climatic zoning matches.
+- **stage7_risk.json**: Logs risk penalty values.
+- **stage8_fusion.json**: Logs decision fusion blended scoring.
+- **stage9_decision.json**: Verifies mutual exclusivity constraint checks.
+- **stage10_api.json**: Serialized final output.

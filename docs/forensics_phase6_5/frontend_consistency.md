@@ -1,7 +1,4 @@
-# Frontend Widget Consistency & Contract
+# Frontend Rendering Contract
 
 
-## Rendering Alignment Rules
-
-All UI components (circular gauges, checklists, disclaimers, action plans) fetch parameters strictly from the `top_recommendations` API response.
-No calculations are done on the Next.js client side.
+All widgets load parameters directly from the API response payload without local modification or recalculations.

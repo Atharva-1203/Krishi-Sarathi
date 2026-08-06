@@ -1,8 +1,4 @@
-# Explanation Consistency & Contradiction Detection
+# Explanation Consistency and Contradiction Prevention
 
 
-## Explanation Synthesis Rules
-
-To prevent contradictions between SHAP text and Agronomic warnings:
-- Explanation Service queries the unified `parameter_compliance` checklist.
-- If Rainfall is flagged as `false`, the explanation dynamically appends warnings regarding irrigation necessity.
+Explanations are synthesised directly from the Decision object, avoiding contradictions between SHAP descriptions and Agronomic limits.

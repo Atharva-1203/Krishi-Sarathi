@@ -1,8 +1,5 @@
-# Probability Distribution Validation Check
+# Probability Calibration and Distribution Checks
 
 
-## Multi-class Probability Sum Assertions
-
-- **Assertion**: $\sum P(C_i) = 1.0000$ (validated with float tolerance $1e-4$).
-- **Ordering**: Top recommendations are strictly sorted in descending order.
-- **Duplicate Labels**: Checked and validated against multi-label collisions.
+- Multi-class output probabilities sum strictly to 1.0000.
+- Top candidate recommendations are sorted in descending order of the fused score.

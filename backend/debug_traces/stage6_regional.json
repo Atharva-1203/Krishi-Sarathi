@@ -1,0 +1,10 @@
+{
+  "district": "Solapur",
+  "expected": [
+    "Sorghum",
+    "Moong",
+    "Pigeonpea",
+    "Chickpea",
+    "Groundnut"
+  ]
+}

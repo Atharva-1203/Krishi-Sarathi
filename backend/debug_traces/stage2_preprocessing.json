@@ -1,0 +1,14 @@
+{
+  "district": "Solapur",
+  "soil_color": "Red",
+  "defaults": {
+    "OC": 0.45,
+    "EC": 0.32,
+    "B": 0.16,
+    "Fe": 1.56,
+    "Mn": 1.56,
+    "Cu": 0.58,
+    "Zn": 0.5,
+    "S": 7.05
+  }
+}

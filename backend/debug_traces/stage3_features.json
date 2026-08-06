@@ -1,0 +1,29 @@
+{
+  "clean_query": {
+    "District": "Solapur",
+    "Growing_Season": "Rabi",
+    "Soil_Color": "Red",
+    "N": 188.0,
+    "P": 99.0,
+    "K": 277.0,
+    "pH": 5.5,
+    "Temperature": 30.0,
+    "Rainfall": 1635.0,
+    "OC": 0.8,
+    "EC": 0.32,
+    "B": 0.16,
+    "Fe": 1.56,
+    "Mn": 1.56,
+    "Cu": 0.58,
+    "Zn": 0.5,
+    "S": 7.05,
+    "OC_Class": "High",
+    "Soil_Health_Score": 8.0,
+    "District_Normal_Rainfall": 481.1,
+    "Rainfall_Deviation": 2.3985,
+    "Humidity": 95.0,
+    "N_P_Ratio": 1.8988,
+    "N_K_Ratio": 0.6787,
+    "P_K_Ratio": 0.3574
+  }
+}

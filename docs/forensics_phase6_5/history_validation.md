@@ -1,7 +1,4 @@
-# Recent History State Audit
+# Recent History Validation Check
 
 
-## Cache & Previous Session Bleed Prevention
-
-- **LocalStorage Isolation**: Recommendations are saved using unique prediction IDs.
-- **Dynamic Fetching**: Recent history card fetches full unified payloads, eliminating client-side recalculation inconsistencies.
+- Caches the complete, unified Decision object directly to localStorage, preventing session data leaks.

@@ -1,11 +1,10 @@
-# Confidence Fusion Engine Specification
+# Confidence Fusion Engine Specifications
 
 
-## Multi-Dimensional Score Fusion Math
+## Three-Layer Intelligence Fusion
 
-The overall choice rank is determined using three independent scores:
-1.  **Historical Similarity (ML)**: Weight `40%`.
-2.  **Agronomic Suitability**: Weight `35%`. Calculates compliance across pH, Temperature, Rainfall, and NPK limits.
-3.  **Regional Suitability**: Weight `25%`. Matches district crops lists (e.g. Sugarcane in Kolhapur, Sorghum in Solapur).
+$$\text{Final Score} = \text{Model Confidence} \times 0.40 + \text{Agronomic Suitability} \times 0.35 + \text{Regional Suitability} \times 0.25 - \text{Risk Penalty}$$
 
-$$\text{Final Score} = \text{ML} \times 0.40 + \text{Agronomic} \times 0.35 + \text{Regional} \times 0.25 - \text{Risk Penalty}$$
+- **Model Confidence**: Pattern similarity to historical farms.
+- **Agronomic Suitability**: Crop Growth Limits checks.
+- **Regional Suitability**: Agro-climatic expectations.

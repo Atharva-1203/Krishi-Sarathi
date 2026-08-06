@@ -1,9 +1,6 @@
-# Backend Automated Consistency Verification
+# Backend Automated Assertions Check
 
 
-## Pytest Automated Integrity Checkpoints
-
-Automated tests assert:
-1.  Mutual exclusivity: `top_recommendations ∩ not_recommended = Ø`.
-2.  Data types are correct.
-3.  Latencies are below 100ms.
+Test suite verifies:
+- `Recommended ∩ Not Recommended = Ø`
+- All scores lie strictly in range $[0, 1]$.

@@ -1,22 +1,24 @@
 # System Architecture & Decision Flow Diagram
 
 
-## Enterprise+ Decision Architecture
-
 ```
-[User Soil Input] 
+[Input Parameter] → [Tracer 1]
        ↓
-[Pydantic Sanitizer & Medians Imputation]
+[Median Imputer] → [Tracer 2]
        ↓
-[ExtraTrees ML Classifier] ──→ Top-N Probabilities
+[NPK Ratio Engr] → [Tracer 3]
        ↓
-[Agronomic Validator] ──→ Biological Optimums Check
+[ExtraTrees ML]  → [Tracer 4]
        ↓
-[Regional Validator] ──→ Agro-climatic Zone Check
+[Agronomic Check]→ [Tracer 5]
        ↓
-[Decision Fusion Engine] ──→ Final Score Card
+[Regional Check] → [Tracer 6]
        ↓
-[Consistency Assertion] ──→ Mutual Exclusivity Check
+[Risk Penalty]   → [Tracer 7]
        ↓
-[JSON Serialization & React Render]
+[Decision Fusion]→ [Tracer 8]
+       ↓
+[Mutual Excl]    → [Tracer 9]
+       ↓
+[API Serialized] → [Tracer 10]
 ```
