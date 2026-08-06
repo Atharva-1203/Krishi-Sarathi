@@ -11,11 +11,17 @@ class RecommendationItem(BaseModel):
     why_recommended: str
     shap_features: List[Dict[str, Any]]
 
+class NotRecommendedItem(BaseModel):
+    crop: str
+    why_not: str
+    probability: float
+
 class PredictResponse(BaseModel):
     status: str
     prediction_id: str
     timestamp: str
     top_recommendations: List[RecommendationItem]
+    not_recommended: List[NotRecommendedItem] = []
     warnings: List[str]
     processing_time_ms: float
 

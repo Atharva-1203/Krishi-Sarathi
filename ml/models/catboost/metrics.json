@@ -1,0 +1,23 @@
+{
+    "Experiment_ID": "E006_CatBoost",
+    "Model_Name": "CatBoost",
+    "Best_Params": {
+        "depth": 6,
+        "iterations": 100,
+        "learning_rate": 0.1,
+        "verbose": 0
+    },
+    "Accuracy": 0.9956,
+    "Balanced_Accuracy": 0.9968,
+    "F1_Macro": 0.9937,
+    "Precision_Macro": 0.991,
+    "Recall_Macro": 0.9968,
+    "Top1_Accuracy": 0.9956,
+    "Top2_Accuracy": 1.0,
+    "Top3_Accuracy": 1.0,
+    "LogLoss": 0.0506,
+    "Training_Time_Sec": 54.5614,
+    "Prediction_Latency_Ms": 2.5384,
+    "Model_Size_KB": 864.585,
+    "CV_Mean": 0.9925
+}

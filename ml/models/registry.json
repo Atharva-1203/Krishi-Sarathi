@@ -1,0 +1,161 @@
+{
+    "production": {
+        "model_type": "RandomForest",
+        "experiment_id": "E002_RandomForest",
+        "metrics": {
+            "Experiment_ID": "E002_RandomForest",
+            "Model_Name": "RandomForest",
+            "Best_Params": {
+                "max_depth": null,
+                "n_estimators": 100
+            },
+            "Accuracy": 0.9978,
+            "Balanced_Accuracy": 0.9984,
+            "F1_Macro": 0.9975,
+            "Precision_Macro": 0.9967,
+            "Recall_Macro": 0.9984,
+            "Top1_Accuracy": 0.9978,
+            "Top2_Accuracy": 1.0,
+            "Top3_Accuracy": 1.0,
+            "LogLoss": 0.0209,
+            "Training_Time_Sec": 16.3765,
+            "Prediction_Latency_Ms": 15.3061,
+            "Model_Size_KB": 4567.0928,
+            "CV_Mean": 0.9983
+        },
+        "timestamp": "2026-08-06T12:11:21Z",
+        "dataset_version": "master_dataset_v1.0"
+    },
+    "comparison_log": [
+        {
+            "Experiment_ID": "E001_DecisionTree",
+            "Model_Name": "DecisionTree",
+            "Best_Params": {
+                "max_depth": null,
+                "min_samples_split": 2
+            },
+            "Accuracy": 0.9889,
+            "Balanced_Accuracy": 0.9873,
+            "F1_Macro": 0.9836,
+            "Precision_Macro": 0.9807,
+            "Recall_Macro": 0.9873,
+            "Top1_Accuracy": 0.9889,
+            "Top2_Accuracy": 0.9889,
+            "Top3_Accuracy": 0.9889,
+            "LogLoss": 0.3996,
+            "Training_Time_Sec": 0.7863,
+            "Prediction_Latency_Ms": 3.6832,
+            "Model_Size_KB": 35.7422,
+            "CV_Mean": 0.9898
+        },
+        {
+            "Experiment_ID": "E002_RandomForest",
+            "Model_Name": "RandomForest",
+            "Best_Params": {
+                "max_depth": null,
+                "n_estimators": 100
+            },
+            "Accuracy": 0.9978,
+            "Balanced_Accuracy": 0.9984,
+            "F1_Macro": 0.9975,
+            "Precision_Macro": 0.9967,
+            "Recall_Macro": 0.9984,
+            "Top1_Accuracy": 0.9978,
+            "Top2_Accuracy": 1.0,
+            "Top3_Accuracy": 1.0,
+            "LogLoss": 0.0209,
+            "Training_Time_Sec": 16.3765,
+            "Prediction_Latency_Ms": 15.3061,
+            "Model_Size_KB": 4567.0928,
+            "CV_Mean": 0.9983
+        },
+        {
+            "Experiment_ID": "E003_ExtraTrees",
+            "Model_Name": "ExtraTrees",
+            "Best_Params": {
+                "max_depth": null,
+                "n_estimators": 50
+            },
+            "Accuracy": 0.9978,
+            "Balanced_Accuracy": 0.9938,
+            "F1_Macro": 0.9959,
+            "Precision_Macro": 0.9984,
+            "Recall_Macro": 0.9938,
+            "Top1_Accuracy": 0.9978,
+            "Top2_Accuracy": 1.0,
+            "Top3_Accuracy": 1.0,
+            "LogLoss": 0.0094,
+            "Training_Time_Sec": 7.428,
+            "Prediction_Latency_Ms": 5.8075,
+            "Model_Size_KB": 4005.7578,
+            "CV_Mean": 0.9997
+        },
+        {
+            "Experiment_ID": "E004_XGBoost",
+            "Model_Name": "XGBoost",
+            "Best_Params": {
+                "learning_rate": 0.1,
+                "max_depth": 6,
+                "n_estimators": 100
+            },
+            "Accuracy": 0.9978,
+            "Balanced_Accuracy": 0.9938,
+            "F1_Macro": 0.9959,
+            "Precision_Macro": 0.9984,
+            "Recall_Macro": 0.9938,
+            "Top1_Accuracy": 0.9978,
+            "Top2_Accuracy": 1.0,
+            "Top3_Accuracy": 1.0,
+            "LogLoss": 0.0092,
+            "Training_Time_Sec": 31.8042,
+            "Prediction_Latency_Ms": 7.1396,
+            "Model_Size_KB": 1627.249,
+            "CV_Mean": 0.9975
+        },
+        {
+            "Experiment_ID": "E005_LightGBM",
+            "Model_Name": "LightGBM",
+            "Best_Params": {
+                "learning_rate": 0.1,
+                "max_depth": 5,
+                "n_estimators": 100
+            },
+            "Accuracy": 0.9978,
+            "Balanced_Accuracy": 0.9938,
+            "F1_Macro": 0.9959,
+            "Precision_Macro": 0.9984,
+            "Recall_Macro": 0.9938,
+            "Top1_Accuracy": 0.9978,
+            "Top2_Accuracy": 1.0,
+            "Top3_Accuracy": 1.0,
+            "LogLoss": 0.0113,
+            "Training_Time_Sec": 83.3882,
+            "Prediction_Latency_Ms": 6.9496,
+            "Model_Size_KB": 3290.0293,
+            "CV_Mean": 0.9961
+        },
+        {
+            "Experiment_ID": "E006_CatBoost",
+            "Model_Name": "CatBoost",
+            "Best_Params": {
+                "depth": 6,
+                "iterations": 100,
+                "learning_rate": 0.1,
+                "verbose": 0
+            },
+            "Accuracy": 0.9956,
+            "Balanced_Accuracy": 0.9968,
+            "F1_Macro": 0.9937,
+            "Precision_Macro": 0.991,
+            "Recall_Macro": 0.9968,
+            "Top1_Accuracy": 0.9956,
+            "Top2_Accuracy": 1.0,
+            "Top3_Accuracy": 1.0,
+            "LogLoss": 0.0506,
+            "Training_Time_Sec": 54.5614,
+            "Prediction_Latency_Ms": 2.5384,
+            "Model_Size_KB": 864.585,
+            "CV_Mean": 0.9925
+        }
+    ]
+}

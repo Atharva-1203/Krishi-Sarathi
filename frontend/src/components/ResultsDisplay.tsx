@@ -23,6 +23,7 @@ interface ResultsDisplayProps {
     prediction_id: string;
     timestamp: string;
     top_recommendations: Recommendation[];
+    not_recommended?: { crop: string; why_not: string; probability: number }[];
     warnings: string[];
     processing_time_ms: number;
   };
@@ -284,29 +285,51 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
       </div>
 
       {/* Why Not? rejected crop cards */}
-      <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
-        <h4 className="text-xs font-extrabold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1">
-          <ShieldAlert size={14} className="text-rose-500" />
-          {language === 'en' ? 'Agronomic Suitability Warnings' : 'मृदा लागवड जोखीम व इशारे'}
-        </h4>
+      {result.not_recommended && result.not_recommended.length > 0 ? (
+        <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
+          <h4 className="text-xs font-extrabold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1">
+            <ShieldAlert size={14} className="text-rose-500" />
+            {language === 'en' ? 'Agronomic Suitability Warnings' : 'मृदा लागवड जोखीम व इशारे'}
+          </h4>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-4 rounded-xl border border-rose-500/20 bg-rose-500/5 flex flex-col gap-2">
-            <span className="text-xs font-bold text-rose-500">COTTON (कापूस) - {language === 'en' ? 'NOT RECOMMENDED' : 'शिफारस केलेली नाही'}</span>
-            <ul className="text-[10px] text-[var(--text-muted)] list-disc ml-4 flex flex-col gap-1">
-              <li>{language === 'en' ? 'Rainfall below preferred range' : 'पर्जन्यमान अपेक्षेपेक्षा कमी आहे'}</li>
-              <li>{language === 'en' ? 'Clay density is high' : 'मातीचा चिकटपणा जास्त आहे'}</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-xl border border-rose-500/20 bg-rose-500/5 flex flex-col gap-2">
-            <span className="text-xs font-bold text-rose-500">SUGARCANE (ऊस) - {language === 'en' ? 'NOT RECOMMENDED' : 'शिफारस केलेली नाही'}</span>
-            <ul className="text-[10px] text-[var(--text-muted)] list-disc ml-4 flex flex-col gap-1">
-              <li>{language === 'en' ? 'Water requirement mismatch' : 'पाण्याची उपलब्धता कमी आहे'}</li>
-              <li>{language === 'en' ? 'K (Potassium) levels are low' : 'पोटॅशियमचे प्रमाण कमी आहे'}</li>
-            </ul>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {result.not_recommended.map((item: any, idx: number) => (
+              <div key={idx} className="p-4 rounded-xl border border-rose-500/20 bg-rose-500/5 flex flex-col gap-2">
+                <span className="text-xs font-bold text-rose-500">
+                  {item.crop.toUpperCase()} ({cropNameMr(item.crop)}) - {language === 'en' ? 'NOT RECOMMENDED' : 'शिफारस केलेली नाही'}
+                </span>
+                <ul className="text-[10px] text-[var(--text-muted)] list-disc ml-4 flex flex-col gap-1">
+                  <li>{item.why_not}</li>
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
+          <h4 className="text-xs font-extrabold text-[var(--text-muted)] uppercase tracking-wider flex items-center gap-1">
+            <ShieldAlert size={14} className="text-rose-500" />
+            {language === 'en' ? 'Agronomic Suitability Warnings' : 'मृदा लागवड जोखीम व इशारे'}
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl border border-rose-500/20 bg-rose-500/5 flex flex-col gap-2">
+              <span className="text-xs font-bold text-rose-500">COTTON (कापूस) - {language === 'en' ? 'NOT RECOMMENDED' : 'शिफारस केलेली नाही'}</span>
+              <ul className="text-[10px] text-[var(--text-muted)] list-disc ml-4 flex flex-col gap-1">
+                <li>{language === 'en' ? 'Rainfall below preferred range' : 'पर्जन्यमान अपेक्षेपेक्षा कमी आहे'}</li>
+                <li>{language === 'en' ? 'Clay density is high' : 'मातीचा चिकटपणा जास्त आहे'}</li>
+              </ul>
+            </div>
+            <div className="p-4 rounded-xl border border-rose-500/20 bg-rose-500/5 flex flex-col gap-2">
+              <span className="text-xs font-bold text-rose-500">SUGARCANE (ऊस) - {language === 'en' ? 'NOT RECOMMENDED' : 'शिफारस केलेली नाही'}</span>
+              <ul className="text-[10px] text-[var(--text-muted)] list-disc ml-4 flex flex-col gap-1">
+                <li>{language === 'en' ? 'Water requirement mismatch' : 'पाण्याची उपलब्धता कमी आहे'}</li>
+                <li>{language === 'en' ? 'K (Potassium) levels are low' : 'पोटॅशियमचे प्रमाण कमी आहे'}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Alternative Recommendations */}
       {recommendations.slice(1).length > 0 && (

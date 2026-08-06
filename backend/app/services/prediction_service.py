@@ -83,6 +83,48 @@ class PredictionService:
                 "shap_features": shap_feats
             })
             
+        # Compile dynamic "Not Recommended" list from bottom classes (excluding top_classes)
+        bottom_classes = np.argsort(proba)[:3]
+        not_recommended = []
+        for idx in bottom_classes:
+            crop_name = model_loader.preprocessor.crop_decoder[idx]
+            prob = float(proba[idx])
+            
+            reasons = []
+            crop_meta = CROP_DETAILS.get(crop_name, {"water_requirement": "Medium"})
+            water_req = crop_meta["water_requirement"]
+            
+            user_rain = clean_query.get("Rainfall", 800.0)
+            user_pH = clean_query.get("pH", 6.5)
+            user_N = clean_query.get("N", 60)
+            user_K = clean_query.get("K", 60)
+            
+            if water_req == "High" and user_rain < 800.0:
+                reasons.append(f"Rainfall ({user_rain}mm) is insufficient for water-intensive cultivation")
+            elif water_req == "Low" and user_rain > 1000.0:
+                reasons.append(f"Rainfall ({user_rain}mm) is too high for dry-land cropping")
+                
+            if user_pH < 6.0 and crop_name in ["Wheat", "Grapes", "Sugarcane"]:
+                reasons.append(f"Soil pH ({user_pH}) is too acidic")
+            elif user_pH > 7.5 and crop_name in ["Rice", "Moong", "Urad"]:
+                reasons.append(f"Soil pH ({user_pH}) is too alkaline")
+                
+            if user_N < 50 and crop_name in ["Sugarcane", "Rice", "Wheat"]:
+                reasons.append(f"Available Nitrogen ({user_N} kg/ha) is insufficient")
+            if user_K < 50 and crop_name in ["Grapes", "Sugarcane"]:
+                reasons.append(f"Available Potassium ({user_K} kg/ha) is insufficient")
+                
+            if not reasons:
+                reasons.append("Environmental parameters deviate from optimal crop viability thresholds")
+                
+            why_not = " and ".join(reasons) + "."
+            
+            not_recommended.append({
+                "crop": crop_name,
+                "why_not": why_not,
+                "probability": round(prob, 4)
+            })
+
         latency = (time.time() - t0) * 1000.0
         
         return {
@@ -90,6 +132,7 @@ class PredictionService:
             "prediction_id": str(uuid.uuid4()),
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "top_recommendations": top_recommendations,
+            "not_recommended": not_recommended,
             "warnings": warnings,
             "processing_time_ms": round(latency, 2)
         }

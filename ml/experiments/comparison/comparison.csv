@@ -1,0 +1,7 @@
+Experiment_ID,Model_Name,Best_Params,Accuracy,Balanced_Accuracy,F1_Macro,Precision_Macro,Recall_Macro,Top1_Accuracy,Top2_Accuracy,Top3_Accuracy,LogLoss,Training_Time_Sec,Prediction_Latency_Ms,Model_Size_KB,CV_Mean
+E001_DecisionTree,DecisionTree,"{'max_depth': None, 'min_samples_split': 2}",0.9889,0.9873,0.9836,0.9807,0.9873,0.9889,0.9889,0.9889,0.3996,0.7863,3.6832,35.7422,0.9898
+E002_RandomForest,RandomForest,"{'max_depth': None, 'n_estimators': 100}",0.9978,0.9984,0.9975,0.9967,0.9984,0.9978,1.0,1.0,0.0209,16.3765,15.3061,4567.0928,0.9983
+E003_ExtraTrees,ExtraTrees,"{'max_depth': None, 'n_estimators': 50}",0.9978,0.9938,0.9959,0.9984,0.9938,0.9978,1.0,1.0,0.0094,7.428,5.8075,4005.7578,0.9997
+E004_XGBoost,XGBoost,"{'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100}",0.9978,0.9938,0.9959,0.9984,0.9938,0.9978,1.0,1.0,0.0092,31.8042,7.1396,1627.249,0.9975
+E005_LightGBM,LightGBM,"{'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100}",0.9978,0.9938,0.9959,0.9984,0.9938,0.9978,1.0,1.0,0.0113,83.3882,6.9496,3290.0293,0.9961
+E006_CatBoost,CatBoost,"{'depth': 6, 'iterations': 100, 'learning_rate': 0.1, 'verbose': 0}",0.9956,0.9968,0.9937,0.991,0.9968,0.9956,1.0,1.0,0.0506,54.5614,2.5384,864.585,0.9925

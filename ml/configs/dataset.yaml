@@ -1,0 +1,10 @@
+dataset:
+  raw_path: "datasets/raw/soil_health/crop_fertilizer_dataset_raw.csv"
+  processed_path: "datasets/processed/soil_health/soil_health_database.csv"
+  final_master: "datasets/final/master_dataset.csv"
+  splits:
+    train: "datasets/final/train.csv"
+    validation: "datasets/final/validation.csv"
+    test: "datasets/final/test.csv"
+  random_state: 42
+  target_col: "Crop"

@@ -1,0 +1,6 @@
+api:
+  host: "0.0.0.0"
+  port: 8000
+  title: "Krishi Sarathi API"
+  version: "1.0.0"
+  latency_target_ms: 20
