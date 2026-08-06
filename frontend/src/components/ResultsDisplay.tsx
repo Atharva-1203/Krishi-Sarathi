@@ -15,6 +15,7 @@ interface Recommendation {
   growing_duration: string;
   why_recommended: string;
   shap_features: { feature: string; impact: number }[];
+  agronomic_warning?: string;
 }
 
 interface ResultsDisplayProps {
@@ -273,6 +274,19 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
             {translateExplanation(primary.crop, primary.why_recommended, language)}
           </p>
         </div>
+
+        {/* Agronomic Warning Banner */}
+        {primary.agronomic_warning && (
+          <div className="p-4 rounded-xl border border-amber-500/20 bg-amber-500/5 flex flex-col gap-1.5">
+            <div className="flex items-center gap-1 text-[10px] font-extrabold text-amber-600 dark:text-amber-400 tracking-wider uppercase">
+              <ShieldAlert size={12} className="text-amber-500" />
+              {language === 'en' ? 'Agronomic Suitability Warning' : 'मृदा अनुकूलता जोखीम इशारा'}
+            </div>
+            <p className="text-xs text-[var(--text-main)] leading-relaxed font-semibold">
+              {primary.agronomic_warning}
+            </p>
+          </div>
+        )}
 
         <div className="flex justify-between items-center mt-2">
           <button

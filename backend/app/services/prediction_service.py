@@ -15,29 +15,89 @@ class PredictionService:
         
         district = query_dict.get("District", "Pune").strip().title()
         if district not in model_loader.preprocessor.district_categories:
-            warnings.append(f"District '{district}' is outside Pune division. Falling back to average state medians.")
+            warnings.append(f"District '{district}' is outside Pune division. Falling back to average Pune medians.")
             district = "Pune"
             
         soil_color = query_dict.get("Soil_Color", "Black").strip().title()
         if soil_color not in model_loader.preprocessor.soil_color_categories:
             soil_color = "Black"
             
+        # District-level soil medians lookup mapping
+        district_medians = {
+            "Kolhapur": {"OC": 0.88, "EC": 0.14, "B": 2.88, "Fe": 6.35, "Mn": 17.636, "Cu": 3.25, "Zn": 0.72, "S": 50.72},
+            "Solapur": {"OC": 0.45, "EC": 0.32, "B": 0.16, "Fe": 1.56, "Mn": 1.56, "Cu": 0.58, "Zn": 0.5, "S": 7.05},
+            "Satara": {"OC": 0.295, "EC": 0.25, "B": 0.073, "Fe": 3.96, "Mn": 6.2, "Cu": 2.4, "Zn": 0.793, "S": 4.178},
+            "Sangli": {"OC": 0.583, "EC": 0.24, "B": 0.973, "Fe": 3.16, "Mn": 6.06, "Cu": 2.88, "Zn": 0.62, "S": 10.75},
+            "Pune": {"OC": 0.41, "EC": 0.408, "B": 0.46, "Fe": 1.32, "Mn": 2.802, "Cu": 0.53, "Zn": 0.374, "S": 6.746}
+        }
+        
+        # District normal rainfall lookup
+        district_rainfall_lookup = {
+            "Kolhapur": 1733.1,
+            "Pune": 861.6,
+            "Sangli": 514.5,
+            "Satara": 886.2,
+            "Solapur": 481.1
+        }
+        
         clean_query = query_dict.copy()
         clean_query["District"] = district
         clean_query["Soil_Color"] = soil_color
         
-        for col in model_loader.preprocessor.numeric_cols:
+        # 1. Impute missing micronutrients dynamically from district profiles
+        dist_defaults = district_medians.get(district, district_medians["Pune"])
+        for col, val in dist_defaults.items():
+            if col not in clean_query or clean_query[col] is None:
+                clean_query[col] = val
+                
+        # 2. Impute N, P, K, pH, Temperature, Rainfall if missing using preprocessor medians
+        for col in ["N", "P", "K", "pH", "Temperature", "Rainfall"]:
             if col not in clean_query or clean_query[col] is None:
                 clean_query[col] = float(model_loader.preprocessor.medians.get(col, 0.0))
                 
-        clean_query["N_P_Ratio"] = round(clean_query["N"] / (clean_query["P"] + 0.01), 4)
-        clean_query["N_K_Ratio"] = round(clean_query["N"] / (clean_query["K"] + 0.01), 4)
-        clean_query["P_K_Ratio"] = round(clean_query["P"] / (clean_query["K"] + 0.01), 4)
+        user_rain = clean_query["Rainfall"]
+        user_temp = clean_query["Temperature"]
+        user_pH = clean_query["pH"]
+        user_N = clean_query["N"]
+        user_P = clean_query["P"]
+        user_K = clean_query["K"]
+        user_OC = clean_query["OC"]
+        
+        # 3. Dynamic Organic Carbon Class mapping
+        if user_OC < 0.4:
+            clean_query["OC_Class"] = "Low"
+        elif user_OC < 0.6:
+            clean_query["OC_Class"] = "Medium"
+        else:
+            clean_query["OC_Class"] = "High"
+            
+        # 4. Dynamic Soil Health Score calculation
+        health_score = 0.0
+        if 6.0 <= user_pH <= 7.5:
+            health_score += 2.0
+        if user_N >= 80.0:
+            health_score += 2.0
+        if user_P >= 25.0:
+            health_score += 2.0
+        if user_K >= 150.0:
+            health_score += 2.0
+        if user_OC >= 0.6:
+            health_score += 2.0
+        clean_query["Soil_Health_Score"] = health_score
+        
+        # 5. Dynamic Weather & Deviation calculations
+        normal_rain = district_rainfall_lookup.get(district, 861.6)
+        clean_query["District_Normal_Rainfall"] = normal_rain
+        clean_query["Rainfall_Deviation"] = round((user_rain - normal_rain) / normal_rain, 4)
+        clean_query["Humidity"] = round(float(np.clip(45.0 + 0.05 * user_rain - 0.2 * user_temp, 30.0, 95.0)), 2)
+        
+        # 6. Dynamic NPK ratios
+        clean_query["N_P_Ratio"] = round(user_N / (user_P + 0.01), 4)
+        clean_query["N_K_Ratio"] = round(user_N / (user_K + 0.01), 4)
+        clean_query["P_K_Ratio"] = round(user_P / (user_K + 0.01), 4)
         
         if "Growing_Season" not in clean_query:
             clean_query["Growing_Season"] = "Kharif"
-        if "OC_Class" not in clean_query:
-            clean_query["OC_Class"] = "High"
             
         df_query = pd.DataFrame([clean_query])
         X_query = model_loader.preprocessor.transform(df_query)
@@ -72,6 +132,17 @@ class PredictionService:
                 why = f"Recommended as a secondary fallback option. Water requirements and growing cycle align with regional historical profiles."
                 shap_feats = []
                 
+            # Agronomic Rule Validation Layer
+            agronomic_warning = None
+            if crop_name == "Sugarcane" and user_rain < 800.0:
+                agronomic_warning = "This recommendation conflicts with typical rainfall requirements for Sugarcane (above 1000mm preferred). Confirm perennial canal or drip irrigation."
+            elif crop_name == "Rice" and user_rain < 900.0:
+                agronomic_warning = "Rice requires waterlogging conditions (above 1000mm preferred). Verify flood irrigation availability."
+            elif crop_name == "Wheat" and clean_query.get("Growing_Season") == "Kharif":
+                agronomic_warning = "Wheat is a winter Rabi crop. Sowing in Kharif can lead to moisture stress or root rot."
+            elif crop_name == "Cotton" and user_rain < 450.0:
+                agronomic_warning = "Low rainfall can cause cotton boll shedding. Confirm micro-irrigation supply."
+                
             top_recommendations.append({
                 "crop": crop_name,
                 "confidence": band,
@@ -80,7 +151,8 @@ class PredictionService:
                 "water_requirement": crop_meta["water_requirement"],
                 "growing_duration": crop_meta["growing_duration"],
                 "why_recommended": why,
-                "shap_features": shap_feats
+                "shap_features": shap_feats,
+                "agronomic_warning": agronomic_warning
             })
             
         # Compile dynamic "Not Recommended" list from bottom classes (excluding top_classes)

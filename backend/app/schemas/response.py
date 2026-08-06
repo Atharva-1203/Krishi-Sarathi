@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 class RecommendationItem(BaseModel):
     crop: str
@@ -10,6 +10,7 @@ class RecommendationItem(BaseModel):
     growing_duration: str
     why_recommended: str
     shap_features: List[Dict[str, Any]]
+    agronomic_warning: Optional[str] = None
 
 class NotRecommendedItem(BaseModel):
     crop: str
