@@ -8,5 +8,5 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MODEL_DIR=/workspace/ml/models/production
+      - MODEL_DIR_V3=/workspace/ml/models/v3
     restart: always

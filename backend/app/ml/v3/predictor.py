@@ -22,7 +22,30 @@ EXPECTED_FEATURES = [
 assert FEATURES == EXPECTED_FEATURES, f"Feature contract ordering mismatch! Got {FEATURES}, expected {EXPECTED_FEATURES}"
 
 class V3Predictor:
-    def __init__(self, model_dir=r"d:\Techrush\ml\models\v3"):
+    def __init__(self, model_dir=None):
+        if model_dir is None:
+            # Resolve V3 model directory dynamically
+            _file_dir = os.path.dirname(os.path.abspath(__file__))
+            _curr = _file_dir
+            for _ in range(4):
+                _curr = os.path.dirname(_curr)
+            
+            candidate_paths = [
+                os.getenv("MODEL_DIR_V3"),
+                os.path.join(_curr, "ml", "models", "v3"),
+                os.path.join(os.path.dirname(_curr), "ml", "models", "v3"),
+                r"d:\Techrush\ml\models\v3",
+                r"ml\models\v3"
+            ]
+            
+            for path in candidate_paths:
+                if path and os.path.exists(os.path.join(path, "model.pkl")):
+                    model_dir = path
+                    break
+            
+            if model_dir is None:
+                model_dir = r"d:\Techrush\ml\models\v3"
+                
         self.model_dir = model_dir
         self.model = None
         self.preprocessor = None

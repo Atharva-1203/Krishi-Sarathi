@@ -10,11 +10,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /workspace/backend
-COPY ml/models/production /workspace/ml/models/production
+COPY ml/models/v3 /workspace/ml/models/v3
 
 EXPOSE 8000
 
 ENV PYTHONPATH=/workspace
-ENV MODEL_DIR=/workspace/ml/models/production
+ENV MODEL_DIR_V3=/workspace/ml/models/v3
 
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
