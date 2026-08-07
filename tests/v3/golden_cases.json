@@ -118,5 +118,35 @@
     "name": "Random realistic farm",
     "inputs": {"N": 75, "P": 45, "K": 50, "temperature": 26.2, "humidity": 81.2, "ph": 6.3, "rainfall": 220.0},
     "expected_ood": false
+  },
+  {
+    "id": 21,
+    "name": "Very dry environment",
+    "inputs": {"N": 50, "P": 50, "K": 50, "temperature": 25.0, "humidity": 60.0, "ph": 6.5, "rainfall": 21.0},
+    "expected_ood": false
+  },
+  {
+    "id": 22,
+    "name": "Very wet environment",
+    "inputs": {"N": 50, "P": 50, "K": 50, "temperature": 25.0, "humidity": 60.0, "ph": 6.5, "rainfall": 290.0},
+    "expected_ood": false
+  },
+  {
+    "id": 23,
+    "name": "Hot climate",
+    "inputs": {"N": 50, "P": 50, "K": 50, "temperature": 43.0, "humidity": 60.0, "ph": 6.5, "rainfall": 150.0},
+    "expected_ood": false
+  },
+  {
+    "id": 24,
+    "name": "Cool climate",
+    "inputs": {"N": 50, "P": 50, "K": 50, "temperature": 9.0, "humidity": 60.0, "ph": 6.5, "rainfall": 150.0},
+    "expected_ood": false
+  },
+  {
+    "id": 25,
+    "name": "High NPK values",
+    "inputs": {"N": 135, "P": 135, "K": 200, "temperature": 25.0, "humidity": 60.0, "ph": 6.5, "rainfall": 150.0},
+    "expected_ood": false
   }
 ]

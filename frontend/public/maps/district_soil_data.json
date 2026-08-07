@@ -1,0 +1,322 @@
+{
+  "Akola": {
+    "N": 135.5,
+    "P": 45.1,
+    "K": 632.4,
+    "pH": 7.85,
+    "OC": 0.41,
+    "EC": 0.37,
+    "soil_quality_index": 69.0,
+    "sample_count": 21307
+  },
+  "Amravati": {
+    "N": 160.1,
+    "P": 16.8,
+    "K": 659.5,
+    "pH": 8.01,
+    "OC": 0.41,
+    "EC": 0.31,
+    "soil_quality_index": 66.2,
+    "sample_count": 23757
+  },
+  "Beed": {
+    "N": 250.9,
+    "P": 26.3,
+    "K": 341.9,
+    "pH": 8.46,
+    "OC": 14.78,
+    "EC": 0.31,
+    "soil_quality_index": 91.1,
+    "sample_count": 22004
+  },
+  "Bhandara": {
+    "N": 212.8,
+    "P": 15.7,
+    "K": 414.5,
+    "pH": 6.78,
+    "OC": 0.65,
+    "EC": 0.4,
+    "soil_quality_index": 76.8,
+    "sample_count": 23442
+  },
+  "Buldhana": {
+    "N": 180.6,
+    "P": 13.3,
+    "K": 744.9,
+    "pH": 7.73,
+    "OC": 0.56,
+    "EC": 0.26,
+    "soil_quality_index": 68.5,
+    "sample_count": 31062
+  },
+  "Chandrapur": {
+    "N": 220.6,
+    "P": 21.3,
+    "K": 259.2,
+    "pH": 7.47,
+    "OC": 0.56,
+    "EC": 0.6,
+    "soil_quality_index": 74.3,
+    "sample_count": 33875
+  },
+  "Chhatrapati Sambhajinagar": {
+    "N": 171.5,
+    "P": 29.1,
+    "K": 432.4,
+    "pH": 8.13,
+    "OC": 0.4,
+    "EC": 0.4,
+    "soil_quality_index": 69.8,
+    "sample_count": 20673
+  },
+  "Dharashiv": {
+    "N": 209.6,
+    "P": 10.9,
+    "K": 440.8,
+    "pH": 7.56,
+    "OC": 3.17,
+    "EC": 0.42,
+    "soil_quality_index": 84.7,
+    "sample_count": 20465
+  },
+  "Dhule": {
+    "N": 190.0,
+    "P": 22.7,
+    "K": 438.0,
+    "pH": 7.75,
+    "OC": 0.43,
+    "EC": 0.73,
+    "soil_quality_index": 72.6,
+    "sample_count": 20515
+  },
+  "Gadchiroli": {
+    "N": 204.1,
+    "P": 31.1,
+    "K": 255.0,
+    "pH": 7.31,
+    "OC": 0.79,
+    "EC": 0.16,
+    "soil_quality_index": 78.1,
+    "sample_count": 30369
+  },
+  "Gondia": {
+    "N": 252.3,
+    "P": 26.2,
+    "K": 282.0,
+    "pH": 7.39,
+    "OC": 0.74,
+    "EC": 0.29,
+    "soil_quality_index": 81.3,
+    "sample_count": 16294
+  },
+  "Hingoli": {
+    "N": 288.5,
+    "P": 13.2,
+    "K": 323.6,
+    "pH": 7.66,
+    "OC": 0.43,
+    "EC": 0.28,
+    "soil_quality_index": 71.9,
+    "sample_count": 15904
+  },
+  "Jalgaon": {
+    "N": 186.0,
+    "P": 20.6,
+    "K": 436.1,
+    "pH": 7.75,
+    "OC": 0.43,
+    "EC": 0.45,
+    "soil_quality_index": 71.4,
+    "sample_count": 30149
+  },
+  "Jalna": {
+    "N": 177.4,
+    "P": 15.5,
+    "K": 449.2,
+    "pH": 7.95,
+    "OC": 0.4,
+    "EC": 0.49,
+    "soil_quality_index": 66.3,
+    "sample_count": 20379
+  },
+  "Kolhapur": {
+    "N": 285.5,
+    "P": 104.9,
+    "K": 364.9,
+    "pH": 6.43,
+    "OC": 0.89,
+    "EC": 0.23,
+    "soil_quality_index": 89.6,
+    "sample_count": 24949
+  },
+  "Latur": {
+    "N": 176.2,
+    "P": 12.5,
+    "K": 643.9,
+    "pH": 8.02,
+    "OC": 0.48,
+    "EC": 0.36,
+    "soil_quality_index": 65.3,
+    "sample_count": 21438
+  },
+  "Nagpur": {
+    "N": 176.1,
+    "P": 22.4,
+    "K": 576.2,
+    "pH": 7.67,
+    "OC": 0.43,
+    "EC": 0.36,
+    "soil_quality_index": 72.2,
+    "sample_count": 23115
+  },
+  "Nanded": {
+    "N": 236.2,
+    "P": 23.7,
+    "K": 555.6,
+    "pH": 7.61,
+    "OC": 0.67,
+    "EC": 0.38,
+    "soil_quality_index": 79.6,
+    "sample_count": 28419
+  },
+  "Nandurbar": {
+    "N": 241.9,
+    "P": 21.7,
+    "K": 222.6,
+    "pH": 7.71,
+    "OC": 0.65,
+    "EC": 0.64,
+    "soil_quality_index": 73.8,
+    "sample_count": 18287
+  },
+  "Nashik": {
+    "N": 257.9,
+    "P": 29.0,
+    "K": 352.5,
+    "pH": 7.71,
+    "OC": 0.71,
+    "EC": 0.43,
+    "soil_quality_index": 81.1,
+    "sample_count": 41286
+  },
+  "Palghar": {
+    "N": 202.3,
+    "P": 75.4,
+    "K": 179.4,
+    "pH": 6.7,
+    "OC": 14.18,
+    "EC": 0.2,
+    "soil_quality_index": 87.0,
+    "sample_count": 10456
+  },
+  "Pune": {
+    "N": 238.8,
+    "P": 20.4,
+    "K": 312.5,
+    "pH": 7.53,
+    "OC": 0.48,
+    "EC": 0.96,
+    "soil_quality_index": 76.0,
+    "sample_count": 31408
+  },
+  "Raigad": {
+    "N": 383.4,
+    "P": 26.8,
+    "K": 438.0,
+    "pH": 6.79,
+    "OC": 1.86,
+    "EC": 0.95,
+    "soil_quality_index": 98.9,
+    "sample_count": 24028
+  },
+  "Ratnagiri": {
+    "N": 342.0,
+    "P": 18.9,
+    "K": 468.1,
+    "pH": 6.2,
+    "OC": 2.24,
+    "EC": 0.16,
+    "soil_quality_index": 96.8,
+    "sample_count": 13982
+  },
+  "Sangli": {
+    "N": 202.7,
+    "P": 27.3,
+    "K": 330.4,
+    "pH": 7.99,
+    "OC": 0.69,
+    "EC": 0.33,
+    "soil_quality_index": 76.8,
+    "sample_count": 23898
+  },
+  "Satara": {
+    "N": 247.4,
+    "P": 36.9,
+    "K": 437.4,
+    "pH": 7.49,
+    "OC": 0.48,
+    "EC": 0.36,
+    "soil_quality_index": 77.5,
+    "sample_count": 32789
+  },
+  "Sindhudurg": {
+    "N": 223.5,
+    "P": 20.1,
+    "K": 592.6,
+    "pH": 5.6,
+    "OC": 1.35,
+    "EC": 0.13,
+    "soil_quality_index": 89.8,
+    "sample_count": 11361
+  },
+  "Solapur": {
+    "N": 134.1,
+    "P": 14.9,
+    "K": 431.7,
+    "pH": 7.79,
+    "OC": 0.57,
+    "EC": 0.4,
+    "soil_quality_index": 67.0,
+    "sample_count": 28632
+  },
+  "Thane": {
+    "N": 222.4,
+    "P": 46.0,
+    "K": 340.2,
+    "pH": 6.65,
+    "OC": 1.29,
+    "EC": 0.07,
+    "soil_quality_index": 92.9,
+    "sample_count": 12712
+  },
+  "Wardha": {
+    "N": 216.4,
+    "P": 42.7,
+    "K": 607.2,
+    "pH": 7.74,
+    "OC": 0.38,
+    "EC": 0.54,
+    "soil_quality_index": 73.3,
+    "sample_count": 14883
+  },
+  "Washim": {
+    "N": 223.1,
+    "P": 13.4,
+    "K": 511.5,
+    "pH": 7.72,
+    "OC": 0.74,
+    "EC": 0.48,
+    "soil_quality_index": 73.9,
+    "sample_count": 19818
+  },
+  "Yavatmal": {
+    "N": 209.7,
+    "P": 32.9,
+    "K": 416.5,
+    "pH": 7.6,
+    "OC": 0.54,
+    "EC": 0.35,
+    "soil_quality_index": 76.2,
+    "sample_count": 15500
+  }
+}

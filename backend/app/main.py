@@ -12,7 +12,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.core.config import settings
 from backend.app.api.router import api_router
-from backend.app.ml.model_loader import model_loader
 from backend.app.exceptions.custom_exceptions import ModelNotLoadedException, InvalidInputException
 from backend.app.exceptions.handlers import model_not_loaded_handler, invalid_input_handler
 from backend.app.api.routes import predict_v3
@@ -40,7 +39,6 @@ app.add_exception_handler(InvalidInputException, invalid_input_handler)
 @app.on_event("startup")
 async def startup_event():
     logger.info("Starting Krishi Sarathi FastAPI Backend...")
-    model_loader.load()
     try:
         v3_predictor.load()
         logger.info("V3 crop prediction engine successfully initialized.")

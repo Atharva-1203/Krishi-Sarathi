@@ -10,6 +10,17 @@ from backend.app.ml.v3.feature_contract import FEATURES
 from backend.app.ml.v3.profile_matcher import profile_matcher
 from backend.app.ml.v3.validator import validate_inputs
 
+EXPECTED_FEATURES = [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+]
+assert FEATURES == EXPECTED_FEATURES, f"Feature contract ordering mismatch! Got {FEATURES}, expected {EXPECTED_FEATURES}"
+
 class V3Predictor:
     def __init__(self, model_dir=r"d:\Techrush\ml\models\v3"):
         self.model_dir = model_dir
@@ -35,6 +46,11 @@ class V3Predictor:
 
         with open(meta_path, "r", encoding="utf-8") as f:
             self.metadata = json.load(f)
+
+        if hasattr(self.model, "feature_importances_"):
+            self.metadata["feature_importances"] = {
+                feat: float(imp) for feat, imp in zip(FEATURES, self.model.feature_importances_)
+            }
 
         self.classes = self.metadata["classes"]
 
@@ -192,17 +208,25 @@ class V3Predictor:
 
         # Assert probability validation
         prob_sum = float(np.sum(proba))
-        if not (0.99 <= prob_sum <= 1.01):
-            raise ValueError(f"Inference error: Probability sum violation ({prob_sum}).")
+        if abs(prob_sum - 1.0) >= 1e-6:
+            raise ValueError(f"Inference error: Probability sum violation ({prob_sum:.8f}).")
+        if any(p < -1e-9 or p > 1.00000001 for p in proba):
+            raise ValueError(f"Inference error: Probability boundary violation (probabilities must be between 0 and 1).")
+        proba = np.clip(proba, 0.0, 1.0)
+        proba = proba / np.sum(proba) # Re-normalize just in case of tiny float offsets
 
         # Class predictions
         sorted_indices = np.argsort(proba)[::-1]
         top_recommendations = []
+        seen_crops = set()
 
         # Return Top-5
         for rank, idx in enumerate(sorted_indices[:5]):
             crop_name = self.classes[idx].capitalize()
             prob = float(proba[idx])
+            if crop_name in seen_crops:
+                raise ValueError(f"Inference error: Duplicate crop '{crop_name}' recommended.")
+            seen_crops.add(crop_name)
             top_recommendations.append({
                 "rank": rank + 1,
                 "crop": crop_name,

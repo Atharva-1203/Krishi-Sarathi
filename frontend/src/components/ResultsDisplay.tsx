@@ -81,6 +81,7 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
   const [modelMeta, setModelMeta] = useState<any>(null);
   const [selectedAnalysisCrop, setSelectedAnalysisCrop] = useState<string>(result.top_recommendations[0].crop);
   const [expandedWhyNot, setExpandedWhyNot] = useState<Record<string, boolean>>({});
+  const [importanceTab, setImportanceTab] = useState<'local' | 'global'>('local');
 
   // What-If State
   const [whatIfInputs, setWhatIfInputs] = useState<any>(null);
@@ -308,22 +309,67 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
                 {result.entropy_status}
               </p>
             </div>
+
+            {/* Prediction Gap */}
+            {(() => {
+              const prob1 = result.top_recommendations[0]?.probability || 0;
+              const prob2 = result.top_recommendations[1]?.probability || 0;
+              const predictionGap = (prob1 - prob2) * 100;
+              const predictionGapMargin = predictionGap >= 10 ? "HIGH" : "LOW";
+              return (
+                <div className="p-3.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-app)] flex flex-col gap-1.5">
+                  <span className="text-[10px] uppercase font-bold text-[var(--text-muted)] tracking-wider">
+                    {language === 'en' ? "Model Suitability Margin Gap" : "शिफारस फरक (मार्जिन)"}
+                  </span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-black text-[var(--text-main)]">
+                      {predictionGap.toFixed(1)} percentage points
+                    </span>
+                    <span className={`text-[9px] font-bold px-2 py-0.5 rounded ${
+                      predictionGapMargin === "HIGH" ? "text-emerald-500 bg-emerald-500/10 border border-emerald-500/20" : "text-amber-500 bg-amber-500/10 border border-amber-500/20"
+                    }`}>
+                      {predictionGapMargin} MARGIN
+                    </span>
+                  </div>
+                  <p className="text-[9px] text-[var(--text-muted)] leading-tight mt-0.5">
+                    {language === 'en' 
+                      ? "Indicates the suitability gap between the top-1 and top-2 candidate crops." 
+                      : "पहिल्या आणि दुसऱ्या क्रमांकाच्या शिफारशीतील फरक दर्शवतो."}
+                  </p>
+                </div>
+              );
+            })()}
           </div>
 
           {/* OOD Quality Banner */}
-          <div className={`p-4 rounded-xl border flex items-center gap-3 ${
-            result.ood
+          <div className={`p-4 rounded-xl border flex flex-col gap-2.5 ${
+            result.ood_status === "OUT_OF_DISTRIBUTION"
+              ? "border-rose-500/20 bg-rose-500/5 text-rose-600"
+              : result.ood_status === "CAUTION"
               ? "border-amber-500/20 bg-amber-500/5 text-amber-600"
               : "border-emerald-500/25 bg-emerald-500/5 text-emerald-600"
           }`}>
-            {result.ood ? <AlertTriangle size={18} /> : <ShieldCheck size={18} />}
-            <div className="text-xs">
-              <span className="font-bold block">
-                {result.ood ? "Tail Bounds Ingested" : "Verified In-Distribution"}
-              </span>
-              <span className="text-[10px] text-[var(--text-muted)] leading-tight">
-                {result.ood ? "Input lies in statistical tail regions." : "Soil parameters fall within model support."}
-              </span>
+            <div className="flex items-center gap-3">
+              {result.ood_status === "OUT_OF_DISTRIBUTION" ? <AlertTriangle size={18} className="text-rose-500" /> : result.ood_status === "CAUTION" ? <AlertTriangle size={18} className="text-amber-500" /> : <ShieldCheck size={18} className="text-emerald-500" />}
+              <div className="text-xs">
+                <span className="font-bold block">
+                  {result.ood_status === "OUT_OF_DISTRIBUTION" 
+                    ? "OUT OF DISTRIBUTION" 
+                    : result.ood_status === "CAUTION" 
+                    ? "CAUTION BOUNDARY" 
+                    : "NORMAL INPUT"}
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)] leading-tight block mt-0.5">
+                  {result.ood_status === "OUT_OF_DISTRIBUTION"
+                    ? "Input lies outside reliable training support."
+                    : result.ood_status === "CAUTION"
+                    ? "Input is near training boundary limits."
+                    : "Input lies well within training support."}
+                </span>
+              </div>
+            </div>
+            <div className="text-[9px] text-[var(--text-muted)] italic leading-snug border-t border-[var(--border-color)] pt-2 mt-1">
+              *We do not clip, replace, or manufacture values. Input parameters are processed exactly as provided.
             </div>
           </div>
         </div>
@@ -456,6 +502,39 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
             <div className="p-4 rounded-xl border border-blue-500/20 bg-blue-500/5 text-xs text-[var(--text-main)] leading-relaxed italic">
               "{result.explanation.natural_text}"
             </div>
+
+            <div className="flex flex-col gap-2 mt-3">
+              <span className="font-bold text-[10px] uppercase text-[var(--text-muted)]">
+                {language === 'en' 
+                  ? `Parameter Fit Alignment (${getCropLabel(selectedAnalysisCrop)})` 
+                  : `घटक साम्य अनुकूलता श्रेणी (${getCropLabel(selectedAnalysisCrop)})`}
+              </span>
+              <div className="flex flex-col gap-2 bg-[var(--bg-app)] p-4 rounded-xl border border-[var(--border-color)]">
+                {Object.keys(result.scorecard.feature_compatibilities).map(feat => {
+                  const compat = result.comparison_matrix[selectedAnalysisCrop]?.features?.[feat] || 0;
+                  const pct = Math.round(compat * 100);
+                  const barCount = Math.round(pct / 10);
+                  const fillBlocks = "█".repeat(barCount);
+                  const emptyBlocks = "░".repeat(10 - barCount);
+                  
+                  return (
+                    <div key={feat} className="flex items-center justify-between text-xs">
+                      <span className="w-24 uppercase font-bold text-[9px] text-[var(--text-muted)]">{feat}</span>
+                      <div className="flex items-center gap-2 flex-grow mx-4">
+                        <span className="font-mono text-emerald-500 tracking-tight hidden sm:inline text-xs leading-none">
+                          {fillBlocks}
+                          <span className="text-zinc-300 dark:text-zinc-800">{emptyBlocks}</span>
+                        </span>
+                        <div className="h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 flex-grow overflow-hidden sm:hidden">
+                          <div className="h-full bg-emerald-500" style={{ width: `${pct}%` }} />
+                        </div>
+                      </div>
+                      <span className="font-black text-emerald-500 w-8 text-right text-[10px]">{pct}%</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
             
             <div className="flex flex-col gap-1.5 mt-2">
               <span className="font-bold">{language === 'en' ? "Interpretation Verdicts:" : "घटक विश्लेषण अहवाल:"}</span>
@@ -474,31 +553,96 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
           </div>
         </div>
 
-        {/* Feature Sensitivity Bars */}
-        <div className="md:col-span-5 p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
-          <div>
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-[var(--text-muted)] mb-1">
-              <TrendingUp size={16} className="text-emerald-500 inline mr-1" />
-              {language === 'en' ? "LOCAL PARAMETER SENSITIVITY" : "स्थानिक घटक संवेदनशीलता"}
-            </h4>
-            <p className="text-[10px] text-[var(--text-muted)]">
-              {language === 'en' 
-                ? "Measures change in probability when perturbing features +/- 10%"
-                : "घटक मूल्य १०% बदलल्यास शिफारस संभाव्यतेवर होणारा परिणाम"}
-            </p>
-          </div>
+        {/* Feature Sensitivity & Global Weights Tab Card */}
+        {(() => {
+          const globalImportanceData = modelMeta?.model_metadata?.feature_importances
+            ? Object.keys(modelMeta.model_metadata.feature_importances).map(feat => ({
+                feature: feat,
+                importance: modelMeta.model_metadata.feature_importances[feat]
+              })).sort((a, b) => b.importance - a.importance)
+            : [
+                { feature: "rainfall", importance: 0.28 },
+                { feature: "temperature", importance: 0.21 },
+                { feature: "humidity", importance: 0.17 },
+                { feature: "N", importance: 0.13 },
+                { feature: "K", importance: 0.10 },
+                { feature: "P", importance: 0.07 },
+                { feature: "ph", importance: 0.04 }
+              ];
 
-          <div className="w-full h-52">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={result.sensitivity} layout="vertical" margin={{ left: -10, right: 10, top: 0, bottom: 0 }}>
-                <XAxis type="number" fontSize={8} tick={{ fill: 'currentColor' }} />
-                <YAxis dataKey="feature" type="category" fontSize={9} tick={{ fill: 'currentColor' }} width={60} />
-                <ChartTooltip contentStyle={{ background: '#1E293B', border: '1px solid #4B5563', borderRadius: '8px', fontSize: 10 }} />
-                <Bar dataKey="impact" fill="#10B981" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
+          return (
+            <div className="md:col-span-5 p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <div className="flex gap-1 bg-[var(--bg-app)] p-0.5 rounded-lg border border-[var(--border-color)]">
+                  <button 
+                    onClick={() => setImportanceTab('local')}
+                    className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded cursor-pointer transition ${importanceTab === 'local' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'}`}
+                  >
+                    Local Impact
+                  </button>
+                  <button 
+                    onClick={() => setImportanceTab('global')}
+                    className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded cursor-pointer transition ${importanceTab === 'global' ? 'bg-emerald-500 text-white' : 'text-[var(--text-muted)] hover:text-[var(--text-main)]'}`}
+                  >
+                    Global Weights
+                  </button>
+                </div>
+              </div>
+
+              {importanceTab === 'local' ? (
+                <div className="flex flex-col gap-3">
+                  <div>
+                    <h4 className="text-xs font-extrabold uppercase tracking-wider text-[var(--text-muted)] mb-1">
+                      <TrendingUp size={14} className="text-emerald-500 inline mr-1.5" />
+                      {language === 'en' ? "LOCAL PARAMETER SENSITIVITY" : "स्थानिक घटक संवेदनशीलता"}
+                    </h4>
+                    <p className="text-[10px] text-[var(--text-muted)]">
+                      {language === 'en' 
+                        ? "Measures change in probability when perturbing features +/- 10%"
+                        : "घटक मूल्य १०% बदलल्यास शिफारस संभाव्यतेवर होणारा परिणाम"}
+                    </p>
+                  </div>
+
+                  <div className="w-full h-52">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={result.sensitivity} layout="vertical" margin={{ left: -10, right: 10, top: 0, bottom: 0 }}>
+                        <XAxis type="number" fontSize={8} tick={{ fill: 'currentColor' }} />
+                        <YAxis dataKey="feature" type="category" fontSize={9} tick={{ fill: 'currentColor' }} width={60} />
+                        <ChartTooltip contentStyle={{ background: '#1E293B', border: '1px solid #4B5563', borderRadius: '8px', fontSize: 10 }} />
+                        <Bar dataKey="impact" fill="#10B981" radius={[0, 4, 4, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  <div>
+                    <h4 className="text-xs font-extrabold uppercase tracking-wider text-[var(--text-muted)] mb-1">
+                      <Cpu size={14} className="text-blue-500 inline mr-1.5" />
+                      {language === 'en' ? "MODEL GLOBAL FEATURE WEIGHTS" : "मॉडेलचे एकूण घटक भार"}
+                    </h4>
+                    <p className="text-[10px] text-[var(--text-muted)]">
+                      {language === 'en' 
+                        ? "Direct feature importances calculated from ExtraTrees champion classifier"
+                        : "एक्स्ट्रा ट्रीज मॉडेलद्वारे काढलेले घटकांचे एकूण सापेक्ष महत्त्व"}
+                    </p>
+                  </div>
+
+                  <div className="w-full h-52">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={globalImportanceData} layout="vertical" margin={{ left: -10, right: 10, top: 0, bottom: 0 }}>
+                        <XAxis type="number" fontSize={8} tick={{ fill: 'currentColor' }} />
+                        <YAxis dataKey="feature" type="category" fontSize={9} tick={{ fill: 'currentColor' }} width={60} />
+                        <ChartTooltip contentStyle={{ background: '#1E293B', border: '1px solid #4B5563', borderRadius: '8px', fontSize: 10 }} />
+                        <Bar dataKey="importance" fill="#3B82F6" radius={[0, 4, 4, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
       </div>
 

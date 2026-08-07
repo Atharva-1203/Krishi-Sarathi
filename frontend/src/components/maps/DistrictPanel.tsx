@@ -122,6 +122,19 @@ export default function DistrictPanel({ districtData }: DistrictPanelProps) {
           ))}
         </div>
       </div>
+
+      {/* Decoupling Notice */}
+      <div className="border-t border-[var(--border-color)] pt-4.5 flex flex-col gap-2 bg-blue-500/5 p-4 rounded-xl border border-blue-500/15">
+        <span className="text-[9px] font-extrabold text-blue-500 dark:text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
+          <Info size={12} />
+          {language === 'en' ? "ENGINE DECOUPLING NOTICE" : "इंजिन पृथक्करण सूचना"}
+        </span>
+        <p className="text-[10px] text-[var(--text-muted)] leading-relaxed">
+          {language === 'en' 
+            ? "The crop prediction engine is strictly geography-independent. Live recommendations do not ingest coordinates, district boundaries, or regional specialization, preventing geographic biases (e.g., historical sugarcane over-representation). This map serves as an independent agricultural baseline reference." 
+            : "पीक शिफारस इंजिन भौगोलिक घटकांपासून पूर्णपणे स्वतंत्र आहे. अनुमान घेण्यासाठी जिल्हा किंवा भौगोलिक सीमांचा वापर केला जात नाही, जेणेकरून विशिष्ट पिकांचा पूर्वग्रह (उदा. ऊस लागवडीचा अतिरेक) टाळला जाईल."}
+        </p>
+      </div>
     </div>
   );
 }

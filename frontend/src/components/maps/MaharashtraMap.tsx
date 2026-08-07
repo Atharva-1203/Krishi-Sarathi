@@ -33,13 +33,14 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [soilData, setSoilData] = useState<Record<string, any>>({});
   
   // Layer Selector: 'rainfall' | 'soil_health' | 'soil_type'
   const [activeLayer, setActiveLayer] = useState('rainfall');
   
   const mapRef = useRef<HTMLDivElement>(null);
 
-  // Load geojson boundary paths
+  // Load geojson boundary paths & district soil data
   useEffect(() => {
     fetch('/maps/maharashtra.geojson')
       .then(res => res.json())
@@ -49,6 +50,11 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
         }
       })
       .catch(err => console.error("Failed to load map GeoJSON:", err));
+
+    fetch('/maps/district_soil_data.json')
+      .then(res => res.json())
+      .then(data => setSoilData(data))
+      .catch(err => console.error("Failed to load district soil data JSON:", err));
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -104,9 +110,10 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
     }
 
     if (activeLayer === 'soil_health') {
-      if (rain < 700) return 'rgba(16, 185, 129, 0.3)'; // Light green
-      if (rain < 1500) return 'rgba(16, 185, 129, 0.6)'; // Mid green
-      return 'rgba(4, 120, 87, 0.9)'; // Deep forest green
+      const sqi = soilData[name]?.soil_quality_index || 50;
+      if (sqi < 45) return 'rgba(16, 185, 129, 0.15)'; // Poor SQI
+      if (sqi < 65) return 'rgba(16, 185, 129, 0.45)'; // Moderate SQI
+      return 'rgba(4, 120, 87, 0.85)'; // Excellent SQI
     }
 
     // soil_type
@@ -167,6 +174,7 @@ export default function MaharashtraMap({ selectedDistrict, onSelectDistrict }: M
         x={mousePos.x}
         y={mousePos.y}
         visible={hovered !== null}
+        soilInfo={hovered ? soilData[hovered.properties.district_name] : undefined}
       />
 
       <div

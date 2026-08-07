@@ -24,6 +24,11 @@ This document summarizes the execution results of the 20 deterministic golden te
 | 18 | Slightly outside training domain | **N/A (Out of Scope)** | 0.0000 | OUT_OF_DISTRIBUTION | Input outside model training range |
 | 19 | Extreme values | **N/A (Out of Scope)** | 0.0000 | OUT_OF_DISTRIBUTION | Input outside model training range |
 | 20 | Random realistic farm | **Rice** | 0.6108 | NORMAL | None |
+| 21 | Very dry environment | **Mothbeans** | 0.3407 | CAUTION | Feature 'rainfall' value 21.00 is in the extreme tail of the training distribution [p01: 21.67, p99: 270.61]. |
+| 22 | Very wet environment | **Rice** | 0.2483 | CAUTION | Feature 'rainfall' value 290.00 is in the extreme tail of the training distribution [p01: 21.67, p99: 270.61]. |
+| 23 | Hot climate | **Papaya** | 0.4281 | CAUTION | Feature 'temperature' value 43.00 is in the extreme tail of the training distribution [p01: 11.84, p99: 41.27]. |
+| 24 | Cool climate | **Jute** | 0.2540 | CAUTION | Feature 'temperature' value 9.00 is in the extreme tail of the training distribution [p01: 11.84, p99: 41.27]. |
+| 25 | High NPK values | **Grapes** | 0.1676 | CAUTION | Feature 'N' value 135.00 is in the extreme tail of the training distribution [p01: 0.00, p99: 129.61]. |
 
 ## Verdict
 All 20 golden cases ran without errors, returning valid top-5 crop recommendations and correctly flagging out-of-distribution environments.
