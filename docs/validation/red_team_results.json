@@ -1,0 +1,13 @@
+{
+  "successful_responses": 1531,
+  "validation_responses": 1000,
+  "out_of_scope_responses": 469,
+  "server_errors": 0,
+  "unhandled_exceptions": 0,
+  "latencies": {
+    "p50_ms": 24.593830108642578,
+    "p95_ms": 39.833688735961914,
+    "p99_ms": 51.158225536346386,
+    "max_ms": 110.70919036865234
+  }
+}

@@ -1,11 +1,11 @@
 {
   "clean_query": {
-    "N": -25.0,
-    "P": 35.0,
-    "K": 286.0,
-    "temperature": 31.04,
+    "N": 188.0,
+    "P": 99.0,
+    "K": 277.0,
+    "temperature": 30.0,
     "humidity": 60.0,
-    "ph": 13.22,
-    "rainfall": 2591.87
+    "ph": 5.5,
+    "rainfall": 1635.0
   }
 }

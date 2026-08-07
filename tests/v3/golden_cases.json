@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Balanced soil",
+    "inputs": {"N": 50, "P": 50, "K": 50, "temperature": 25.0, "humidity": 60.0, "ph": 6.5, "rainfall": 150.0},
+    "expected_ood": false
+  },
+  {
+    "id": 2,
+    "name": "High nitrogen",
+    "inputs": {"N": 120, "P": 40, "K": 40, "temperature": 25.0, "humidity": 80.0, "ph": 6.2, "rainfall": 180.0},
+    "expected_ood": false
+  },
+  {
+    "id": 3,
+    "name": "Low nitrogen",
+    "inputs": {"N": 10, "P": 40, "K": 40, "temperature": 25.0, "humidity": 80.0, "ph": 6.2, "rainfall": 180.0},
+    "expected_ood": false
+  },
+  {
+    "id": 4,
+    "name": "High phosphorus",
+    "inputs": {"N": 20, "P": 120, "K": 80, "temperature": 20.0, "humidity": 50.0, "ph": 6.0, "rainfall": 120.0},
+    "expected_ood": false
+  },
+  {
+    "id": 5,
+    "name": "Low phosphorus",
+    "inputs": {"N": 90, "P": 5, "K": 40, "temperature": 25.0, "humidity": 80.0, "ph": 6.5, "rainfall": 220.0},
+    "expected_ood": false
+  },
+  {
+    "id": 6,
+    "name": "High potassium",
+    "inputs": {"N": 20, "P": 80, "K": 200, "temperature": 22.0, "humidity": 90.0, "ph": 6.0, "rainfall": 180.0},
+    "expected_ood": false
+  },
+  {
+    "id": 7,
+    "name": "Low potassium",
+    "inputs": {"N": 90, "P": 40, "K": 5, "temperature": 25.0, "humidity": 80.0, "ph": 6.5, "rainfall": 220.0},
+    "expected_ood": false
+  },
+  {
+    "id": 8,
+    "name": "Acidic pH",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 25.0, "humidity": 80.0, "ph": 4.5, "rainfall": 180.0},
+    "expected_ood": false
+  },
+  {
+    "id": 9,
+    "name": "Alkaline pH",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 25.0, "humidity": 80.0, "ph": 8.5, "rainfall": 180.0},
+    "expected_ood": false
+  },
+  {
+    "id": 10,
+    "name": "High rainfall",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 25.0, "humidity": 80.0, "ph": 6.5, "rainfall": 450.0},
+    "expected_ood": true
+  },
+  {
+    "id": 11,
+    "name": "Low rainfall",
+    "inputs": {"N": 50, "P": 30, "K": 30, "temperature": 28.0, "humidity": 40.0, "ph": 6.8, "rainfall": 10.0},
+    "expected_ood": true
+  },
+  {
+    "id": 12,
+    "name": "High temperature",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 45.0, "humidity": 80.0, "ph": 6.5, "rainfall": 180.0},
+    "expected_ood": true
+  },
+  {
+    "id": 13,
+    "name": "Low temperature",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 5.0, "humidity": 80.0, "ph": 6.5, "rainfall": 180.0},
+    "expected_ood": true
+  },
+  {
+    "id": 14,
+    "name": "High humidity",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 25.0, "humidity": 99.0, "ph": 6.5, "rainfall": 180.0},
+    "expected_ood": false
+  },
+  {
+    "id": 15,
+    "name": "Low humidity",
+    "inputs": {"N": 80, "P": 40, "K": 40, "temperature": 25.0, "humidity": 10.0, "ph": 6.5, "rainfall": 180.0},
+    "expected_ood": true
+  },
+  {
+    "id": 16,
+    "name": "Balanced conditions",
+    "inputs": {"N": 60, "P": 40, "K": 40, "temperature": 23.0, "humidity": 70.0, "ph": 6.4, "rainfall": 200.0},
+    "expected_ood": false
+  },
+  {
+    "id": 17,
+    "name": "Boundary values",
+    "inputs": {"N": 140, "P": 140, "K": 200, "temperature": 40.0, "humidity": 95.0, "ph": 7.9, "rainfall": 280.0},
+    "expected_ood": false
+  },
+  {
+    "id": 18,
+    "name": "Slightly outside training domain",
+    "inputs": {"N": 160, "P": 50, "K": 50, "temperature": 25.0, "humidity": 80.0, "ph": 6.5, "rainfall": 180.0},
+    "expected_ood": true
+  },
+  {
+    "id": 19,
+    "name": "Extreme values",
+    "inputs": {"N": 400, "P": 300, "K": 800, "temperature": 55.0, "humidity": 99.0, "ph": 13.0, "rainfall": 500.0},
+    "expected_ood": true
+  },
+  {
+    "id": 20,
+    "name": "Random realistic farm",
+    "inputs": {"N": 75, "P": 45, "K": 50, "temperature": 26.2, "humidity": 81.2, "ph": 6.3, "rainfall": 220.0},
+    "expected_ood": false
+  }
+]

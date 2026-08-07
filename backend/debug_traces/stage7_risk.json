@@ -1,7 +1,7 @@
 {
   "penalties": {
-    "Rice": 0.25,
-    "Apple": 0.25,
-    "Grapes": 0.25
+    "Rice": 0.0,
+    "Apple": 0.2,
+    "Banana": 0.05
   }
 }

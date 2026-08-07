@@ -44,9 +44,16 @@ export default function InsightsPage() {
           <h2 className="text-2xl font-bold tracking-tight text-[var(--text-main)]">
             {t.map_title}
           </h2>
-          <p className="text-xs text-[var(--text-muted)]">
-            {t.map_subtitle}
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs text-[var(--text-muted)]">
+              {t.map_subtitle}
+            </p>
+            <span className="text-[10px] text-amber-500 font-bold bg-amber-500/5 border border-amber-500/10 px-2 py-0.5 rounded w-max">
+              {language === 'en' 
+                ? "Government Data Map (Historical Soil Card Analytics — Read-Only. Completely decoupled from V3.1 AI Crop Prediction Engine)." 
+                : "शासकीय माहिती नकाशा (ऐतिहासिक मृदा पत्रिका अहवाल — वाचनासाठी. व्ही३.१ एआय पीक शिफारसीपासून पूर्णपणे वेगळा ठेवलेला आहे)."}
+            </span>
+          </div>
         </div>
 
         {/* Comparison toggle button */}

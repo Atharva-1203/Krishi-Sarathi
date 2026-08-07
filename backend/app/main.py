@@ -15,6 +15,8 @@ from backend.app.api.router import api_router
 from backend.app.ml.model_loader import model_loader
 from backend.app.exceptions.custom_exceptions import ModelNotLoadedException, InvalidInputException
 from backend.app.exceptions.handlers import model_not_loaded_handler, invalid_input_handler
+from backend.app.api.routes import predict_v3
+from backend.app.ml.v3.predictor import v3_predictor
 from backend.app.core.logging import logger
 
 app = FastAPI(
@@ -39,6 +41,11 @@ app.add_exception_handler(InvalidInputException, invalid_input_handler)
 async def startup_event():
     logger.info("Starting Krishi Sarathi FastAPI Backend...")
     model_loader.load()
+    try:
+        v3_predictor.load()
+        logger.info("V3 crop prediction engine successfully initialized.")
+    except Exception as ex:
+        logger.error(f"Failed to load V3 model: {str(ex)}")
 
 @app.get("/")
 async def root():
@@ -50,3 +57,4 @@ async def root():
     }
 
 app.include_router(api_router, prefix=settings.API_STR)
+app.include_router(predict_v3.router, prefix="/api/v3", tags=["predict_v3"])
