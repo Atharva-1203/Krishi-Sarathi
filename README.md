@@ -3,45 +3,111 @@
 > **Motto**: शाश्वत शेती – समृद्ध शेतकरी (Sustainable Farming – Prosperous Farmer)
 > **Tagline**: ज्ञानसमन्विता कृषिः समृद्धये (Agriculture empowered by knowledge leads to prosperity.)
 
-Krishi Sarathi is a machine learning-driven agricultural decision support platform designed to provide geolocated crop recommendations and explainable soil health feedback to farmers in Maharashtra, India.
+Krishi Sarathi is a calibrated, machine learning-driven agricultural decision support platform. It provides personalized, scientifically backed crop suitability recommendations based strictly on agronomic soil and weather chemistry.
 
 ---
 
-## 1. Project Architecture
+## 1. The Problem
+Selecting the wrong crop for a farm's specific soil chemistry and climate leads to soil degradation, yield volatility, and high financial risks. Traditional habit-based farming or regional crop defaults do not account for localized soil depletion. Furthermore, legacy recommendation models suffer from geographic and Cash Crop bias (such as Sugarcane-heavy over-fitting), which recommends cash crops even in drought-prone or acidic soils.
 
-The workspace is organized as follows:
+## 2. Our Solution
+Krishi Sarathi introduces a two-tier agricultural decision support system:
+1.  **Generalized Crop Prediction Engine**: Evaluates 7 physical agronomic parameters ($N, P, K, \text{pH}$, temperature, humidity, rainfall) through a calibrated ExtraTrees Classifier. It is completely blind to geographic markers (district, region, coordinates) to prevent sugarcane bias.
+2.  **Maharashtra Agricultural GIS Analytics**: Serves as a macro-view regional planning dashboard powered by a database of **779,144 government soil cards** to display soil health trends, completely decoupled from prediction logic.
 
-```text
+---
+
+## 3. System Architecture & Separation
+
+```
+                     KRISHI SARATHI
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+      CROP PREDICTION              MAHARASHTRA
+         ENGINE                    DATA ANALYTICS
+             │                           │
+       7 ML FEATURES               GOVERNMENT/
+             │                     REGIONAL DATA
+             │                           │
+        V3.1 MODEL                 MAP + ANALYTICS
+             │
+       TOP-5 CROPS
+```
+
+*   **Prediction Pipeline**: Inputs ➔ validation check ➔ MinMax Scaling ➔ ExtraTrees ➔ Sigmoid Platt Calibration ➔ JSON recommendations.
+*   **Decoupled Map Layer**: Static JSON averages compiled from 7.7+ lakh government records color the SVG map with a computed Soil Quality Index (SQI). Predictions do not use location, and map statistics do not alter probability vectors.
+
+---
+
+## 4. Technology Stack
+- **Frontend client**: Next.js 15 (React 19), TailwindCSS, Framer Motion, Lucide Icons.
+- **Backend API**: FastAPI (Python 3.11), Pydantic v2 validation schemas.
+- **Machine Learning**: Scikit-Learn, Pandas, NumPy, Matplotlib.
+
+---
+
+## 5. Model Performance Metrics
+The champion **ExtraTrees Classifier** yields:
+- **Test Accuracy**: **99.39%**
+- **Macro F1-Score**: **99.40%**
+- **Brier Score**: **0.0162** (calibrated probabilities)
+- **Top-5 Recommendation Coverage**: **100.0%**
+- **Sugarcane Bias rate**: **0.00%** on random inputs
+
+---
+
+## 6. Project Directory Structure
+```
 Krishi-Sarathi/
-├── datasets/             # Data repository (Raw, Processed, Final, Archive)
-├── ml/                   # Machine learning engineering pipeline structure
-├── backend/              # API server codebase (FastAPI)
-├── frontend/             # User dashboard (React/Next.js)
-├── docs/                 # Centralized master documentation and dictionary
-├── reports/              # Quality and diagnostic reports
-├── presentation/         # Project presentations and pitches
-└── assets/               # Image assets and static diagrams
+├── frontend/        # React Next.js application
+├── backend/         # FastAPI python server
+├── ml/              # Core ML models, preprocessing, and datasets
+│   ├── datasets/    # Pre-processed V3 training dataset
+│   └── models/      # Calibrated V3 ExtraTrees models
+├── notebooks/       # Audited data-story Jupyter notebooks (01-09)
+├── tests/           # Regression and API verification tests (pytest)
+├── docs/            # Presentation notes, briefs, and cheat sheets
+└── scripts/         # Automated simulators and health checks
 ```
 
 ---
 
-## 2. Datasets Inventory
+## 7. Local Setup & Installation
 
-We have compiled the highest quality agricultural data foundation for Maharashtra:
-1. **Soil Health Points**: 779,144 geolocated points from the official GoI Soil Health Card GeoServer, tracking N, P, K, pH, and micronutrients.
-2. **Season Rainfall**: Historical monsoon rainfall (2015-2025) for all 34 agricultural districts.
-3. **BHOOMI Geoportal**: Taluka-level soil physical properties (Texture, Depth, Constraints, Land Capability).
-
----
-
-## 3. Installation & Setup
-
-1. Clone the repository:
+### Backend Server Setup
+1. Navigate to the backend directory:
    ```bash
-   git clone https://github.com/yourorganization/Krishi-Sarathi.git
-   cd Krishi-Sarathi
+   cd backend
    ```
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+3. Start the FastAPI server on port 8000:
+   ```bash
+   uvicorn app.main:app --host 127.0.0.1 --port 8000
+   ```
+
+### Frontend Client Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
+2. Install npm packages:
+   ```bash
+   npm install
+   ```
+3. Start the Next.js development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 8. Verification & Testing
+To execute the automated test suites, run:
+```bash
+pytest tests/v3 -v
+```
+This runs 15 validation scripts checking probability math consistency, OOD detection boundaries, and crop bias mitigations.

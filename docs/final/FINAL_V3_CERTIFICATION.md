@@ -18,4 +18,4 @@ This document certifies that the rebuilt Krishi Sarathi V3.1 prediction engine p
 3.  **Strict Math Verification**: Calibrated class probabilities sum to 1.0 within $10^{-6}$ tolerance, with boundary constraints [0, 1] verified.
 4.  **OOD Security Gate**: Range check bounds reject anomalies to prevent UI freezing or prediction hangs.
 
-**Date of Certification**: 2026-08-07 17:55:33Z
+**Date of Certification**: 2026-08-08 04:38:52Z
