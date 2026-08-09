@@ -23,19 +23,17 @@ def test_health_check():
 def test_predict_endpoint():
     with client:
         payload = {
-            "District": "Kolhapur",
-            "Soil_Color": "Black",
-            "N": 75,
-            "P": 50,
-            "K": 100,
-            "pH": 6.5,
-            "Temperature": 22.0,
-            "Humidity": 85.0,
-            "Rainfall": 1200.0
+            "N": 90,
+            "P": 42,
+            "K": 43,
+            "temperature": 25.5,
+            "humidity": 82.0,
+            "ph": 6.5,
+            "rainfall": 210.0
         }
-        response = client.post("/api/v1/predict", json=payload)
+        response = client.post("/api/v3/predict", json=payload)
         assert response.status_code == 200
         data = response.json()
         assert data["status"] == "success"
-        assert len(data["top_recommendations"]) == 3
-        assert "why_recommended" in data["top_recommendations"][0]
+        assert len(data["top_recommendations"]) == 5
+        assert "explanation" in data
