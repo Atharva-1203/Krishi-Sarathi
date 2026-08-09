@@ -660,6 +660,43 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
               "{result.explanation.natural_text}"
             </div>
 
+            {/* Explainability Checklist: Why this Crop? */}
+            <div className="flex flex-col gap-2 mt-3">
+              <span className="font-bold text-[10px] uppercase text-[var(--text-muted)] flex items-center gap-1.5">
+                <Sparkles size={12} className="text-emerald-500" />
+                {language === 'en' ? "Explainability Checklist: Why this Crop?" : "स्पष्टीकरण चेकलिस्ट: हेच पीक का?"}
+              </span>
+              <div className="flex flex-col gap-1.5 p-4 rounded-xl border border-emerald-500/10 bg-emerald-500/5 text-xs text-[var(--text-main)]">
+                {Object.keys(result.scorecard.feature_compatibilities).map(feat => {
+                  const compat = result.comparison_matrix[selectedAnalysisCrop]?.features?.[feat] || 0;
+                  const item = result.scorecard.feature_compatibilities[feat];
+                  if (compat >= 0.5) {
+                    return (
+                      <div key={feat} className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300">
+                        <span className="font-extrabold">✓</span>
+                        <span>
+                          {language === 'en' 
+                            ? `${feat} is highly compatible with the crop's learned requirements.`
+                            : `${feat} पिकाच्या आवश्यक निकषांशी अत्यंत सुसंगत आहे.`}
+                        </span>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div key={feat} className="flex items-center gap-2 text-amber-700 dark:text-amber-300">
+                        <span className="font-extrabold">⚠</span>
+                        <span>
+                          {language === 'en' 
+                            ? `${feat} (${item.input}) sits near the outer boundary bounds.`
+                            : `${feat} (${item.input}) आवश्यक मर्यादेच्या सीमेजवळ आहे.`}
+                        </span>
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+            </div>
+
             <div className="flex flex-col gap-2 mt-3">
               <span className="font-bold text-[10px] uppercase text-[var(--text-muted)]">
                 {language === 'en' 
