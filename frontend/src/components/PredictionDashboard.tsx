@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Loader2, Sprout, AlertTriangle, RefreshCw, History, ArrowRight, Trash2, Search } from 'lucide-react';
+import { Loader2, Sprout, AlertTriangle, RefreshCw, History, ArrowRight, Trash2, Search, Mic, MicOff } from 'lucide-react';
 import { useLanguageStore } from '@/store/language';
 import { TRANSLATIONS } from '@/store/translations';
 import ResultsDisplay from './ResultsDisplay';
@@ -47,6 +47,81 @@ export default function PredictionDashboard() {
   const [historySearch, setHistorySearch] = useState('');
   const [activeTab, setActiveTab] = useState<'predict' | 'explorer' | 'transparency'>('predict');
   const [modelMetadata, setModelMetadata] = useState<any>(null);
+  const [isListening, setIsListening] = useState(false);
+  const [voiceText, setVoiceText] = useState("");
+
+  const parseAgronomicSpeech = (text: string) => {
+    const normalized = text.toLowerCase();
+    const findNumberAfter = (keywords: string[]) => {
+      for (const kw of keywords) {
+        const idx = normalized.indexOf(kw);
+        if (idx !== -1) {
+          const sub = normalized.substring(idx + kw.length);
+          const match = sub.match(/\d+(\.\d+)?/);
+          if (match) {
+            return parseFloat(match[0]);
+          }
+        }
+      }
+      return undefined;
+    };
+
+    return {
+      N: findNumberAfter(["nitrogen", "n", "नत्र", "युरिया"]),
+      P: findNumberAfter(["phosphorus", "p", "स्फुरद", "फॉस्फरस"]),
+      K: findNumberAfter(["potassium", "k", "पालाश", "पोटॅशियम"]),
+      ph: findNumberAfter(["ph", "सामू", "पीएच", "पोटेंशियल"]),
+      temperature: findNumberAfter(["temp", "temperature", "तापमान", "तपमान"]),
+      humidity: findNumberAfter(["humidity", "आद्रता", "दमटपणा", "ह्युमिडिटी"]),
+      rainfall: findNumberAfter(["rain", "rainfall", "पाऊस", "रेनफॉल"])
+    };
+  };
+
+  const handleVoiceInput = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert(language === 'en' 
+        ? "Browser speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari."
+        : "तुमच्या ब्राउझरमध्ये स्पीच रेकग्निशन सपोर्ट नाही. कृपया गुगल क्रोम किंवा मायक्रोसॉफ्ट एज वापरा.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.lang = language === 'mr' ? 'mr-IN' : 'en-US';
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      setVoiceText("");
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.onerror = (e: any) => {
+      console.error(e);
+      setIsListening(false);
+    };
+
+    recognition.onresult = (event: any) => {
+      const text = event.results[0][0].transcript;
+      setVoiceText(text);
+      
+      const parsedValues = parseAgronomicSpeech(text);
+      
+      if (parsedValues.N !== undefined) setValue("N", parsedValues.N);
+      if (parsedValues.P !== undefined) setValue("P", parsedValues.P);
+      if (parsedValues.K !== undefined) setValue("K", parsedValues.K);
+      if (parsedValues.ph !== undefined) setValue("ph", parsedValues.ph);
+      if (parsedValues.temperature !== undefined) setValue("temperature", parsedValues.temperature);
+      if (parsedValues.humidity !== undefined) setValue("humidity", parsedValues.humidity);
+      if (parsedValues.rainfall !== undefined) setValue("rainfall", parsedValues.rainfall);
+    };
+
+    recognition.start();
+  };
 
   useEffect(() => {
     const fetchModel = async () => {
@@ -297,6 +372,42 @@ export default function PredictionDashboard() {
               <div className="lg:col-span-5 flex flex-col gap-6">
                 <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm">
                   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+                    
+                    {/* Voice Input Integration */}
+                    <div className="flex flex-col gap-2 p-3 bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 rounded-xl text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-emerald-800 dark:text-emerald-300">
+                          {language === 'en' ? "Voice Assistant (Speech-to-Text)" : "आवाज शिफारस साहाय्यक"}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={handleVoiceInput}
+                          className={`flex items-center gap-1.5 px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${isListening ? "bg-red-500 hover:bg-red-600 text-white animate-pulse" : "bg-emerald-600 hover:bg-emerald-700 text-white"}`}
+                        >
+                          {isListening ? (
+                            <>
+                              <MicOff size={13} />
+                              {language === 'en' ? "Listening..." : "ऐकत आहे..."}
+                            </>
+                          ) : (
+                            <>
+                              <Mic size={13} />
+                              {language === 'en' ? "Speak Input" : "बोला"}
+                            </>
+                          )}
+                        </button>
+                      </div>
+                      <p className="text-[10px] text-emerald-700/80 dark:text-emerald-400/80 leading-normal">
+                        {language === 'en' 
+                          ? 'Speak like: "Nitrogen 80, Phosphorus 50, Potassium 50, Temperature 25, Humidity 70, pH 6.5, Rainfall 150"'
+                          : 'याप्रमाणे बोला: "नत्र ८०, स्फुरद ५०, पालाश ५०, तापमान २५, आद्रता ७०, पीएच ६.५, पाऊस १५०"'}
+                      </p>
+                      {voiceText && (
+                        <div className="mt-1 p-2 bg-white/70 dark:bg-black/20 rounded border border-emerald-100 dark:border-emerald-900/30 text-[11px] font-medium italic text-[var(--text-main)]">
+                          "{voiceText}"
+                        </div>
+                      )}
+                    </div>
                     
                     {/* Nutrients N, P, K */}
                     <div className="border-t border-[var(--border-color)] pt-4 flex flex-col gap-3">
