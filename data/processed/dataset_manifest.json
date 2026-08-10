@@ -1,0 +1,91 @@
+{
+  "dataset_info": {
+    "name": "Krishi Sarathi Unified Agricultural Corpus",
+    "description": "Cleaned, audited, and decoupled supervised crop prediction training and regional unlabelled soil health database.",
+    "version": "V5.0",
+    "licensing": {
+      "supervised": "CC BY 4.0",
+      "unlabelled": "Government Open Data License (GODL) India"
+    }
+  },
+  "supervised_partition": {
+    "file_name": "final_supervised_dataset.csv",
+    "total_rows": 2200,
+    "columns": [
+      "N",
+      "P",
+      "K",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall",
+      "label",
+      "source_id",
+      "source_dataset",
+      "season",
+      "year",
+      "geographic_resolution",
+      "label_type"
+    ],
+    "entropy_bits": 4.4594,
+    "imbalance_ratio": 1.0,
+    "class_counts": {
+      "rice": 100,
+      "maize": 100,
+      "chickpea": 100,
+      "kidneybeans": 100,
+      "pigeonpeas": 100,
+      "mothbeans": 100,
+      "mungbean": 100,
+      "blackgram": 100,
+      "lentil": 100,
+      "pomegranate": 100,
+      "banana": 100,
+      "mango": 100,
+      "grapes": 100,
+      "watermelon": 100,
+      "muskmelon": 100,
+      "apple": 100,
+      "orange": 100,
+      "papaya": 100,
+      "coconut": 100,
+      "cotton": 100,
+      "jute": 100,
+      "coffee": 100
+    }
+  },
+  "unlabelled_partition": {
+    "file_name": "final_unlabelled_dataset.csv",
+    "total_rows": 200000,
+    "columns": [
+      "Latitude",
+      "Longitude",
+      "Cycle",
+      "District",
+      "Taluka",
+      "Village",
+      "N",
+      "P",
+      "K",
+      "pH",
+      "OC",
+      "EC",
+      "B",
+      "Fe",
+      "Mn",
+      "Cu",
+      "Zn",
+      "S",
+      "source_id",
+      "source_dataset",
+      "season",
+      "year",
+      "geographic_resolution",
+      "label_type",
+      "label"
+    ],
+    "raw_records_scanned": 779144,
+    "anomalous_records_filtered": 4357,
+    "exact_duplicates_removed": 7185
+  }
+}

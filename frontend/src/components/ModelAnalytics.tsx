@@ -13,12 +13,11 @@ export default function ModelAnalytics() {
   const [activeSubTab, setActiveSubTab] = useState<'scale' | 'parity' | 'table' | 'charts'>('scale');
 
   const globalMetrics = [
-    { name: language === 'en' ? "Total Agricultural Records" : "एकूण कृषी नोंदी", val: "779,144", sub: "Soil Health Card evidence base", color: "text-emerald-500", icon: <Layers size={20} /> },
-    { name: language === 'en' ? "Validated Training Rows" : "प्रमाणित मॉडेल डेटा", val: "2,200", sub: "Balanced suitability samples", color: "text-blue-500", icon: <CheckCircle size={20} /> },
-    { name: language === 'en' ? "Rejected Outlier Cards" : "वगळलेले दोषपूर्ण नमुने", val: "56,802", sub: "Filtered impossible pH & NPK anomalies", color: "text-rose-500", icon: <AlertTriangle size={20} /> },
-    { name: language === 'en' ? "Covered Districts" : "नकाशा अंतर्गत जिल्हे", val: "34", sub: "Maharashtra state grid divisions", color: "text-amber-500", icon: <Activity size={20} /> },
-    { name: language === 'en' ? "Crop Suitability Classes" : "पीक वर्गीकरण संख्या", val: "22", sub: "Uniform botanical classifications", color: "text-purple-500", icon: <TrendingUp size={20} /> },
-    { name: language === 'en' ? "Temporal Coverage" : "कालखंड व्याप्ती", val: "10 Years", sub: "Cycle records from 2015-2025", color: "text-zinc-500", icon: <Clock size={20} /> },
+    { name: language === 'en' ? "TOTAL AGRICULTURAL OBSERVATIONS" : "एकूण कृषी निरीक्षणे", val: "785,857", sub: "Unified Platform Repository", color: "text-emerald-500", icon: <Layers size={20} /> },
+    { name: language === 'en' ? "LABELLED TRAINING OBSERVATIONS" : "प्रमाणित मॉडेल डेटा (लेबल केलेले)", val: "2,200", sub: "Balanced suitability training rows", color: "text-blue-500", icon: <CheckCircle size={20} /> },
+    { name: language === 'en' ? "UNLABELLED SOIL OBSERVATIONS" : "लेबल नसलेले नमुने (मृदा आरोग्य पत्रिका)", val: "779,144", sub: "Maharashtra Soil Health Cards database", color: "text-amber-500", icon: <Activity size={20} /> },
+    { name: language === 'en' ? "CLIMATE OBSERVATIONS" : "हवामान निरीक्षणे", val: "13,200", sub: "IMD gridded weather records (11 years)", color: "text-purple-500", icon: <TrendingUp size={20} /> },
+    { name: language === 'en' ? "MAP ANALYTICS RECORDS" : "नकाशा विश्लेषण नोंदी", val: "779,144", sub: "GIS Observatory evidence base", color: "text-zinc-500", icon: <Clock size={20} /> },
   ];
 
   const qualityStats = [
@@ -115,7 +114,7 @@ export default function ModelAnalytics() {
             className="flex flex-col gap-6"
           >
             {/* Telemetry Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {globalMetrics.map((met, idx) => (
                 <div key={idx} className="p-5 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-2">
                   <div className={`w-9 h-9 rounded-xl bg-emerald-500/5 ${met.color} flex items-center justify-center`}>

@@ -1,0 +1,7 @@
+Crop,Source,Samples,Regions,Features,Quality,Training eligibility
+Rice,UCI / Kaggle,100,Continuous,7/7,High,Eligible (Active)
+Maize,UCI / Kaggle,100,Continuous,7/7,High,Eligible (Active)
+Sugarcane,Crop-Fertilizer,1010,Western Maharashtra,6/7,Skewed,Ineligible
+Wheat,Crop-Fertilizer,859,Northern Maharashtra,6/7,Skewed,Ineligible
+Soybean,Crop-Fertilizer,45,Central Maharashtra,6/7,Low,Ineligible
+Masoor,Crop-Fertilizer,12,Vidarbha,6/7,Low,Ineligible

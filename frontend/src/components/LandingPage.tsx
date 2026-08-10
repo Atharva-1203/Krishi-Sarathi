@@ -125,29 +125,35 @@ export default function LandingPage({ setTab }: LandingPageProps) {
           {language === 'en' ? 'System Database Stats & Telemetry' : 'सिस्टम डेटाबेस आकडेवारी व टेलिमेट्री'}
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">Predictor Rows</span>
-            <span className="text-3xl font-black text-emerald-500">2,200</span>
-            <span className="text-[9px] text-[var(--text-muted)] font-medium mt-1">Cross-Validated Training Instances</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">TOTAL AGRICULTURAL OBSERVATIONS</span>
+            <span className="text-2xl font-black text-emerald-500">785,857</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Unified Platform Repository</span>
           </div>
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">Target Classes</span>
-            <span className="text-3xl font-black text-emerald-500">22</span>
-            <span className="text-[9px] text-[var(--text-muted)] font-medium mt-1">Botanically Diverse Crop Species</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">LABELLED TRAINING OBSERVATIONS</span>
+            <span className="text-2xl font-black text-emerald-500">2,200</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Balanced Suitability Samples</span>
           </div>
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">Soil Database Rows</span>
-            <span className="text-3xl font-black text-emerald-500">779,144</span>
-            <span className="text-[9px] text-[var(--text-muted)] font-medium mt-1">Maharashtra Soil Health Cards</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">UNLABELLED SOIL OBSERVATIONS</span>
+            <span className="text-2xl font-black text-emerald-500">779,144</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Maharashtra Soil Health Cards</span>
           </div>
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">Covered Districts</span>
-            <span className="text-3xl font-black text-emerald-500">34</span>
-            <span className="text-[9px] text-[var(--text-muted)] font-medium mt-1">Districts Map Baselines</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">CLIMATE OBSERVATIONS</span>
+            <span className="text-2xl font-black text-emerald-500">13,200</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">IMD Gridded Weather Records</span>
+          </div>
+
+          <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">MAP ANALYTICS RECORDS</span>
+            <span className="text-2xl font-black text-emerald-500">779,144</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">GIS Observatory Evidence</span>
           </div>
         </div>
 
