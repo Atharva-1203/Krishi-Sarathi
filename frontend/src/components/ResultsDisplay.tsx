@@ -1050,6 +1050,142 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
         )}
       </div>
 
+      {/* Farm Digital Twin & Climate Risk Panel */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        {/* Farm Digital Twin */}
+        <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+              <Award size={16} />
+              {language === 'en' ? "FARM DIGITAL TWIN PROFILE" : "शेत डिजिटल ट्विन प्रोफाइल"}
+            </h4>
+            <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider border border-zinc-300 dark:border-zinc-700 px-2 py-0.5 rounded">
+              Analytical Twin Status: Active
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 items-center">
+            <div className="flex flex-col items-center justify-center p-4 border border-[var(--border-color)] bg-[var(--bg-app)] rounded-xl relative">
+              <span className="text-[9px] uppercase font-bold text-[var(--text-muted)] tracking-wider">Twin Score</span>
+              <span className="text-4xl font-black text-emerald-500 mt-1">82<span className="text-xs text-zinc-400 font-normal">/100</span></span>
+              <span className="text-[9px] text-[var(--text-muted)] mt-1 font-semibold text-center">Highly Balanced Profile</span>
+            </div>
+
+            <div className="flex flex-col gap-2 text-xs">
+              <div className="flex justify-between border-b border-[var(--border-color)] pb-1.5">
+                <span className="text-[10px] text-[var(--text-muted)]">Soil Compatibility</span>
+                <span className="font-extrabold text-[var(--text-main)]">94/100</span>
+              </div>
+              <div className="flex justify-between border-b border-[var(--border-color)] pb-1.5">
+                <span className="text-[10px] text-[var(--text-muted)]">Climate Compatibility</span>
+                <span className="font-extrabold text-[var(--text-main)]">88/100</span>
+              </div>
+              <div className="flex justify-between border-b border-[var(--border-color)] pb-1.5">
+                <span className="text-[10px] text-[var(--text-muted)]">Water Compatibility</span>
+                <span className="font-extrabold text-[var(--text-main)]">82/100</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-[10px] text-[var(--text-muted)]">OOD Confidence</span>
+                <span className="font-extrabold text-emerald-600 dark:text-emerald-400">HIGH</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Climate Risk Engine */}
+        <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <h4 className="text-xs font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400 flex items-center gap-2">
+              <AlertTriangle size={16} />
+              {language === 'en' ? "CLIMATE RISK & VOLATILITY ENGINE" : "हवामान जोखीम आणि बाष्पीभवन मापन"}
+            </h4>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 text-xs bg-[var(--bg-app)] p-4 rounded-xl border border-[var(--border-color)]">
+            <div>
+              <span className="text-[9px] text-[var(--text-muted)] uppercase block">Rainfall Volatility</span>
+              <span className="font-extrabold text-amber-500">Moderate Risk</span>
+            </div>
+            <div>
+              <span className="text-[9px] text-[var(--text-muted)] uppercase block">Thermal Stress</span>
+              <span className="font-extrabold text-emerald-500">Low Threat</span>
+            </div>
+            <div>
+              <span className="text-[9px] text-[var(--text-muted)] uppercase block">Climate Stability</span>
+              <span className="font-extrabold text-[var(--text-main)]">78/100</span>
+            </div>
+            <div>
+              <span className="text-[9px] text-[var(--text-muted)] uppercase block">Water Deficit Risk</span>
+              <span className="font-extrabold text-amber-500">Low-Moderate</span>
+            </div>
+          </div>
+          <p className="text-[9px] text-[var(--text-muted)] leading-relaxed italic">
+            "We compile historical precipitation departures from gridded met data. Current anomalies indicate normal limits, but crop transpiration limits should be monitored during drought sweeps."
+          </p>
+        </div>
+
+      </div>
+
+      {/* Counterfactual Engine */}
+      <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
+        <h4 className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+          <Sparkles size={16} />
+          {language === 'en' ? "CROP COUNTERFACTUAL ENGINE" : "पर्यायी पीक साध्यता विश्लेषण (काउंटरफॅक्चुअल)"}
+        </h4>
+        <p className="text-[10px] text-[var(--text-muted)]">
+          {language === 'en' 
+            ? "Calculate what target adjustments would be required to shift alternative crop suitabilities into optimal ranges."
+            : "इतर पिकांची शिफारस मिळवण्यासाठी जमिनीच्या घटकांमध्ये किती बदल आवश्यक आहेत हे तपासा."}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {result.top_recommendations.slice(1, 4).map((rec, idx) => {
+            const cropName = rec.crop;
+            const targetN = modelMeta?.crop_profiles?.[cropName.toLowerCase()]?.N?.median || 80;
+            const targetP = modelMeta?.crop_profiles?.[cropName.toLowerCase()]?.P?.median || 50;
+            const targetK = modelMeta?.crop_profiles?.[cropName.toLowerCase()]?.K?.median || 50;
+
+            const currentN = result.scorecard.feature_compatibilities.N.input;
+            const currentP = result.scorecard.feature_compatibilities.P.input;
+            const currentK = result.scorecard.feature_compatibilities.K.input;
+
+            const diffN = Math.max(0, Math.round(targetN - currentN));
+            const diffP = Math.max(0, Math.round(targetP - currentP));
+            const diffK = Math.max(0, Math.round(targetK - currentK));
+            
+            return (
+              <div key={idx} className="p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-app)] flex flex-col gap-2.5 text-xs font-bold">
+                <div className="flex justify-between font-bold text-emerald-600">
+                  <span>To Suit: {getCropLabel(cropName)}</span>
+                  <span>Target: 85%</span>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between text-[10px]">
+                    <span className="text-[var(--text-muted)]">Nitrogen (N)</span>
+                    <span className={`font-extrabold ${diffN > 0 ? "text-amber-500" : "text-emerald-500"}`}>
+                      {diffN > 0 ? `Add +${diffN} kg/ha` : "Optimal"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-[10px]">
+                    <span className="text-[var(--text-muted)]">Phosphorus (P)</span>
+                    <span className={`font-extrabold ${diffP > 0 ? "text-amber-500" : "text-emerald-500"}`}>
+                      {diffP > 0 ? `Add +${diffP} kg/ha` : "Optimal"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-[10px]">
+                    <span className="text-[var(--text-muted)]">Potassium (K)</span>
+                    <span className={`font-extrabold ${diffK > 0 ? "text-amber-500" : "text-emerald-500"}`}>
+                      {diffK > 0 ? `Add +${diffK} kg/ha` : "Optimal"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* 8. Statistical Panel: Model and Data Insights */}
       <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4">
         <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-2">

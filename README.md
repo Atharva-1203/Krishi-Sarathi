@@ -3,7 +3,7 @@
 > **Motto**: शाश्वत शेती – समृद्ध शेतकरी (Sustainable Farming – Prosperous Farmer)
 > **Tagline**: ज्ञानसमन्विता कृषिः समृद्धये (Agriculture empowered by knowledge leads to prosperity.)
 
-Krishi Sarathi is a calibrated, machine learning-driven agricultural decision support platform. It provides personalized, scientifically backed crop suitability recommendations based strictly on agronomic soil and weather chemistry.
+Krishi Sarathi is an AI-powered agricultural decision intelligence platform. It provides personalized, scientifically backed crop suitability recommendations based strictly on agronomic soil and weather chemistry, integrated with a what-if simulator and farm digital twin.
 
 ---
 
@@ -12,8 +12,11 @@ Selecting the wrong crop for a farm's specific soil chemistry and climate leads 
 
 ## 2. Our Solution
 Krishi Sarathi introduces a two-tier agricultural decision support system:
-1.  **Generalized Crop Prediction Engine**: Evaluates 7 physical agronomic parameters ($N, P, K, \text{pH}$, temperature, humidity, rainfall) through a calibrated ExtraTrees Classifier. It is completely blind to geographic markers (district, region, coordinates) to prevent sugarcane bias.
-2.  **Maharashtra Agricultural GIS Analytics**: Serves as a macro-view regional planning dashboard powered by a database of **779,144 government soil cards** to display soil health trends, completely decoupled from prediction logic.
+1.  **AI-Powered Decision Intelligence Engine**: Evaluates 7 physical agronomic parameters ($N, P, K, \text{pH}$, temperature, humidity, rainfall) through a calibrated ExtraTrees Classifier. It is completely blind to geographic markers (district, region, coordinates) to prevent sugarcane bias. Features include:
+    - **Farm Digital Twin**: A radial compatibility scorecard representing Soil, Climate, Water, and Climate Risk indicators.
+    - **What-If Scenario Simulator**: Sliders to test baseline perturbations ($\pm 20\%$) and inspect sensitivity changes.
+    - **Counterfactual Engine**: Suggests soil modifications to achieve suitability for alternative crops.
+2.  **Maharashtra Agricultural GIS Analytics**: Serves as a macro-view regional planning dashboard powered by a database of **779,144 government soil cards** to display soil health trends, gridded weather anomaly trends, and Shannon crop diversity, completely decoupled from prediction logic.
 
 ---
 
@@ -24,8 +27,8 @@ Krishi Sarathi introduces a two-tier agricultural decision support system:
                            │
              ┌─────────────┴─────────────┐
              │                           │
-      CROP PREDICTION              MAHARASHTRA
-         ENGINE                    DATA ANALYTICS
+       CROP PREDICTION              MAHARASHTRA
+          ENGINE                    DATA ANALYTICS
              │                           │
        7 ML FEATURES               GOVERNMENT/
              │                     REGIONAL DATA
@@ -35,8 +38,8 @@ Krishi Sarathi introduces a two-tier agricultural decision support system:
        TOP-5 CROPS
 ```
 
-*   **Prediction Pipeline**: Inputs ➔ validation check ➔ MinMax Scaling ➔ ExtraTrees ➔ Sigmoid Platt Calibration ➔ JSON recommendations.
-*   **Decoupled Map Layer**: Static JSON averages compiled from 7.7+ lakh government records color the SVG map with a computed Soil Quality Index (SQI). Predictions do not use location, and map statistics do not alter probability vectors.
+*   **Prediction Pipeline**: Inputs ➔ validation check ➔ MinMax Scaling ➔ ExtraTrees ➔ Sigmoid Platt Calibration ➔ What-If sliders ➔ Farm Digital Twin gauges ➔ Counterfactuals.
+*   **Decoupled Map Layer**: SVG map powered by 7.7+ lakh government records displaying Soil Quality Index (SQI), gridded rainfall anomalies, yield trends, and Shannon crop diversity graphs. Predictions do not use location, and map statistics do not alter probability vectors.
 
 ---
 

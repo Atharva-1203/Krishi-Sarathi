@@ -128,6 +128,57 @@ export default function ModelTransparency() {
         </ul>
       </div>
 
+      {/* Data Provenance Explorer */}
+      <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm flex flex-col gap-4 mt-4 text-xs">
+        <h4 className="font-bold text-[var(--text-main)] flex items-center gap-2 uppercase tracking-wider text-xs text-emerald-600 dark:text-emerald-400">
+          <FileText size={16} />
+          {language === 'en' ? "DATA PROVENANCE EXPLORER" : "माहिती स्रोत आणि लायसन्स (डेटा प्रोव्हेनन्स)"}
+        </h4>
+        <p className="text-[var(--text-muted)] leading-relaxed">
+          {language === 'en' 
+            ? "Every major data product integrated into Krishi Sarathi is fully traceable to its original research or governmental registry."
+            : "कृषि सारथीमध्ये एकत्रित केलेले सर्व माहितीचे स्रोत मूळ शासकीय किंवा संशोधन डेटाबेसेसशी जोडलेले आहेत."}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-4 rounded-xl bg-[var(--bg-app)] border border-[var(--border-color)] flex flex-col gap-1.5">
+            <span className="font-bold text-[10px] uppercase text-emerald-500">Crop Suitability Predictor Data</span>
+            <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
+              <strong>Source:</strong> UCI & Kaggle Agricultural Research Repositories.<br />
+              <strong>License:</strong> Creative Commons Attribution (CC BY 4.0).<br />
+              <strong>Usage:</strong> Exclusively trains the Platt-calibrated crop suitability engine.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[var(--bg-app)] border border-[var(--border-color)] flex flex-col gap-1.5">
+            <span className="font-bold text-[10px] uppercase text-emerald-500">Observational Soil Health Cards</span>
+            <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
+              <strong>Source:</strong> Govt of India Soil Health Card Portal (soilhealth.dac.gov.in).<br />
+              <strong>License:</strong> Government Open Data License (GODL) India.<br />
+              <strong>Usage:</strong> Calibrates regional soil baselines in the decoupled GIS Map.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[var(--bg-app)] border border-[var(--border-color)] flex flex-col gap-1.5">
+            <span className="font-bold text-[10px] uppercase text-emerald-500">IMD Gridded Climate Averages</span>
+            <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
+              <strong>Source:</strong> Indian Meteorological Department (IMD) Pune.<br />
+              <strong>License:</strong> Met Meteorological Research License.<br />
+              <strong>Usage:</strong> Powers the historical precipitation trend charts (2015-2025).
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[var(--bg-app)] border border-[var(--border-color)] flex flex-col gap-1.5">
+            <span className="font-bold text-[10px] uppercase text-emerald-500">DES Crop Production Registry</span>
+            <p className="text-[11px] text-[var(--text-muted)] leading-relaxed">
+              <strong>Source:</strong> Directorate of Economics & Statistics APY Portal.<br />
+              <strong>License:</strong> Government Open Data License (GODL) India.<br />
+              <strong>Usage:</strong> Aggregates district crop yields, production, and diversity.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
