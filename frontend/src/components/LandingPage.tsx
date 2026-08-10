@@ -146,9 +146,17 @@ export default function LandingPage({ setTab }: LandingPageProps) {
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
             <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">Covered Districts</span>
-            <span className="text-3xl font-black text-emerald-500">36</span>
+            <span className="text-3xl font-black text-emerald-500">34</span>
             <span className="text-[9px] text-[var(--text-muted)] font-medium mt-1">Districts Map Baselines</span>
           </div>
+        </div>
+
+        {/* Transparency Statement */}
+        <div className="mt-4 p-4 rounded-xl border border-blue-500/10 bg-blue-500/5 text-center text-xs text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed">
+          <strong>{language === 'en' ? "System Transparency Notice" : "प्रणाली पारदर्शकता सूचना"}:</strong>{" "}
+          {language === 'en'
+            ? "Krishi Sarathi combines a large-scale agricultural evidence layer with a separately validated supervised crop recommendation engine. Only observations with verified target labels and compatible features are used for supervised learning. This map serves as an independent agricultural baseline reference."
+            : "कृषि सारथी मोठ्या प्रमाणावर उपलब्ध निरीक्षण माहिती आणि स्वतंत्रपणे प्रमाणित पीक शिफारस इंजिन एकत्रित करते. शिफारसींसाठी केवळ प्रमाणित पिकांची माहिती वापरली जाते."}
         </div>
       </section>
 
