@@ -88,9 +88,58 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
   const [farmAreaHa, setFarmAreaHa] = useState<number>(1.0);
   const [irrigationType, setIrrigationType] = useState<string>("rainfed");
 
+  const CROP_ECONOMIC_PROFILES: Record<string, any> = {
+    apple: { crop_name: "Apple", expected_yield_q_ha: 150, market_price_inr_q: 6500, cost_of_cultivation_inr_ha: 350000, water_demand_level: "High", climate_risk_score: 0.45, price_volatility_score: 0.35, data_source: "CACP / DES", data_status: "Estimated" },
+    banana: { crop_name: "Banana", expected_yield_q_ha: 400, market_price_inr_q: 1800, cost_of_cultivation_inr_ha: 220000, water_demand_level: "Very High", climate_risk_score: 0.55, price_volatility_score: 0.40, data_source: "MH Horticulture", data_status: "Estimated" },
+    blackgram: { crop_name: "Black Gram (Urad)", expected_yield_q_ha: 10, market_price_inr_q: 7400, cost_of_cultivation_inr_ha: 28000, water_demand_level: "Low", climate_risk_score: 0.25, price_volatility_score: 0.20, data_source: "CACP 2024", data_status: "Estimated" },
+    chickpea: { crop_name: "Chickpea (Gram)", expected_yield_q_ha: 14, market_price_inr_q: 5440, cost_of_cultivation_inr_ha: 32000, water_demand_level: "Low", climate_risk_score: 0.20, price_volatility_score: 0.18, data_source: "CACP 2024", data_status: "Estimated" },
+    coconut: { crop_name: "Coconut", expected_yield_q_ha: 120, market_price_inr_q: 2800, cost_of_cultivation_inr_ha: 110000, water_demand_level: "High", climate_risk_score: 0.35, price_volatility_score: 0.30, data_source: "CDB", data_status: "Estimated" },
+    coffee: { crop_name: "Coffee", expected_yield_q_ha: 12, market_price_inr_q: 18000, cost_of_cultivation_inr_ha: 120000, water_demand_level: "High", climate_risk_score: 0.40, price_volatility_score: 0.45, data_source: "Coffee Board", data_status: "Estimated" },
+    cotton: { crop_name: "Cotton", expected_yield_q_ha: 22, market_price_inr_q: 7020, cost_of_cultivation_inr_ha: 65000, water_demand_level: "Medium", climate_risk_score: 0.40, price_volatility_score: 0.35, data_source: "CACP 2024", data_status: "Estimated" },
+    grapes: { crop_name: "Grapes", expected_yield_q_ha: 220, market_price_inr_q: 4500, cost_of_cultivation_inr_ha: 380000, water_demand_level: "Medium", climate_risk_score: 0.50, price_volatility_score: 0.42, data_source: "NHB", data_status: "Estimated" },
+    jute: { crop_name: "Jute", expected_yield_q_ha: 25, market_price_inr_q: 5050, cost_of_cultivation_inr_ha: 52000, water_demand_level: "High", climate_risk_score: 0.30, price_volatility_score: 0.25, data_source: "CACP 2024", data_status: "Estimated" },
+    kidneybeans: { crop_name: "Kidney Beans (Rajma)", expected_yield_q_ha: 12, market_price_inr_q: 8200, cost_of_cultivation_inr_ha: 38000, water_demand_level: "Low-Medium", climate_risk_score: 0.25, price_volatility_score: 0.22, data_source: "DES Pulses", data_status: "Estimated" },
+    lentil: { crop_name: "Lentil (Masoor)", expected_yield_q_ha: 11, market_price_inr_q: 6425, cost_of_cultivation_inr_ha: 29000, water_demand_level: "Low", climate_risk_score: 0.20, price_volatility_score: 0.18, data_source: "CACP 2024", data_status: "Estimated" },
+    maize: { crop_name: "Maize (Corn)", expected_yield_q_ha: 35, market_price_inr_q: 2090, cost_of_cultivation_inr_ha: 38000, water_demand_level: "Medium", climate_risk_score: 0.25, price_volatility_score: 0.20, data_source: "CACP 2024", data_status: "Estimated" },
+    mango: { crop_name: "Mango", expected_yield_q_ha: 90, market_price_inr_q: 5500, cost_of_cultivation_inr_ha: 140000, water_demand_level: "Medium", climate_risk_score: 0.40, price_volatility_score: 0.38, data_source: "NHB", data_status: "Estimated" },
+    mothbeans: { crop_name: "Moth Beans (Matki)", expected_yield_q_ha: 8, market_price_inr_q: 7200, cost_of_cultivation_inr_ha: 22000, water_demand_level: "Very Low", climate_risk_score: 0.15, price_volatility_score: 0.20, data_source: "DES Pulses", data_status: "Estimated" },
+    mungbean: { crop_name: "Mungbean (Moong)", expected_yield_q_ha: 9, market_price_inr_q: 8558, cost_of_cultivation_inr_ha: 27000, water_demand_level: "Low", climate_risk_score: 0.22, price_volatility_score: 0.20, data_source: "CACP 2024", data_status: "Estimated" },
+    muskmelon: { crop_name: "Muskmelon", expected_yield_q_ha: 180, market_price_inr_q: 1600, cost_of_cultivation_inr_ha: 85000, water_demand_level: "Medium", climate_risk_score: 0.35, price_volatility_score: 0.45, data_source: "DES Veg", data_status: "Estimated" },
+    orange: { crop_name: "Orange (Nagpur)", expected_yield_q_ha: 140, market_price_inr_q: 3200, cost_of_cultivation_inr_ha: 160000, water_demand_level: "High", climate_risk_score: 0.45, price_volatility_score: 0.35, data_source: "ICAR Citrus", data_status: "Estimated" },
+    papaya: { crop_name: "Papaya", expected_yield_q_ha: 500, market_price_inr_q: 1200, cost_of_cultivation_inr_ha: 180000, water_demand_level: "High", climate_risk_score: 0.40, price_volatility_score: 0.40, data_source: "Horticulture", data_status: "Estimated" },
+    pigeonpeas: { crop_name: "Pigeonpea (Tur)", expected_yield_q_ha: 12, market_price_inr_q: 7000, cost_of_cultivation_inr_ha: 35000, water_demand_level: "Low-Medium", climate_risk_score: 0.22, price_volatility_score: 0.19, data_source: "CACP 2024", data_status: "Estimated" },
+    pomegranate: { crop_name: "Pomegranate", expected_yield_q_ha: 110, market_price_inr_q: 6800, cost_of_cultivation_inr_ha: 240000, water_demand_level: "Medium", climate_risk_score: 0.38, price_volatility_score: 0.32, data_source: "NRC Pom", data_status: "Estimated" },
+    rice: { crop_name: "Rice (Paddy)", expected_yield_q_ha: 32, market_price_inr_q: 2183, cost_of_cultivation_inr_ha: 45000, water_demand_level: "High", climate_risk_score: 0.35, price_volatility_score: 0.15, data_source: "CACP 2024", data_status: "Estimated" },
+    watermelon: { crop_name: "Watermelon", expected_yield_q_ha: 300, market_price_inr_q: 950, cost_of_cultivation_inr_ha: 95000, water_demand_level: "Medium", climate_risk_score: 0.32, price_volatility_score: 0.42, data_source: "DES Veg", data_status: "Estimated" }
+  };
+
   const getLiveProfitData = () => {
-    const rawList = (result as any).economic_analysis?.profit_table || [];
-    if (!rawList || rawList.length === 0) return null;
+    let rawList = (result as any).economic_analysis?.profit_table || [];
+
+    // Fallback if economic_analysis is not returned by server or using local fallback
+    if (!rawList || rawList.length === 0) {
+      const topRecs = result.top_recommendations || [];
+      rawList = topRecs.map(rec => {
+        const cropKey = rec.crop.toLowerCase();
+        const prof = CROP_ECONOMIC_PROFILES[cropKey] || {
+          crop_name: rec.crop.toUpperCase(),
+          expected_yield_q_ha: 20,
+          market_price_inr_q: 3500,
+          cost_of_cultivation_inr_ha: 40000,
+          water_demand_level: "Medium",
+          climate_risk_score: 0.30,
+          price_volatility_score: 0.25,
+          data_source: "CACP 2024",
+          data_status: "Estimated"
+        };
+        return {
+          crop_id: rec.crop,
+          crop_name: prof.crop_name,
+          ml_suitability_pct: Number((rec.probability * 100).toFixed(1)),
+          ...prof
+        };
+      });
+    }
 
     return rawList.map((item: any) => {
       const baseYield = item.expected_yield_q_ha || 20;
@@ -116,6 +165,10 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
       const combinedRisk = Number((0.5 * climateRisk + 0.5 * priceRisk).toFixed(2));
       const riskAdjustedProfit = Number((expectedProfit * (1.0 - combinedRisk)).toFixed(0));
 
+      let econSignal = "Strong 🟢";
+      if (combinedRisk > 0.45 || expectedProfit <= 0) econSignal = "Risky 🟠";
+      else if (combinedRisk > 0.30) econSignal = "Moderate 🟡";
+
       return {
         ...item,
         total_production_q: totalProd,
@@ -124,7 +177,8 @@ export default function ResultsDisplay({ result }: ResultsDisplayProps) {
         expected_profit_inr: expectedProfit,
         climate_risk_score: climateRisk,
         combined_risk_score: combinedRisk,
-        risk_adjusted_profit_inr: riskAdjustedProfit
+        risk_adjusted_profit_inr: riskAdjustedProfit,
+        economic_signal: econSignal
       };
     }).sort((a: any, b: any) => b.risk_adjusted_profit_inr - a.risk_adjusted_profit_inr);
   };
