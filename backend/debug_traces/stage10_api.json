@@ -1,7 +1,7 @@
 {
   "status": "success",
-  "prediction_id": "c7e171cf-a42a-4182-8fa5-50d7874fbef3",
-  "timestamp": "2026-08-07T10:30:09Z",
+  "prediction_id": "978e283c-f1d5-44db-9db3-8dd6c447f58b",
+  "timestamp": "2026-08-11T13:37:31Z",
   "top_recommendations": [
     {
       "crop": "Rice",
@@ -153,5 +153,5 @@
     "This recommendation is based on universal crop growth conditions and agronomic rules."
   ],
   "decision_quality_score": 0.97,
-  "processing_time_ms": 239.74
+  "processing_time_ms": 451.11
 }

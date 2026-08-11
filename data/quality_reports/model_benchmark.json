@@ -1,0 +1,38 @@
+[
+  {
+    "dataset_name": "V3.1 Champion (GOLD Tier - 2.2K Rows)",
+    "total_rows": 2200,
+    "crop_classes": 22,
+    "random_test_accuracy_pct": 98.86,
+    "macro_f1_pct": 98.86,
+    "ece": 0.0494,
+    "brier_score": 0.0135,
+    "sugarcane_bias_pct": 0.0,
+    "latency_ms": 132.34,
+    "train_time_sec": 5.51
+  },
+  {
+    "dataset_name": "V6 Candidate (GOLD + SILVER Tier - 81.7K Rows)",
+    "total_rows": 81713,
+    "crop_classes": 43,
+    "random_test_accuracy_pct": 96.76,
+    "macro_f1_pct": 85.82,
+    "ece": 0.0209,
+    "brier_score": 0.0453,
+    "sugarcane_bias_pct": 0.0,
+    "latency_ms": 158.68,
+    "train_time_sec": 7.79
+  },
+  {
+    "dataset_name": "V6 Candidate (GOLD + SILVER + BRONZE Tier - 126.7K Rows)",
+    "total_rows": 126713,
+    "crop_classes": 44,
+    "random_test_accuracy_pct": 65.05,
+    "macro_f1_pct": 76.57,
+    "ece": 0.085,
+    "brier_score": 0.3828,
+    "sugarcane_bias_pct": 2.5,
+    "latency_ms": 258.56,
+    "train_time_sec": 15.41
+  }
+]

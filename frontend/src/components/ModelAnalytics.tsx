@@ -13,11 +13,11 @@ export default function ModelAnalytics() {
   const [activeSubTab, setActiveSubTab] = useState<'scale' | 'parity' | 'table' | 'charts'>('scale');
 
   const globalMetrics = [
-    { name: language === 'en' ? "TOTAL AGRICULTURAL OBSERVATIONS" : "एकूण कृषी निरीक्षणे", val: "785,857", sub: "Unified Platform Repository", color: "text-emerald-500", icon: <Layers size={20} /> },
-    { name: language === 'en' ? "LABELLED TRAINING OBSERVATIONS" : "प्रमाणित मॉडेल डेटा (लेबल केलेले)", val: "2,200", sub: "Balanced suitability training rows", color: "text-blue-500", icon: <CheckCircle size={20} /> },
-    { name: language === 'en' ? "UNLABELLED SOIL OBSERVATIONS" : "लेबल नसलेले नमुने (मृदा आरोग्य पत्रिका)", val: "779,144", sub: "Maharashtra Soil Health Cards database", color: "text-amber-500", icon: <Activity size={20} /> },
-    { name: language === 'en' ? "CLIMATE OBSERVATIONS" : "हवामान निरीक्षणे", val: "13,200", sub: "IMD gridded weather records (11 years)", color: "text-purple-500", icon: <TrendingUp size={20} /> },
-    { name: language === 'en' ? "MAP ANALYTICS RECORDS" : "नकाशा विश्लेषण नोंदी", val: "779,144", sub: "GIS Observatory evidence base", color: "text-zinc-500", icon: <Clock size={20} /> },
+    { name: language === 'en' ? "VALIDATED ML TRAINING OBSERVATIONS" : "प्रमाणित मॉडेल डेटा (मल्टी-टियर)", val: "81,713", sub: "GOLD + SILVER Harmonized Training Rows", color: "text-emerald-500", icon: <CheckCircle size={20} /> },
+    { name: language === 'en' ? "GOLD TIER PHYSIOLOGY ROWS" : "गोल्ड टियर फिजियोलॉजी नमुने", val: "2,200", sub: "ICAR / FAO Continuous Trials", color: "text-blue-500", icon: <Layers size={20} /> },
+    { name: language === 'en' ? "SILVER TIER LINKED ROWS" : "सिल्व्हर टियर spatiotemporal नमुने", val: "79,513", sub: "Soil Cards + IMD Weather Alignment", color: "text-amber-500", icon: <Activity size={20} /> },
+    { name: language === 'en' ? "SUPPORTED CROP CLASSES" : "वर्गीकृत पीक प्रजाती", val: "43", sub: "Expanded Botanical Taxonomy", color: "text-purple-500", icon: <TrendingUp size={20} /> },
+    { name: language === 'en' ? "TOTAL AGRICULTURAL EVIDENCE" : "एकूण कृषी पुरावे आधार", val: "785,857", sub: "Decoupled GIS Map Evidence Base", color: "text-zinc-500", icon: <Clock size={20} /> },
   ];
 
   const qualityStats = [

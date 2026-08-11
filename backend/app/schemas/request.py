@@ -21,5 +21,9 @@ class PredictRequest(BaseModel):
     Zn: Optional[float] = Field(None, ge=0, description="Zinc")
     S: Optional[float] = Field(None, ge=0, description="Sulfur")
 
+    # Optional Economic Engine parameters (does NOT affect 7-feature agronomic core model)
+    farm_area_ha: Optional[float] = Field(1.0, ge=0.1, le=100.0, description="Farm area in hectares")
+    irrigation_type: Optional[str] = Field("rainfed", description="Irrigation mode: rainfed, drip, sprinkler, canal, borewell")
+
 class BatchPredictRequest(BaseModel):
     requests: List[PredictRequest]

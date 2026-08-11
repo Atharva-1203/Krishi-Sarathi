@@ -114,7 +114,7 @@ export default function LandingPage({ setTab }: LandingPageProps) {
             onClick={handleGuidedDemo}
             className="px-8 py-4 rounded-xl font-bold border border-emerald-500/30 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 flex items-center gap-2 cursor-pointer hover:bg-emerald-500/10 transition"
           >
-            {language === 'en' ? 'Run Guided Demo (Judge Mode)' : 'मार्गदर्शित डेमो पहा (जज मोड)'}
+            {language === 'en' ? 'Run Guided Product Walkthrough' : 'मार्गदर्शित उत्पादन चाचणी'}
           </button>
         </motion.div>
       </section>
@@ -127,19 +127,19 @@ export default function LandingPage({ setTab }: LandingPageProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">TOTAL AGRICULTURAL OBSERVATIONS</span>
-            <span className="text-2xl font-black text-emerald-500">785,857</span>
-            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Unified Platform Repository</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">VALIDATED ML OBSERVATIONS</span>
+            <span className="text-2xl font-black text-emerald-500">81,713</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">GOLD + SILVER Harmonized Rows</span>
           </div>
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">LABELLED TRAINING OBSERVATIONS</span>
-            <span className="text-2xl font-black text-emerald-500">2,200</span>
-            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Balanced Suitability Samples</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">CROP SPECIES CLASSES</span>
+            <span className="text-2xl font-black text-emerald-500">43</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Botanically Diverse Taxonomy</span>
           </div>
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">UNLABELLED SOIL OBSERVATIONS</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">UNLABELLED SOIL CARDS</span>
             <span className="text-2xl font-black text-emerald-500">779,144</span>
             <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Maharashtra Soil Health Cards</span>
           </div>
@@ -151,9 +151,9 @@ export default function LandingPage({ setTab }: LandingPageProps) {
           </div>
 
           <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] flex flex-col gap-1 items-center text-center shadow-sm">
-            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">MAP ANALYTICS RECORDS</span>
-            <span className="text-2xl font-black text-emerald-500">779,144</span>
-            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">GIS Observatory Evidence</span>
+            <span className="text-[9px] text-[var(--text-muted)] uppercase tracking-wider block font-bold">TOTAL EVIDENCE BASE</span>
+            <span className="text-2xl font-black text-emerald-500">785,857</span>
+            <span className="text-[8px] text-[var(--text-muted)] font-medium mt-1">Decoupled GIS Observatory Base</span>
           </div>
         </div>
 

@@ -16,6 +16,9 @@ class PredictRequestV3(BaseModel):
     humidity: float = Field(..., description="Humidity percentage")
     ph: float = Field(..., description="Soil pH level")
     rainfall: float = Field(..., description="Rainfall in mm")
+    farm_area_ha: float = Field(1.0, ge=0.1, le=100.0, description="Farm area in hectares")
+    irrigation_type: str = Field("rainfed", description="Irrigation type: rainfed, drip, sprinkler, canal, borewell")
+    district: str = Field("Maharashtra Grid", description="District context for economic analysis")
 
 class RecommendationItemV3(BaseModel):
     rank: int
@@ -37,8 +40,10 @@ class PredictResponseV3(BaseModel):
     confidence_level: str
     explanation: Dict[str, Any]
     comparison_matrix: Dict[str, Any]
+    economic_analysis: Dict[str, Any] = Field(default_factory=dict)
 
 from fastapi.responses import JSONResponse
+from backend.app.ml.v3.economic_engine import economic_engine
 
 @router.post("/predict", response_model=PredictResponseV3)
 async def predict_v3_endpoint(payload: PredictRequestV3):
@@ -48,6 +53,15 @@ async def predict_v3_endpoint(payload: PredictRequestV3):
         
         if res.get("status") in ["validation_error", "out_of_scope"]:
             return JSONResponse(status_code=422, content=res)
+
+        # Attach decoupled Profit-First Economic Engine computations
+        econ_analysis = economic_engine.rank_recommendations(
+            recommendations=res.get("top_recommendations", []),
+            farm_area_ha=payload.farm_area_ha,
+            irrigation_type=payload.irrigation_type,
+            district=payload.district
+        )
+        res["economic_analysis"] = econ_analysis
             
         return res
     except Exception as e:

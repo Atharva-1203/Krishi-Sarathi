@@ -1,0 +1,10 @@
+{
+  "total_records_processed": 785857,
+  "validated_training_observations": 126713,
+  "rejected_anomalous_records": 56802,
+  "unlabelled_evidence_cards": 703922,
+  "missing_values_pct": 0.0,
+  "exact_duplicates_removed": 1420,
+  "shannon_entropy_crop_distribution": 2.277,
+  "hhi_index": 1892.5
+}

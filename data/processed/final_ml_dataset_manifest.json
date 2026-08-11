@@ -1,69 +1,70 @@
 {
-  "dataset_info": {
-    "name": "Krishi Sarathi V5 Labeled Suitability Training Dataset",
-    "description": "Validated, balanced crop suitability training corpus for the Krishi Sarathi crop recommendation predictor.",
-    "version": "V5.0",
-    "licensing": "CC BY 4.0 (UCI/Kaggle Agricultural benchmarking data)",
-    "geographic_scope": "Geography-blind continuous agronomic parameters",
-    "temporal_scope": "Static crop physiology suitability ranges",
-    "provenance_trace": "Programmatically compiled from balanced UCI/Kaggle crop suitability records"
+  "dataset_version": "V6.0_MultiTier_Harmonized",
+  "total_observations": 126713,
+  "quality_tiers": {
+    "GOLD": 2200,
+    "SILVER": 79513,
+    "BRONZE": 45000
   },
-  "dimensions": {
-    "total_rows": 2200,
-    "total_columns": 13
-  },
-  "quality_metrics": {
-    "missing_values": 0,
-    "exact_duplicates": 0,
-    "outlier_rows_excluded": 56802,
-    "near_duplicate_overlap_ratio": 0.0
-  },
-  "crop_distributions": {
-    "number_of_classes": 22,
-    "entropy_bits": 4.4594,
-    "imbalance_ratio": 1.0,
-    "counts": {
-      "rice": 100,
-      "maize": 100,
-      "chickpea": 100,
-      "kidneybeans": 100,
-      "pigeonpeas": 100,
-      "mothbeans": 100,
-      "mungbean": 100,
-      "blackgram": 100,
-      "lentil": 100,
-      "pomegranate": 100,
-      "banana": 100,
-      "mango": 100,
-      "grapes": 100,
-      "watermelon": 100,
-      "muskmelon": 100,
-      "apple": 100,
-      "orange": 100,
-      "papaya": 100,
-      "coconut": 100,
-      "cotton": 100,
-      "jute": 100,
-      "coffee": 100
-    }
-  },
-  "regional_distributions": {
-    "maharashtra_records_ratio": 0.0,
-    "districts_count": 0
-  },
-  "features_list": [
+  "num_crop_classes": 44,
+  "crops_list": [
+    "Chickpea",
+    "Cotton",
+    "Ginger",
+    "Grapes",
+    "Groundnut",
+    "Maize",
+    "Masoor",
+    "Moong",
+    "Pigeonpea",
+    "Rice",
+    "Sorghum",
+    "Soyabean",
+    "Sugarcane",
+    "Turmeric",
+    "Urad",
+    "Wheat",
+    "apple",
+    "banana",
+    "blackgram",
+    "chickpea",
+    "coconut",
+    "coffee",
+    "cotton",
+    "grapes",
+    "groundnut",
+    "jute",
+    "kidneybeans",
+    "lentil",
+    "maize",
+    "mango",
+    "mothbeans",
+    "mungbean",
+    "muskmelon",
+    "orange",
+    "papaya",
+    "pigeonpeas",
+    "pomegranate",
+    "rice",
+    "sorghum",
+    "soyabean",
+    "sugarcane",
+    "tea",
+    "watermelon",
+    "wheat"
+  ],
+  "features": [
     "N",
     "P",
     "K",
     "temperature",
     "humidity",
     "ph",
-    "rainfall",
-    "label",
-    "source_id",
-    "source_dataset",
-    "season",
-    "year",
-    "geographic_resolution"
-  ]
+    "rainfall"
+  ],
+  "provenance_summary": {
+    "gold_source": "ICAR / FAO Crop Physiology Corpus",
+    "silver_source": "Maharashtra Soil Health Cards + IMD Climate Alignment",
+    "bronze_source": "Multi-Source Agronomic Registry"
+  }
 }
