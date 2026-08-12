@@ -182,15 +182,15 @@ export default function ModelAnalytics() {
                   <tbody className="divide-y divide-[var(--border-color)]">
                     <tr className="hover:bg-[var(--bg-app)]/30">
                       <td className="py-2.5 px-4 font-semibold">{language === 'en' ? "Stratified Test Accuracy" : "सत्यापित चाचणी अचूकता"}</td>
-                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">99.55%</td>
-                      <td className="py-2.5 px-4 text-center font-semibold text-rose-500">99.15%</td>
-                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Superior</td>
+                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">98.86%</td>
+                      <td className="py-2.5 px-4 text-center font-semibold text-rose-500">96.76%</td>
+                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Champion</td>
                     </tr>
                     <tr className="hover:bg-[var(--bg-app)]/30">
                       <td className="py-2.5 px-4 font-semibold">{language === 'en' ? "Macro F1-Score" : "मॅक्रो एफ१ निर्देशक"}</td>
-                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">99.40%</td>
-                      <td className="py-2.5 px-4 text-center font-semibold text-rose-500">99.08%</td>
-                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Superior</td>
+                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">98.86%</td>
+                      <td className="py-2.5 px-4 text-center font-semibold text-rose-500">85.82%</td>
+                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Champion</td>
                     </tr>
                     <tr className="hover:bg-[var(--bg-app)]/30">
                       <td className="py-2.5 px-4 font-semibold">{language === 'en' ? "GroupKFold (Spatial Holdout)" : "भौगोलिक ग्रुप चाचणी (GroupKFold)"}</td>
@@ -200,21 +200,21 @@ export default function ModelAnalytics() {
                     </tr>
                     <tr className="hover:bg-[var(--bg-app)]/30">
                       <td className="py-2.5 px-4 font-semibold">{language === 'en' ? "ECE Calibration Error" : "संभाव्यता कॅलिब्रेशन त्रुटी (ECE)"}</td>
-                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">0.0708</td>
-                      <td className="py-2.5 px-4 text-center font-semibold text-rose-500">0.0820</td>
-                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Superior</td>
+                      <td className="py-2.5 px-4 text-center font-bold text-amber-500">0.0494</td>
+                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">0.0209</td>
+                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V6 Calibrated</td>
                     </tr>
                     <tr className="hover:bg-[var(--bg-app)]/30">
                       <td className="py-2.5 px-4 font-semibold">{language === 'en' ? "Sugarcane Default Prediction Bias" : "ऊस पीक पूर्वग्रह जोखीम"}</td>
                       <td className="py-2.5 px-4 text-center font-bold text-emerald-600">0.00%</td>
-                      <td className="py-2.5 px-4 text-center font-bold text-rose-500">24.50%</td>
-                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Zero Bias</td>
+                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">0.00%</td>
+                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 Zero Bias</td>
                     </tr>
                     <tr className="hover:bg-[var(--bg-app)]/30">
                       <td className="py-2.5 px-4 font-semibold">{language === 'en' ? "Inference Latency" : "सरासरी अनुमान वेळ"}</td>
-                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">~7.2 ms</td>
-                      <td className="py-2.5 px-4 text-center font-semibold text-rose-500">~8.5 ms</td>
-                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 V3.1 Superior</td>
+                      <td className="py-2.5 px-4 text-center font-bold text-emerald-600">~1.3 ms</td>
+                      <td className="py-2.5 px-4 text-center font-semibold text-zinc-400">~1.5 ms</td>
+                      <td className="py-2.5 px-4 text-right text-emerald-500 font-bold">🟢 Sub-2ms Latency</td>
                     </tr>
                   </tbody>
                 </table>

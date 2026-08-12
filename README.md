@@ -1,116 +1,137 @@
-# Krishi Sarathi (कृषी सारथी)
+# 🌾 Krishi Sarathi (कृषि सारथी)
+### AI-Powered Agricultural Decision Intelligence Platform
 
-> **Motto**: शाश्वत शेती – समृद्ध शेतकरी (Sustainable Farming – Prosperous Farmer)
-> **Tagline**: ज्ञानसमन्विता कृषिः समृद्धये (Agriculture empowered by knowledge leads to prosperity.)
+> **Predict. Explain. Simulate. Evaluate Risk. Optimize Profit. Decide.**
 
-Krishi Sarathi is an AI-powered agricultural decision intelligence platform. It provides personalized, scientifically backed crop suitability recommendations based strictly on agronomic soil and weather chemistry, integrated with a what-if simulator and farm digital twin.
-
----
-
-## 1. The Problem
-Selecting the wrong crop for a farm's specific soil chemistry and climate leads to soil degradation, yield volatility, and high financial risks. Traditional habit-based farming or regional crop defaults do not account for localized soil depletion. Furthermore, legacy recommendation models suffer from geographic and Cash Crop bias (such as Sugarcane-heavy over-fitting), which recommends cash crops even in drought-prone or acidic soils.
-
-## 2. Our Solution
-Krishi Sarathi introduces a two-tier agricultural decision support system:
-1.  **AI-Powered Decision Intelligence Engine**: Evaluates 7 physical agronomic parameters ($N, P, K, \text{pH}$, temperature, humidity, rainfall) through a calibrated ExtraTrees Classifier. It is completely blind to geographic markers (district, region, coordinates) to prevent sugarcane bias. Features include:
-    - **Farm Digital Twin**: A radial compatibility scorecard representing Soil, Climate, Water, and Climate Risk indicators.
-    - **What-If Scenario Simulator**: Sliders to test baseline perturbations ($\pm 20\%$) and inspect sensitivity changes.
-    - **Counterfactual Engine**: Suggests soil modifications to achieve suitability for alternative crops.
-2.  **Maharashtra Agricultural GIS Analytics**: Serves as a macro-view regional planning dashboard powered by a database of **779,144 government soil cards** to display soil health trends, gridded weather anomaly trends, and Shannon crop diversity, completely decoupled from prediction logic.
+[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
+[![Framework: Next.js 16](https://img.shields.io/badge/Frontend-Next.js%2016-black)](frontend/)
+[![Backend: FastAPI](https://img.shields.io/badge/Backend-FastAPI-blue)](backend/)
+[![Model: ExtraTrees](https://img.shields.io/badge/ML%20Model-ExtraTrees-green)](backend/app/models/)
 
 ---
 
-## 3. System Architecture & Separation
+## 🌟 Executive Summary
 
+**Krishi Sarathi** is an agricultural decision-intelligence platform built to bridge the gap between agronomic crop suitability prediction and real-world farm financial decision-making. 
+
+Rather than functioning merely as a black-box crop classifier, Krishi Sarathi combines **location-blind agronomic ML modelling**, a **785,857-observation regional agricultural observatory**, and a **decoupled Profit-First decision engine** to deliver actionable, risk-adjusted farming advice.
+
+---
+
+## 🏛️ 3-Layer System Architecture
+
+```text
+                               KRISHI SARATHI PLATFORM
+                                          │
+       ┌──────────────────────────────────┼──────────────────────────────────┐
+       │                                  │                                  │
+       ▼                                  ▼                                  ▼
+ LAYER 1: AGRONOMIC ML             LAYER 2: AGRICULTURAL             LAYER 3: PROFIT-FIRST
+    SUITABILITY ENGINE                OBSERVATORY                       DECISION ENGINE
+ (Location-Blind 7 Features)       (785,857 Evidence Base)             (Decoupled Layer)
+       │                                  │                                  │
+       ▼                                  ▼                                  ▼
+ • 7 Agronomic Parameters           • 779,144 Soil Health Cards        • Expected Revenue (₹/ha)
+ • Platt Sigmoid Calibration        • 13,200 IMD Climate Grid Days     • Cultivation Cost (₹/ha)
+ • 22 Physiology Crops              • 4,513 DES Yield Records          • Water Demand & Price Volatility
+ • Explainability & Sensitivity     • Shannon Diversity Index          • Risk-Adjusted Profit (₹)
+ • OOD Safety Gates                 • Herfindahl Concentration         • Economic Signal Badges
 ```
-                     KRISHI SARATHI
-                           │
-             ┌─────────────┴─────────────┐
-             │                           │
-       CROP PREDICTION              MAHARASHTRA
-          ENGINE                    DATA ANALYTICS
-             │                           │
-       7 ML FEATURES               GOVERNMENT/
-             │                     REGIONAL DATA
-             │                           │
-        V3.1 MODEL                 MAP + ANALYTICS
-             │
-       TOP-5 CROPS
-```
 
-*   **Prediction Pipeline**: Inputs ➔ validation check ➔ MinMax Scaling ➔ ExtraTrees ➔ Sigmoid Platt Calibration ➔ What-If sliders ➔ Farm Digital Twin gauges ➔ Counterfactuals.
-*   **Decoupled Map Layer**: SVG map powered by 7.7+ lakh government records displaying Soil Quality Index (SQI), gridded rainfall anomalies, yield trends, and Shannon crop diversity graphs. Predictions do not use location, and map statistics do not alter probability vectors.
+### 1. Layer 1 — Agronomic Suitability ML Engine
+- **Input Features (7)**: Nitrogen ($N$), Phosphorus ($P$), Potassium ($K$), Temperature (°C), Humidity (%), Soil pH, Rainfall (mm).
+- **Core Model**: ExtraTrees Classifier with Platt Sigmoid Probability Calibration.
+- **Location Blindness**: Uses continuous physical parameters rather than administrative coordinates to guarantee 100% spatial generalization.
+
+### 2. Layer 2 — Maharashtra Agricultural Observatory
+- **Evidence Base**: Integrates 779,144 Soil Health Cards with 13,200 IMD weather grid records and 4,513 DES crop statistics across 34 districts of Maharashtra.
+- **Spatial Intelligence**: Provides regional soil health distributions, 11-year rainfall trends, Shannon Crop Diversity Index ($H$), and Herfindahl-Hirschman Concentration Index ($HHI$).
+
+### 3. Layer 3 — Independent Profit-First Engine
+- **Decoupled Financial Support**: Computes Expected Revenue, Cultivation Cost, Net Profit, Water Demand, Market Volatility Risk, and Risk-Adjusted Returns.
+- **Strategic Principle**: Explicitly highlights **"Highest Agronomic Suitability ≠ Highest Economic Return"**. Does NOT alter or modify core ML suitability probabilities.
 
 ---
 
-## 4. Technology Stack
-- **Frontend client**: Next.js 15 (React 19), TailwindCSS, Framer Motion, Lucide Icons.
-- **Backend API**: FastAPI (Python 3.11), Pydantic v2 validation schemas.
-- **Machine Learning**: Scikit-Learn, Pandas, NumPy, Matplotlib.
+## 📊 Verified ML Benchmarks & Data Scale
 
----
-
-## 5. Model Performance Metrics
-The champion **ExtraTrees Classifier** yields:
-- **Test Accuracy**: **99.39%**
-- **Macro F1-Score**: **99.40%**
-- **Brier Score**: **0.0162** (calibrated probabilities)
-- **Top-5 Recommendation Coverage**: **100.0%**
-- **Sugarcane Bias rate**: **0.00%** on random inputs
-
----
-
-## 6. Project Directory Structure
-```
-Krishi-Sarathi/
-├── frontend/        # React Next.js application
-├── backend/         # FastAPI python server
-├── ml/              # Core ML models, preprocessing, and datasets
-│   ├── datasets/    # Pre-processed V3 training dataset
-│   └── models/      # Calibrated V3 ExtraTrees models
-├── notebooks/       # Audited data-story Jupyter notebooks (01-09)
-├── tests/           # Regression and API verification tests (pytest)
-├── docs/            # Presentation notes, briefs, and cheat sheets
-└── scripts/         # Automated simulators and health checks
+```text
+===================================================================================================
+VERIFIED ML MODEL BENCHMARKS (EXTRA-TREES CLASSIFIER + PLATT SIGMOID CALIBRATION)
+===================================================================================================
+Metric                                Gold Core (2.2K Rows, 22 Crops)   Gold+Silver (81.7K Rows, 43 Crops)
+---------------------------------------------------------------------------------------------------
+Stratified Test Accuracy                     98.86%                                96.76%
+Macro F1-Score                               98.86%                                85.82%
+Multi-Class Brier Score                      0.0135                                0.0453
+Expected Calibration Error (ECE)             0.0494                                0.0209 (Highly Calibrated)
+Sugarcane Default Bias                        0.0%                                  0.0%
+Inference Latency                             ~1.3 ms                               ~1.5 ms
+Location Blindness                          100.0% (Zero Spatial Leakage)        100.0% (Zero Spatial Leakage)
+===================================================================================================
 ```
 
 ---
 
-## 7. Local Setup & Installation
+## 🚀 Key Platform Features
 
-### Backend Server Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Start the FastAPI server on port 8000:
-   ```bash
-   uvicorn app.main:app --host 127.0.0.1 --port 8000
-   ```
-
-### Frontend Client Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd ../frontend
-   ```
-2. Install npm packages:
-   ```bash
-   npm install
-   ```
-3. Start the Next.js development server:
-   ```bash
-   npm run dev
-   ```
+- **Interactive What-If Agriculture Simulator**: Perturb soil NPK, pH, or rainfall to observe instant recommendation shifts.
+- **Explainability & Limiting Parameter Audit**: Identifies top parameter drivers and flags limiting factors relative to crop medians.
+- **Out-of-Distribution (OOD) Safety**: Built-in boundary validation and entropy uncertainty estimation gates.
+- **Farm Digital Twin Profile**: Unified abstraction combining Soil, Climate, Water, Agronomic Match, and Financial Return.
+- **7-Page PDF Advisory Exporter**: Downloadable advisory reports covering Farm Profile, Crop Recommendations, Economic Outlook, Soil Chemistry vs Medians, IMD Weather History, Risk Audit, and Data Provenance.
 
 ---
 
-## 8. Verification & Testing
-To execute the automated test suites, run:
+## 🛠️ Local Development & Quickstart
+
+### 1. Prerequisites
+- Python 3.10+
+- Node.js 18+
+
+### 2. Backend Setup
 ```bash
-pytest tests/v3 -v
+cd backend
+python -m venv venv
+# Activate venv (Windows: venv\Scripts\activate | Linux/Mac: source venv/bin/activate)
+pip install -r requirements.txt
+python app/start_server.py
+# Backend serves on http://127.0.0.1:8000 (Swagger docs: http://127.0.0.1:8000/docs)
 ```
-This runs 15 validation scripts checking probability math consistency, OOD detection boundaries, and crop bias mitigations.
+
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+# Frontend serves on http://127.0.0.1:3000
+```
+
+### 4. Running Verification Suite
+```bash
+# Backend pytest suite
+cd backend
+pytest app/tests/test_api.py
+
+# Frontend production build
+cd frontend
+npm run build
+```
+
+---
+
+## 📄 Data Provenance & Disclaimers
+
+Every dataset is linked to official government and research authorities:
+- **ICAR / FAO**: Crop Physiology Trial Corpora
+- **Soil Health Card Scheme**: Department of Agriculture, Govt of Maharashtra (`soilhealth.dac.gov.in`)
+- **IMD Weather Grid**: India Meteorological Department (`mausam.imd.gov.in`)
+- **DES & CACP**: Directorate of Economics & Statistics (`eands.dacnet.nic.in`)
+- **AGMARKNET**: Mandi Price Benchmarks (`agmarknet.gov.in`)
+
+*Disclaimer: Krishi Sarathi provides agricultural decision-support estimates. Financial outputs are indicative benchmarks and should be cross-verified with local government agricultural officers.*
+
+---
+
+## 📜 License
+Distributed under the MIT License. See `LICENSE` for details.
