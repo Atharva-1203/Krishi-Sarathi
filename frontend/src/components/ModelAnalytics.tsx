@@ -129,6 +129,81 @@ export default function ModelAnalytics() {
               ))}
             </div>
 
+            {/* Explicit Dataset Architecture Hierarchy Table */}
+            <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm overflow-hidden">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-3 flex items-center gap-2">
+                <span>🏛️</span>
+                {language === 'en' ? "DATASET ARCHITECTURE HIERARCHY & SCIENTIFIC ROLES" : "डेटासेट रचना आणि वैज्ञानिक भूमिका"}
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-[var(--border-color)] bg-[var(--bg-app)] text-[var(--text-muted)] uppercase font-bold text-[10px]">
+                      <th className="py-2.5 px-4">{language === 'en' ? "Data Layer" : "डेटा स्तर"}</th>
+                      <th className="py-2.5 px-4 text-right">{language === 'en' ? "Record Count" : "नोंदी संख्या"}</th>
+                      <th className="py-2.5 px-4 text-left pl-6">{language === 'en' ? "Scientific Purpose & Role" : "वैज्ञानिक उद्देश व भूमिका"}</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[var(--border-color)]">
+                    <tr className="hover:bg-[var(--bg-app)]/30">
+                      <td className="py-2.5 px-4 font-bold text-amber-500 flex items-center gap-1.5">
+                        <span>🥇</span> Gold Labelled Benchmark
+                      </td>
+                      <td className="py-2.5 px-4 text-right font-black text-amber-500">2,200</td>
+                      <td className="py-2.5 px-4 pl-6 text-[11px] text-[var(--text-muted)]">
+                        Highest-confidence continuous physiology training benchmark (22 crops, 98.86% accuracy).
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-[var(--bg-app)]/30">
+                      <td className="py-2.5 px-4 font-bold text-purple-500 flex items-center gap-1.5">
+                        <span>🧬</span> Expanded Harmonized Corpus
+                      </td>
+                      <td className="py-2.5 px-4 text-right font-black text-purple-500">81,713</td>
+                      <td className="py-2.5 px-4 pl-6 text-[11px] text-[var(--text-muted)]">
+                        Expanded multi-crop ML research/training tier (43 crops, 96.76% accuracy, 0.0209 ECE).
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-[var(--bg-app)]/30">
+                      <td className="py-2.5 px-4 font-bold text-emerald-500 flex items-center gap-1.5">
+                        <span>🌱</span> Soil Health Cards Database
+                      </td>
+                      <td className="py-2.5 px-4 text-right font-black text-emerald-500">779,144</td>
+                      <td className="py-2.5 px-4 pl-6 text-[11px] text-[var(--text-muted)]">
+                        Real-world Maharashtra soil diagnostics powering the spatial GIS observatory.
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-[var(--bg-app)]/30">
+                      <td className="py-2.5 px-4 font-bold text-blue-500 flex items-center gap-1.5">
+                        <span>🌦️</span> IMD Weather Grid
+                      </td>
+                      <td className="py-2.5 px-4 text-right font-black text-blue-500">13,200</td>
+                      <td className="py-2.5 px-4 pl-6 text-[11px] text-[var(--text-muted)]">
+                        11-Year seasonal rainfall and temperature time series (2015–2025).
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-[var(--bg-app)]/30">
+                      <td className="py-2.5 px-4 font-bold text-zinc-400 flex items-center gap-1.5">
+                        <span>🌾</span> DES Yield & Economics
+                      </td>
+                      <td className="py-2.5 px-4 text-right font-black text-zinc-400">4,513</td>
+                      <td className="py-2.5 px-4 pl-6 text-[11px] text-[var(--text-muted)]">
+                        District crop yield statistics, crop area, and CACP cultivation cost benchmarks.
+                      </td>
+                    </tr>
+                    <tr className="bg-emerald-500/5 font-extrabold">
+                      <td className="py-3 px-4 text-emerald-600 dark:text-emerald-400 uppercase tracking-wider text-[11px]">
+                        🌐 Unified Evidence Base
+                      </td>
+                      <td className="py-3 px-4 text-right text-emerald-600 dark:text-emerald-400 text-sm">785,857+</td>
+                      <td className="py-3 px-4 pl-6 text-[11px] text-emerald-600 dark:text-emerald-400">
+                        Decoupled decision-support evidence ecosystem powering all 3 intelligence layers.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
             {/* Quality Metrics */}
             <div className="p-6 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm">
               <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-4">

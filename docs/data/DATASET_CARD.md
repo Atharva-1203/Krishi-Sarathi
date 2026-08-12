@@ -1,15 +1,17 @@
 # 📊 Dataset Card — Krishi Sarathi Agricultural Data Universe
 
-## Summary of Evidence Base (785,857 Total Observations)
+## Dataset Architecture Hierarchy & Roles (785,857+ Total Evidence Base)
 
-| Dataset | Record Count | Features / Dimensions | Scope / Geography | Primary Usage |
-| :--- | :---: | :--- | :--- | :--- |
-| **ICAR Crop Physiology Corpus (GOLD)** | 2,200 | $N, P, K, 	ext{temp}, 	ext{humidity}, 	ext{pH}, 	ext{rainfall}$, label | All India Balanced (22 crops) | Core ML Model Training |
-| **Maharashtra Soil Health Cards (SILVER)** | 779,144 | $N, P, K, 	ext{pH}, 	ext{OC}, 	ext{EC}, 	ext{Fe}, 	ext{Zn}, 	ext{Mn}, 	ext{Cu}$, District, Village | 34 Districts, Maharashtra | Regional Soil Observatory |
-| **IMD 0.25° Weather Grid** | 13,200 | Annual & seasonal rainfall, temperature anomalies | 11-Year Time Series (2015–2025) | Climate Trends & Risk Audit |
-| **DES Yield & Area Statistics** | 4,513 | District crop area, production, yield (q/ha) | Maharashtra Districts | Agricultural Trend Analytics |
-| **AGMARKNET & CACP Benchmarks** | 22 Crops | Yield benchmarks, Mandi prices, Cultivation costs | Government Schemes 2023-2025 | Decoupled Profit Engine |
+| Layer | Data Count | Purpose & Scientific Role |
+| :--- | ---: | :--- |
+| 🥇 **Gold Labelled Benchmark** | **2,200** | Highest-confidence continuous physiology training benchmark (22 crops, 98.86% test accuracy) |
+| 🧬 **Expanded Harmonized Corpus** | **81,713** | Expanded multi-crop ML research/training tier (43 crops, 96.76% test accuracy, 0.0209 ECE) |
+| 🌱 **Soil Health Cards Database** | **779,144** | Real-world Maharashtra soil diagnostics powering the spatial GIS observatory |
+| 🌦️ **IMD Climate Grid** | **13,200** | 11-Year seasonal rainfall and temperature time series (2015–2025) |
+| 🌾 **DES Yield & Economics** | **4,513** | District crop yield statistics, crop area, and CACP cultivation cost benchmarks |
+| 🌐 **Total Evidence Base** | **785,857+** | Decoupled decision-support evidence ecosystem powering all 3 intelligence layers |
 
-## Multi-Tier ML Corpus
-- **GOLD Core**: 2,200 balanced ICAR/FAO trial records across 22 crops (98.86% test accuracy).
-- **GOLD + SILVER Harmonized**: 81,713 validated observations across 43 crop species (96.76% test accuracy, 0.0209 ECE calibration).
+## Transparency & Data Integrity Policy
+- **Label Quality Preservation**: We maintain an explicit separation between high-confidence supervised training samples and unlabelled observational diagnostics.
+- **Zero Synthetic Inflation**: We explicitly prohibit fake row duplication, proxy label forcing, or assigning district-majority crops to individual soil testing records.
+- **GIS Observatory Integration**: Unlabelled Soil Health Cards (779,144 records) power regional soil health distributions and degradation maps without introducing geographical leakage into the classifier.
